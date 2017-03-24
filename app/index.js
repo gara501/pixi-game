@@ -17,7 +17,7 @@ let pixiApi = new Game();
 //     vx: 1,
 //     vy: 1,
 //     texture: "assets/images/characters/test.png",
-//     rotationSpeed: 0, 
+//     rotationSpeed: 0,
 //     addToScene: false
 // };
 // let player2 = {
@@ -58,14 +58,14 @@ let pixiApi = new Game();
 //     rotationSpeed: 0
 // };
 
-// let sprite = {name: 'ryu', source: "assets/images/characters/ryu.png"}
+//let sprite = {name: 'ryu', source: "assets/images/characters/ryu.png"}
 
 
 // //let player_1 = pixiApi.createPlayer(player);
 // //let player_2 = pixiApi.createPlayer(player2);
 // //pixiApi.createPlayer(player3);
 
-// //pixiApi.createSpriteSheet(sprite);
+//pixiApi.createSpriteSheet(sprite);
 // //pixiApi.setText({textValue: 'Welcome to Mortal Prodigious', x: 'center', y:'center'});
 
 
@@ -81,4 +81,3 @@ let pixiApi = new Game();
 // console.log(groupContainer.children)
 // console.log(groupContainer.toGlobal(player_1.position));
 // // rotatePlayer(player, '0.01');
-

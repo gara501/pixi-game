@@ -22,9 +22,9 @@ class TextStyles {
 
   introText() {
     let title = this.getTextObject({
-      textValue: 'Welcome to Mortal Kombat Prodigious', 
-      x: 'center', 
-      y: 'center'}, this.introStyle());
+      textValue: 'Welcome to Mortal Kombat Prodigious',
+      x: 10,
+      y: 'center', vx: 2, vy: 0 }, this.introStyle());
     return title;
   }
 
@@ -45,9 +45,9 @@ class TextStyles {
       wordWrap: true,
       wordWrapWidth: 440
     });
-    
-    return titleStyle; 
+
+    return titleStyle;
   }
-} 
+}
 
 export default TextStyles;

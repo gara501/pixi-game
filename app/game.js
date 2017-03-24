@@ -5,7 +5,7 @@ import * as COLI from './bump.js';
 import TextStyles from './textStyles.js';
 
 class Game {
-  constructor() { 
+  constructor() {
     this.app =  new PIXI.Application();
     this.renderer = PIXI.autoDetectRenderer(800, 800, {transparent : true});
     this.loader = PIXI.loader;
@@ -18,29 +18,29 @@ class Game {
     this.selectScene = new PIXI.Container();
     this.gameScene = new PIXI.Container();
     this.gameOverScene = new PIXI.Container();
-    
+
     this.stage.addChild(this.introScene);
     this.stage.addChild(this.gameScene);
     this.stage.addChild(this.selectScene);
     this.stage.addChild(this.gameOverScene);
-    
+
+
+    let initGame = this.initGame();
+    this.loader.add('assets/images/backgrounds/armory.json').load(initGame);
     document.body.appendChild(this.renderer.view);
 
-    //this.loader.add('assets/images/characters/scorpionSprites.json').load(this.initGame);
 
-
-    
-    this.initGame();
+    //this.initGame();
   }
 
   // Set intro Container, first scene
   initGame() {
     this.introScreen();
-    
+
   }
 
   loadSounds() {
-    
+
   }
 
   introScreen() {
@@ -54,7 +54,7 @@ class Game {
     background.position.y = 0;
     background.scale.x = 1.5;
     background.scale.y = 1.5;
-  
+
     this.introScene.addChild(background);
 
     let welcomeTitle = this.textObj.introText();
@@ -63,8 +63,9 @@ class Game {
     let animate = () => {
       requestAnimationFrame(animate);
       this.renderer.render(this.stage);
-      PIXI.actionManager.update(); 
+      PIXI.actionManager.update();
     }
+    this.movePlayer({player: welcomeTitle, x: 20, y: 300, time: 4});
     animate();
   }
 
@@ -90,23 +91,23 @@ class Game {
     player.scale.y = options.scale.y;
     player.anchor.x = options.anchor.x;
     player.anchor.y = options.anchor.y;
-    
+
 
     if (options.addToScene) {
       this.stage.addChild(player);
     }
-    
+
     let animate = () => {
       requestAnimationFrame(animate);
       if (options.rotationSpeed > 0) {
         player.rotation += options.rotationSpeed;
       }
-      
+
       if (options.vx > 0) {
         player.position.x += options.vx;
       }
       this.renderer.render(this.stage);
-      PIXI.actionManager.update(); 
+      PIXI.actionManager.update();
     }
     animate();
     return player;
@@ -120,7 +121,7 @@ class Game {
   createSpriteSheet(options) {
 
     let localStage = this.stage;
-      
+
     let sprite;
     let animationLoop = () => {
       requestAnimationFrame(animationLoop);
@@ -143,11 +144,11 @@ class Game {
       sprite.vx = 30;
       localStage.addChild(sprite);
 
-      animationLoop(); 
+      animationLoop();
     }
 
     PIXI.loader.add(options.name, options.source).load(setup);
-    
+
 
     window.addEventListener('keydown', function(e) {
       if (e.keyCode == '38') {
@@ -157,7 +158,7 @@ class Game {
           // down arrow
       }
       else if (e.keyCode == '37') {
-        sprite.x -= sprite.vx;  
+        sprite.x -= sprite.vx;
       }
       else if (e.keyCode == '39') {
         sprite.x += sprite.vx;
@@ -175,33 +176,17 @@ class Game {
   }
 
   groupSprites(container, options) {
-    
+
     for (let i=0; i < options.length; i++) {
       container.addChild(options[i]);
     }
-    
+
     this.stage.addChild(container);
     console.log(this.stage);
     this.renderer.render(this.stage);
   }
 
-  setText(options) {
-    let tStyle = new TextStyles();
-    let textSt = tStyle.introText();
-    let title = new PIXI.Text(options.textValue, textSt);
-    if (options.x === 'center') {
-      title.x = this.renderer.width / 2 - (title.width / 2);
-    } else {
-      title.x = options.x;
-    }
-    if (options.y === 'center') {
-      title.y = this.renderer.height / 2 - (title.height / 2);
-    } else {
-      title.y = options.y;
-    }
-    this.stage.addChild(title);
-  }
-  
+
 }
 
 export default Game;

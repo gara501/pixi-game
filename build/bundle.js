@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 191);
+/******/ 	return __webpack_require__(__webpack_require__.s = 192);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -172,7 +172,7 @@ Object.defineProperty(exports, 'Sprite', {
   }
 });
 
-var _CanvasSpriteRenderer = __webpack_require__(132);
+var _CanvasSpriteRenderer = __webpack_require__(133);
 
 Object.defineProperty(exports, 'CanvasSpriteRenderer', {
   enumerable: true,
@@ -190,7 +190,7 @@ Object.defineProperty(exports, 'CanvasTinter', {
   }
 });
 
-var _SpriteRenderer = __webpack_require__(134);
+var _SpriteRenderer = __webpack_require__(135);
 
 Object.defineProperty(exports, 'SpriteRenderer', {
   enumerable: true,
@@ -199,7 +199,7 @@ Object.defineProperty(exports, 'SpriteRenderer', {
   }
 });
 
-var _Text = __webpack_require__(136);
+var _Text = __webpack_require__(137);
 
 Object.defineProperty(exports, 'Text', {
   enumerable: true,
@@ -217,7 +217,7 @@ Object.defineProperty(exports, 'TextStyle', {
   }
 });
 
-var _Graphics = __webpack_require__(104);
+var _Graphics = __webpack_require__(105);
 
 Object.defineProperty(exports, 'Graphics', {
   enumerable: true,
@@ -235,7 +235,7 @@ Object.defineProperty(exports, 'GraphicsData', {
   }
 });
 
-var _GraphicsRenderer = __webpack_require__(107);
+var _GraphicsRenderer = __webpack_require__(108);
 
 Object.defineProperty(exports, 'GraphicsRenderer', {
   enumerable: true,
@@ -244,7 +244,7 @@ Object.defineProperty(exports, 'GraphicsRenderer', {
   }
 });
 
-var _CanvasGraphicsRenderer = __webpack_require__(105);
+var _CanvasGraphicsRenderer = __webpack_require__(106);
 
 Object.defineProperty(exports, 'CanvasGraphicsRenderer', {
   enumerable: true,
@@ -253,7 +253,7 @@ Object.defineProperty(exports, 'CanvasGraphicsRenderer', {
   }
 });
 
-var _Spritesheet = __webpack_require__(137);
+var _Spritesheet = __webpack_require__(138);
 
 Object.defineProperty(exports, 'Spritesheet', {
   enumerable: true,
@@ -388,7 +388,7 @@ Object.defineProperty(exports, 'Filter', {
   }
 });
 
-var _Application = __webpack_require__(103);
+var _Application = __webpack_require__(104);
 
 Object.defineProperty(exports, 'Application', {
   enumerable: true,
@@ -795,11 +795,11 @@ var _eventemitter = __webpack_require__(7);
 
 var _eventemitter2 = _interopRequireDefault(_eventemitter);
 
-var _pluginTarget = __webpack_require__(143);
+var _pluginTarget = __webpack_require__(144);
 
 var _pluginTarget2 = _interopRequireDefault(_pluginTarget);
 
-var _mixin = __webpack_require__(142);
+var _mixin = __webpack_require__(143);
 
 var mixins = _interopRequireWildcard(_mixin);
 
@@ -1189,7 +1189,7 @@ Object.defineProperty(exports, 'GroupD8', {
   }
 });
 
-var _Circle = __webpack_require__(114);
+var _Circle = __webpack_require__(115);
 
 Object.defineProperty(exports, 'Circle', {
   enumerable: true,
@@ -1198,7 +1198,7 @@ Object.defineProperty(exports, 'Circle', {
   }
 });
 
-var _Ellipse = __webpack_require__(115);
+var _Ellipse = __webpack_require__(116);
 
 Object.defineProperty(exports, 'Ellipse', {
   enumerable: true,
@@ -1207,7 +1207,7 @@ Object.defineProperty(exports, 'Ellipse', {
   }
 });
 
-var _Polygon = __webpack_require__(116);
+var _Polygon = __webpack_require__(117);
 
 Object.defineProperty(exports, 'Polygon', {
   enumerable: true,
@@ -1225,7 +1225,7 @@ Object.defineProperty(exports, 'Rectangle', {
   }
 });
 
-var _RoundedRectangle = __webpack_require__(117);
+var _RoundedRectangle = __webpack_require__(118);
 
 Object.defineProperty(exports, 'RoundedRectangle', {
   enumerable: true,
@@ -1246,11 +1246,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 exports.__esModule = true;
 
-var _maxRecommendedTextures = __webpack_require__(141);
+var _maxRecommendedTextures = __webpack_require__(142);
 
 var _maxRecommendedTextures2 = _interopRequireDefault(_maxRecommendedTextures);
 
-var _canUploadSameBuffer = __webpack_require__(139);
+var _canUploadSameBuffer = __webpack_require__(140);
 
 var _canUploadSameBuffer2 = _interopRequireDefault(_canUploadSameBuffer);
 
@@ -1467,14 +1467,14 @@ exports.default = {
 /***/ (function(module, exports, __webpack_require__) {
 
 var gl = {
-    createContext:          __webpack_require__(98),
+    createContext:          __webpack_require__(100),
     setVertexAttribArrays:  __webpack_require__(41),
-    GLBuffer:               __webpack_require__(94),
-    GLFramebuffer:          __webpack_require__(95),
-    GLShader:               __webpack_require__(96),
+    GLBuffer:               __webpack_require__(96),
+    GLFramebuffer:          __webpack_require__(97),
+    GLShader:               __webpack_require__(98),
     GLTexture:              __webpack_require__(40),
-    VertexArrayObject:      __webpack_require__(97),
-    shader:                 __webpack_require__(99)
+    VertexArrayObject:      __webpack_require__(99),
+    shader:                 __webpack_require__(101)
 };
 
 // Export for Node-compatible environments
@@ -1722,7 +1722,7 @@ var substr = 'ab'.substr(-1) === 'b'
     }
 ;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(181)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(182)))
 
 /***/ }),
 /* 7 */
@@ -3376,7 +3376,7 @@ var _SystemRenderer2 = __webpack_require__(57);
 
 var _SystemRenderer3 = _interopRequireDefault(_SystemRenderer2);
 
-var _CanvasMaskManager = __webpack_require__(118);
+var _CanvasMaskManager = __webpack_require__(119);
 
 var _CanvasMaskManager2 = _interopRequireDefault(_CanvasMaskManager);
 
@@ -3384,7 +3384,7 @@ var _CanvasRenderTarget = __webpack_require__(58);
 
 var _CanvasRenderTarget2 = _interopRequireDefault(_CanvasRenderTarget);
 
-var _mapCanvasBlendModesToPixi = __webpack_require__(119);
+var _mapCanvasBlendModesToPixi = __webpack_require__(120);
 
 var _mapCanvasBlendModesToPixi2 = _interopRequireDefault(_mapCanvasBlendModesToPixi);
 
@@ -3761,7 +3761,7 @@ var _eventemitter = __webpack_require__(7);
 
 var _eventemitter2 = _interopRequireDefault(_eventemitter);
 
-var _determineCrossOrigin = __webpack_require__(140);
+var _determineCrossOrigin = __webpack_require__(141);
 
 var _determineCrossOrigin2 = _interopRequireDefault(_determineCrossOrigin);
 
@@ -4817,7 +4817,7 @@ Mesh.DRAW_MODES = {
 
 exports.__esModule = true;
 
-var _Loader = __webpack_require__(186);
+var _Loader = __webpack_require__(187);
 
 var _Loader2 = _interopRequireDefault(_Loader);
 
@@ -5133,15 +5133,15 @@ var _SystemRenderer2 = __webpack_require__(57);
 
 var _SystemRenderer3 = _interopRequireDefault(_SystemRenderer2);
 
-var _MaskManager = __webpack_require__(126);
+var _MaskManager = __webpack_require__(127);
 
 var _MaskManager2 = _interopRequireDefault(_MaskManager);
 
-var _StencilManager = __webpack_require__(127);
+var _StencilManager = __webpack_require__(128);
 
 var _StencilManager2 = _interopRequireDefault(_StencilManager);
 
-var _FilterManager = __webpack_require__(125);
+var _FilterManager = __webpack_require__(126);
 
 var _FilterManager2 = _interopRequireDefault(_FilterManager);
 
@@ -5153,7 +5153,7 @@ var _ObjectRenderer = __webpack_require__(18);
 
 var _ObjectRenderer2 = _interopRequireDefault(_ObjectRenderer);
 
-var _TextureManager = __webpack_require__(121);
+var _TextureManager = __webpack_require__(122);
 
 var _TextureManager2 = _interopRequireDefault(_TextureManager);
 
@@ -5161,19 +5161,19 @@ var _BaseTexture = __webpack_require__(13);
 
 var _BaseTexture2 = _interopRequireDefault(_BaseTexture);
 
-var _TextureGarbageCollector = __webpack_require__(120);
+var _TextureGarbageCollector = __webpack_require__(121);
 
 var _TextureGarbageCollector2 = _interopRequireDefault(_TextureGarbageCollector);
 
-var _WebGLState = __webpack_require__(122);
+var _WebGLState = __webpack_require__(123);
 
 var _WebGLState2 = _interopRequireDefault(_WebGLState);
 
-var _mapWebGLDrawModesToPixi = __webpack_require__(130);
+var _mapWebGLDrawModesToPixi = __webpack_require__(131);
 
 var _mapWebGLDrawModesToPixi2 = _interopRequireDefault(_mapWebGLDrawModesToPixi);
 
-var _validateContext = __webpack_require__(131);
+var _validateContext = __webpack_require__(132);
 
 var _validateContext2 = _interopRequireDefault(_validateContext);
 
@@ -9082,7 +9082,7 @@ exports.default = RenderTexture;
 exports.__esModule = true;
 exports.Ticker = exports.shared = undefined;
 
-var _Ticker = __webpack_require__(138);
+var _Ticker = __webpack_require__(139);
 
 var _Ticker2 = _interopRequireDefault(_Ticker);
 
@@ -9199,7 +9199,7 @@ Object.defineProperty(exports, 'TextureTransform', {
   }
 });
 
-var _AnimatedSprite = __webpack_require__(149);
+var _AnimatedSprite = __webpack_require__(150);
 
 Object.defineProperty(exports, 'AnimatedSprite', {
   enumerable: true,
@@ -9208,7 +9208,7 @@ Object.defineProperty(exports, 'AnimatedSprite', {
   }
 });
 
-var _TilingSprite = __webpack_require__(151);
+var _TilingSprite = __webpack_require__(152);
 
 Object.defineProperty(exports, 'TilingSprite', {
   enumerable: true,
@@ -9217,7 +9217,7 @@ Object.defineProperty(exports, 'TilingSprite', {
   }
 });
 
-var _TilingSpriteRenderer = __webpack_require__(155);
+var _TilingSpriteRenderer = __webpack_require__(156);
 
 Object.defineProperty(exports, 'TilingSpriteRenderer', {
   enumerable: true,
@@ -9226,7 +9226,7 @@ Object.defineProperty(exports, 'TilingSpriteRenderer', {
   }
 });
 
-var _BitmapText = __webpack_require__(150);
+var _BitmapText = __webpack_require__(151);
 
 Object.defineProperty(exports, 'BitmapText', {
   enumerable: true,
@@ -9235,11 +9235,11 @@ Object.defineProperty(exports, 'BitmapText', {
   }
 });
 
-__webpack_require__(152);
-
 __webpack_require__(153);
 
 __webpack_require__(154);
+
+__webpack_require__(155);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -14767,7 +14767,7 @@ exports.__esModule = true;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _extractUniformsFromSrc = __webpack_require__(123);
+var _extractUniformsFromSrc = __webpack_require__(124);
 
 var _extractUniformsFromSrc2 = _interopRequireDefault(_extractUniformsFromSrc);
 
@@ -16905,7 +16905,7 @@ function getMaxKernelSize(gl) {
 
 exports.__esModule = true;
 
-var _FXAAFilter = __webpack_require__(159);
+var _FXAAFilter = __webpack_require__(160);
 
 Object.defineProperty(exports, 'FXAAFilter', {
   enumerable: true,
@@ -16914,7 +16914,7 @@ Object.defineProperty(exports, 'FXAAFilter', {
   }
 });
 
-var _NoiseFilter = __webpack_require__(160);
+var _NoiseFilter = __webpack_require__(161);
 
 Object.defineProperty(exports, 'NoiseFilter', {
   enumerable: true,
@@ -16923,7 +16923,7 @@ Object.defineProperty(exports, 'NoiseFilter', {
   }
 });
 
-var _DisplacementFilter = __webpack_require__(158);
+var _DisplacementFilter = __webpack_require__(159);
 
 Object.defineProperty(exports, 'DisplacementFilter', {
   enumerable: true,
@@ -16932,7 +16932,7 @@ Object.defineProperty(exports, 'DisplacementFilter', {
   }
 });
 
-var _BlurFilter = __webpack_require__(156);
+var _BlurFilter = __webpack_require__(157);
 
 Object.defineProperty(exports, 'BlurFilter', {
   enumerable: true,
@@ -16959,7 +16959,7 @@ Object.defineProperty(exports, 'BlurYFilter', {
   }
 });
 
-var _ColorMatrixFilter = __webpack_require__(157);
+var _ColorMatrixFilter = __webpack_require__(158);
 
 Object.defineProperty(exports, 'ColorMatrixFilter', {
   enumerable: true,
@@ -16968,7 +16968,7 @@ Object.defineProperty(exports, 'ColorMatrixFilter', {
   }
 });
 
-var _VoidFilter = __webpack_require__(161);
+var _VoidFilter = __webpack_require__(162);
 
 Object.defineProperty(exports, 'VoidFilter', {
   enumerable: true,
@@ -16990,7 +16990,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.__esModule = true;
 exports.loader = exports.prepare = exports.particles = exports.mesh = exports.loaders = exports.interaction = exports.filters = exports.extras = exports.extract = exports.accessibility = undefined;
 
-var _polyfill = __webpack_require__(176);
+var _polyfill = __webpack_require__(177);
 
 Object.keys(_polyfill).forEach(function (key) {
     if (key === "default" || key === "__esModule") return;
@@ -17002,7 +17002,7 @@ Object.keys(_polyfill).forEach(function (key) {
     });
 });
 
-var _deprecation = __webpack_require__(145);
+var _deprecation = __webpack_require__(146);
 
 Object.keys(_deprecation).forEach(function (key) {
     if (key === "default" || key === "__esModule") return;
@@ -17026,11 +17026,11 @@ Object.keys(_core).forEach(function (key) {
     });
 });
 
-var _accessibility = __webpack_require__(102);
+var _accessibility = __webpack_require__(103);
 
 var accessibility = _interopRequireWildcard(_accessibility);
 
-var _extract = __webpack_require__(147);
+var _extract = __webpack_require__(148);
 
 var extract = _interopRequireWildcard(_extract);
 
@@ -17201,7 +17201,7 @@ Object.defineProperty(exports, 'InteractionData', {
   }
 });
 
-var _InteractionManager = __webpack_require__(163);
+var _InteractionManager = __webpack_require__(164);
 
 Object.defineProperty(exports, 'InteractionManager', {
   enumerable: true,
@@ -17425,7 +17425,7 @@ function parse(resource, texture) {
 
 exports.__esModule = true;
 
-var _loader = __webpack_require__(165);
+var _loader = __webpack_require__(166);
 
 Object.defineProperty(exports, 'Loader', {
   enumerable: true,
@@ -17732,7 +17732,7 @@ Object.defineProperty(exports, 'Mesh', {
   }
 });
 
-var _MeshRenderer = __webpack_require__(169);
+var _MeshRenderer = __webpack_require__(170);
 
 Object.defineProperty(exports, 'MeshRenderer', {
   enumerable: true,
@@ -17741,7 +17741,7 @@ Object.defineProperty(exports, 'MeshRenderer', {
   }
 });
 
-var _CanvasMeshRenderer = __webpack_require__(168);
+var _CanvasMeshRenderer = __webpack_require__(169);
 
 Object.defineProperty(exports, 'CanvasMeshRenderer', {
   enumerable: true,
@@ -17759,7 +17759,7 @@ Object.defineProperty(exports, 'Plane', {
   }
 });
 
-var _NineSlicePlane = __webpack_require__(166);
+var _NineSlicePlane = __webpack_require__(167);
 
 Object.defineProperty(exports, 'NineSlicePlane', {
   enumerable: true,
@@ -17768,7 +17768,7 @@ Object.defineProperty(exports, 'NineSlicePlane', {
   }
 });
 
-var _Rope = __webpack_require__(167);
+var _Rope = __webpack_require__(168);
 
 Object.defineProperty(exports, 'Rope', {
   enumerable: true,
@@ -17789,7 +17789,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 exports.__esModule = true;
 
-var _ParticleContainer = __webpack_require__(170);
+var _ParticleContainer = __webpack_require__(171);
 
 Object.defineProperty(exports, 'ParticleContainer', {
   enumerable: true,
@@ -17798,7 +17798,7 @@ Object.defineProperty(exports, 'ParticleContainer', {
   }
 });
 
-var _ParticleRenderer = __webpack_require__(172);
+var _ParticleRenderer = __webpack_require__(173);
 
 Object.defineProperty(exports, 'ParticleRenderer', {
   enumerable: true,
@@ -17819,7 +17819,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 exports.__esModule = true;
 
-var _WebGLPrepare = __webpack_require__(180);
+var _WebGLPrepare = __webpack_require__(181);
 
 Object.defineProperty(exports, 'webgl', {
   enumerable: true,
@@ -17828,7 +17828,7 @@ Object.defineProperty(exports, 'webgl', {
   }
 });
 
-var _CanvasPrepare = __webpack_require__(178);
+var _CanvasPrepare = __webpack_require__(179);
 
 Object.defineProperty(exports, 'canvas', {
   enumerable: true,
@@ -17855,7 +17855,7 @@ Object.defineProperty(exports, 'CountLimiter', {
   }
 });
 
-var _TimeLimiter = __webpack_require__(179);
+var _TimeLimiter = __webpack_require__(180);
 
 Object.defineProperty(exports, 'TimeLimiter', {
   enumerable: true,
@@ -18216,110 +18216,1569 @@ function encodeBinary(input) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__game_js__ = __webpack_require__(90);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__game_js__ = __webpack_require__(91);
 
 
 let pixiApi = new __WEBPACK_IMPORTED_MODULE_0__game_js__["a" /* default */]();
-let player = {
-    position: {
-        x: 300,
-        y: 300
-    },
-    scale: {
-        x: 1,
-        y: 1
-    },
-    anchor: {
-        x: .5,
-        y: .5
-    },
-    vx: 1,
-    vy: 1,
-    texture: "assets/images/characters/test.png",
-    rotationSpeed: 0,
-    addToScene: false
-};
-let player2 = {
-    position: {
-        x: 100,
-        y: 100
-    },
-    scale: {
-        x: 0.5,
-        y: 0.5
-    },
-    anchor: {
-        x: .5,
-        y: .5
-    },
-    vx: 0,
-    vy: 0,
-    texture: "assets/images/characters/test.png",
-    rotationSpeed: 0.01,
-    addToScene: false
-};
-let player3 = {
-    position: {
-        x: 100,
-        y: 100
-    },
-    scale: {
-        x: 0.5,
-        y: 0.5
-    },
-    anchor: {
-        x: .5,
-        y: .5
-    },
-    vx: 0,
-    vy: 0,
-    texture: "assets/images/characters/test.png",
-    rotationSpeed: 0
-};
+// let player = {
+//     position: {
+//         x: 300,
+//         y: 300
+//     },
+//     scale : {
+//         x: 1,
+//         y: 1
+//     },
+//     anchor : {
+//         x: .5,
+//         y: .5
+//     },
+//     vx: 1,
+//     vy: 1,
+//     texture: "assets/images/characters/test.png",
+//     rotationSpeed: 0, 
+//     addToScene: false
+// };
+// let player2 = {
+//     position: {
+//         x: 100,
+//         y: 100
+//     },
+//     scale : {
+//         x: 0.5,
+//         y: 0.5
+//     },
+//     anchor : {
+//         x: .5,
+//         y: .5
+//     },
+//      vx: 0,
+//     vy: 0,
+//     texture: "assets/images/characters/test.png",
+//     rotationSpeed: 0.01,
+//     addToScene: false
+// };
+// let player3 = {
+//     position: {
+//         x: 100,
+//         y: 100
+//     },
+//     scale : {
+//         x: 0.5,
+//         y: 0.5
+//     },
+//     anchor : {
+//         x: .5,
+//         y: .5
+//     },
+//      vx: 0,
+//     vy: 0,
+//     texture: "assets/images/characters/test.png",
+//     rotationSpeed: 0
+// };
 
-let sprite = { name: 'ryu', source: "assets/images/characters/ryu.png" };
+// let sprite = {name: 'ryu', source: "assets/images/characters/ryu.png"}
 
-let player_1 = pixiApi.createPlayer(player);
-let player_2 = pixiApi.createPlayer(player2);
-//pixiApi.createPlayer(player3);
 
-pixiApi.createSpriteSheet(sprite);
-pixiApi.setText({ textValue: 'Welcome to Mortal Prodigious', x: 'center', y: 'center' });
+// //let player_1 = pixiApi.createPlayer(player);
+// //let player_2 = pixiApi.createPlayer(player2);
+// //pixiApi.createPlayer(player3);
 
-pixiApi.setText({ textValue: 'Select your character', x: 'center', y: 450 });
-let characters = [player_1, player_2];
-let groupContainer = pixiApi.getNewContainer();
-let particleCont = pixiApi.getNewParticleContainer();
-pixiApi.groupSprites(groupContainer, characters);
-pixiApi.movePlayer({ player: player_2, x: 0, y: 0, time: 3 });
+// //pixiApi.createSpriteSheet(sprite);
+// //pixiApi.setText({textValue: 'Welcome to Mortal Prodigious', x: 'center', y:'center'});
 
-groupContainer.position.set(180, 250);
-console.log(groupContainer.children);
-console.log(groupContainer.toGlobal(player_1.position));
-// rotatePlayer(player, '0.01');
+
+// pixiApi.setText({textValue: 'Select your character', x: 'center', y: 450});
+// let characters = [player_1, player_2];
+// let groupContainer = pixiApi.getNewContainer();
+// let particleCont = pixiApi.getNewParticleContainer();
+// pixiApi.groupSprites(groupContainer, characters);
+// pixiApi.movePlayer({player: player_2, x:0, y:0, time: 3});
+
+// groupContainer.position.set(180, 250);
+// console.log(groupContainer.children)
+// console.log(groupContainer.toGlobal(player_1.position));
+// // rotatePlayer(player, '0.01');
 
 /***/ }),
 /* 90 */
+/***/ (function(module, exports) {
+
+class Bump {
+  constructor(renderingEngine = PIXI) {
+    if (renderingEngine === undefined) throw new Error("Please assign a rendering engine in the constructor before using bump.js");
+
+    this.renderer = "pixi";
+  }
+
+  //`addCollisionProperties` adds extra properties to sprites to help
+  //simplify the collision code. It won't add these properties if they
+  //already exist on the sprite. After these properties have been
+  //added, this methods adds a Boolean property to the sprite called `_bumpPropertiesAdded` 
+  //and sets it to `true` to flag that the sprite has these
+  //new properties
+  addCollisionProperties(sprite) {
+
+    //Add properties to Pixi sprites
+    if (this.renderer === "pixi") {
+
+      //gx
+      if (sprite.gx === undefined) {
+        Object.defineProperty(sprite, "gx", {
+          get() {
+            return sprite.getGlobalPosition().x;
+          },
+          enumerable: true, configurable: true
+        });
+      }
+
+      //gy
+      if (sprite.gy === undefined) {
+        Object.defineProperty(sprite, "gy", {
+          get() {
+            return sprite.getGlobalPosition().y;
+          },
+          enumerable: true, configurable: true
+        });
+      }
+
+      //centerX
+      if (sprite.centerX === undefined) {
+        Object.defineProperty(sprite, "centerX", {
+          get() {
+            return sprite.x + sprite.width / 2;
+          },
+          enumerable: true, configurable: true
+        });
+      }
+
+      //centerY
+      if (sprite.centerY === undefined) {
+        Object.defineProperty(sprite, "centerY", {
+          get() {
+            return sprite.y + sprite.height / 2;
+          },
+          enumerable: true, configurable: true
+        });
+      }
+
+      //halfWidth
+      if (sprite.halfWidth === undefined) {
+        Object.defineProperty(sprite, "halfWidth", {
+          get() {
+            return sprite.width / 2;
+          },
+          enumerable: true, configurable: true
+        });
+      }
+
+      //halfHeight
+      if (sprite.halfHeight === undefined) {
+        Object.defineProperty(sprite, "halfHeight", {
+          get() {
+            return sprite.height / 2;
+          },
+          enumerable: true, configurable: true
+        });
+      }
+
+      //xAnchorOffset
+      if (sprite.xAnchorOffset === undefined) {
+        Object.defineProperty(sprite, "xAnchorOffset", {
+          get() {
+            if (sprite.anchor !== undefined) {
+              return sprite.width * sprite.anchor.x;
+            } else {
+              return 0;
+            }
+          },
+          enumerable: true, configurable: true
+        });
+      }
+
+      //yAnchorOffset
+      if (sprite.yAnchorOffset === undefined) {
+        Object.defineProperty(sprite, "yAnchorOffset", {
+          get() {
+            if (sprite.anchor !== undefined) {
+              return sprite.height * sprite.anchor.y;
+            } else {
+              return 0;
+            }
+          },
+          enumerable: true, configurable: true
+        });
+      }
+
+      if (sprite.circular && sprite.radius === undefined) {
+        Object.defineProperty(sprite, "radius", {
+          get() {
+            return sprite.width / 2;
+          },
+          enumerable: true, configurable: true
+        });
+      }
+
+      //Earlier code - not needed now.
+      /*
+      Object.defineProperties(sprite, {
+        "gx": {
+          get(){return sprite.getGlobalPosition().x},
+          enumerable: true, configurable: true
+        },
+        "gy": {
+          get(){return sprite.getGlobalPosition().y},
+          enumerable: true, configurable: true
+        },
+        "centerX": {
+          get(){return sprite.x + sprite.width / 2},
+          enumerable: true, configurable: true
+        },
+        "centerY": {
+          get(){return sprite.y + sprite.height / 2},
+          enumerable: true, configurable: true
+        },
+        "halfWidth": {
+          get(){return sprite.width / 2},
+          enumerable: true, configurable: true
+        },
+        "halfHeight": {
+          get(){return sprite.height / 2},
+          enumerable: true, configurable: true
+        },
+        "xAnchorOffset": {
+          get(){
+            if (sprite.anchor !== undefined) {
+              return sprite.height * sprite.anchor.x;
+            } else {
+              return 0;
+            }
+          },
+          enumerable: true, configurable: true
+        },
+        "yAnchorOffset": {
+          get(){
+            if (sprite.anchor !== undefined) {
+              return sprite.width * sprite.anchor.y;
+            } else {
+              return 0;
+            }
+          },
+          enumerable: true, configurable: true
+        }
+      });
+      */
+    }
+
+    //Add a Boolean `_bumpPropertiesAdded` property to the sprite to flag it
+    //as having these new properties
+    sprite._bumpPropertiesAdded = true;
+  }
+
+  /*
+  hitTestPoint
+  ------------
+   Use it to find out if a point is touching a circlular or rectangular sprite.
+  Parameters: 
+  a. An object with `x` and `y` properties.
+  b. A sprite object with `x`, `y`, `centerX` and `centerY` properties.
+  If the sprite has a `radius` property, the function will interpret
+  the shape as a circle.
+  */
+
+  hitTestPoint(point, sprite) {
+
+    //Add collision properties
+    if (!sprite._bumpPropertiesAdded) this.addCollisionProperties(sprite);
+
+    let shape, left, right, top, bottom, vx, vy, magnitude, hit;
+
+    //Find out if the sprite is rectangular or circular depending
+    //on whether it has a `radius` property
+    if (sprite.radius) {
+      shape = "circle";
+    } else {
+      shape = "rectangle";
+    }
+
+    //Rectangle
+    if (shape === "rectangle") {
+
+      //Get the position of the sprite's edges
+      left = sprite.x - sprite.xAnchorOffset;
+      right = sprite.x + sprite.width - sprite.xAnchorOffset;
+      top = sprite.y - sprite.yAnchorOffset;
+      bottom = sprite.y + sprite.height - sprite.yAnchorOffset;
+
+      //Find out if the point is intersecting the rectangle
+      hit = point.x > left && point.x < right && point.y > top && point.y < bottom;
+    }
+
+    //Circle
+    if (shape === "circle") {
+
+      //Find the distance between the point and the
+      //center of the circle
+      let vx = point.x - sprite.x - sprite.width / 2 + sprite.xAnchorOffset,
+          vy = point.y - sprite.y - sprite.height / 2 + sprite.yAnchorOffset,
+          magnitude = Math.sqrt(vx * vx + vy * vy);
+
+      //The point is intersecting the circle if the magnitude
+      //(distance) is less than the circle's radius
+      hit = magnitude < sprite.radius;
+    }
+
+    //`hit` will be either `true` or `false`
+    return hit;
+  }
+
+  /*
+  hitTestCircle
+  -------------
+   Use it to find out if two circular sprites are touching.
+  Parameters: 
+  a. A sprite object with `centerX`, `centerY` and `radius` properties.
+  b. A sprite object with `centerX`, `centerY` and `radius`.
+  */
+
+  hitTestCircle(c1, c2, global = false) {
+
+    //Add collision properties
+    if (!c1._bumpPropertiesAdded) this.addCollisionProperties(c1);
+    if (!c2._bumpPropertiesAdded) this.addCollisionProperties(c2);
+
+    let vx, vy, magnitude, combinedRadii, hit;
+
+    //Calculate the vector between the circles’ center points
+    if (global) {
+      //Use global coordinates
+      vx = c2.gx + c2.width / 2 - c2.xAnchorOffset - (c1.gx + c1.width / 2 - c1.xAnchorOffset);
+      vy = c2.gy + c2.width / 2 - c2.yAnchorOffset - (c1.gy + c1.width / 2 - c1.yAnchorOffset);
+    } else {
+      //Use local coordinates
+      vx = c2.x + c2.width / 2 - c2.xAnchorOffset - (c1.x + c1.width / 2 - c1.xAnchorOffset);
+      vy = c2.y + c2.width / 2 - c2.yAnchorOffset - (c1.y + c1.width / 2 - c1.yAnchorOffset);
+    }
+
+    //Find the distance between the circles by calculating
+    //the vector's magnitude (how long the vector is)
+    magnitude = Math.sqrt(vx * vx + vy * vy);
+
+    //Add together the circles' total radii
+    combinedRadii = c1.radius + c2.radius;
+
+    //Set `hit` to `true` if the distance between the circles is
+    //less than their `combinedRadii`
+    hit = magnitude < combinedRadii;
+
+    //`hit` will be either `true` or `false`
+    return hit;
+  }
+
+  /*
+  circleCollision
+  ---------------
+   Use it to prevent a moving circular sprite from overlapping and optionally
+  bouncing off a non-moving circular sprite.
+  Parameters: 
+  a. A sprite object with `x`, `y` `centerX`, `centerY` and `radius` properties.
+  b. A sprite object with `x`, `y` `centerX`, `centerY` and `radius` properties.
+  c. Optional: true or false to indicate whether or not the first sprite
+  should bounce off the second sprite.
+  The sprites can contain an optional mass property that should be greater than 1.
+   */
+
+  circleCollision(c1, c2, bounce = false, global = false) {
+
+    //Add collision properties
+    if (!c1._bumpPropertiesAdded) this.addCollisionProperties(c1);
+    if (!c2._bumpPropertiesAdded) this.addCollisionProperties(c2);
+
+    let magnitude,
+        combinedRadii,
+        overlap,
+        vx,
+        vy,
+        dx,
+        dy,
+        s = {},
+        hit = false;
+
+    //Calculate the vector between the circles’ center points
+
+    if (global) {
+      //Use global coordinates
+      vx = c2.gx + c2.width / 2 - c2.xAnchorOffset - (c1.gx + c1.width / 2 - c1.xAnchorOffset);
+      vy = c2.gy + c2.width / 2 - c2.yAnchorOffset - (c1.gy + c1.width / 2 - c1.yAnchorOffset);
+    } else {
+      //Use local coordinates
+      vx = c2.x + c2.width / 2 - c2.xAnchorOffset - (c1.x + c1.width / 2 - c1.xAnchorOffset);
+      vy = c2.y + c2.width / 2 - c2.yAnchorOffset - (c1.y + c1.width / 2 - c1.yAnchorOffset);
+    }
+
+    //Find the distance between the circles by calculating
+    //the vector's magnitude (how long the vector is)
+    magnitude = Math.sqrt(vx * vx + vy * vy);
+
+    //Add together the circles' combined half-widths
+    combinedRadii = c1.radius + c2.radius;
+
+    //Figure out if there's a collision
+    if (magnitude < combinedRadii) {
+
+      //Yes, a collision is happening
+      hit = true;
+
+      //Find the amount of overlap between the circles
+      overlap = combinedRadii - magnitude;
+
+      //Add some "quantum padding". This adds a tiny amount of space
+      //between the circles to reduce their surface tension and make
+      //them more slippery. "0.3" is a good place to start but you might
+      //need to modify this slightly depending on the exact behaviour
+      //you want. Too little and the balls will feel sticky, too much
+      //and they could start to jitter if they're jammed together
+      let quantumPadding = 0.3;
+      overlap += quantumPadding;
+
+      //Normalize the vector
+      //These numbers tell us the direction of the collision
+      dx = vx / magnitude;
+      dy = vy / magnitude;
+
+      //Move circle 1 out of the collision by multiplying
+      //the overlap with the normalized vector and subtract it from
+      //circle 1's position
+      c1.x -= overlap * dx;
+      c1.y -= overlap * dy;
+
+      //Bounce
+      if (bounce) {
+        //Create a collision vector object, `s` to represent the bounce "surface".
+        //Find the bounce surface's x and y properties
+        //(This represents the normal of the distance vector between the circles)
+        s.x = vy;
+        s.y = -vx;
+
+        //Bounce c1 off the surface
+        this.bounceOffSurface(c1, s);
+      }
+    }
+    return hit;
+  }
+
+  /*
+  movingCircleCollision
+  ---------------------
+   Use it to make two moving circles bounce off each other.
+  Parameters: 
+  a. A sprite object with `x`, `y` `centerX`, `centerY` and `radius` properties.
+  b. A sprite object with `x`, `y` `centerX`, `centerY` and `radius` properties.
+  The sprites can contain an optional mass property that should be greater than 1.
+   */
+
+  movingCircleCollision(c1, c2, global = false) {
+
+    //Add collision properties
+    if (!c1._bumpPropertiesAdded) this.addCollisionProperties(c1);
+    if (!c2._bumpPropertiesAdded) this.addCollisionProperties(c2);
+
+    let combinedRadii,
+        overlap,
+        xSide,
+        ySide,
+
+    //`s` refers to the distance vector between the circles
+    s = {},
+        p1A = {},
+        p1B = {},
+        p2A = {},
+        p2B = {},
+        hit = false;
+
+    //Apply mass, if the circles have mass properties
+    c1.mass = c1.mass || 1;
+    c2.mass = c2.mass || 1;
+
+    //Calculate the vector between the circles’ center points
+    if (global) {
+
+      //Use global coordinates
+      s.vx = c2.gx + c2.radius - c2.xAnchorOffset - (c1.gx + c1.radius - c1.xAnchorOffset);
+      s.vy = c2.gy + c2.radius - c2.yAnchorOffset - (c1.gy + c1.radius - c1.yAnchorOffset);
+    } else {
+
+      //Use local coordinates
+      s.vx = c2.x + c2.radius - c2.xAnchorOffset - (c1.x + c1.radius - c1.xAnchorOffset);
+      s.vy = c2.y + c2.radius - c2.yAnchorOffset - (c1.y + c1.radius - c1.yAnchorOffset);
+    }
+
+    //Find the distance between the circles by calculating
+    //the vector's magnitude (how long the vector is)
+    s.magnitude = Math.sqrt(s.vx * s.vx + s.vy * s.vy);
+
+    //Add together the circles' combined half-widths
+    combinedRadii = c1.radius + c2.radius;
+
+    //Figure out if there's a collision
+    if (s.magnitude < combinedRadii) {
+
+      //Yes, a collision is happening
+      hit = true;
+
+      //Find the amount of overlap between the circles
+      overlap = combinedRadii - s.magnitude;
+
+      //Add some "quantum padding" to the overlap
+      overlap += 0.3;
+
+      //Normalize the vector.
+      //These numbers tell us the direction of the collision
+      s.dx = s.vx / s.magnitude;
+      s.dy = s.vy / s.magnitude;
+
+      //Find the collision vector.
+      //Divide it in half to share between the circles, and make it absolute
+      s.vxHalf = Math.abs(s.dx * overlap / 2);
+      s.vyHalf = Math.abs(s.dy * overlap / 2);
+
+      //Find the side that the collision is occurring on
+      c1.x > c2.x ? xSide = 1 : xSide = -1;
+      c1.y > c2.y ? ySide = 1 : ySide = -1;
+
+      //Move c1 out of the collision by multiplying
+      //the overlap with the normalized vector and adding it to
+      //the circles' positions
+      c1.x = c1.x + s.vxHalf * xSide;
+      c1.y = c1.y + s.vyHalf * ySide;
+
+      //Move c2 out of the collision
+      c2.x = c2.x + s.vxHalf * -xSide;
+      c2.y = c2.y + s.vyHalf * -ySide;
+
+      //1. Calculate the collision surface's properties
+
+      //Find the surface vector's left normal
+      s.lx = s.vy;
+      s.ly = -s.vx;
+
+      //2. Bounce c1 off the surface (s)
+
+      //Find the dot product between c1 and the surface
+      let dp1 = c1.vx * s.dx + c1.vy * s.dy;
+
+      //Project c1's velocity onto the collision surface
+      p1A.x = dp1 * s.dx;
+      p1A.y = dp1 * s.dy;
+
+      //Find the dot product of c1 and the surface's left normal (s.lx and s.ly)
+      let dp2 = c1.vx * (s.lx / s.magnitude) + c1.vy * (s.ly / s.magnitude);
+
+      //Project the c1's velocity onto the surface's left normal
+      p1B.x = dp2 * (s.lx / s.magnitude);
+      p1B.y = dp2 * (s.ly / s.magnitude);
+
+      //3. Bounce c2 off the surface (s)
+
+      //Find the dot product between c2 and the surface
+      let dp3 = c2.vx * s.dx + c2.vy * s.dy;
+
+      //Project c2's velocity onto the collision surface
+      p2A.x = dp3 * s.dx;
+      p2A.y = dp3 * s.dy;
+
+      //Find the dot product of c2 and the surface's left normal (s.lx and s.ly)
+      let dp4 = c2.vx * (s.lx / s.magnitude) + c2.vy * (s.ly / s.magnitude);
+
+      //Project c2's velocity onto the surface's left normal
+      p2B.x = dp4 * (s.lx / s.magnitude);
+      p2B.y = dp4 * (s.ly / s.magnitude);
+
+      //4. Calculate the bounce vectors
+
+      //Bounce c1
+      //using p1B and p2A
+      c1.bounce = {};
+      c1.bounce.x = p1B.x + p2A.x;
+      c1.bounce.y = p1B.y + p2A.y;
+
+      //Bounce c2
+      //using p1A and p2B
+      c2.bounce = {};
+      c2.bounce.x = p1A.x + p2B.x;
+      c2.bounce.y = p1A.y + p2B.y;
+
+      //Add the bounce vector to the circles' velocity
+      //and add mass if the circle has a mass property
+      c1.vx = c1.bounce.x / c1.mass;
+      c1.vy = c1.bounce.y / c1.mass;
+      c2.vx = c2.bounce.x / c2.mass;
+      c2.vy = c2.bounce.y / c2.mass;
+    }
+    return hit;
+  }
+  /*
+  multipleCircleCollision
+  -----------------------
+   Checks all the circles in an array for a collision against
+  all the other circles in an array, using `movingCircleCollision` (above)
+  */
+
+  multipleCircleCollision(arrayOfCircles, global = false) {
+    for (let i = 0; i < arrayOfCircles.length; i++) {
+
+      //The first circle to use in the collision check
+      var c1 = arrayOfCircles[i];
+      for (let j = i + 1; j < arrayOfCircles.length; j++) {
+
+        //The second circle to use in the collision check
+        let c2 = arrayOfCircles[j];
+
+        //Check for a collision and bounce the circles apart if
+        //they collide. Use an optional `mass` property on the sprite
+        //to affect the bounciness of each marble
+        this.movingCircleCollision(c1, c2, global);
+      }
+    }
+  }
+
+  /*
+  rectangleCollision
+  ------------------
+   Use it to prevent two rectangular sprites from overlapping.
+  Optionally, make the first rectangle bounce off the second rectangle.
+  Parameters:
+  a. A sprite object with `x`, `y` `centerX`, `centerY`, `halfWidth` and `halfHeight` properties.
+  b. A sprite object with `x`, `y` `centerX`, `centerY`, `halfWidth` and `halfHeight` properties.
+  c. Optional: true or false to indicate whether or not the first sprite
+  should bounce off the second sprite.
+  */
+
+  rectangleCollision(r1, r2, bounce = false, global = true) {
+
+    //Add collision properties
+    if (!r1._bumpPropertiesAdded) this.addCollisionProperties(r1);
+    if (!r2._bumpPropertiesAdded) this.addCollisionProperties(r2);
+
+    let collision, combinedHalfWidths, combinedHalfHeights, overlapX, overlapY, vx, vy;
+
+    //Calculate the distance vector
+    if (global) {
+      vx = r1.gx + Math.abs(r1.halfWidth) - r1.xAnchorOffset - (r2.gx + Math.abs(r2.halfWidth) - r2.xAnchorOffset);
+      vy = r1.gy + Math.abs(r1.halfHeight) - r1.yAnchorOffset - (r2.gy + Math.abs(r2.halfHeight) - r2.yAnchorOffset);
+    } else {
+      //vx = r1.centerX - r2.centerX;
+      //vy = r1.centerY - r2.centerY;
+      vx = r1.x + Math.abs(r1.halfWidth) - r1.xAnchorOffset - (r2.x + Math.abs(r2.halfWidth) - r2.xAnchorOffset);
+      vy = r1.y + Math.abs(r1.halfHeight) - r1.yAnchorOffset - (r2.y + Math.abs(r2.halfHeight) - r2.yAnchorOffset);
+    }
+
+    //Figure out the combined half-widths and half-heights
+    combinedHalfWidths = Math.abs(r1.halfWidth) + Math.abs(r2.halfWidth);
+    combinedHalfHeights = Math.abs(r1.halfHeight) + Math.abs(r2.halfHeight);
+
+    //Check whether vx is less than the combined half widths
+    if (Math.abs(vx) < combinedHalfWidths) {
+
+      //A collision might be occurring!
+      //Check whether vy is less than the combined half heights
+      if (Math.abs(vy) < combinedHalfHeights) {
+
+        //A collision has occurred! This is good!
+        //Find out the size of the overlap on both the X and Y axes
+        overlapX = combinedHalfWidths - Math.abs(vx);
+        overlapY = combinedHalfHeights - Math.abs(vy);
+
+        //The collision has occurred on the axis with the
+        //*smallest* amount of overlap. Let's figure out which
+        //axis that is
+
+        if (overlapX >= overlapY) {
+          //The collision is happening on the X axis
+          //But on which side? vy can tell us
+
+          if (vy > 0) {
+            collision = "top";
+            //Move the rectangle out of the collision
+            r1.y = r1.y + overlapY;
+          } else {
+            collision = "bottom";
+            //Move the rectangle out of the collision
+            r1.y = r1.y - overlapY;
+          }
+
+          //Bounce
+          if (bounce) {
+            r1.vy *= -1;
+
+            /*Alternative
+            //Find the bounce surface's vx and vy properties
+            var s = {};
+            s.vx = r2.x - r2.x + r2.width;
+            s.vy = 0;
+             //Bounce r1 off the surface
+            //this.bounceOffSurface(r1, s);
+            */
+          }
+        } else {
+          //The collision is happening on the Y axis
+          //But on which side? vx can tell us
+
+          if (vx > 0) {
+            collision = "left";
+            //Move the rectangle out of the collision
+            r1.x = r1.x + overlapX;
+          } else {
+            collision = "right";
+            //Move the rectangle out of the collision
+            r1.x = r1.x - overlapX;
+          }
+
+          //Bounce
+          if (bounce) {
+            r1.vx *= -1;
+
+            /*Alternative
+            //Find the bounce surface's vx and vy properties
+            var s = {};
+            s.vx = 0;
+            s.vy = r2.y - r2.y + r2.height;
+             //Bounce r1 off the surface
+            this.bounceOffSurface(r1, s);
+            */
+          }
+        }
+      } else {
+          //No collision
+        }
+    } else {}
+      //No collision
+
+
+      //Return the collision string. it will be either "top", "right",
+      //"bottom", or "left" depending on which side of r1 is touching r2.
+    return collision;
+  }
+
+  /*
+  hitTestRectangle
+  ----------------
+   Use it to find out if two rectangular sprites are touching.
+  Parameters: 
+  a. A sprite object with `centerX`, `centerY`, `halfWidth` and `halfHeight` properties.
+  b. A sprite object with `centerX`, `centerY`, `halfWidth` and `halfHeight` properties.
+   */
+
+  hitTestRectangle(r1, r2, global = false) {
+
+    //Add collision properties
+    if (!r1._bumpPropertiesAdded) this.addCollisionProperties(r1);
+    if (!r2._bumpPropertiesAdded) this.addCollisionProperties(r2);
+
+    let hit, combinedHalfWidths, combinedHalfHeights, vx, vy;
+
+    //A variable to determine whether there's a collision
+    hit = false;
+
+    //Calculate the distance vector
+    if (global) {
+      vx = r1.gx + Math.abs(r1.halfWidth) - r1.xAnchorOffset - (r2.gx + Math.abs(r2.halfWidth) - r2.xAnchorOffset);
+      vy = r1.gy + Math.abs(r1.halfHeight) - r1.yAnchorOffset - (r2.gy + Math.abs(r2.halfHeight) - r2.yAnchorOffset);
+    } else {
+      vx = r1.x + Math.abs(r1.halfWidth) - r1.xAnchorOffset - (r2.x + Math.abs(r2.halfWidth) - r2.xAnchorOffset);
+      vy = r1.y + Math.abs(r1.halfHeight) - r1.yAnchorOffset - (r2.y + Math.abs(r2.halfHeight) - r2.yAnchorOffset);
+    }
+
+    //Figure out the combined half-widths and half-heights
+    combinedHalfWidths = Math.abs(r1.halfWidth) + Math.abs(r2.halfWidth);
+    combinedHalfHeights = Math.abs(r1.halfHeight) + Math.abs(r2.halfHeight);
+
+    //Check for a collision on the x axis
+    if (Math.abs(vx) < combinedHalfWidths) {
+
+      //A collision might be occuring. Check for a collision on the y axis
+      if (Math.abs(vy) < combinedHalfHeights) {
+
+        //There's definitely a collision happening
+        hit = true;
+      } else {
+
+        //There's no collision on the y axis
+        hit = false;
+      }
+    } else {
+
+      //There's no collision on the x axis
+      hit = false;
+    }
+
+    //`hit` will be either `true` or `false`
+    return hit;
+  }
+
+  /*
+  hitTestCircleRectangle
+  ----------------
+   Use it to find out if a circular shape is touching a rectangular shape
+  Parameters: 
+  a. A sprite object with `centerX`, `centerY`, `halfWidth` and `halfHeight` properties.
+  b. A sprite object with `centerX`, `centerY`, `halfWidth` and `halfHeight` properties.
+   */
+
+  hitTestCircleRectangle(c1, r1, global = false) {
+
+    //Add collision properties
+    if (!r1._bumpPropertiesAdded) this.addCollisionProperties(r1);
+    if (!c1._bumpPropertiesAdded) this.addCollisionProperties(c1);
+
+    let region, collision, c1x, c1y, r1x, r1y;
+
+    //Use either global or local coordinates
+    if (global) {
+      c1x = c1.gx;
+      c1y = c1.gy;
+      r1x = r1.gx;
+      r1y = r1.gy;
+    } else {
+      c1x = c1.x;
+      c1y = c1.y;
+      r1x = r1.x;
+      r1y = r1.y;
+    }
+
+    //Is the circle above the rectangle's top edge?
+    if (c1y - c1.yAnchorOffset < r1y - Math.abs(r1.halfHeight) - r1.yAnchorOffset) {
+
+      //If it is, we need to check whether it's in the
+      //top left, top center or top right
+      if (c1x - c1.xAnchorOffset < r1x - 1 - Math.abs(r1.halfWidth) - r1.xAnchorOffset) {
+        region = "topLeft";
+      } else if (c1x - c1.xAnchorOffset > r1x + 1 + Math.abs(r1.halfWidth) - r1.xAnchorOffset) {
+        region = "topRight";
+      } else {
+        region = "topMiddle";
+      }
+    }
+
+    //The circle isn't above the top edge, so it might be
+    //below the bottom edge
+    else if (c1y - c1.yAnchorOffset > r1y + Math.abs(r1.halfHeight) - r1.yAnchorOffset) {
+
+        //If it is, we need to check whether it's in the bottom left,
+        //bottom center, or bottom right
+        if (c1x - c1.xAnchorOffset < r1x - 1 - Math.abs(r1.halfWidth) - r1.xAnchorOffset) {
+          region = "bottomLeft";
+        } else if (c1x - c1.xAnchorOffset > r1x + 1 + Math.abs(r1.halfWidth) - r1.xAnchorOffset) {
+          region = "bottomRight";
+        } else {
+          region = "bottomMiddle";
+        }
+      }
+
+      //The circle isn't above the top edge or below the bottom edge,
+      //so it must be on the left or right side
+      else {
+          if (c1x - c1.xAnchorOffset < r1x - Math.abs(r1.halfWidth) - r1.xAnchorOffset) {
+            region = "leftMiddle";
+          } else {
+            region = "rightMiddle";
+          }
+        }
+
+    //Is this the circle touching the flat sides
+    //of the rectangle?
+    if (region === "topMiddle" || region === "bottomMiddle" || region === "leftMiddle" || region === "rightMiddle") {
+
+      //Yes, it is, so do a standard rectangle vs. rectangle collision test
+      collision = this.hitTestRectangle(c1, r1, global);
+    }
+
+    //The circle is touching one of the corners, so do a
+    //circle vs. point collision test
+    else {
+        let point = {};
+
+        switch (region) {
+          case "topLeft":
+            point.x = r1x - r1.xAnchorOffset;
+            point.y = r1y - r1.yAnchorOffset;
+            break;
+
+          case "topRight":
+            point.x = r1x + r1.width - r1.xAnchorOffset;
+            point.y = r1y - r1.yAnchorOffset;
+            break;
+
+          case "bottomLeft":
+            point.x = r1x - r1.xAnchorOffset;
+            point.y = r1y + r1.height - r1.yAnchorOffset;
+            break;
+
+          case "bottomRight":
+            point.x = r1x + r1.width - r1.xAnchorOffset;
+            point.y = r1y + r1.height - r1.yAnchorOffset;
+        }
+
+        //Check for a collision between the circle and the point
+        collision = this.hitTestCirclePoint(c1, point, global);
+      }
+
+    //Return the result of the collision.
+    //The return value will be `undefined` if there's no collision
+    if (collision) {
+      return region;
+    } else {
+      return collision;
+    }
+  }
+
+  /*
+  hitTestCirclePoint
+  ------------------
+   Use it to find out if a circular shape is touching a point
+  Parameters: 
+  a. A sprite object with `centerX`, `centerY`, and `radius` properties.
+  b. A point object with `x` and `y` properties.
+   */
+
+  hitTestCirclePoint(c1, point, global = false) {
+
+    //Add collision properties
+    if (!c1._bumpPropertiesAdded) this.addCollisionProperties(c1);
+
+    //A point is just a circle with a diameter of
+    //1 pixel, so we can cheat. All we need to do is an ordinary circle vs. circle
+    //Collision test. Just supply the point with the properties
+    //it needs
+    point.diameter = 1;
+    point.width = point.diameter;
+    point.radius = 0.5;
+    point.centerX = point.x;
+    point.centerY = point.y;
+    point.gx = point.x;
+    point.gy = point.y;
+    point.xAnchorOffset = 0;
+    point.yAnchorOffset = 0;
+    point._bumpPropertiesAdded = true;
+    return this.hitTestCircle(c1, point, global);
+  }
+
+  /*
+  circleRectangleCollision
+  ------------------------
+   Use it to bounce a circular shape off a rectangular shape
+  Parameters: 
+  a. A sprite object with `centerX`, `centerY`, `halfWidth` and `halfHeight` properties.
+  b. A sprite object with `centerX`, `centerY`, `halfWidth` and `halfHeight` properties.
+   */
+
+  circleRectangleCollision(c1, r1, bounce = false, global = false) {
+
+    //Add collision properties
+    if (!r1._bumpPropertiesAdded) this.addCollisionProperties(r1);
+    if (!c1._bumpPropertiesAdded) this.addCollisionProperties(c1);
+
+    let region, collision, c1x, c1y, r1x, r1y;
+
+    //Use either the global or local coordinates
+    if (global) {
+      c1x = c1.gx;
+      c1y = c1.gy;
+      r1x = r1.gx;
+      r1y = r1.gy;
+    } else {
+      c1x = c1.x;
+      c1y = c1.y;
+      r1x = r1.x;
+      r1y = r1.y;
+    }
+
+    //Is the circle above the rectangle's top edge?
+    if (c1y - c1.yAnchorOffset < r1y - Math.abs(r1.halfHeight) - r1.yAnchorOffset) {
+
+      //If it is, we need to check whether it's in the
+      //top left, top center or top right
+      if (c1x - c1.xAnchorOffset < r1x - 1 - Math.abs(r1.halfWidth) - r1.xAnchorOffset) {
+        region = "topLeft";
+      } else if (c1x - c1.xAnchorOffset > r1x + 1 + Math.abs(r1.halfWidth) - r1.xAnchorOffset) {
+        region = "topRight";
+      } else {
+        region = "topMiddle";
+      }
+    }
+
+    //The circle isn't above the top edge, so it might be
+    //below the bottom edge
+    else if (c1y - c1.yAnchorOffset > r1y + Math.abs(r1.halfHeight) - r1.yAnchorOffset) {
+
+        //If it is, we need to check whether it's in the bottom left,
+        //bottom center, or bottom right
+        if (c1x - c1.xAnchorOffset < r1x - 1 - Math.abs(r1.halfWidth) - r1.xAnchorOffset) {
+          region = "bottomLeft";
+        } else if (c1x - c1.xAnchorOffset > r1x + 1 + Math.abs(r1.halfWidth) - r1.xAnchorOffset) {
+          region = "bottomRight";
+        } else {
+          region = "bottomMiddle";
+        }
+      }
+
+      //The circle isn't above the top edge or below the bottom edge,
+      //so it must be on the left or right side
+      else {
+          if (c1x - c1.xAnchorOffset < r1x - Math.abs(r1.halfWidth) - r1.xAnchorOffset) {
+            region = "leftMiddle";
+          } else {
+            region = "rightMiddle";
+          }
+        }
+
+    //Is this the circle touching the flat sides
+    //of the rectangle?
+    if (region === "topMiddle" || region === "bottomMiddle" || region === "leftMiddle" || region === "rightMiddle") {
+
+      //Yes, it is, so do a standard rectangle vs. rectangle collision test
+      collision = this.rectangleCollision(c1, r1, bounce, global);
+    }
+
+    //The circle is touching one of the corners, so do a
+    //circle vs. point collision test
+    else {
+        let point = {};
+
+        switch (region) {
+          case "topLeft":
+            point.x = r1x - r1.xAnchorOffset;
+            point.y = r1y - r1.yAnchorOffset;
+            break;
+
+          case "topRight":
+            point.x = r1x + r1.width - r1.xAnchorOffset;
+            point.y = r1y - r1.yAnchorOffset;
+            break;
+
+          case "bottomLeft":
+            point.x = r1x - r1.xAnchorOffset;
+            point.y = r1y + r1.height - r1.yAnchorOffset;
+            break;
+
+          case "bottomRight":
+            point.x = r1x + r1.width - r1.xAnchorOffset;
+            point.y = r1y + r1.height - r1.yAnchorOffset;
+        }
+
+        //Check for a collision between the circle and the point
+        collision = this.circlePointCollision(c1, point, bounce, global);
+      }
+
+    if (collision) {
+      return region;
+    } else {
+      return collision;
+    }
+  }
+
+  /*
+  circlePointCollision
+  --------------------
+   Use it to boucnce a circle off a point.
+  Parameters: 
+  a. A sprite object with `centerX`, `centerY`, and `radius` properties.
+  b. A point object with `x` and `y` properties.
+   */
+
+  circlePointCollision(c1, point, bounce = false, global = false) {
+
+    //Add collision properties
+    if (!c1._bumpPropertiesAdded) this.addCollisionProperties(c1);
+
+    //A point is just a circle with a diameter of
+    //1 pixel, so we can cheat. All we need to do is an ordinary circle vs. circle
+    //Collision test. Just supply the point with the properties
+    //it needs
+    point.diameter = 1;
+    point.width = point.diameter;
+    point.radius = 0.5;
+    point.centerX = point.x;
+    point.centerY = point.y;
+    point.gx = point.x;
+    point.gy = point.y;
+    point.xAnchorOffset = 0;
+    point.yAnchorOffset = 0;
+    point._bumpPropertiesAdded = true;
+    return this.circleCollision(c1, point, bounce, global);
+  }
+
+  /*
+  bounceOffSurface
+  ----------------
+   Use this to bounce an object off another object.
+  Parameters: 
+  a. An object with `v.x` and `v.y` properties. This represents the object that is colliding
+  with a surface.
+  b. An object with `x` and `y` properties. This represents the surface that the object
+  is colliding into.
+  The first object can optionally have a mass property that's greater than 1. The mass will
+  be used to dampen the bounce effect.
+  */
+
+  bounceOffSurface(o, s) {
+
+    //Add collision properties
+    if (!o._bumpPropertiesAdded) this.addCollisionProperties(o);
+
+    let dp1,
+        dp2,
+        p1 = {},
+        p2 = {},
+        bounce = {},
+        mass = o.mass || 1;
+
+    //1. Calculate the collision surface's properties
+    //Find the surface vector's left normal
+    s.lx = s.y;
+    s.ly = -s.x;
+
+    //Find its magnitude
+    s.magnitude = Math.sqrt(s.x * s.x + s.y * s.y);
+
+    //Find its normalized values
+    s.dx = s.x / s.magnitude;
+    s.dy = s.y / s.magnitude;
+
+    //2. Bounce the object (o) off the surface (s)
+
+    //Find the dot product between the object and the surface
+    dp1 = o.vx * s.dx + o.vy * s.dy;
+
+    //Project the object's velocity onto the collision surface
+    p1.vx = dp1 * s.dx;
+    p1.vy = dp1 * s.dy;
+
+    //Find the dot product of the object and the surface's left normal (s.lx and s.ly)
+    dp2 = o.vx * (s.lx / s.magnitude) + o.vy * (s.ly / s.magnitude);
+
+    //Project the object's velocity onto the surface's left normal
+    p2.vx = dp2 * (s.lx / s.magnitude);
+    p2.vy = dp2 * (s.ly / s.magnitude);
+
+    //Reverse the projection on the surface's left normal
+    p2.vx *= -1;
+    p2.vy *= -1;
+
+    //Add up the projections to create a new bounce vector
+    bounce.x = p1.vx + p2.vx;
+    bounce.y = p1.vy + p2.vy;
+
+    //Assign the bounce vector to the object's velocity
+    //with optional mass to dampen the effect
+    o.vx = bounce.x / mass;
+    o.vy = bounce.y / mass;
+  }
+
+  /*
+  contain
+  -------
+  `contain` can be used to contain a sprite with `x` and
+  `y` properties inside a rectangular area.
+   The `contain` function takes four arguments: a sprite with `x` and `y`
+  properties, an object literal with `x`, `y`, `width` and `height` properties. The 
+  third argument is a Boolean (true/false) value that determines if the sprite
+  should bounce when it hits the edge of the container. The fourth argument
+  is an extra user-defined callback function that you can call when the
+  sprite hits the container
+  ```js
+  contain(anySprite, {x: 0, y: 0, width: 512, height: 512}, true, callbackFunction);
+  ```
+  The code above will contain the sprite's position inside the 512 by
+  512 pixel area defined by the object. If the sprite hits the edges of
+  the container, it will bounce. The `callBackFunction` will run if 
+  there's a collision.
+   An additional feature of the `contain` method is that if the sprite
+  has a `mass` property, it will be used to dampen the sprite's bounce
+  in a natural looking way.
+   If the sprite bumps into any of the containing object's boundaries,
+  the `contain` function will return a value that tells you which side
+  the sprite bumped into: “left”, “top”, “right” or “bottom”. Here's how
+  you could keep the sprite contained and also find out which boundary
+  it hit:
+  ```js
+  //Contain the sprite and find the collision value
+  let collision = contain(anySprite, {x: 0, y: 0, width: 512, height: 512});
+   //If there's a collision, display the boundary that the collision happened on
+  if(collision) {
+    if collision.has("left") console.log("The sprite hit the left");  
+    if collision.has("top") console.log("The sprite hit the top");  
+    if collision.has("right") console.log("The sprite hit the right");  
+    if collision.has("bottom") console.log("The sprite hit the bottom");  
+  }
+  ```
+  If the sprite doesn't hit a boundary, the value of
+  `collision` will be `undefined`. 
+  */
+
+  /*
+   contain(sprite, container, bounce = false, extra = undefined) {
+      //Helper methods that compensate for any possible shift the the
+     //sprites' anchor points
+     let nudgeAnchor = (o, value, axis) => {
+       if (o.anchor !== undefined) {
+         if (o.anchor[axis] !== 0) {
+           return value * ((1 - o.anchor[axis]) - o.anchor[axis]);
+         } else {
+           return value;
+         }
+       } else {
+         return value; 
+       }
+     };
+      let compensateForAnchor = (o, value, axis) => {
+       if (o.anchor !== undefined) {
+         if (o.anchor[axis] !== 0) {
+           return value * o.anchor[axis];
+         } else {
+           return 0;
+         }
+       } else {
+         return 0; 
+       }
+     };
+      let compensateForAnchors = (a, b, property1, property2) => {
+        return compensateForAnchor(a, a[property1], property2) + compensateForAnchor(b, b[property1], property2)
+     };    
+     //Create a set called `collision` to keep track of the
+     //boundaries with which the sprite is colliding
+     let collision = new Set();
+      //Left
+     if (sprite.x - compensateForAnchor(sprite, sprite.width, "x") < container.x - sprite.parent.gx - compensateForAnchor(container, container.width, "x")) {
+       //Bounce the sprite if `bounce` is true
+       if (bounce) sprite.vx *= -1;
+        //If the sprite has `mass`, let the mass
+       //affect the sprite's velocity
+       if(sprite.mass) sprite.vx /= sprite.mass;
+        //Keep the sprite inside the container
+       sprite.x = container.x - sprite.parent.gx + compensateForAnchor(sprite, sprite.width, "x") - compensateForAnchor(container, container.width, "x");
+        //Add "left" to the collision set
+       collision.add("left");
+     }
+      //Top
+     if (sprite.y - compensateForAnchor(sprite, sprite.height, "y") < container.y - sprite.parent.gy - compensateForAnchor(container, container.height, "y")) {
+       if (bounce) sprite.vy *= -1;
+       if(sprite.mass) sprite.vy /= sprite.mass;
+       sprite.y = container.x - sprite.parent.gy + compensateForAnchor(sprite, sprite.height, "y") - compensateForAnchor(container, container.height, "y");
+       collision.add("top");
+     }
+      //Right
+     if (sprite.x - compensateForAnchor(sprite, sprite.width, "x") + sprite.width > container.width - compensateForAnchor(container, container.width, "x")) {
+       if (bounce) sprite.vx *= -1;
+       if(sprite.mass) sprite.vx /= sprite.mass;
+       sprite.x = container.width - sprite.width + compensateForAnchor(sprite, sprite.width, "x") - compensateForAnchor(container, container.width, "x");
+       collision.add("right");
+     }
+      //Bottom
+     if (sprite.y - compensateForAnchor(sprite, sprite.height, "y") + sprite.height > container.height - compensateForAnchor(container, container.height, "y")) {
+       if (bounce) sprite.vy *= -1;
+       if(sprite.mass) sprite.vy /= sprite.mass;
+       sprite.y = container.height - sprite.height + compensateForAnchor(sprite, sprite.height, "y") - compensateForAnchor(container, container.height, "y");
+       collision.add("bottom");
+     }
+      //If there were no collisions, set `collision` to `undefined`
+     if (collision.size === 0) collision = undefined;
+      //The `extra` function runs if there was a collision
+     //and `extra` has been defined
+     if (collision && extra) extra(collision);
+      //Return the `collision` value
+     return collision;
+   }
+   */
+  contain(sprite, container, bounce = false, extra = undefined) {
+
+    //Add collision properties
+    if (!sprite._bumpPropertiesAdded) this.addCollisionProperties(sprite);
+
+    //Give the container x and y anchor offset values, if it doesn't
+    //have any
+    if (container.xAnchorOffset === undefined) container.xAnchorOffset = 0;
+    if (container.yAnchorOffset === undefined) container.yAnchorOffset = 0;
+    if (sprite.parent.gx === undefined) sprite.parent.gx = 0;
+    if (sprite.parent.gy === undefined) sprite.parent.gy = 0;
+
+    //Create a Set called `collision` to keep track of the
+    //boundaries with which the sprite is colliding
+    let collision = new Set();
+
+    //Left
+    if (sprite.x - sprite.xAnchorOffset < container.x - sprite.parent.gx - container.xAnchorOffset) {
+
+      //Bounce the sprite if `bounce` is true
+      if (bounce) sprite.vx *= -1;
+
+      //If the sprite has `mass`, let the mass
+      //affect the sprite's velocity
+      if (sprite.mass) sprite.vx /= sprite.mass;
+
+      //Reposition the sprite inside the container
+      sprite.x = container.x - sprite.parent.gx - container.xAnchorOffset + sprite.xAnchorOffset;
+
+      //Make a record of the side which the container hit
+      collision.add("left");
+    }
+
+    //Top
+    if (sprite.y - sprite.yAnchorOffset < container.y - sprite.parent.gy - container.yAnchorOffset) {
+      if (bounce) sprite.vy *= -1;
+      if (sprite.mass) sprite.vy /= sprite.mass;
+      sprite.y = container.y - sprite.parent.gy - container.yAnchorOffset + sprite.yAnchorOffset;;
+      collision.add("top");
+    }
+
+    //Right
+    if (sprite.x - sprite.xAnchorOffset + sprite.width > container.width - container.xAnchorOffset) {
+      if (bounce) sprite.vx *= -1;
+      if (sprite.mass) sprite.vx /= sprite.mass;
+      sprite.x = container.width - sprite.width - container.xAnchorOffset + sprite.xAnchorOffset;
+      collision.add("right");
+    }
+
+    //Bottom
+    if (sprite.y - sprite.yAnchorOffset + sprite.height > container.height - container.yAnchorOffset) {
+      if (bounce) sprite.vy *= -1;
+      if (sprite.mass) sprite.vy /= sprite.mass;
+      sprite.y = container.height - sprite.height - container.yAnchorOffset + sprite.yAnchorOffset;
+      collision.add("bottom");
+    }
+
+    //If there were no collisions, set `collision` to `undefined`
+    if (collision.size === 0) collision = undefined;
+
+    //The `extra` function runs if there was a collision
+    //and `extra` has been defined
+    if (collision && extra) extra(collision);
+
+    //Return the `collision` value
+    return collision;
+  }
+
+  //`outsideBounds` checks whether a sprite is outide the boundary of
+  //another object. It returns an object called `collision`. `collision` will be `undefined` if there's no
+  //collision. But if there is a collision, `collision` will be
+  //returned as a Set containg strings that tell you which boundary
+  //side was crossed: "left", "right", "top" or "bottom" 
+  outsideBounds(s, bounds, extra) {
+
+    let x = bounds.x,
+        y = bounds.y,
+        width = bounds.width,
+        height = bounds.height;
+
+    //The `collision` object is used to store which
+    //side of the containing rectangle the sprite hits
+    let collision = new Set();
+
+    //Left
+    if (s.x < x - s.width) {
+      collision.add("left");
+    }
+    //Top
+    if (s.y < y - s.height) {
+      collision.add("top");
+    }
+    //Right
+    if (s.x > width + s.width) {
+      collision.add("right");
+    }
+    //Bottom
+    if (s.y > height + s.height) {
+      collision.add("bottom");
+    }
+
+    //If there were no collisions, set `collision` to `undefined`
+    if (collision.size === 0) collision = undefined;
+
+    //The `extra` function runs if there was a collision
+    //and `extra` has been defined
+    if (collision && extra) extra(collision);
+
+    //Return the `collision` object
+    return collision;
+  }
+
+  /*
+  _getCenter
+  ----------
+   A utility that finds the center point of the sprite. If it's anchor point is the
+  sprite's top left corner, then the center is calculated from that point.
+  If the anchor point has been shifted, then the anchor x/y point is used as the sprite's center
+  */
+
+  _getCenter(o, dimension, axis) {
+    if (o.anchor !== undefined) {
+      if (o.anchor[axis] !== 0) {
+        return 0;
+      } else {
+        //console.log(o.anchor[axis])
+        return dimension / 2;
+      }
+    } else {
+      return dimension;
+    }
+  }
+
+  /*
+  hit
+  ---
+  A convenient universal collision function to test for collisions
+  between rectangles, circles, and points.
+  */
+
+  hit(a, b, react = false, bounce = false, global, extra = undefined) {
+
+    //Local references to bump's collision methods
+    let hitTestPoint = this.hitTestPoint.bind(this),
+        hitTestRectangle = this.hitTestRectangle.bind(this),
+        hitTestCircle = this.hitTestCircle.bind(this),
+        movingCircleCollision = this.movingCircleCollision.bind(this),
+        circleCollision = this.circleCollision.bind(this),
+        hitTestCircleRectangle = this.hitTestCircleRectangle.bind(this),
+        rectangleCollision = this.rectangleCollision.bind(this),
+        circleRectangleCollision = this.circleRectangleCollision.bind(this);
+
+    let collision,
+        aIsASprite = a.parent !== undefined,
+        bIsASprite = b.parent !== undefined;
+
+    //Check to make sure one of the arguments isn't an array
+    if (aIsASprite && b instanceof Array || bIsASprite && a instanceof Array) {
+      //If it is, check for a collision between a sprite and an array
+      spriteVsArray();
+    } else {
+      //If one of the arguments isn't an array, find out what type of
+      //collision check to run
+      collision = findCollisionType(a, b);
+      if (collision && extra) extra(collision);
+    }
+
+    //Return the result of the collision.
+    //It will be `undefined` if there's no collision and `true` if 
+    //there is a collision. `rectangleCollision` sets `collsision` to
+    //"top", "bottom", "left" or "right" depeneding on which side the
+    //collision is occuring on
+    return collision;
+
+    function findCollisionType(a, b) {
+      //Are `a` and `b` both sprites?
+      //(We have to check again if this function was called from
+      //`spriteVsArray`)
+      let aIsASprite = a.parent !== undefined;
+      let bIsASprite = b.parent !== undefined;
+
+      if (aIsASprite && bIsASprite) {
+        //Yes, but what kind of sprites?
+        if (a.diameter && b.diameter) {
+          //They're circles
+          return circleVsCircle(a, b);
+        } else if (a.diameter && !b.diameter) {
+          //The first one is a circle and the second is a rectangle
+          return circleVsRectangle(a, b);
+        } else {
+          //They're rectangles
+          return rectangleVsRectangle(a, b);
+        }
+      }
+      //They're not both sprites, so what are they?
+      //Is `a` not a sprite and does it have x and y properties?
+      else if (bIsASprite && !(a.x === undefined) && !(a.y === undefined)) {
+          //Yes, so this is a point vs. sprite collision test
+          return hitTestPoint(a, b);
+        } else {
+          //The user is trying to test some incompatible objects
+          throw new Error(`I'm sorry, ${a} and ${b} cannot be use together in a collision test.'`);
+        }
+    }
+
+    function spriteVsArray() {
+      //If `a` happens to be the array, flip it around so that it becomes `b`
+      if (a instanceof Array) {
+        let [a, b] = [b, a];
+      }
+      //Loop through the array in reverse
+      for (let i = b.length - 1; i >= 0; i--) {
+        let sprite = b[i];
+        collision = findCollisionType(a, sprite);
+        if (collision && extra) extra(collision, sprite);
+      }
+    }
+
+    function circleVsCircle(a, b) {
+      //If the circles shouldn't react to the collision,
+      //just test to see if they're touching
+      if (!react) {
+        return hitTestCircle(a, b);
+      }
+      //Yes, the circles should react to the collision
+      else {
+          //Are they both moving?
+          if (a.vx + a.vy !== 0 && b.vx + b.vy !== 0) {
+            //Yes, they are both moving
+            //(moving circle collisions always bounce apart so there's
+            //no need for the third, `bounce`, argument)
+            return movingCircleCollision(a, b, global);
+          } else {
+            //No, they're not both moving
+            return circleCollision(a, b, bounce, global);
+          }
+        }
+    }
+
+    function rectangleVsRectangle(a, b) {
+      //If the rectangles shouldn't react to the collision, just
+      //test to see if they're touching
+      if (!react) {
+        return hitTestRectangle(a, b, global);
+      } else {
+        return rectangleCollision(a, b, bounce, global);
+      }
+    }
+
+    function circleVsRectangle(a, b) {
+      //If the rectangles shouldn't react to the collision, just
+      //test to see if they're touching
+      if (!react) {
+        return hitTestCircleRectangle(a, b, global);
+      } else {
+        return circleRectangleCollision(a, b, bounce, global);
+      }
+    }
+  }
+}
+
+/***/ }),
+/* 91 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_pixi_js__ = __webpack_require__(74);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_pixi_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_pixi_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_pixi_action__ = __webpack_require__(93);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_pixi_action__ = __webpack_require__(95);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_pixi_action___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_pixi_action__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_pixi_tween__ = __webpack_require__(100);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_pixi_tween___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_pixi_tween__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__textStyles_js__ = __webpack_require__(91);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sound_js__ = __webpack_require__(92);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sound_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__sound_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__bump_js__ = __webpack_require__(90);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__bump_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__bump_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__textStyles_js__ = __webpack_require__(93);
 
 
-//import * as PIXIAUDIO from 'pixi-audio';
+
 
 
 
 class Game {
   constructor() {
     this.app = new __WEBPACK_IMPORTED_MODULE_0_pixi_js__["Application"]();
-    this.renderer = __WEBPACK_IMPORTED_MODULE_0_pixi_js__["autoDetectRenderer"](800, 800, { backgroundColor: 0x1099bb });
+    this.renderer = __WEBPACK_IMPORTED_MODULE_0_pixi_js__["autoDetectRenderer"](800, 800, { transparent: true });
+    this.loader = __WEBPACK_IMPORTED_MODULE_0_pixi_js__["loader"];
+    this.resources = __WEBPACK_IMPORTED_MODULE_0_pixi_js__["loader"].resources;
+    this.textureCache = __WEBPACK_IMPORTED_MODULE_0_pixi_js__["utils"].TextureCache;
+    this.textObj = new __WEBPACK_IMPORTED_MODULE_4__textStyles_js__["a" /* default */](this.renderer);
 
     this.stage = new __WEBPACK_IMPORTED_MODULE_0_pixi_js__["Container"]();
     this.introScene = new __WEBPACK_IMPORTED_MODULE_0_pixi_js__["Container"]();
@@ -18331,20 +19790,45 @@ class Game {
     this.stage.addChild(this.gameScene);
     this.stage.addChild(this.selectScene);
     this.stage.addChild(this.gameOverScene);
+
+    document.body.appendChild(this.renderer.view);
+
+    //this.loader.add('assets/images/characters/scorpionSprites.json').load(this.initGame);
+
+
     this.initGame();
   }
 
   // Set intro Container, first scene
   initGame() {
-    document.body.appendChild(this.renderer.view);
-    this.renderer.render(this.stage);
+    this.introScreen();
   }
+
+  loadSounds() {}
 
   introScreen() {
     this.introScene.visible = true;
     this.selectScene.visible = false;
     this.gameScene.visible = false;
     this.gameOverScene.visible = false;
+
+    let background = __WEBPACK_IMPORTED_MODULE_0_pixi_js__["Sprite"].fromImage('assets/images/backgrounds/init.jpg');
+    background.position.x = 0;
+    background.position.y = 0;
+    background.scale.x = 1.5;
+    background.scale.y = 1.5;
+
+    this.introScene.addChild(background);
+
+    let welcomeTitle = this.textObj.introText();
+    this.introScene.addChild(welcomeTitle);
+
+    let animate = () => {
+      requestAnimationFrame(animate);
+      this.renderer.render(this.stage);
+      __WEBPACK_IMPORTED_MODULE_0_pixi_js__["actionManager"].update();
+    };
+    animate();
   }
 
   gameLoop() {
@@ -18460,7 +19944,7 @@ class Game {
   }
 
   setText(options) {
-    let tStyle = new __WEBPACK_IMPORTED_MODULE_3__textStyles_js__["a" /* default */]();
+    let tStyle = new __WEBPACK_IMPORTED_MODULE_4__textStyles_js__["a" /* default */]();
     let textSt = tStyle.introText();
     let title = new __WEBPACK_IMPORTED_MODULE_0_pixi_js__["Text"](options.textValue, textSt);
     if (options.x === 'center') {
@@ -18481,7 +19965,991 @@ class Game {
 /* harmony default export */ __webpack_exports__["a"] = (Game);
 
 /***/ }),
-/* 91 */
+/* 92 */
+/***/ (function(module, exports) {
+
+
+/*
+Sound.js
+===============
+
+A complete micro library of useful, modular functions that help you load, play, control
+and generate sound effects and music for games and interactive applications. All the
+code targets the WebAudio API.
+*/
+
+/*
+Fixing the WebAudio API
+--------------------------
+
+The WebAudio API is so new that it's API is not consistently implemented properly across
+all modern browsers. Thankfully, Chris Wilson's Audio Context Monkey Patch script
+normalizes the API for maximum compatibility.
+
+https://github.com/cwilso/AudioContext-MonkeyPatch/blob/gh-pages/AudioContextMonkeyPatch.js
+
+It's included here.
+Thank you, Chris!
+
+*/
+
+(function (global, exports, perf) {
+  'use strict';
+
+  function fixSetTarget(param) {
+    if (!param) // if NYI, just return
+      return;
+    if (!param.setTargetAtTime) param.setTargetAtTime = param.setTargetValueAtTime;
+  }
+
+  if (window.hasOwnProperty('webkitAudioContext') && !window.hasOwnProperty('AudioContext')) {
+    window.AudioContext = webkitAudioContext;
+
+    if (!AudioContext.prototype.hasOwnProperty('createGain')) AudioContext.prototype.createGain = AudioContext.prototype.createGainNode;
+    if (!AudioContext.prototype.hasOwnProperty('createDelay')) AudioContext.prototype.createDelay = AudioContext.prototype.createDelayNode;
+    if (!AudioContext.prototype.hasOwnProperty('createScriptProcessor')) AudioContext.prototype.createScriptProcessor = AudioContext.prototype.createJavaScriptNode;
+    if (!AudioContext.prototype.hasOwnProperty('createPeriodicWave')) AudioContext.prototype.createPeriodicWave = AudioContext.prototype.createWaveTable;
+
+    AudioContext.prototype.internal_createGain = AudioContext.prototype.createGain;
+    AudioContext.prototype.createGain = function () {
+      var node = this.internal_createGain();
+      fixSetTarget(node.gain);
+      return node;
+    };
+
+    AudioContext.prototype.internal_createDelay = AudioContext.prototype.createDelay;
+    AudioContext.prototype.createDelay = function (maxDelayTime) {
+      var node = maxDelayTime ? this.internal_createDelay(maxDelayTime) : this.internal_createDelay();
+      fixSetTarget(node.delayTime);
+      return node;
+    };
+
+    AudioContext.prototype.internal_createBufferSource = AudioContext.prototype.createBufferSource;
+    AudioContext.prototype.createBufferSource = function () {
+      var node = this.internal_createBufferSource();
+      if (!node.start) {
+        node.start = function (when, offset, duration) {
+          if (offset || duration) this.noteGrainOn(when || 0, offset, duration);else this.noteOn(when || 0);
+        };
+      } else {
+        node.internal_start = node.start;
+        node.start = function (when, offset, duration) {
+          if (typeof duration !== 'undefined') node.internal_start(when || 0, offset, duration);else node.internal_start(when || 0, offset || 0);
+        };
+      }
+      if (!node.stop) {
+        node.stop = function (when) {
+          this.noteOff(when || 0);
+        };
+      } else {
+        node.internal_stop = node.stop;
+        node.stop = function (when) {
+          node.internal_stop(when || 0);
+        };
+      }
+      fixSetTarget(node.playbackRate);
+      return node;
+    };
+
+    AudioContext.prototype.internal_createDynamicsCompressor = AudioContext.prototype.createDynamicsCompressor;
+    AudioContext.prototype.createDynamicsCompressor = function () {
+      var node = this.internal_createDynamicsCompressor();
+      fixSetTarget(node.threshold);
+      fixSetTarget(node.knee);
+      fixSetTarget(node.ratio);
+      fixSetTarget(node.reduction);
+      fixSetTarget(node.attack);
+      fixSetTarget(node.release);
+      return node;
+    };
+
+    AudioContext.prototype.internal_createBiquadFilter = AudioContext.prototype.createBiquadFilter;
+    AudioContext.prototype.createBiquadFilter = function () {
+      var node = this.internal_createBiquadFilter();
+      fixSetTarget(node.frequency);
+      fixSetTarget(node.detune);
+      fixSetTarget(node.Q);
+      fixSetTarget(node.gain);
+      return node;
+    };
+
+    if (AudioContext.prototype.hasOwnProperty('createOscillator')) {
+      AudioContext.prototype.internal_createOscillator = AudioContext.prototype.createOscillator;
+      AudioContext.prototype.createOscillator = function () {
+        var node = this.internal_createOscillator();
+        if (!node.start) {
+          node.start = function (when) {
+            this.noteOn(when || 0);
+          };
+        } else {
+          node.internal_start = node.start;
+          node.start = function (when) {
+            node.internal_start(when || 0);
+          };
+        }
+        if (!node.stop) {
+          node.stop = function (when) {
+            this.noteOff(when || 0);
+          };
+        } else {
+          node.internal_stop = node.stop;
+          node.stop = function (when) {
+            node.internal_stop(when || 0);
+          };
+        }
+        if (!node.setPeriodicWave) node.setPeriodicWave = node.setWaveTable;
+        fixSetTarget(node.frequency);
+        fixSetTarget(node.detune);
+        return node;
+      };
+    }
+  }
+
+  if (window.hasOwnProperty('webkitOfflineAudioContext') && !window.hasOwnProperty('OfflineAudioContext')) {
+    window.OfflineAudioContext = webkitOfflineAudioContext;
+  }
+})(window);
+
+/*
+Define the audio context
+------------------------
+
+All this code uses a single `AudioContext` If you want to use any of these functions
+independently of this file, make sure that have an `AudioContext` called `actx`. 
+*/
+var actx = new AudioContext();
+
+/*
+sounds
+------
+
+`sounds` is an object that you can use to store all your loaded sound fles. 
+It also has a helpful `load` method that manages asset loading. You can load sounds at
+any time during the game by using the `sounds.load` method. You don't have to use
+the `sounds` object or its `load` method, but it's a really convenient way to 
+work with sound file assets.
+
+Here's how could use the `sound` object to load three sound files from a `sounds` folder and 
+call a `setup` method when all the files have finished loading:
+
+    sounds.load([
+      "sounds/shoot.wav", 
+      "sounds/music.wav",
+      "sounds/bounce.mp3"
+    ]);
+    sounds.whenLoaded = setup;
+
+You can now access these loaded sounds in your application code like this:
+
+var shoot = sounds["sounds/shoot.wav"],
+    music = sounds["sounds/music.wav"],
+    bounce = sounds["sounds/bounce.mp3"];
+
+*/
+
+var sounds = {
+  //Properties to help track the assets being loaded.
+  toLoad: 0,
+  loaded: 0,
+
+  //File extensions for different types of sounds.
+  audioExtensions: ["mp3", "ogg", "wav", "webm"],
+
+  //The callback function that should run when all assets have loaded.
+  //Assign this when you load the fonts, like this: `assets.whenLoaded = makeSprites;`.
+  whenLoaded: undefined,
+
+  //The load method creates and loads all the assets. Use it like this:
+  //`assets.load(["images/anyImage.png", "fonts/anyFont.otf"]);`.
+
+  load: function (sources) {
+    console.log("Loading sounds..");
+
+    //Get a reference to this asset object so we can
+    //refer to it in the `forEach` loop ahead.
+    var self = this;
+
+    //Find the number of files that need to be loaded.
+    self.toLoad = sources.length;
+    sources.forEach(function (source) {
+
+      //Find the file extension of the asset.
+      var extension = source.split('.').pop();
+
+      //#### Sounds
+      //Load audio files that have file extensions that match
+      //the `audioExtensions` array.
+      if (self.audioExtensions.indexOf(extension) !== -1) {
+
+        //Create a sound sprite.
+        var soundSprite = makeSound(source, self.loadHandler.bind(self), true, false);
+
+        //Get the sound file name.
+        soundSprite.name = source;
+
+        //If you just want to extract the file name with the
+        //extension, you can do it like this:
+        //soundSprite.name = source.split("/").pop();
+        //Assign the sound as a property of the assets object so
+        //we can access it like this: `assets["sounds/sound.mp3"]`.
+        self[soundSprite.name] = soundSprite;
+      }
+
+      //Display a message if the file type isn't recognized.
+      else {
+          console.log("File type not recognized: " + source);
+        }
+    });
+  },
+
+  //#### loadHandler
+  //The `loadHandler` will be called each time an asset finishes loading.
+  loadHandler: function () {
+    var self = this;
+    self.loaded += 1;
+    console.log(self.loaded);
+
+    //Check whether everything has loaded.
+    if (self.toLoad === self.loaded) {
+
+      //If it has, run the callback function that was assigned to the `whenLoaded` property
+      console.log("Sounds finished loading");
+
+      //Reset `loaded` and `toLoaded` so we can load more assets
+      //later if we want to.
+      self.toLoad = 0;
+      self.loaded = 0;
+      self.whenLoaded();
+    }
+  }
+};
+
+/*
+makeSound
+---------
+
+`makeSound` is the function you want to use to load and play sound files.
+It creates and returns and WebAudio sound object with lots of useful methods you can
+use to control the sound. 
+You can use it to load a sound like this:
+
+    var anySound = makeSound("sounds/anySound.mp3", loadHandler);
+
+
+The code above will load the sound and then call the `loadHandler`
+when the sound has finished loading. 
+(However, it's more convenient to load the sound file using 
+the `sounds.load` method described above, so I don't recommend loading sounds
+like this unless you need more low-level control.)
+
+After the sound has been loaded you can access and use it like this:
+
+    function loadHandler() {
+      anySound.loop = true;
+      anySound.pan = 0.8;
+      anySound.volume = 0.5;
+      anySound.play();
+      anySound.pause();
+      anySound.playFrom(second);
+      anySound.restart();
+      anySound.setReverb(2, 2, false);
+      anySound.setEcho(0.2, 0.2, 0);
+      anySound.playbackRate = 0.5;
+    }
+   
+For advanced configurations, you can optionally supply `makeSound` with optional 3rd and 
+4th arguments:
+
+   var anySound = makeSound(source, loadHandler, loadTheSound?, xhrObject);
+
+`loadTheSound?` is a Boolean (true/false) value that, if `false` prevents the sound file
+from being loaded. You would only want to set it to `false` like this if you were
+using another file loading library to load the sound, and didn't want it to be loaded
+twice.
+
+`xhrObject`, the optional 4th argument, is the XHR object that was used to load the sound. Again, you 
+would only supply this if you were using another file loading library to load the sound,
+and that library had generated its own XHR object. If you supply the `xhr` argument, `makeSound`
+will skip the file loading step (because you've already done that), but still decode the audio buffer for you.
+(If you are loading the sound file using another file loading library, make sure that your sound
+files are loaded with the XHR `responseType = "arraybuffer"` option.)
+
+For example, here's how you could use this advanced configuration to decode a sound that you've already loaded
+using your own custom loading system:
+
+   var soundSprite = makeSound(source, decodeHandler.bind(this), false, xhr);
+
+When the file has finished being decoded, your custom `decodeHandler` will run, which tells you
+that the file has finished decoding.
+
+If you're creating more than one sound like this, use counter variables to track the number of sounds
+you need to decode, and the number of sounds that have been decoded. When both sets of counters are the
+same, you'll know that all your sound files have finished decoding and you can proceed with the rest
+of you application. (The [Hexi game engine](https://github.com/kittykatattack/hexi) uses `makeSound` in this way.)
+
+*/
+
+function makeSound(source, loadHandler, loadSound, xhr) {
+
+  //The sound object that this function returns.
+  var o = {};
+
+  //Set the default properties.
+  o.volumeNode = actx.createGain();
+
+  //Create the pan node using the efficient `createStereoPanner`
+  //method, if it's available.
+  if (!actx.createStereoPanner) {
+    o.panNode = actx.createPanner();
+  } else {
+    o.panNode = actx.createStereoPanner();
+  }
+  o.delayNode = actx.createDelay();
+  o.feedbackNode = actx.createGain();
+  o.filterNode = actx.createBiquadFilter();
+  o.convolverNode = actx.createConvolver();
+  o.soundNode = null;
+  o.buffer = null;
+  o.source = source;
+  o.loop = false;
+  o.playing = false;
+
+  //The function that should run when the sound is loaded.
+  o.loadHandler = undefined;
+
+  //Values for the `pan` and `volume` getters/setters.
+  o.panValue = 0;
+  o.volumeValue = 1;
+
+  //Values to help track and set the start and pause times.
+  o.startTime = 0;
+  o.startOffset = 0;
+
+  //Set the playback rate.
+  o.playbackRate = 1;
+
+  //Echo properties.
+  o.echo = false;
+  o.delayValue = 0.3;
+  o.feebackValue = 0.3;
+  o.filterValue = 0;
+
+  //Reverb properties
+  o.reverb = false;
+  o.reverbImpulse = null;
+
+  //The sound object's methods.
+  o.play = function () {
+
+    //Set the start time (it will be `0` when the sound
+    //first starts.
+    o.startTime = actx.currentTime;
+
+    //Create a sound node.
+    o.soundNode = actx.createBufferSource();
+
+    //Set the sound node's buffer property to the loaded sound.
+    o.soundNode.buffer = o.buffer;
+
+    //Set the playback rate
+    o.soundNode.playbackRate.value = this.playbackRate;
+
+    //Connect the sound to the pan, connect the pan to the
+    //volume, and connect the volume to the destination.
+    o.soundNode.connect(o.volumeNode);
+
+    //If there's no reverb, bypass the convolverNode
+    if (o.reverb === false) {
+      o.volumeNode.connect(o.panNode);
+    }
+
+    //If there is reverb, connect the `convolverNode` and apply
+    //the impulse response
+    else {
+        o.volumeNode.connect(o.convolverNode);
+        o.convolverNode.connect(o.panNode);
+        o.convolverNode.buffer = o.reverbImpulse;
+      }
+
+    //Connect the `panNode` to the destination to complete the chain.
+    o.panNode.connect(actx.destination);
+
+    //Add optional echo.
+    if (o.echo) {
+
+      //Set the values.
+      o.feedbackNode.gain.value = o.feebackValue;
+      o.delayNode.delayTime.value = o.delayValue;
+      o.filterNode.frequency.value = o.filterValue;
+
+      //Create the delay loop, with optional filtering.
+      o.delayNode.connect(o.feedbackNode);
+      if (o.filterValue > 0) {
+        o.feedbackNode.connect(o.filterNode);
+        o.filterNode.connect(o.delayNode);
+      } else {
+        o.feedbackNode.connect(o.delayNode);
+      }
+
+      //Capture the sound from the main node chain, send it to the
+      //delay loop, and send the final echo effect to the `panNode` which
+      //will then route it to the destination.
+      o.volumeNode.connect(o.delayNode);
+      o.delayNode.connect(o.panNode);
+    }
+
+    //Will the sound loop? This can be `true` or `false`.
+    o.soundNode.loop = o.loop;
+
+    //Finally, use the `start` method to play the sound.
+    //The start time will either be `0`,
+    //or a later time if the sound was paused.
+    o.soundNode.start(0, o.startOffset % o.buffer.duration);
+
+    //Set `playing` to `true` to help control the
+    //`pause` and `restart` methods.
+    o.playing = true;
+  };
+
+  o.pause = function () {
+    //Pause the sound if it's playing, and calculate the
+    //`startOffset` to save the current position.
+    if (o.playing) {
+      o.soundNode.stop(0);
+      o.startOffset += actx.currentTime - o.startTime;
+      o.playing = false;
+    }
+  };
+
+  o.restart = function () {
+    //Stop the sound if it's playing, reset the start and offset times,
+    //then call the `play` method again.
+    if (o.playing) {
+      o.soundNode.stop(0);
+    }
+    o.startOffset = 0;
+    o.play();
+  };
+
+  o.playFrom = function (value) {
+    if (o.playing) {
+      o.soundNode.stop(0);
+    }
+    o.startOffset = value;
+    o.play();
+  };
+
+  o.setEcho = function (delayValue, feedbackValue, filterValue) {
+    if (delayValue === undefined) delayValue = 0.3;
+    if (feedbackValue === undefined) feedbackValue = 0.3;
+    if (filterValue === undefined) filterValue = 0;
+    o.delayValue = delayValue;
+    o.feebackValue = feedbackValue;
+    o.filterValue = filterValue;
+    o.echo = true;
+  };
+
+  o.setReverb = function (duration, decay, reverse) {
+    if (duration === undefined) duration = 2;
+    if (decay === undefined) decay = 2;
+    if (reverse === undefined) reverse = false;
+    o.reverbImpulse = impulseResponse(duration, decay, reverse, actx);
+    o.reverb = true;
+  };
+
+  //A general purpose `fade` method for fading sounds in or out.
+  //The first argument is the volume that the sound should
+  //fade to, and the second value is the duration, in seconds,
+  //that the fade should last.
+  o.fade = function (endValue, durationInSeconds) {
+    if (o.playing) {
+      o.volumeNode.gain.linearRampToValueAtTime(o.volumeNode.gain.value, actx.currentTime);
+      o.volumeNode.gain.linearRampToValueAtTime(endValue, actx.currentTime + durationInSeconds);
+    }
+  };
+
+  //Fade a sound in, from an initial volume level of zero.
+  o.fadeIn = function (durationInSeconds) {
+
+    //Set the volume to 0 so that you can fade
+    //in from silence
+    o.volumeNode.gain.value = 0;
+    o.fade(1, durationInSeconds);
+  };
+
+  //Fade a sound out, from its current volume level to zero.
+  o.fadeOut = function (durationInSeconds) {
+    o.fade(0, durationInSeconds);
+  };
+
+  //Volume and pan getters/setters.
+  Object.defineProperties(o, {
+    volume: {
+      get: function () {
+        return o.volumeValue;
+      },
+      set: function (value) {
+        o.volumeNode.gain.value = value;
+        o.volumeValue = value;
+      },
+      enumerable: true, configurable: true
+    },
+
+    //The pan node uses the high-efficiency stereo panner, if it's
+    //available. But, because this is a new addition to the 
+    //WebAudio spec, it might not be available on all browsers.
+    //So the code checks for this and uses the older 3D panner
+    //if 2D isn't available.
+    pan: {
+      get: function () {
+        if (!actx.createStereoPanner) {
+          return o.panValue;
+        } else {
+          return o.panNode.pan.value;
+        }
+      },
+      set: function (value) {
+        if (!actx.createStereoPanner) {
+          //Panner objects accept x, y and z coordinates for 3D
+          //sound. However, because we're only doing 2D left/right
+          //panning we're only interested in the x coordinate,
+          //the first one. However, for a natural effect, the z
+          //value also has to be set proportionately.
+          var x = value,
+              y = 0,
+              z = 1 - Math.abs(x);
+          o.panNode.setPosition(x, y, z);
+          o.panValue = value;
+        } else {
+          o.panNode.pan.value = value;
+        }
+      },
+      enumerable: true, configurable: true
+    }
+  });
+
+  //Optionally Load and decode the sound.
+  if (loadSound) {
+    this.loadSound(o, source, loadHandler);
+  }
+
+  //Optionally, if you've loaded the sound using some other loader, just decode the sound
+  if (xhr) {
+    this.decodeAudio(o, xhr, loadHandler);
+  }
+
+  //Return the sound object.
+  return o;
+}
+
+//The `loadSound` function loads the sound file using XHR
+function loadSound(o, source, loadHandler) {
+  var xhr = new XMLHttpRequest();
+
+  //Use xhr to load the sound file.
+  xhr.open("GET", source, true);
+  xhr.responseType = "arraybuffer";
+
+  //When the sound has finished loading, decode it using the
+  //`decodeAudio` function (which you'll see ahead)
+  xhr.addEventListener("load", decodeAudio.bind(this, o, xhr, loadHandler));
+
+  //Send the request to load the file.
+  xhr.send();
+}
+
+//The `decodeAudio` function decodes the audio file for you and 
+//launches the `loadHandler` when it's done
+function decodeAudio(o, xhr, loadHandler) {
+
+  //Decode the sound and store a reference to the buffer.
+  actx.decodeAudioData(xhr.response, function (buffer) {
+    o.buffer = buffer;
+    o.hasLoaded = true;
+
+    //This next bit is optional, but important.
+    //If you have a load manager in your game, call it here so that
+    //the sound is registered as having loaded.
+    if (loadHandler) {
+      loadHandler();
+    }
+  },
+
+  //Throw an error if the sound can't be decoded.
+  function (error) {
+    throw new Error("Audio could not be decoded: " + error);
+  });
+}
+
+/*
+soundEffect
+-----------
+
+The `soundEffect` function let's you generate your sounds and musical notes from scratch
+(Reverb effect requires the `impulseResponse` function that you'll see further ahead in this file)
+
+To create a custom sound effect, define all the parameters that characterize your sound. Here's how to
+create a laser shooting sound:
+
+    soundEffect(
+      1046.5,           //frequency
+      0,                //attack
+      0.3,              //decay
+      "sawtooth",       //waveform
+      1,                //Volume
+      -0.8,             //pan
+      0,                //wait before playing
+      1200,             //pitch bend amount
+      false,            //reverse bend
+      0,                //random pitch range
+      25,               //dissonance
+      [0.2, 0.2, 2000], //echo: [delay, feedback, filter]
+      undefined         //reverb: [duration, decay, reverse?]
+      3                 //Maximum duration of sound, in seconds
+    );
+
+Experiment by changing these parameters to see what kinds of effects you can create, and build
+your own library of custom sound effects for games.
+*/
+
+function soundEffect(frequencyValue, //The sound's fequency pitch in Hertz
+attack, //The time, in seconds, to fade the sound in
+decay, //The time, in seconds, to fade the sound out
+type, //waveform type: "sine", "triangle", "square", "sawtooth"
+volumeValue, //The sound's maximum volume
+panValue, //The speaker pan. left: -1, middle: 0, right: 1
+wait, //The time, in seconds, to wait before playing the sound
+pitchBendAmount, //The number of Hz in which to bend the sound's pitch down
+reverse, //If `reverse` is true the pitch will bend up
+randomValue, //A range, in Hz, within which to randomize the pitch
+dissonance, //A value in Hz. It creates 2 dissonant frequencies above and below the target pitch
+echo, //An array: [delayTimeInSeconds, feedbackTimeInSeconds, filterValueInHz]
+reverb, //An array: [durationInSeconds, decayRateInSeconds, reverse]
+timeout //A number, in seconds, which is the maximum duration for sound effects
+) {
+
+  //Set the default values
+  if (frequencyValue === undefined) frequencyValue = 200;
+  if (attack === undefined) attack = 0;
+  if (decay === undefined) decay = 1;
+  if (type === undefined) type = "sine";
+  if (volumeValue === undefined) volumeValue = 1;
+  if (panValue === undefined) panValue = 0;
+  if (wait === undefined) wait = 0;
+  if (pitchBendAmount === undefined) pitchBendAmount = 0;
+  if (reverse === undefined) reverse = false;
+  if (randomValue === undefined) randomValue = 0;
+  if (dissonance === undefined) dissonance = 0;
+  if (echo === undefined) echo = undefined;
+  if (reverb === undefined) reverb = undefined;
+  if (timeout === undefined) timeout = undefined;
+
+  //Create an oscillator, gain and pan nodes, and connect them
+  //together to the destination
+  var oscillator, volume, pan;
+  oscillator = actx.createOscillator();
+  volume = actx.createGain();
+  if (!actx.createStereoPanner) {
+    pan = actx.createPanner();
+  } else {
+    pan = actx.createStereoPanner();
+  }
+  oscillator.connect(volume);
+  volume.connect(pan);
+  pan.connect(actx.destination);
+
+  //Set the supplied values
+  volume.gain.value = volumeValue;
+  if (!actx.createStereoPanner) {
+    pan.setPosition(panValue, 0, 1 - Math.abs(panValue));
+  } else {
+    pan.pan.value = panValue;
+  }
+  oscillator.type = type;
+
+  //Optionally randomize the pitch. If the `randomValue` is greater
+  //than zero, a random pitch is selected that's within the range
+  //specified by `frequencyValue`. The random pitch will be either
+  //above or below the target frequency.
+  var frequency;
+  var randomInt = function (min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  };
+  if (randomValue > 0) {
+    frequency = randomInt(frequencyValue - randomValue / 2, frequencyValue + randomValue / 2);
+  } else {
+    frequency = frequencyValue;
+  }
+  oscillator.frequency.value = frequency;
+
+  //Apply effects
+  if (attack > 0) fadeIn(volume);
+  fadeOut(volume);
+  if (pitchBendAmount > 0) pitchBend(oscillator);
+  if (echo) addEcho(volume);
+  if (reverb) addReverb(volume);
+  if (dissonance > 0) addDissonance();
+
+  //Play the sound
+  play(oscillator);
+
+  //The helper functions:
+
+  function addReverb(volumeNode) {
+    var convolver = actx.createConvolver();
+    convolver.buffer = impulseResponse(reverb[0], reverb[1], reverb[2], actx);
+    volumeNode.connect(convolver);
+    convolver.connect(pan);
+  }
+
+  function addEcho(volumeNode) {
+
+    //Create the nodes
+    var feedback = actx.createGain(),
+        delay = actx.createDelay(),
+        filter = actx.createBiquadFilter();
+
+    //Set their values (delay time, feedback time and filter frequency)
+    delay.delayTime.value = echo[0];
+    feedback.gain.value = echo[1];
+    if (echo[2]) filter.frequency.value = echo[2];
+
+    //Create the delay feedback loop, with
+    //optional filtering
+    delay.connect(feedback);
+    if (echo[2]) {
+      feedback.connect(filter);
+      filter.connect(delay);
+    } else {
+      feedback.connect(delay);
+    }
+
+    //Connect the delay loop to the oscillator's volume
+    //node, and then to the destination
+    volumeNode.connect(delay);
+
+    //Connect the delay loop to the main sound chain's
+    //pan node, so that the echo effect is directed to
+    //the correct speaker
+    delay.connect(pan);
+  }
+
+  //The `fadeIn` function
+  function fadeIn(volumeNode) {
+
+    //Set the volume to 0 so that you can fade
+    //in from silence
+    volumeNode.gain.value = 0;
+
+    volumeNode.gain.linearRampToValueAtTime(0, actx.currentTime + wait);
+    volumeNode.gain.linearRampToValueAtTime(volumeValue, actx.currentTime + wait + attack);
+  }
+
+  //The `fadeOut` function
+  function fadeOut(volumeNode) {
+    volumeNode.gain.linearRampToValueAtTime(volumeValue, actx.currentTime + attack + wait);
+    volumeNode.gain.linearRampToValueAtTime(0, actx.currentTime + wait + attack + decay);
+  }
+
+  //The `pitchBend` function
+  function pitchBend(oscillatorNode) {
+    //If `reverse` is true, make the note drop in frequency. Useful for
+    //shooting sounds
+
+    //Get the frequency of the current oscillator
+    var frequency = oscillatorNode.frequency.value;
+
+    //If `reverse` is true, make the sound drop in pitch
+    if (!reverse) {
+      oscillatorNode.frequency.linearRampToValueAtTime(frequency, actx.currentTime + wait);
+      oscillatorNode.frequency.linearRampToValueAtTime(frequency - pitchBendAmount, actx.currentTime + wait + attack + decay);
+    }
+
+    //If `reverse` is false, make the note rise in pitch. Useful for
+    //jumping sounds
+    else {
+        oscillatorNode.frequency.linearRampToValueAtTime(frequency, actx.currentTime + wait);
+        oscillatorNode.frequency.linearRampToValueAtTime(frequency + pitchBendAmount, actx.currentTime + wait + attack + decay);
+      }
+  }
+
+  //The `addDissonance` function
+  function addDissonance() {
+
+    //Create two more oscillators and gain nodes
+    var d1 = actx.createOscillator(),
+        d2 = actx.createOscillator(),
+        d1Volume = actx.createGain(),
+        d2Volume = actx.createGain();
+
+    //Set the volume to the `volumeValue`
+    d1Volume.gain.value = volumeValue;
+    d2Volume.gain.value = volumeValue;
+
+    //Connect the oscillators to the gain and destination nodes
+    d1.connect(d1Volume);
+    d1Volume.connect(actx.destination);
+    d2.connect(d2Volume);
+    d2Volume.connect(actx.destination);
+
+    //Set the waveform to "sawtooth" for a harsh effect
+    d1.type = "sawtooth";
+    d2.type = "sawtooth";
+
+    //Make the two oscillators play at frequencies above and
+    //below the main sound's frequency. Use whatever value was
+    //supplied by the `dissonance` argument
+    d1.frequency.value = frequency + dissonance;
+    d2.frequency.value = frequency - dissonance;
+
+    //Fade in/out, pitch bend and play the oscillators
+    //to match the main sound
+    if (attack > 0) {
+      fadeIn(d1Volume);
+      fadeIn(d2Volume);
+    }
+    if (decay > 0) {
+      fadeOut(d1Volume);
+      fadeOut(d2Volume);
+    }
+    if (pitchBendAmount > 0) {
+      pitchBend(d1);
+      pitchBend(d2);
+    }
+    if (echo) {
+      addEcho(d1Volume);
+      addEcho(d2Volume);
+    }
+    if (reverb) {
+      addReverb(d1Volume);
+      addReverb(d2Volume);
+    }
+    play(d1);
+    play(d2);
+  }
+
+  //The `play` function
+  function play(node) {
+    node.start(actx.currentTime + wait);
+
+    //Oscillators have to be stopped otherwise they accumulate in 
+    //memory and tax the CPU. They'll be stopped after a default
+    //timeout of 2 seconds, which should be enough for most sound 
+    //effects. Override this in the `soundEffect` parameters if you
+    //need a longer sound
+    node.stop(actx.currentTime + wait + 2);
+  }
+}
+
+/*
+impulseResponse
+---------------
+
+The `makeSound` and `soundEffect` functions uses `impulseResponse`  to help create an optional reverb effect.  
+It simulates a model of sound reverberation in an acoustic space which 
+a convolver node can blend with the source sound. Make sure to include this function along with `makeSound`
+and `soundEffect` if you need to use the reverb feature.
+*/
+
+function impulseResponse(duration, decay, reverse, actx) {
+
+  //The length of the buffer.
+  var length = actx.sampleRate * duration;
+
+  //Create an audio buffer (an empty sound container) to store the reverb effect.
+  var impulse = actx.createBuffer(2, length, actx.sampleRate);
+
+  //Use `getChannelData` to initialize empty arrays to store sound data for
+  //the left and right channels.
+  var left = impulse.getChannelData(0),
+      right = impulse.getChannelData(1);
+
+  //Loop through each sample-frame and fill the channel
+  //data with random noise.
+  for (var i = 0; i < length; i++) {
+
+    //Apply the reverse effect, if `reverse` is `true`.
+    var n;
+    if (reverse) {
+      n = length - i;
+    } else {
+      n = i;
+    }
+
+    //Fill the left and right channels with random white noise which
+    //decays exponentially.
+    left[i] = (Math.random() * 2 - 1) * Math.pow(1 - n / length, decay);
+    right[i] = (Math.random() * 2 - 1) * Math.pow(1 - n / length, decay);
+  }
+
+  //Return the `impulse`.
+  return impulse;
+}
+
+/*
+keyboard
+--------
+
+This isn't really necessary - I just included it for fun to help with the 
+examples in the `index.html` files.
+The `keyboard` helper function creates `key` objects
+that listen for keyboard events. Create a new key object like
+this:
+
+    var keyObject = g.keyboard(asciiKeyCodeNumber);
+
+Then assign `press` and `release` methods like this:
+
+    keyObject.press = function() {
+      //key object pressed
+    };
+    keyObject.release = function() {
+      //key object released
+    };
+
+Keyboard objects also have `isDown` and `isUp` Booleans that you can check.
+This is so much easier than having to write out tedious keyboard even capture 
+code from scratch.
+
+Like I said, the `keyboard` function has nothing to do with generating sounds,
+so just delete it if you don't want it!
+*/
+
+function keyboard(keyCode) {
+  var key = {};
+  key.code = keyCode;
+  key.isDown = false;
+  key.isUp = true;
+  key.press = undefined;
+  key.release = undefined;
+  //The `downHandler`
+  key.downHandler = function (event) {
+    if (event.keyCode === key.code) {
+      if (key.isUp && key.press) key.press();
+      key.isDown = true;
+      key.isUp = false;
+    }
+    event.preventDefault();
+  };
+
+  //The `upHandler`
+  key.upHandler = function (event) {
+    if (event.keyCode === key.code) {
+      if (key.isDown && key.release) key.release();
+      key.isDown = false;
+      key.isUp = true;
+    }
+    event.preventDefault();
+  };
+
+  //Attach event listeners
+  window.addEventListener("keydown", key.downHandler.bind(key), false);
+  window.addEventListener("keyup", key.upHandler.bind(key), false);
+  return key;
+}
+
+/***/ }),
+/* 93 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -18490,9 +20958,34 @@ class Game {
 
 
 class TextStyles {
-  constructor() {}
+  constructor(renderer) {
+    this.renderer = renderer;
+  }
+
+  getTextObject(options, style) {
+    let title = new __WEBPACK_IMPORTED_MODULE_0_pixi_js__["Text"](options.textValue, style);
+    if (options.x === 'center') {
+      title.x = this.renderer.width / 2 - title.width / 2;
+    } else {
+      title.x = options.x;
+    }
+    if (options.y === 'center') {
+      title.y = this.renderer.height / 2 - title.height / 2;
+    } else {
+      title.y = options.y;
+    }
+    return title;
+  }
 
   introText() {
+    let title = this.getTextObject({
+      textValue: 'Welcome to Mortal Kombat Prodigious',
+      x: 'center',
+      y: 'center' }, this.introStyle());
+    return title;
+  }
+
+  introStyle() {
     let titleStyle = new __WEBPACK_IMPORTED_MODULE_0_pixi_js__["TextStyle"]({
       fontFamily: 'Arial',
       fontSize: 36,
@@ -18517,7 +21010,7 @@ class TextStyles {
 /* harmony default export */ __webpack_exports__["a"] = (TextStyles);
 
 /***/ }),
-/* 92 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18614,14 +21107,14 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 
 /***/ }),
-/* 93 */
+/* 95 */
 /***/ (function(module, exports) {
 
 !function(t){function e(i){if(n[i])return n[i].exports;var r=n[i]={exports:{},id:i,loaded:!1};return t[i].call(r.exports,r,r.exports,e),r.loaded=!0,r.exports}var n={};return e.m=t,e.c=n,e.p="",e(0)}([function(t,e,n){t.exports=n(17)},function(t,e){"use strict";function n(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}Object.defineProperty(e,"__esModule",{value:!0});var i=function(){function t(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}return function(e,n,i){return n&&t(e.prototype,n),i&&t(e,i),e}}(),r=function(){function t(){n(this,t)}return i(t,[{key:"reset",value:function(){}},{key:"update",value:function(t,e,n){if(!t)throw"Action obejct is not valid."}}]),t}();e.default=r},function(t,e){t.exports=PIXI},function(t,e,n){"use strict";function i(t){return t&&t.__esModule?t:{default:t}}function r(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}function o(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e}function u(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)}Object.defineProperty(e,"__esModule",{value:!0}),e.AlphaBy=e.AlphaTo=void 0;var a=function(){function t(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}return function(e,n,i){return n&&t(e.prototype,n),i&&t(e,i),e}}(),s=n(1),c=i(s);e.AlphaTo=function(t){function e(t,n){r(this,e);var i=o(this,(e.__proto__||Object.getPrototypeOf(e)).call(this));return i.time=1e3*n,i.alpha=t,i.reset(),i}return u(e,t),a(e,[{key:"reset",value:function(){this._time=this.time}},{key:"update",value:function(t,e,n){var i=t.alpha,r=(this.alpha-i)/this._time*n;return t.alpha+=r,this._time-=n,this._time<=0&&(t.alpha=this.alpha,this.reset(),!0)}}]),e}(c.default),e.AlphaBy=function(t){function e(t,n){r(this,e);var i=o(this,(e.__proto__||Object.getPrototypeOf(e)).call(this));return i.time=1e3*n,i.alpha=t,i.reset(),i}return u(e,t),a(e,[{key:"reset",value:function(){this._time=this.time,this.talpha=null}},{key:"update",value:function(t,e,n){var i=t.alpha;null===this.talpha&&(this.talpha=i+this.alpha);var r=(this.talpha-i)/this._time*n;return t.alpha+=r,this._time-=n,this._time<=0&&(t.alpha=this.talpha,this.reset(),!0)}}]),e}(c.default)},function(t,e,n){"use strict";function i(t){return t&&t.__esModule?t:{default:t}}function r(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}function o(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e}function u(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)}Object.defineProperty(e,"__esModule",{value:!0}),e.Blink=void 0;var a=function(){function t(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}return function(e,n,i){return n&&t(e.prototype,n),i&&t(e,i),e}}(),s=n(1),c=i(s);e.Blink=function(t){function e(t,n){r(this,e);var i=o(this,(e.__proto__||Object.getPrototypeOf(e)).call(this));return i.time=1e3*n,i.count=t,i.reset(),i}return u(e,t),a(e,[{key:"reset",value:function(){this._count=2*this.count,this._gap=this.time/this._count,this._timer=0}},{key:"update",value:function(t,e,n){return t.visible,this._timer<=0?(t.visible=!t.visible,this._timer=this._gap,this._count--):this._timer-=n,this._count<=0&&(this.reset(),!0)}}]),e}(c.default)},function(t,e,n){"use strict";function i(t){return t&&t.__esModule?t:{default:t}}function r(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}function o(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e}function u(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)}Object.defineProperty(e,"__esModule",{value:!0}),e.CallFunc=void 0;var a=function(){function t(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}return function(e,n,i){return n&&t(e.prototype,n),i&&t(e,i),e}}(),s=n(1),c=i(s);e.CallFunc=function(t){function e(t){r(this,e);var n=o(this,(e.__proto__||Object.getPrototypeOf(e)).call(this));return n.func=t||function(){},n.reset(),n}return u(e,t),a(e,[{key:"reset",value:function(){}},{key:"update",value:function(t,e,n){return this.func(),this.reset(),!0}}]),e}(c.default)},function(t,e,n){"use strict";function i(t){return t&&t.__esModule?t:{default:t}}function r(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}function o(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e}function u(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)}Object.defineProperty(e,"__esModule",{value:!0}),e.DelayTime=void 0;var a=function(){function t(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}return function(e,n,i){return n&&t(e.prototype,n),i&&t(e,i),e}}(),s=n(1),c=i(s);e.DelayTime=function(t){function e(t){r(this,e);var n=o(this,(e.__proto__||Object.getPrototypeOf(e)).call(this));return n.time=1e3*t,n.reset(),n}return u(e,t),a(e,[{key:"reset",value:function(){this._time=this.time}},{key:"update",value:function(t,e,n){return this._time-=n,this._time<=0&&(this.reset(),!0)}}]),e}(c.default)},function(t,e,n){"use strict";function i(t){return t&&t.__esModule?t:{default:t}}function r(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}function o(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e}function u(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)}Object.defineProperty(e,"__esModule",{value:!0}),e.FadeOut=e.FadeIn=void 0;var a=function(){function t(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}return function(e,n,i){return n&&t(e.prototype,n),i&&t(e,i),e}}(),s=n(1),c=i(s);e.FadeIn=function(t){function e(t){r(this,e);var n=o(this,(e.__proto__||Object.getPrototypeOf(e)).call(this));return n.time=1e3*t,n.alpha=1,n.reset(),n}return u(e,t),a(e,[{key:"reset",value:function(){this._time=this.time}},{key:"update",value:function(t,e,n){var i=t.alpha,r=(this.alpha-i)/this._time*n;return t.alpha+=r,this._time-=n,this._time<=0&&(t.alpha=this.alpha,this.reset(),!0)}}]),e}(c.default),e.FadeOut=function(t){function e(t){r(this,e);var n=o(this,(e.__proto__||Object.getPrototypeOf(e)).call(this));return n.time=1e3*t,n.alpha=0,n.reset(),n}return u(e,t),a(e,[{key:"reset",value:function(){this._time=this.time}},{key:"update",value:function(t,e,n){var i=t.alpha,r=(this.alpha-i)/this._time*n;return t.alpha+=r,this._time-=n,this._time<=0&&(t.alpha=this.alpha,this.reset(),!0)}}]),e}(c.default)},function(t,e,n){"use strict";function i(t){if(t&&t.__esModule)return t;var e={};if(null!=t)for(var n in t)Object.prototype.hasOwnProperty.call(t,n)&&(e[n]=t[n]);return e.default=t,e}function r(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}function o(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e}function u(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)}Object.defineProperty(e,"__esModule",{value:!0});var a=function(){function t(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}return function(e,n,i){return n&&t(e.prototype,n),i&&t(e,i),e}}(),s=n(2),c=i(s),l=function(t){function e(t,n){r(this,e);var i=o(this,(e.__proto__||Object.getPrototypeOf(e)).call(this));return i._id="_"+c.utils.uuid(),i.sprite=t,i.action=n,i._started=!1,i._ended=!1,i._active=!1,i}return u(e,t),a(e,[{key:"update",value:function(t,e){this._started||(this.emit("start",e),this._started=!0,this._active=!0),this._ended=this.action.update(this.sprite,t,e),this._ended&&this._active&&(this.emit("end",e),this._active=!1)}},{key:"isEnded",value:function(){return this._ended}}]),e}(c.utils.EventEmitter),f=function(){function t(){r(this,t),this.actions={},this._actionsToDelete=[],this._last=0}return a(t,[{key:"update",value:function(t){var e=void 0;t||0===t?e=1e3*t:(e=this._getDeltaMS(),t=e/1e3);for(var n in this.actions){var i=this.actions[n];i.update(t,e),i.isEnded()&&this._actionsToDelete.push(i)}if(this._actionsToDelete.length){for(var r=0;r<this._actionsToDelete.length;r++)this._remove(this._actionsToDelete[r]);this._actionsToDelete.length=0}}},{key:"runAction",value:function(t,e){var n=new l(t,e);return this.actions[n._id]=n,n}},{key:"cancelAction",value:function(t){this._actionsToDelete.push(t)}},{key:"_remove",value:function(t){delete this.actions[t._id]}},{key:"_getDeltaMS",value:function(){0===this._last&&(this._last=Date.now());var t=Date.now(),e=t-this._last;return this._last=t,e}}]),t}();e.default=f},function(t,e,n){"use strict";function i(t){return t&&t.__esModule?t:{default:t}}function r(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}function o(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e}function u(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)}Object.defineProperty(e,"__esModule",{value:!0}),e.MoveBy=e.MoveTo=void 0;var a=function(){function t(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}return function(e,n,i){return n&&t(e.prototype,n),i&&t(e,i),e}}(),s=n(1),c=i(s);e.MoveTo=function(t){function e(t,n,i){r(this,e);var u=o(this,(e.__proto__||Object.getPrototypeOf(e)).call(this));return u.time=1e3*i,u.x=t,u.y=n,u.reset(),u}return u(e,t),a(e,[{key:"reset",value:function(){this._time=this.time}},{key:"update",value:function(t,e,n){var i=t.position,r=(this.x-i.x)/this._time*n,o=(this.y-i.y)/this._time*n;return t.x+=r,t.y+=o,this._time-=n,this._time<=0&&(t.x=this.x,t.y=this.y,this.reset(),!0)}}]),e}(c.default),e.MoveBy=function(t){function e(t,n,i){r(this,e);var u=o(this,(e.__proto__||Object.getPrototypeOf(e)).call(this));return u.time=1e3*i,u.x=t,u.y=n,u.reset(),u}return u(e,t),a(e,[{key:"reset",value:function(){this._time=this.time,this.tx=null,this.ty=null}},{key:"update",value:function(t,e,n){var i=t.position;null!==this.tx&&null!==this.ty||(this.tx=i.x+this.x,this.ty=i.y+this.y);var r=(this.tx-i.x)/this._time*n,o=(this.ty-i.y)/this._time*n;return t.x+=r,t.y+=o,this._time-=n,this._time<=0&&(t.x=this.tx,t.y=this.ty,this.reset(),!0)}}]),e}(c.default)},function(t,e,n){"use strict";function i(t){return t&&t.__esModule?t:{default:t}}function r(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}function o(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e}function u(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)}Object.defineProperty(e,"__esModule",{value:!0}),e.PivotBy=e.PivotTo=void 0;var a=function(){function t(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}return function(e,n,i){return n&&t(e.prototype,n),i&&t(e,i),e}}(),s=n(1),c=i(s);e.PivotTo=function(t){function e(t,n,i){r(this,e);var u=o(this,(e.__proto__||Object.getPrototypeOf(e)).call(this));return u.time=1e3*i,u.x=t,u.y=n,u.reset(),u}return u(e,t),a(e,[{key:"reset",value:function(){this._time=this.time}},{key:"update",value:function(t,e,n){var i=t.pivot,r=(this.x-i.x)/this._time*n,o=(this.y-i.y)/this._time*n;return t.pivot.x+=r,t.pivot.y+=o,this._time-=n,this._time<=0&&(t.pivot.x=this.x,t.pivot.y=this.y,this.reset(),!0)}}]),e}(c.default),e.PivotBy=function(t){function e(t,n,i){r(this,e);var u=o(this,(e.__proto__||Object.getPrototypeOf(e)).call(this));return u.time=1e3*i,u.x=t,u.y=n,u.reset(),u}return u(e,t),a(e,[{key:"reset",value:function(){this._time=this.time,this.tx=null,this.ty=null}},{key:"update",value:function(t,e,n){var i=t.pivot;null!==this.tx&&null!==this.ty||(this.tx=i.x+this.x,this.ty=i.y+this.y);var r=(this.tx-i.x)/this._time*n,o=(this.ty-i.y)/this._time*n;return t.pivot.x+=r,t.pivot.y+=o,this._time-=n,this._time<=0&&(t.pivot.x=this.tx,t.pivot.y=this.ty,this.reset(),!0)}}]),e}(c.default)},function(t,e,n){"use strict";function i(t){return t&&t.__esModule?t:{default:t}}function r(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}function o(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e}function u(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)}Object.defineProperty(e,"__esModule",{value:!0}),e.Repeat=void 0;var a=function(){function t(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}return function(e,n,i){return n&&t(e.prototype,n),i&&t(e,i),e}}(),s=n(1),c=i(s);e.Repeat=function(t){function e(t,n){r(this,e);var i=o(this,(e.__proto__||Object.getPrototypeOf(e)).call(this));return i.action=t,i.count=n,i.reset(),i}return u(e,t),a(e,[{key:"reset",value:function(){this._count=this.count,this._count||(this._count=1/0)}},{key:"update",value:function(t,e,n){var i=this.action.update(t,e,n);return i&&(this.action.reset(),this._count--),this._count<=0&&(this.reset(),!0)}}]),e}(c.default)},function(t,e,n){"use strict";function i(t){return t&&t.__esModule?t:{default:t}}function r(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}function o(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e}function u(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)}Object.defineProperty(e,"__esModule",{value:!0}),e.RotateBy=e.RotateTo=void 0;var a=function(){function t(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}return function(e,n,i){return n&&t(e.prototype,n),i&&t(e,i),e}}(),s=n(1),c=i(s);e.RotateTo=function(t){function e(t,n){r(this,e);var i=o(this,(e.__proto__||Object.getPrototypeOf(e)).call(this));return i.time=1e3*n,i.rotation=t,i.reset(),i}return u(e,t),a(e,[{key:"reset",value:function(){this._time=this.time}},{key:"update",value:function(t,e,n){var i=t.rotation,r=(this.rotation-i)/this._time*n;return t.rotation+=r,this._time-=n,this._time<=0&&(t.rotation=this.rotation,this.reset(),!0)}}]),e}(c.default),e.RotateBy=function(t){function e(t,n){r(this,e);var i=o(this,(e.__proto__||Object.getPrototypeOf(e)).call(this));return i.time=1e3*n,i.rotation=t,i.reset(),i}return u(e,t),a(e,[{key:"reset",value:function(){this._time=this.time,this.trotation=null}},{key:"update",value:function(t,e,n){var i=t.rotation;null===this.trotation&&(this.trotation=i+this.rotation);var r=(this.trotation-i)/this._time*n;return t.rotation+=r,this._time-=n,this._time<=0&&(t.rotation=this.trotation,this.reset(),!0)}}]),e}(c.default)},function(t,e,n){"use strict";function i(t){return t&&t.__esModule?t:{default:t}}function r(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}function o(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e}function u(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)}Object.defineProperty(e,"__esModule",{value:!0}),e.ScaleBy=e.ScaleTo=void 0;var a=function(){function t(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}return function(e,n,i){return n&&t(e.prototype,n),i&&t(e,i),e}}(),s=n(1),c=i(s);e.ScaleTo=function(t){function e(t,n,i){r(this,e);var u=o(this,(e.__proto__||Object.getPrototypeOf(e)).call(this));return u.time=1e3*i,u.x=t,u.y=n,u.reset(),u}return u(e,t),a(e,[{key:"reset",value:function(){this._time=this.time}},{key:"update",value:function(t,e,n){var i=t.scale,r=(this.x-i.x)/this._time*n,o=(this.y-i.y)/this._time*n;return t.scale.x+=r,t.scale.y+=o,this._time-=n,this._time<=0&&(t.scale.x=this.x,t.scale.y=this.y,this.reset(),!0)}}]),e}(c.default),e.ScaleBy=function(t){function e(t,n,i){r(this,e);var u=o(this,(e.__proto__||Object.getPrototypeOf(e)).call(this));return u.time=1e3*i,u.x=t,u.y=n,u.reset(),u}return u(e,t),a(e,[{key:"reset",value:function(){this._time=this.time,this.tx=null,this.ty=null}},{key:"update",value:function(t,e,n){var i=t.scale;null!==this.tx&&null!==this.ty||(this.tx=i.x+this.x,this.ty=i.y+this.y);var r=(this.tx-i.x)/this._time*n,o=(this.ty-i.y)/this._time*n;return t.scale.x+=r,t.scale.y+=o,this._time-=n,this._time<=0&&(t.scale.x=this.tx,t.scale.y=this.ty,this.reset(),!0)}}]),e}(c.default)},function(t,e,n){"use strict";function i(t){return t&&t.__esModule?t:{default:t}}function r(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}function o(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e}function u(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)}Object.defineProperty(e,"__esModule",{value:!0}),e.Sequence=void 0;var a=function(){function t(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}return function(e,n,i){return n&&t(e.prototype,n),i&&t(e,i),e}}(),s=n(1),c=i(s);e.Sequence=function(t){function e(t){r(this,e);var n=o(this,(e.__proto__||Object.getPrototypeOf(e)).call(this));return n.actions=t,n.reset(),n}return u(e,t),a(e,[{key:"reset",value:function(){this._index=0}},{key:"update",value:function(t,e,n){if(this._index>=this.actions.length)return!0;var i=this.actions[this._index],r=i.update(t,e,n);return r&&(i.reset(),this._index++),!1}}]),e}(c.default)},function(t,e,n){"use strict";function i(t){return t&&t.__esModule?t:{default:t}}function r(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}function o(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e}function u(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)}Object.defineProperty(e,"__esModule",{value:!0}),e.SkewBy=e.SkewTo=void 0;var a=function(){function t(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}return function(e,n,i){return n&&t(e.prototype,n),i&&t(e,i),e}}(),s=n(1),c=i(s);e.SkewTo=function(t){function e(t,n,i){r(this,e);var u=o(this,(e.__proto__||Object.getPrototypeOf(e)).call(this));return u.time=1e3*i,u.x=t,u.y=n,u.reset(),u}return u(e,t),a(e,[{key:"reset",value:function(){this._time=this.time}},{key:"update",value:function(t,e,n){var i=t.skew,r=(this.x-i.x)/this._time*n,o=(this.y-i.y)/this._time*n;return t.skew.x+=r,t.skew.y+=o,this._time-=n,this._time<=0&&(t.skew.x=this.x,t.skew.y=this.y,this.reset(),!0)}}]),e}(c.default),e.SkewBy=function(t){function e(t,n,i){r(this,e);var u=o(this,(e.__proto__||Object.getPrototypeOf(e)).call(this));return u.time=1e3*i,u.x=t,u.y=n,u.reset(),u}return u(e,t),a(e,[{key:"reset",value:function(){this._time=this.time,this.tx=null,this.ty=null}},{key:"update",value:function(t,e,n){var i=t.skew;null!==this.tx&&null!==this.ty||(this.tx=i.x+this.x,this.ty=i.y+this.y);var r=(this.tx-i.x)/this._time*n,o=(this.ty-i.y)/this._time*n;return t.skew.x+=r,t.skew.y+=o,this._time-=n,this._time<=0&&(t.skew.x=this.tx,t.skew.y=this.ty,this.reset(),!0)}}]),e}(c.default)},function(t,e,n){"use strict";function i(t){return t&&t.__esModule?t:{default:t}}function r(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}function o(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e}function u(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)}Object.defineProperty(e,"__esModule",{value:!0}),e.TintBy=e.TintTo=void 0;var a=function(){function t(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}return function(e,n,i){return n&&t(e.prototype,n),i&&t(e,i),e}}(),s=n(1),c=i(s);e.TintTo=function(t){function e(t,n){r(this,e);var i=o(this,(e.__proto__||Object.getPrototypeOf(e)).call(this));return i.time=1e3*n,i.tint=t,i.reset(),i}return u(e,t),a(e,[{key:"reset",value:function(){this._time=this.time}},{key:"update",value:function(t,e,n){var i=t.tint,r=(this.tint-i)/this._time*n;return t.tint+=r,this._time-=n,this._time<=0&&(t.tint=this.tint,this.reset(),!0)}}]),e}(c.default),e.TintBy=function(t){function e(t,n){r(this,e);var i=o(this,(e.__proto__||Object.getPrototypeOf(e)).call(this));return i.time=1e3*n,i.tint=t,i.reset(),i}return u(e,t),a(e,[{key:"reset",value:function(){this._time=this.time,this.ttint=null}},{key:"update",value:function(t,e,n){var i=t.tint;null===this.ttint&&(this.ttint=i+this.tint);var r=(this.ttint-i)/this._time*n;return t.tint+=r,this._time-=n,this._time<=0&&(t.tint=this.ttint,this.reset(),!0)}}]),e}(c.default)},function(t,e,n){"use strict";function i(t){return t&&t.__esModule?t:{default:t}}function r(t){if(t&&t.__esModule)return t;var e={};if(null!=t)for(var n in t)Object.prototype.hasOwnProperty.call(t,n)&&(e[n]=t[n]);return e.default=t,e}Object.defineProperty(e,"__esModule",{value:!0});var o=n(2),u=r(o),a=n(8),s=i(a),c=n(9),l=n(13),f=n(12),h=n(7),p=n(15),y=n(10),_=n(4),b=n(16),v=n(3),d=n(11),m=n(14),O=n(6),w=n(5),j={ActionManager:s.default,MoveTo:c.MoveTo,MoveBy:c.MoveBy,ScaleTo:l.ScaleTo,ScaleBy:l.ScaleBy,RotateTo:f.RotateTo,RotateBy:f.RotateBy,FadeIn:h.FadeIn,FadeOut:h.FadeOut,SkewTo:p.SkewTo,SkewBy:p.SkewBy,PivotTo:y.PivotTo,PivotBy:y.PivotBy,Blink:_.Blink,TintTo:b.TintTo,TintBy:b.TintBy,AlphaTo:v.AlphaTo,AlphaBy:v.AlphaBy,Repeat:d.Repeat,Sequence:m.Sequence,DelayTime:O.DelayTime,CallFunc:w.CallFunc};u.actionManager||(u.actionManager=new s.default,u.action=j),e.default=j}]);
 //# sourceMappingURL=pixi-action.js.map
 
 /***/ }),
-/* 94 */
+/* 96 */
 /***/ (function(module, exports) {
 
 var EMPTY_ARRAY_BUFFER = new ArrayBuffer(0);
@@ -18746,7 +21239,7 @@ module.exports = Buffer;
 
 
 /***/ }),
-/* 95 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -18977,7 +21470,7 @@ module.exports = Framebuffer;
 
 
 /***/ }),
-/* 96 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -19074,7 +21567,7 @@ module.exports = Shader;
 
 
 /***/ }),
-/* 97 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -19342,7 +21835,7 @@ VertexArrayObject.prototype.getSize = function()
 
 
 /***/ }),
-/* 98 */
+/* 100 */
 /***/ (function(module, exports) {
 
 
@@ -19374,7 +21867,7 @@ module.exports = createContext;
 
 
 /***/ }),
-/* 99 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = {
@@ -19389,14 +21882,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 100 */
-/***/ (function(module, exports) {
-
-!function(t){function e(i){if(n[i])return n[i].exports;var r=n[i]={exports:{},id:i,loaded:!1};return t[i].call(r.exports,r,r.exports,e),r.loaded=!0,r.exports}var n={};return e.m=t,e.c=n,e.p="",e(0)}([function(t,e,n){t.exports=n(6)},function(t,e){t.exports=PIXI},function(t,e){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var n={linear:function(){return function(t){return t}},inQuad:function(){return function(t){return t*t}},outQuad:function(){return function(t){return t*(2-t)}},inOutQuad:function(){return function(t){return t*=2,1>t?.5*t*t:-.5*(--t*(t-2)-1)}},inCubic:function(){return function(t){return t*t*t}},outCubic:function(){return function(t){return--t*t*t+1}},inOutCubic:function(){return function(t){return t*=2,1>t?.5*t*t*t:(t-=2,.5*(t*t*t+2))}},inQuart:function(){return function(t){return t*t*t*t}},outQuart:function(){return function(t){return 1- --t*t*t*t}},inOutQuart:function(){return function(t){return t*=2,1>t?.5*t*t*t*t:(t-=2,-.5*(t*t*t*t-2))}},inQuint:function(){return function(t){return t*t*t*t*t}},outQuint:function(){return function(t){return--t*t*t*t*t+1}},inOutQuint:function(){return function(t){return t*=2,1>t?.5*t*t*t*t*t:(t-=2,.5*(t*t*t*t*t+2))}},inSine:function(){return function(t){return 1-Math.cos(t*Math.PI/2)}},outSine:function(){return function(t){return Math.sin(t*Math.PI/2)}},inOutSine:function(){return function(t){return.5*(1-Math.cos(Math.PI*t))}},inExpo:function(){return function(t){return 0===t?0:Math.pow(1024,t-1)}},outExpo:function(){return function(t){return 1===t?1:1-Math.pow(2,-10*t)}},inOutExpo:function(){return function(t){return 0===t?0:1===t?1:(t*=2,1>t?.5*Math.pow(1024,t-1):.5*(-Math.pow(2,-10*(t-1))+2))}},inCirc:function(){return function(t){return 1-Math.sqrt(1-t*t)}},outCirc:function(){return function(t){return Math.sqrt(1- --t*t)}},inOutCirc:function(){return function(t){return t*=2,1>t?-.5*(Math.sqrt(1-t*t)-1):.5*(Math.sqrt(1-(t-2)*(t-2))+1)}},inElastic:function(){var t=arguments.length<=0||void 0===arguments[0]?.1:arguments[0],e=arguments.length<=1||void 0===arguments[1]?.4:arguments[1];return function(n){var i=void 0;return 0===n?0:1===n?1:(!t||1>t?(t=1,i=e/4):i=e*Math.asin(1/t)/(2*Math.PI),-(t*Math.pow(2,10*(n-1))*Math.sin((n-1-i)*(2*Math.PI)/e)))}},outElastic:function(){var t=arguments.length<=0||void 0===arguments[0]?.1:arguments[0],e=arguments.length<=1||void 0===arguments[1]?.4:arguments[1];return function(n){var i=void 0;return 0===n?0:1===n?1:(!t||1>t?(t=1,i=e/4):i=e*Math.asin(1/t)/(2*Math.PI),t*Math.pow(2,-10*n)*Math.sin((n-i)*(2*Math.PI)/e)+1)}},inOutElastic:function(){var t=arguments.length<=0||void 0===arguments[0]?.1:arguments[0],e=arguments.length<=1||void 0===arguments[1]?.4:arguments[1];return function(n){var i=void 0;return 0===n?0:1===n?1:(!t||1>t?(t=1,i=e/4):i=e*Math.asin(1/t)/(2*Math.PI),n*=2,1>n?-.5*(t*Math.pow(2,10*(n-1))*Math.sin((n-1-i)*(2*Math.PI)/e)):t*Math.pow(2,-10*(n-1))*Math.sin((n-1-i)*(2*Math.PI)/e)*.5+1)}},inBack:function(t){return function(e){var n=t||1.70158;return e*e*((n+1)*e-n)}},outBack:function(t){return function(e){var n=t||1.70158;return--e*e*((n+1)*e+n)+1}},inOutBack:function(t){return function(e){var n=1.525*(t||1.70158);return e*=2,1>e?.5*(e*e*((n+1)*e-n)):.5*((e-2)*(e-2)*((n+1)*(e-2)+n)+2)}},inBounce:function(){return function(t){return 1-n.outBounce()(1-t)}},outBounce:function(){return function(t){return 1/2.75>t?7.5625*t*t:2/2.75>t?(t-=1.5/2.75,7.5625*t*t+.75):2.5/2.75>t?(t-=2.25/2.75,7.5625*t*t+.9375):(t-=2.625/2.75,7.5625*t*t+.984375)}},inOutBounce:function(){return function(t){return.5>t?.5*n.inBounce()(2*t):.5*n.outBounce()(2*t-1)+.5}},customArray:function(t){return t?function(t){return t}:n.linear()}};e["default"]=n},function(t,e,n){"use strict";function i(t){return t&&t.__esModule?t:{"default":t}}function r(t){if(t&&t.__esModule)return t;var e={};if(null!=t)for(var n in t)Object.prototype.hasOwnProperty.call(t,n)&&(e[n]=t[n]);return e["default"]=t,e}function s(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}function o(t,e){if(!t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!e||"object"!=typeof e&&"function"!=typeof e?t:e}function a(t,e){if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function, not "+typeof e);t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}}),e&&(Object.setPrototypeOf?Object.setPrototypeOf(t,e):t.__proto__=e)}function u(t,e,n,i,r,s){for(var o in t)if(c(t[o]))u(t[o],e[o],n[o],i,r,s);else{var a=e[o],h=t[o]-e[o],l=i,f=r/l;n[o]=a+h*s(f)}}function h(t,e,n){for(var i in t)0===e[i]||e[i]||(c(n[i])?(e[i]=JSON.parse(JSON.stringify(n[i])),h(t[i],e[i],n[i])):e[i]=n[i])}function c(t){return"[object Object]"===Object.prototype.toString.call(t)}var l=function(){function t(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}return function(e,n,i){return n&&t(e.prototype,n),i&&t(e,i),e}}();Object.defineProperty(e,"__esModule",{value:!0});var f=n(1),p=r(f),d=n(2),g=i(d),v=function(t){function e(t,n){s(this,e);var i=o(this,Object.getPrototypeOf(e).call(this));return i.target=t,n&&i.addTo(n),i.clear(),i}return a(e,t),l(e,[{key:"addTo",value:function(t){return this.manager=t,this.manager.addTween(this),this}},{key:"chain",value:function(t){return t||(t=new e(this.target)),this._chainTween=t,t}},{key:"start",value:function(){return this.active=!0,this}},{key:"stop",value:function(){return this.active=!1,this.emit("stop"),this}},{key:"to",value:function(t){return this._to=t,this}},{key:"from",value:function(t){return this._from=t,this}},{key:"remove",value:function(){return this.manager?(this.manager.removeTween(this),this):this}},{key:"clear",value:function(){this.time=0,this.active=!1,this.easing=g["default"].linear(),this.expire=!1,this.repeat=0,this.loop=!1,this.delay=0,this.pingPong=!1,this.isStarted=!1,this.isEnded=!1,this._to=null,this._from=null,this._delayTime=0,this._elapsedTime=0,this._repeat=0,this._pingPong=!1,this._chainTween=null,this.path=null,this.pathReverse=!1,this.pathFrom=0,this.pathTo=0}},{key:"reset",value:function(){if(this._elapsedTime=0,this._repeat=0,this._delayTime=0,this.isStarted=!1,this.isEnded=!1,this.pingPong&&this._pingPong){var t=this._to,e=this._from;this._to=e,this._from=t,this._pingPong=!1}return this}},{key:"update",value:function(t,e){if(this._canUpdate()||!this._to&&!this.path){var n=void 0,i=void 0;if(this.delay>this._delayTime)return void(this._delayTime+=e);this.isStarted||(this._parseData(),this.isStarted=!0,this.emit("start"));var r=this.pingPong?this.time/2:this.time;if(r>this._elapsedTime){var s=this._elapsedTime+e,o=s>=r;this._elapsedTime=o?r:s,this._apply(r);var a=this._pingPong?r+this._elapsedTime:this._elapsedTime;if(this.emit("update",a),o){if(this.pingPong&&!this._pingPong)return this._pingPong=!0,n=this._to,i=this._from,this._from=n,this._to=i,this.path&&(n=this.pathTo,i=this.pathFrom,this.pathTo=i,this.pathFrom=n),this.emit("pingpong"),void(this._elapsedTime=0);if(this.loop||this.repeat>this._repeat)return this._repeat++,this.emit("repeat",this._repeat),this._elapsedTime=0,void(this.pingPong&&this._pingPong&&(n=this._to,i=this._from,this._to=i,this._from=n,this.path&&(n=this.pathTo,i=this.pathFrom,this.pathTo=i,this.pathFrom=n),this._pingPong=!1));this.isEnded=!0,this.active=!1,this.emit("end"),this._chainTween&&(this._chainTween.addTo(this.manager),this._chainTween.start())}}}}},{key:"_parseData",value:function(){if(!this.isStarted&&(this._from||(this._from={}),h(this._to,this._from,this.target),this.path)){var t=this.path.totalDistance();this.pathReverse?(this.pathFrom=t,this.pathTo=0):(this.pathFrom=0,this.pathTo=t)}}},{key:"_apply",value:function(t){if(u(this._to,this._from,this.target,t,this._elapsedTime,this.easing),this.path){var e=this.pingPong?this.time/2:this.time,n=this.pathFrom,i=this.pathTo-this.pathFrom,r=e,s=this._elapsedTime/r,o=n+i*this.easing(s),a=this.path.getPointAtDistance(o);this.target.position.set(a.x,a.y)}}},{key:"_canUpdate",value:function(){return this.time&&this.active&&this.target}}]),e}(p.utils.EventEmitter);e["default"]=v},function(t,e,n){"use strict";function i(t){return t&&t.__esModule?t:{"default":t}}function r(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}var s=function(){function t(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}return function(e,n,i){return n&&t(e.prototype,n),i&&t(e,i),e}}();Object.defineProperty(e,"__esModule",{value:!0});var o=n(3),a=i(o),u=function(){function t(){r(this,t),this.tweens=[],this._tweensToDelete=[],this._last=0}return s(t,[{key:"update",value:function(t){var e=void 0;t||0===t?e=1e3*t:(e=this._getDeltaMS(),t=e/1e3);for(var n=0;n<this.tweens.length;n++){var i=this.tweens[n];i.active&&(i.update(t,e),i.isEnded&&i.expire&&i.remove())}if(this._tweensToDelete.length){for(var n=0;n<this._tweensToDelete.length;n++)this._remove(this._tweensToDelete[n]);this._tweensToDelete.length=0}}},{key:"getTweensForTarget",value:function(t){for(var e=[],n=0;n<this.tweens.length;n++)this.tweens[n].target===t&&e.push(this.tweens[n]);return e}},{key:"createTween",value:function(t){return new a["default"](t,this)}},{key:"addTween",value:function(t){t.manager=this,this.tweens.push(t)}},{key:"removeTween",value:function(t){this._tweensToDelete.push(t)}},{key:"_remove",value:function(t){var e=this.tweens.indexOf(t);-1!==e&&this.tweens.splice(e,1)}},{key:"_getDeltaMS",value:function(){0===this._last&&(this._last=Date.now());var t=Date.now(),e=t-this._last;return this._last=t,e}}]),t}();e["default"]=u},function(t,e,n){"use strict";function i(t){if(t&&t.__esModule)return t;var e={};if(null!=t)for(var n in t)Object.prototype.hasOwnProperty.call(t,n)&&(e[n]=t[n]);return e["default"]=t,e}function r(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}var s=function(){function t(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}return function(e,n,i){return n&&t(e.prototype,n),i&&t(e,i),e}}();Object.defineProperty(e,"__esModule",{value:!0});var o=n(1),a=i(o),u=function(){function t(){r(this,t),this._colsed=!1,this.polygon=new a.Polygon,this.polygon.closed=!1,this._tmpPoint=new a.Point,this._tmpPoint2=new a.Point,this._tmpDistance=[],this.currentPath=null,this.graphicsData=[],this.dirty=!0}return s(t,[{key:"moveTo",value:function(t,e){return a.Graphics.prototype.moveTo.call(this,t,e),this.dirty=!0,this}},{key:"lineTo",value:function(t,e){return a.Graphics.prototype.lineTo.call(this,t,e),this.dirty=!0,this}},{key:"bezierCurveTo",value:function(t,e,n,i,r,s){return a.Graphics.prototype.bezierCurveTo.call(this,t,e,n,i,r,s),this.dirty=!0,this}},{key:"quadraticCurveTo",value:function(t,e,n,i){return a.Graphics.prototype.quadraticCurveTo.call(this,t,e,n,i),this.dirty=!0,this}},{key:"arcTo",value:function(t,e,n,i,r){return a.Graphics.prototype.arcTo.call(this,t,e,n,i,r),this.dirty=!0,this}},{key:"arc",value:function(t,e,n,i,r,s){return a.Graphics.prototype.arc.call(this,t,e,n,i,r,s),this.dirty=!0,this}},{key:"drawShape",value:function(t){return a.Graphics.prototype.drawShape.call(this,t),this.dirty=!0,this}},{key:"getPoint",value:function(t){this.parsePoints();var e=this.closed&&t>=this.length-1?0:2*t;return this._tmpPoint.set(this.polygon.points[e],this.polygon.points[e+1]),this._tmpPoint}},{key:"distanceBetween",value:function(t,e){this.parsePoints();var n=this.getPoint(t),i=n.x,r=n.y,s=this.getPoint(e),o=s.x,a=s.y,u=o-i,h=a-r;return Math.sqrt(u*u+h*h)}},{key:"totalDistance",value:function(){this.parsePoints(),this._tmpDistance.length=0,this._tmpDistance.push(0);for(var t=this.length,e=0,n=0;t-1>n;n++)e+=this.distanceBetween(n,n+1),this._tmpDistance.push(e);return e}},{key:"getPointAt",value:function(t){if(this.parsePoints(),t>this.length)return this.getPoint(this.length-1);if(t%1===0)return this.getPoint(t);this._tmpPoint2.set(0,0);var e=t%1,n=this.getPoint(Math.ceil(t)),i=n.x,r=n.y,s=this.getPoint(Math.floor(t)),o=s.x,a=s.y,u=-((o-i)*e),h=-((a-r)*e);return this._tmpPoint2.set(o+u,a+h),this._tmpPoint2}},{key:"getPointAtDistance",value:function(t){this.parsePoints(),this._tmpDistance||this.totalDistance();var e=this._tmpDistance.length,n=0,i=this._tmpDistance[this._tmpDistance.length-1];0>t?t=i+t:t>i&&(t-=i);for(var r=0;e>r&&(t>=this._tmpDistance[r]&&(n=r),!(t<this._tmpDistance[r]));r++);if(n===this.length-1)return this.getPointAt(n);var s=t-this._tmpDistance[n],o=this._tmpDistance[n+1]-this._tmpDistance[n];return this.getPointAt(n+s/o)}},{key:"parsePoints",value:function(){if(!this.dirty)return this;this.dirty=!1,this.polygon.points.length=0;for(var t=0;t<this.graphicsData.length;t++){var e=this.graphicsData[t].shape;e&&e.points&&(this.polygon.points=this.polygon.points.concat(e.points))}return this}},{key:"clear",value:function(){return this.graphicsData.length=0,this.currentPath=null,this.polygon.points.length=0,this._closed=!1,this.dirty=!1,this}},{key:"closed",get:function(){return this._closed},set:function(t){this._closed!==t&&(this.polygon.closed=t,this._closed=t,this.dirty=!0)}},{key:"length",get:function(){return this.polygon.points.length?this.polygon.points.length/2+(this._closed?1:0):0}}]),t}();e["default"]=u},function(t,e,n){"use strict";function i(t){return t&&t.__esModule?t:{"default":t}}function r(t){if(t&&t.__esModule)return t;var e={};if(null!=t)for(var n in t)Object.prototype.hasOwnProperty.call(t,n)&&(e[n]=t[n]);return e["default"]=t,e}Object.defineProperty(e,"__esModule",{value:!0});var s=n(1),o=r(s),a=n(4),u=i(a),h=n(3),c=i(h),l=n(5),f=i(l),p=n(2),d=i(p);o.Graphics.prototype.drawPath=function(t){return t.parsePoints(),this.drawShape(t.polygon),this};var g={TweenManager:u["default"],Tween:c["default"],Easing:d["default"],TweenPath:f["default"]};o.tweenManager||(o.tweenManager=new u["default"],o.tween=g),e["default"]=g}]);
-//# sourceMappingURL=pixi-tween.js.map
-
-/***/ }),
-/* 101 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19895,7 +22381,7 @@ core.CanvasRenderer.registerPlugin('accessibility', AccessibilityManager);
 //# sourceMappingURL=AccessibilityManager.js.map
 
 /***/ }),
-/* 102 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19912,7 +22398,7 @@ Object.defineProperty(exports, 'accessibleTarget', {
   }
 });
 
-var _AccessibilityManager = __webpack_require__(101);
+var _AccessibilityManager = __webpack_require__(102);
 
 Object.defineProperty(exports, 'AccessibilityManager', {
   enumerable: true,
@@ -19925,7 +22411,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //# sourceMappingURL=index.js.map
 
 /***/ }),
-/* 103 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20105,7 +22591,7 @@ exports.default = Application;
 //# sourceMappingURL=Application.js.map
 
 /***/ }),
-/* 104 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20143,7 +22629,7 @@ var _Bounds = __webpack_require__(23);
 
 var _Bounds2 = _interopRequireDefault(_Bounds);
 
-var _bezierCurveTo2 = __webpack_require__(106);
+var _bezierCurveTo2 = __webpack_require__(107);
 
 var _bezierCurveTo3 = _interopRequireDefault(_bezierCurveTo2);
 
@@ -21272,7 +23758,7 @@ Graphics._SPRITE_TEXTURE = null;
 //# sourceMappingURL=Graphics.js.map
 
 /***/ }),
-/* 105 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21546,7 +24032,7 @@ _CanvasRenderer2.default.registerPlugin('graphics', CanvasGraphicsRenderer);
 //# sourceMappingURL=CanvasGraphicsRenderer.js.map
 
 /***/ }),
-/* 106 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21601,7 +24087,7 @@ function bezierCurveTo(fromX, fromY, cpX, cpY, cpX2, cpY2, toX, toY) {
 //# sourceMappingURL=bezierCurveTo.js.map
 
 /***/ }),
-/* 107 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21621,27 +24107,27 @@ var _WebGLRenderer = __webpack_require__(17);
 
 var _WebGLRenderer2 = _interopRequireDefault(_WebGLRenderer);
 
-var _WebGLGraphicsData = __webpack_require__(108);
+var _WebGLGraphicsData = __webpack_require__(109);
 
 var _WebGLGraphicsData2 = _interopRequireDefault(_WebGLGraphicsData);
 
-var _PrimitiveShader = __webpack_require__(109);
+var _PrimitiveShader = __webpack_require__(110);
 
 var _PrimitiveShader2 = _interopRequireDefault(_PrimitiveShader);
 
-var _buildPoly = __webpack_require__(111);
+var _buildPoly = __webpack_require__(112);
 
 var _buildPoly2 = _interopRequireDefault(_buildPoly);
 
-var _buildRectangle = __webpack_require__(112);
+var _buildRectangle = __webpack_require__(113);
 
 var _buildRectangle2 = _interopRequireDefault(_buildRectangle);
 
-var _buildRoundedRectangle = __webpack_require__(113);
+var _buildRoundedRectangle = __webpack_require__(114);
 
 var _buildRoundedRectangle2 = _interopRequireDefault(_buildRoundedRectangle);
 
-var _buildCircle = __webpack_require__(110);
+var _buildCircle = __webpack_require__(111);
 
 var _buildCircle2 = _interopRequireDefault(_buildCircle);
 
@@ -21864,7 +24350,7 @@ _WebGLRenderer2.default.registerPlugin('graphics', GraphicsRenderer);
 //# sourceMappingURL=GraphicsRenderer.js.map
 
 /***/ }),
-/* 108 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22006,7 +24492,7 @@ exports.default = WebGLGraphicsData;
 //# sourceMappingURL=WebGLGraphicsData.js.map
 
 /***/ }),
-/* 109 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22056,7 +24542,7 @@ exports.default = PrimitiveShader;
 //# sourceMappingURL=PrimitiveShader.js.map
 
 /***/ }),
-/* 110 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22153,7 +24639,7 @@ function buildCircle(graphicsData, webGLData) {
 //# sourceMappingURL=buildCircle.js.map
 
 /***/ }),
-/* 111 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22243,7 +24729,7 @@ function buildPoly(graphicsData, webGLData) {
 //# sourceMappingURL=buildPoly.js.map
 
 /***/ }),
-/* 112 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22323,7 +24809,7 @@ function buildRectangle(graphicsData, webGLData) {
 //# sourceMappingURL=buildRectangle.js.map
 
 /***/ }),
-/* 113 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22483,7 +24969,7 @@ function quadraticBezierCurve(fromX, fromY, cpX, cpY, toX, toY) {
 //# sourceMappingURL=buildRoundedRectangle.js.map
 
 /***/ }),
-/* 114 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22602,7 +25088,7 @@ exports.default = Circle;
 //# sourceMappingURL=Circle.js.map
 
 /***/ }),
-/* 115 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22729,7 +25215,7 @@ exports.default = Ellipse;
 //# sourceMappingURL=Ellipse.js.map
 
 /***/ }),
-/* 116 */
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22865,7 +25351,7 @@ exports.default = Polygon;
 //# sourceMappingURL=Polygon.js.map
 
 /***/ }),
-/* 117 */
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23003,7 +25489,7 @@ exports.default = RoundedRectangle;
 //# sourceMappingURL=RoundedRectangle.js.map
 
 /***/ }),
-/* 118 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23176,7 +25662,7 @@ exports.default = CanvasMaskManager;
 //# sourceMappingURL=CanvasMaskManager.js.map
 
 /***/ }),
-/* 119 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23249,7 +25735,7 @@ function mapCanvasBlendModesToPixi() {
 //# sourceMappingURL=mapCanvasBlendModesToPixi.js.map
 
 /***/ }),
-/* 120 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23374,7 +25860,7 @@ exports.default = TextureGarbageCollector;
 //# sourceMappingURL=TextureGarbageCollector.js.map
 
 /***/ }),
-/* 121 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23626,7 +26112,7 @@ exports.default = TextureManager;
 //# sourceMappingURL=TextureManager.js.map
 
 /***/ }),
-/* 122 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23634,7 +26120,7 @@ exports.default = TextureManager;
 
 exports.__esModule = true;
 
-var _mapWebGLBlendModesToPixi = __webpack_require__(129);
+var _mapWebGLBlendModesToPixi = __webpack_require__(130);
 
 var _mapWebGLBlendModesToPixi2 = _interopRequireDefault(_mapWebGLBlendModesToPixi);
 
@@ -23905,7 +26391,7 @@ exports.default = WebGLState;
 //# sourceMappingURL=WebGLState.js.map
 
 /***/ }),
-/* 123 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23972,7 +26458,7 @@ function extractUniformsFromString(string) {
 //# sourceMappingURL=extractUniformsFromSrc.js.map
 
 /***/ }),
-/* 124 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24059,7 +26545,7 @@ function calculateSpriteMatrix(outputMatrix, filterArea, textureSize, sprite) {
 //# sourceMappingURL=filterTransforms.js.map
 
 /***/ }),
-/* 125 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24085,7 +26571,7 @@ var _Shader = __webpack_require__(9);
 
 var _Shader2 = _interopRequireDefault(_Shader);
 
-var _filterTransforms = __webpack_require__(124);
+var _filterTransforms = __webpack_require__(125);
 
 var filterTransforms = _interopRequireWildcard(_filterTransforms);
 
@@ -24634,7 +27120,7 @@ exports.default = FilterManager;
 //# sourceMappingURL=FilterManager.js.map
 
 /***/ }),
-/* 126 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24849,7 +27335,7 @@ exports.default = MaskManager;
 //# sourceMappingURL=MaskManager.js.map
 
 /***/ }),
-/* 127 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24988,7 +27474,7 @@ exports.default = StencilManager;
 //# sourceMappingURL=StencilManager.js.map
 
 /***/ }),
-/* 128 */
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25068,7 +27554,7 @@ function generateIfTestSrc(maxIfs) {
 //# sourceMappingURL=checkMaxIfStatmentsInShader.js.map
 
 /***/ }),
-/* 129 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25117,7 +27603,7 @@ function mapWebGLBlendModesToPixi(gl) {
 //# sourceMappingURL=mapWebGLBlendModesToPixi.js.map
 
 /***/ }),
-/* 130 */
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25154,7 +27640,7 @@ function mapWebGLDrawModesToPixi(gl) {
 //# sourceMappingURL=mapWebGLDrawModesToPixi.js.map
 
 /***/ }),
-/* 131 */
+/* 132 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25175,7 +27661,7 @@ function validateContext(gl) {
 //# sourceMappingURL=validateContext.js.map
 
 /***/ }),
-/* 132 */
+/* 133 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25333,7 +27819,7 @@ _CanvasRenderer2.default.registerPlugin('sprite', CanvasSpriteRenderer);
 //# sourceMappingURL=CanvasSpriteRenderer.js.map
 
 /***/ }),
-/* 133 */
+/* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25391,7 +27877,7 @@ exports.default = Buffer;
 //# sourceMappingURL=BatchBuffer.js.map
 
 /***/ }),
-/* 134 */
+/* 135 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25411,15 +27897,15 @@ var _createIndicesForQuads = __webpack_require__(32);
 
 var _createIndicesForQuads2 = _interopRequireDefault(_createIndicesForQuads);
 
-var _generateMultiTextureShader = __webpack_require__(135);
+var _generateMultiTextureShader = __webpack_require__(136);
 
 var _generateMultiTextureShader2 = _interopRequireDefault(_generateMultiTextureShader);
 
-var _checkMaxIfStatmentsInShader = __webpack_require__(128);
+var _checkMaxIfStatmentsInShader = __webpack_require__(129);
 
 var _checkMaxIfStatmentsInShader2 = _interopRequireDefault(_checkMaxIfStatmentsInShader);
 
-var _BatchBuffer = __webpack_require__(133);
+var _BatchBuffer = __webpack_require__(134);
 
 var _BatchBuffer2 = _interopRequireDefault(_BatchBuffer);
 
@@ -25927,7 +28413,7 @@ _WebGLRenderer2.default.registerPlugin('sprite', SpriteRenderer);
 //# sourceMappingURL=SpriteRenderer.js.map
 
 /***/ }),
-/* 135 */
+/* 136 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25995,7 +28481,7 @@ function generateSampleSrc(maxTextures) {
 //# sourceMappingURL=generateMultiTextureShader.js.map
 
 /***/ }),
-/* 136 */
+/* 137 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26027,7 +28513,7 @@ var _TextStyle = __webpack_require__(63);
 
 var _TextStyle2 = _interopRequireDefault(_TextStyle);
 
-var _trimCanvas = __webpack_require__(144);
+var _trimCanvas = __webpack_require__(145);
 
 var _trimCanvas2 = _interopRequireDefault(_trimCanvas);
 
@@ -26879,7 +29365,7 @@ Text.fontPropertiesContext = Text.fontPropertiesCanvas.getContext('2d');
 //# sourceMappingURL=Text.js.map
 
 /***/ }),
-/* 137 */
+/* 138 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27145,7 +29631,7 @@ exports.default = Spritesheet;
 //# sourceMappingURL=Spritesheet.js.map
 
 /***/ }),
-/* 138 */
+/* 139 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27547,7 +30033,7 @@ exports.default = Ticker;
 //# sourceMappingURL=Ticker.js.map
 
 /***/ }),
-/* 139 */
+/* 140 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27566,7 +30052,7 @@ function canUploadSameBuffer() {
 //# sourceMappingURL=canUploadSameBuffer.js.map
 
 /***/ }),
-/* 140 */
+/* 141 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27575,7 +30061,7 @@ function canUploadSameBuffer() {
 exports.__esModule = true;
 exports.default = determineCrossOrigin;
 
-var _url2 = __webpack_require__(188);
+var _url2 = __webpack_require__(189);
 
 var _url3 = _interopRequireDefault(_url2);
 
@@ -27627,7 +30113,7 @@ function determineCrossOrigin(url) {
 //# sourceMappingURL=determineCrossOrigin.js.map
 
 /***/ }),
-/* 141 */
+/* 142 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27654,7 +30140,7 @@ function maxRecommendedTextures(max) {
 //# sourceMappingURL=maxRecommendedTextures.js.map
 
 /***/ }),
-/* 142 */
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27721,7 +30207,7 @@ function performMixins() {
 //# sourceMappingURL=mixin.js.map
 
 /***/ }),
-/* 143 */
+/* 144 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27792,7 +30278,7 @@ exports.default = {
 //# sourceMappingURL=pluginTarget.js.map
 
 /***/ }),
-/* 144 */
+/* 145 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27873,7 +30359,7 @@ function trimCanvas(canvas) {
 //# sourceMappingURL=trimCanvas.js.map
 
 /***/ }),
-/* 145 */
+/* 146 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28884,7 +31370,7 @@ Object.defineProperty(interaction.InteractionManager, 'currentCursorStyle', {
 //# sourceMappingURL=deprecation.js.map
 
 /***/ }),
-/* 146 */
+/* 147 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29069,7 +31555,7 @@ core.CanvasRenderer.registerPlugin('extract', CanvasExtract);
 //# sourceMappingURL=CanvasExtract.js.map
 
 /***/ }),
-/* 147 */
+/* 148 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29077,7 +31563,7 @@ core.CanvasRenderer.registerPlugin('extract', CanvasExtract);
 
 exports.__esModule = true;
 
-var _WebGLExtract = __webpack_require__(148);
+var _WebGLExtract = __webpack_require__(149);
 
 Object.defineProperty(exports, 'webgl', {
   enumerable: true,
@@ -29086,7 +31572,7 @@ Object.defineProperty(exports, 'webgl', {
   }
 });
 
-var _CanvasExtract = __webpack_require__(146);
+var _CanvasExtract = __webpack_require__(147);
 
 Object.defineProperty(exports, 'canvas', {
   enumerable: true,
@@ -29099,7 +31585,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //# sourceMappingURL=index.js.map
 
 /***/ }),
-/* 148 */
+/* 149 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29327,7 +31813,7 @@ core.WebGLRenderer.registerPlugin('extract', WebGLExtract);
 //# sourceMappingURL=WebGLExtract.js.map
 
 /***/ }),
-/* 149 */
+/* 150 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29717,7 +32203,7 @@ exports.default = AnimatedSprite;
 //# sourceMappingURL=AnimatedSprite.js.map
 
 /***/ }),
-/* 150 */
+/* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30263,7 +32749,7 @@ BitmapText.fonts = {};
 //# sourceMappingURL=BitmapText.js.map
 
 /***/ }),
-/* 151 */
+/* 152 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30714,7 +33200,7 @@ exports.default = TilingSprite;
 //# sourceMappingURL=TilingSprite.js.map
 
 /***/ }),
-/* 152 */
+/* 153 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31077,7 +33563,7 @@ DisplayObject.prototype._cacheAsBitmapDestroy = function _cacheAsBitmapDestroy(o
 //# sourceMappingURL=cacheAsBitmap.js.map
 
 /***/ }),
-/* 153 */
+/* 154 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31116,7 +33602,7 @@ core.Container.prototype.getChildByName = function getChildByName(name) {
 //# sourceMappingURL=getChildByName.js.map
 
 /***/ }),
-/* 154 */
+/* 155 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31154,7 +33640,7 @@ core.DisplayObject.prototype.getGlobalPosition = function getGlobalPosition() {
 //# sourceMappingURL=getGlobalPosition.js.map
 
 /***/ }),
-/* 155 */
+/* 156 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31327,7 +33813,7 @@ core.WebGLRenderer.registerPlugin('tilingSprite', TilingSpriteRenderer);
 //# sourceMappingURL=TilingSpriteRenderer.js.map
 
 /***/ }),
-/* 156 */
+/* 157 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31489,7 +33975,7 @@ exports.default = BlurFilter;
 //# sourceMappingURL=BlurFilter.js.map
 
 /***/ }),
-/* 157 */
+/* 158 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32022,7 +34508,7 @@ ColorMatrixFilter.prototype.grayscale = ColorMatrixFilter.prototype.greyscale;
 //# sourceMappingURL=ColorMatrixFilter.js.map
 
 /***/ }),
-/* 158 */
+/* 159 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32137,7 +34623,7 @@ exports.default = DisplacementFilter;
 //# sourceMappingURL=DisplacementFilter.js.map
 
 /***/ }),
-/* 159 */
+/* 160 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32196,7 +34682,7 @@ exports.default = FXAAFilter;
 //# sourceMappingURL=FXAAFilter.js.map
 
 /***/ }),
-/* 160 */
+/* 161 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32277,7 +34763,7 @@ exports.default = NoiseFilter;
 //# sourceMappingURL=NoiseFilter.js.map
 
 /***/ }),
-/* 161 */
+/* 162 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32332,7 +34818,7 @@ exports.default = VoidFilter;
 //# sourceMappingURL=VoidFilter.js.map
 
 /***/ }),
-/* 162 */
+/* 163 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32422,7 +34908,7 @@ exports.default = InteractionEvent;
 //# sourceMappingURL=InteractionEvent.js.map
 
 /***/ }),
-/* 163 */
+/* 164 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32440,11 +34926,11 @@ var _InteractionData = __webpack_require__(75);
 
 var _InteractionData2 = _interopRequireDefault(_InteractionData);
 
-var _InteractionEvent = __webpack_require__(162);
+var _InteractionEvent = __webpack_require__(163);
 
 var _InteractionEvent2 = _interopRequireDefault(_InteractionEvent);
 
-var _InteractionTrackingData = __webpack_require__(164);
+var _InteractionTrackingData = __webpack_require__(165);
 
 var _InteractionTrackingData2 = _interopRequireDefault(_InteractionTrackingData);
 
@@ -33923,7 +36409,7 @@ core.CanvasRenderer.registerPlugin('interaction', InteractionManager);
 //# sourceMappingURL=InteractionManager.js.map
 
 /***/ }),
-/* 164 */
+/* 165 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34102,7 +36588,7 @@ InteractionTrackingData.FLAGS = Object.freeze({
 //# sourceMappingURL=InteractionTrackingData.js.map
 
 /***/ }),
-/* 165 */
+/* 166 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34114,7 +36600,7 @@ var _resourceLoader = __webpack_require__(15);
 
 var _resourceLoader2 = _interopRequireDefault(_resourceLoader);
 
-var _blob = __webpack_require__(187);
+var _blob = __webpack_require__(188);
 
 var _eventemitter = __webpack_require__(7);
 
@@ -34268,7 +36754,7 @@ Resource.setExtensionXhrType('fnt', Resource.XHR_RESPONSE_TYPE.DOCUMENT);
 //# sourceMappingURL=loader.js.map
 
 /***/ }),
-/* 166 */
+/* 167 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34665,7 +37151,7 @@ exports.default = NineSlicePlane;
 //# sourceMappingURL=NineSlicePlane.js.map
 
 /***/ }),
-/* 167 */
+/* 168 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34911,7 +37397,7 @@ exports.default = Rope;
 //# sourceMappingURL=Rope.js.map
 
 /***/ }),
-/* 168 */
+/* 169 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35180,7 +37666,7 @@ core.CanvasRenderer.registerPlugin('mesh', MeshSpriteRenderer);
 //# sourceMappingURL=CanvasMeshRenderer.js.map
 
 /***/ }),
-/* 169 */
+/* 170 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35326,7 +37812,7 @@ core.WebGLRenderer.registerPlugin('mesh', MeshRenderer);
 //# sourceMappingURL=MeshRenderer.js.map
 
 /***/ }),
-/* 170 */
+/* 171 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35667,7 +38153,7 @@ exports.default = ParticleContainer;
 //# sourceMappingURL=ParticleContainer.js.map
 
 /***/ }),
-/* 171 */
+/* 172 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35912,7 +38398,7 @@ exports.default = ParticleBuffer;
 //# sourceMappingURL=ParticleBuffer.js.map
 
 /***/ }),
-/* 172 */
+/* 173 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35924,11 +38410,11 @@ var _core = __webpack_require__(0);
 
 var core = _interopRequireWildcard(_core);
 
-var _ParticleShader = __webpack_require__(173);
+var _ParticleShader = __webpack_require__(174);
 
 var _ParticleShader2 = _interopRequireDefault(_ParticleShader);
 
-var _ParticleBuffer = __webpack_require__(171);
+var _ParticleBuffer = __webpack_require__(172);
 
 var _ParticleBuffer2 = _interopRequireDefault(_ParticleBuffer);
 
@@ -36361,7 +38847,7 @@ core.WebGLRenderer.registerPlugin('particle', ParticleRenderer);
 //# sourceMappingURL=ParticleRenderer.js.map
 
 /***/ }),
-/* 173 */
+/* 174 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36409,7 +38895,7 @@ exports.default = ParticleShader;
 //# sourceMappingURL=ParticleShader.js.map
 
 /***/ }),
-/* 174 */
+/* 175 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36432,13 +38918,13 @@ if (!Math.sign) {
 //# sourceMappingURL=Math.sign.js.map
 
 /***/ }),
-/* 175 */
+/* 176 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _objectAssign = __webpack_require__(92);
+var _objectAssign = __webpack_require__(94);
 
 var _objectAssign2 = _interopRequireDefault(_objectAssign);
 
@@ -36452,17 +38938,17 @@ if (!Object.assign) {
 //# sourceMappingURL=Object.assign.js.map
 
 /***/ }),
-/* 176 */
+/* 177 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
+__webpack_require__(176);
+
+__webpack_require__(178);
+
 __webpack_require__(175);
-
-__webpack_require__(177);
-
-__webpack_require__(174);
 
 if (!window.ArrayBuffer) {
     window.ArrayBuffer = Array;
@@ -36482,7 +38968,7 @@ if (!window.Uint16Array) {
 //# sourceMappingURL=index.js.map
 
 /***/ }),
-/* 177 */
+/* 178 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36563,7 +39049,7 @@ if (!global.cancelAnimationFrame) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(36)))
 
 /***/ }),
-/* 178 */
+/* 179 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36717,7 +39203,7 @@ core.CanvasRenderer.registerPlugin('prepare', CanvasPrepare);
 //# sourceMappingURL=CanvasPrepare.js.map
 
 /***/ }),
-/* 179 */
+/* 180 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36780,7 +39266,7 @@ exports.default = TimeLimiter;
 //# sourceMappingURL=TimeLimiter.js.map
 
 /***/ }),
-/* 180 */
+/* 181 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36935,7 +39421,7 @@ core.WebGLRenderer.registerPlugin('prepare', WebGLPrepare);
 //# sourceMappingURL=WebGLPrepare.js.map
 
 /***/ }),
-/* 181 */
+/* 182 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -37121,7 +39607,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 182 */
+/* 183 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(module, global) {var __WEBPACK_AMD_DEFINE_RESULT__;/*! https://mths.be/punycode v1.4.1 by @mathias */
@@ -37657,10 +40143,10 @@ process.umask = function() { return 0; };
 
 }(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(190)(module), __webpack_require__(36)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(191)(module), __webpack_require__(36)))
 
 /***/ }),
-/* 183 */
+/* 184 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -37751,7 +40237,7 @@ var isArray = Array.isArray || function (xs) {
 
 
 /***/ }),
-/* 184 */
+/* 185 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -37843,18 +40329,18 @@ var objectKeys = Object.keys || function (obj) {
 
 
 /***/ }),
-/* 185 */
+/* 186 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-exports.decode = exports.parse = __webpack_require__(183);
-exports.encode = exports.stringify = __webpack_require__(184);
+exports.decode = exports.parse = __webpack_require__(184);
+exports.encode = exports.stringify = __webpack_require__(185);
 
 
 /***/ }),
-/* 186 */
+/* 187 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38477,7 +40963,7 @@ exports.default = Loader;
 //# sourceMappingURL=Loader.js.map
 
 /***/ }),
-/* 187 */
+/* 188 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38570,7 +41056,7 @@ function blobMiddlewareFactory() {
 //# sourceMappingURL=blob.js.map
 
 /***/ }),
-/* 188 */
+/* 189 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38597,8 +41083,8 @@ function blobMiddlewareFactory() {
 
 
 
-var punycode = __webpack_require__(182);
-var util = __webpack_require__(189);
+var punycode = __webpack_require__(183);
+var util = __webpack_require__(190);
 
 exports.parse = urlParse;
 exports.resolve = urlResolve;
@@ -38673,7 +41159,7 @@ var protocolPattern = /^([a-z0-9.+-]+:)/i,
       'gopher:': true,
       'file:': true
     },
-    querystring = __webpack_require__(185);
+    querystring = __webpack_require__(186);
 
 function urlParse(url, parseQueryString, slashesDenoteHost) {
   if (url && util.isObject(url) && url instanceof Url) return url;
@@ -39309,7 +41795,7 @@ Url.prototype.parseHost = function() {
 
 
 /***/ }),
-/* 189 */
+/* 190 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39332,7 +41818,7 @@ module.exports = {
 
 
 /***/ }),
-/* 190 */
+/* 191 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -39360,7 +41846,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 191 */
+/* 192 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(89);
