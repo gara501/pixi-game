@@ -1,14 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title></title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="assets/css/reset.css" rel="stylesheet">
-  </head>
-  <body>
-   
-    
-    <script type="text/javascript" src="bundle.js"></script>
-  </body>
-</html>
+<title>Prodigious Kombat</title>
+
+<style>
+  * {
+    margin: 0;
+  }
+
+  body {
+    overflow: hidden;
+  }
+
+  @font-face {
+    font-family: mk;
+    src: url('assets/fonts/mkx.ttf');
+  }
+</style>
+
+<body>
+<script>
+  const myFont = new FontFace('mk', 'url(assets/fonts/mkx.ttf)');
+
+  // We need to preload the font, otherwise pixi does not find it
+  myFont.load().then(() => {
+    const script = document.createElement('script');
+    script.src = 'bundle.js';
+    document.body.appendChild(script);
+  });
+</script>
+</body>
