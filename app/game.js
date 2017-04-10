@@ -24,7 +24,7 @@ class Game {
     PIXI.loader
       .add([
         "assets/images/backgrounds/armory.json",
-        "assets/images/backgrounds/init.jpg"
+        "assets/images/backgrounds/intro.png"
       ])
       .load(() => {
         this.initGame();
@@ -47,9 +47,9 @@ class Game {
     this.gameOverScene.visible = false;
 
     this.backgrounds.intro = new PIXI.Sprite.from(
-      PIXI.loader.resources["assets/images/backgrounds/init.jpg"].texture
+      PIXI.loader.resources["assets/images/backgrounds/intro.png"].texture
     );
-
+        
     this.background = this.backgrounds.intro;
     this.setBGScale(this.background);
 
