@@ -1,6 +1,6 @@
 import Game from "./game.js";
 
-let pixiApi = new Game();
+window.game = new Game();
 // let player = {
 //     position: {
 //         x: 300,
@@ -60,15 +60,12 @@ let pixiApi = new Game();
 
 //let sprite = {name: 'ryu', source: "assets/images/characters/ryu.png"}
 
-
 // //let player_1 = pixiApi.createPlayer(player);
 // //let player_2 = pixiApi.createPlayer(player2);
 // //pixiApi.createPlayer(player3);
 
 //pixiApi.createSpriteSheet(sprite);
 // //pixiApi.setText({textValue: 'Welcome to Mortal Prodigious', x: 'center', y:'center'});
-
-
 
 // pixiApi.setText({textValue: 'Select your character', x: 'center', y: 450});
 // let characters = [player_1, player_2];
