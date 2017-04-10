@@ -21,6 +21,8 @@ class Game {
 
     this.backgrounds = {};
 
+    this.attachEvents();
+
     PIXI.loader
       .add([
         "assets/images/backgrounds/armory.json",
@@ -49,7 +51,7 @@ class Game {
     this.backgrounds.intro = new PIXI.Sprite.from(
       PIXI.loader.resources["assets/images/backgrounds/intro.png"].texture
     );
-        
+
     this.background = this.backgrounds.intro;
     this.setBGScale(this.background);
 
@@ -186,13 +188,13 @@ class Game {
 
   setBGScale(sprite) {
     const winAspectRatio = window.innerWidth / window.innerHeight;
-    const bgAspectRatio = sprite.width / sprite.height;
+    const bgAspectRatio = sprite.texture.width / sprite.texture.height;
     let ratio;
 
     if (winAspectRatio > bgAspectRatio) {
-      ratio = window.innerWidth / sprite.width;
+      ratio = window.innerWidth / sprite.texture.width;
     } else {
-      ratio = window.innerHeight / sprite.height;
+      ratio = window.innerHeight / sprite.texture.height;
     }
 
     sprite.scale.x = ratio;
@@ -200,6 +202,26 @@ class Game {
 
     sprite.position.x = (window.innerWidth - sprite.width) / 2;
     sprite.position.y = (window.innerHeight - sprite.height) / 2;
+  }
+
+  requestFullscreen() {
+    var requestFullscreen = document.body.requestFullScreen ||
+      document.body.webkitRequestFullScreen ||
+      document.body.mozRequestFullScreen ||
+      document.body.msRequestFullScreen;
+
+    requestFullscreen.call(document.body);
+  }
+
+  attachEvents() {
+    window.addEventListener("keydown", e => {
+      this.requestFullscreen();
+    });
+
+    window.addEventListener("resize", e => {
+      this.app.renderer.resize(window.innerWidth, window.innerHeight);
+      this.setBGScale(this.background);
+    });
   }
 }
 
