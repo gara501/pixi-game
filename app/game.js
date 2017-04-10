@@ -187,26 +187,19 @@ class Game {
   setBGScale(sprite) {
     const winAspectRatio = window.innerWidth / window.innerHeight;
     const bgAspectRatio = sprite.width / sprite.height;
+    let ratio;
 
     if (winAspectRatio > bgAspectRatio) {
-      const ratio = window.innerWidth / sprite.width;
-      if (ratio > 1) {
-        sprite.scale.x = ratio;
-        sprite.scale.y = ratio;
-      } else {
-        sprite.scale.x = 1 / ratio;
-        sprite.scale.y = 1 / ratio;
-      }
+      ratio = window.innerWidth / sprite.width;
     } else {
-      const ratio = window.innerHeight / sprite.height;
-      if (ratio > 1) {
-        sprite.scale.x = 1 / ratio;
-        sprite.scale.y = 1 / ratio;
-      } else {
-        sprite.scale.x = ratio;
-        sprite.scale.y = ratio;
-      }
+      ratio = window.innerHeight / sprite.height;
     }
+
+    sprite.scale.x = ratio;
+    sprite.scale.y = ratio;
+
+    sprite.position.x = (window.innerWidth - sprite.width) / 2;
+    sprite.position.y = (window.innerHeight - sprite.height) / 2;
   }
 }
 
