@@ -456,7 +456,7 @@ exports.__esModule = true;
  * @name VERSION
  * @type {string}
  */
-var VERSION = exports.VERSION = '4.4.2';
+var VERSION = exports.VERSION = '4.4.4';
 
 /**
  * Two Pi.
@@ -2659,6 +2659,7 @@ function removeAllHandlers(tex) {
  */
 Texture.EMPTY = new Texture(new _BaseTexture2.default());
 removeAllHandlers(Texture.EMPTY);
+removeAllHandlers(Texture.EMPTY.baseTexture);
 
 /**
  * A white texture of 10x10 size, used for graphics and other things
@@ -2669,6 +2670,7 @@ removeAllHandlers(Texture.EMPTY);
  */
 Texture.WHITE = createWhiteTexture();
 removeAllHandlers(Texture.WHITE);
+removeAllHandlers(Texture.WHITE.baseTexture);
 //# sourceMappingURL=Texture.js.map
 
 /***/ }),
@@ -6514,7 +6516,7 @@ exports.nextCombination = function(v) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
- * isMobile.js v0.4.0
+ * isMobile.js v0.4.1
  *
  * A simple library to detect Apple phones and tablets,
  * Android phones and tablets, other mobile devices (like blackberry, mini-opera and windows phone),
@@ -6533,7 +6535,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
         android_tablet      = /Android/i,
         amazon_phone        = /(?=.*\bAndroid\b)(?=.*\bSD4930UR\b)/i,
         amazon_tablet       = /(?=.*\bAndroid\b)(?=.*\b(?:KFOT|KFTT|KFJWI|KFJWA|KFSOWI|KFTHWI|KFTHWA|KFAPWI|KFAPWA|KFARWI|KFASWI|KFSAWI|KFSAWA)\b)/i,
-        windows_phone       = /IEMobile/i,
+        windows_phone       = /Windows Phone/i,
         windows_tablet      = /(?=.*\bWindows\b)(?=.*\bARM\b)/i, // Match 'Windows' AND 'ARM'
         other_blackberry    = /BlackBerry/i,
         other_blackberry_10 = /BB10/i,
@@ -14866,6 +14868,14 @@ var Filter = function () {
      * @member {boolean}
      */
     this.enabled = true;
+
+    /**
+     * If enabled, pixi will fit the filter area into boundaries for better performance.
+     * Switch it off if it does not work for specific shader.
+     *
+     * @member {boolean}
+     */
+    this.autoFit = true;
   }
 
   /**
@@ -18219,7 +18229,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__game_js__ = __webpack_require__(91);
 
 
-let pixiApi = new __WEBPACK_IMPORTED_MODULE_0__game_js__["a" /* default */]();
+window.game = new __WEBPACK_IMPORTED_MODULE_0__game_js__["a" /* default */]();
 // let player = {
 //     position: {
 //         x: 300,
@@ -18236,7 +18246,7 @@ let pixiApi = new __WEBPACK_IMPORTED_MODULE_0__game_js__["a" /* default */]();
 //     vx: 1,
 //     vy: 1,
 //     texture: "assets/images/characters/test.png",
-//     rotationSpeed: 0, 
+//     rotationSpeed: 0,
 //     addToScene: false
 // };
 // let player2 = {
@@ -18277,16 +18287,14 @@ let pixiApi = new __WEBPACK_IMPORTED_MODULE_0__game_js__["a" /* default */]();
 //     rotationSpeed: 0
 // };
 
-// let sprite = {name: 'ryu', source: "assets/images/characters/ryu.png"}
-
+//let sprite = {name: 'ryu', source: "assets/images/characters/ryu.png"}
 
 // //let player_1 = pixiApi.createPlayer(player);
 // //let player_2 = pixiApi.createPlayer(player2);
 // //pixiApi.createPlayer(player3);
 
-// //pixiApi.createSpriteSheet(sprite);
+//pixiApi.createSpriteSheet(sprite);
 // //pixiApi.setText({textValue: 'Welcome to Mortal Prodigious', x: 'center', y:'center'});
-
 
 // pixiApi.setText({textValue: 'Select your character', x: 'center', y: 450});
 // let characters = [player_1, player_2];
@@ -18314,21 +18322,20 @@ class Bump {
   //`addCollisionProperties` adds extra properties to sprites to help
   //simplify the collision code. It won't add these properties if they
   //already exist on the sprite. After these properties have been
-  //added, this methods adds a Boolean property to the sprite called `_bumpPropertiesAdded` 
+  //added, this methods adds a Boolean property to the sprite called `_bumpPropertiesAdded`
   //and sets it to `true` to flag that the sprite has these
   //new properties
   addCollisionProperties(sprite) {
-
     //Add properties to Pixi sprites
     if (this.renderer === "pixi") {
-
       //gx
       if (sprite.gx === undefined) {
         Object.defineProperty(sprite, "gx", {
           get() {
             return sprite.getGlobalPosition().x;
           },
-          enumerable: true, configurable: true
+          enumerable: true,
+          configurable: true
         });
       }
 
@@ -18338,7 +18345,8 @@ class Bump {
           get() {
             return sprite.getGlobalPosition().y;
           },
-          enumerable: true, configurable: true
+          enumerable: true,
+          configurable: true
         });
       }
 
@@ -18348,7 +18356,8 @@ class Bump {
           get() {
             return sprite.x + sprite.width / 2;
           },
-          enumerable: true, configurable: true
+          enumerable: true,
+          configurable: true
         });
       }
 
@@ -18358,7 +18367,8 @@ class Bump {
           get() {
             return sprite.y + sprite.height / 2;
           },
-          enumerable: true, configurable: true
+          enumerable: true,
+          configurable: true
         });
       }
 
@@ -18368,7 +18378,8 @@ class Bump {
           get() {
             return sprite.width / 2;
           },
-          enumerable: true, configurable: true
+          enumerable: true,
+          configurable: true
         });
       }
 
@@ -18378,7 +18389,8 @@ class Bump {
           get() {
             return sprite.height / 2;
           },
-          enumerable: true, configurable: true
+          enumerable: true,
+          configurable: true
         });
       }
 
@@ -18392,7 +18404,8 @@ class Bump {
               return 0;
             }
           },
-          enumerable: true, configurable: true
+          enumerable: true,
+          configurable: true
         });
       }
 
@@ -18406,7 +18419,8 @@ class Bump {
               return 0;
             }
           },
-          enumerable: true, configurable: true
+          enumerable: true,
+          configurable: true
         });
       }
 
@@ -18415,7 +18429,8 @@ class Bump {
           get() {
             return sprite.width / 2;
           },
-          enumerable: true, configurable: true
+          enumerable: true,
+          configurable: true
         });
       }
 
@@ -18479,7 +18494,7 @@ class Bump {
   hitTestPoint
   ------------
    Use it to find out if a point is touching a circlular or rectangular sprite.
-  Parameters: 
+  Parameters:
   a. An object with `x` and `y` properties.
   b. A sprite object with `x`, `y`, `centerX` and `centerY` properties.
   If the sprite has a `radius` property, the function will interpret
@@ -18487,7 +18502,6 @@ class Bump {
   */
 
   hitTestPoint(point, sprite) {
-
     //Add collision properties
     if (!sprite._bumpPropertiesAdded) this.addCollisionProperties(sprite);
 
@@ -18503,7 +18517,6 @@ class Bump {
 
     //Rectangle
     if (shape === "rectangle") {
-
       //Get the position of the sprite's edges
       left = sprite.x - sprite.xAnchorOffset;
       right = sprite.x + sprite.width - sprite.xAnchorOffset;
@@ -18516,7 +18529,6 @@ class Bump {
 
     //Circle
     if (shape === "circle") {
-
       //Find the distance between the point and the
       //center of the circle
       let vx = point.x - sprite.x - sprite.width / 2 + sprite.xAnchorOffset,
@@ -18536,13 +18548,12 @@ class Bump {
   hitTestCircle
   -------------
    Use it to find out if two circular sprites are touching.
-  Parameters: 
+  Parameters:
   a. A sprite object with `centerX`, `centerY` and `radius` properties.
   b. A sprite object with `centerX`, `centerY` and `radius`.
   */
 
   hitTestCircle(c1, c2, global = false) {
-
     //Add collision properties
     if (!c1._bumpPropertiesAdded) this.addCollisionProperties(c1);
     if (!c2._bumpPropertiesAdded) this.addCollisionProperties(c2);
@@ -18580,7 +18591,7 @@ class Bump {
   ---------------
    Use it to prevent a moving circular sprite from overlapping and optionally
   bouncing off a non-moving circular sprite.
-  Parameters: 
+  Parameters:
   a. A sprite object with `x`, `y` `centerX`, `centerY` and `radius` properties.
   b. A sprite object with `x`, `y` `centerX`, `centerY` and `radius` properties.
   c. Optional: true or false to indicate whether or not the first sprite
@@ -18589,7 +18600,6 @@ class Bump {
    */
 
   circleCollision(c1, c2, bounce = false, global = false) {
-
     //Add collision properties
     if (!c1._bumpPropertiesAdded) this.addCollisionProperties(c1);
     if (!c2._bumpPropertiesAdded) this.addCollisionProperties(c2);
@@ -18625,7 +18635,6 @@ class Bump {
 
     //Figure out if there's a collision
     if (magnitude < combinedRadii) {
-
       //Yes, a collision is happening
       hit = true;
 
@@ -18671,14 +18680,13 @@ class Bump {
   movingCircleCollision
   ---------------------
    Use it to make two moving circles bounce off each other.
-  Parameters: 
+  Parameters:
   a. A sprite object with `x`, `y` `centerX`, `centerY` and `radius` properties.
   b. A sprite object with `x`, `y` `centerX`, `centerY` and `radius` properties.
   The sprites can contain an optional mass property that should be greater than 1.
    */
 
   movingCircleCollision(c1, c2, global = false) {
-
     //Add collision properties
     if (!c1._bumpPropertiesAdded) this.addCollisionProperties(c1);
     if (!c2._bumpPropertiesAdded) this.addCollisionProperties(c2);
@@ -18702,12 +18710,10 @@ class Bump {
 
     //Calculate the vector between the circles’ center points
     if (global) {
-
       //Use global coordinates
       s.vx = c2.gx + c2.radius - c2.xAnchorOffset - (c1.gx + c1.radius - c1.xAnchorOffset);
       s.vy = c2.gy + c2.radius - c2.yAnchorOffset - (c1.gy + c1.radius - c1.yAnchorOffset);
     } else {
-
       //Use local coordinates
       s.vx = c2.x + c2.radius - c2.xAnchorOffset - (c1.x + c1.radius - c1.xAnchorOffset);
       s.vy = c2.y + c2.radius - c2.yAnchorOffset - (c1.y + c1.radius - c1.yAnchorOffset);
@@ -18722,7 +18728,6 @@ class Bump {
 
     //Figure out if there's a collision
     if (s.magnitude < combinedRadii) {
-
       //Yes, a collision is happening
       hit = true;
 
@@ -18826,11 +18831,9 @@ class Bump {
 
   multipleCircleCollision(arrayOfCircles, global = false) {
     for (let i = 0; i < arrayOfCircles.length; i++) {
-
       //The first circle to use in the collision check
       var c1 = arrayOfCircles[i];
       for (let j = i + 1; j < arrayOfCircles.length; j++) {
-
         //The second circle to use in the collision check
         let c2 = arrayOfCircles[j];
 
@@ -18855,7 +18858,6 @@ class Bump {
   */
 
   rectangleCollision(r1, r2, bounce = false, global = true) {
-
     //Add collision properties
     if (!r1._bumpPropertiesAdded) this.addCollisionProperties(r1);
     if (!r2._bumpPropertiesAdded) this.addCollisionProperties(r2);
@@ -18879,11 +18881,9 @@ class Bump {
 
     //Check whether vx is less than the combined half widths
     if (Math.abs(vx) < combinedHalfWidths) {
-
       //A collision might be occurring!
       //Check whether vy is less than the combined half heights
       if (Math.abs(vy) < combinedHalfHeights) {
-
         //A collision has occurred! This is good!
         //Find out the size of the overlap on both the X and Y axes
         overlapX = combinedHalfWidths - Math.abs(vx);
@@ -18964,13 +18964,12 @@ class Bump {
   hitTestRectangle
   ----------------
    Use it to find out if two rectangular sprites are touching.
-  Parameters: 
+  Parameters:
   a. A sprite object with `centerX`, `centerY`, `halfWidth` and `halfHeight` properties.
   b. A sprite object with `centerX`, `centerY`, `halfWidth` and `halfHeight` properties.
    */
 
   hitTestRectangle(r1, r2, global = false) {
-
     //Add collision properties
     if (!r1._bumpPropertiesAdded) this.addCollisionProperties(r1);
     if (!r2._bumpPropertiesAdded) this.addCollisionProperties(r2);
@@ -18995,19 +18994,15 @@ class Bump {
 
     //Check for a collision on the x axis
     if (Math.abs(vx) < combinedHalfWidths) {
-
       //A collision might be occuring. Check for a collision on the y axis
       if (Math.abs(vy) < combinedHalfHeights) {
-
         //There's definitely a collision happening
         hit = true;
       } else {
-
         //There's no collision on the y axis
         hit = false;
       }
     } else {
-
       //There's no collision on the x axis
       hit = false;
     }
@@ -19020,13 +19015,12 @@ class Bump {
   hitTestCircleRectangle
   ----------------
    Use it to find out if a circular shape is touching a rectangular shape
-  Parameters: 
+  Parameters:
   a. A sprite object with `centerX`, `centerY`, `halfWidth` and `halfHeight` properties.
   b. A sprite object with `centerX`, `centerY`, `halfWidth` and `halfHeight` properties.
    */
 
   hitTestCircleRectangle(c1, r1, global = false) {
-
     //Add collision properties
     if (!r1._bumpPropertiesAdded) this.addCollisionProperties(r1);
     if (!c1._bumpPropertiesAdded) this.addCollisionProperties(c1);
@@ -19048,7 +19042,6 @@ class Bump {
 
     //Is the circle above the rectangle's top edge?
     if (c1y - c1.yAnchorOffset < r1y - Math.abs(r1.halfHeight) - r1.yAnchorOffset) {
-
       //If it is, we need to check whether it's in the
       //top left, top center or top right
       if (c1x - c1.xAnchorOffset < r1x - 1 - Math.abs(r1.halfWidth) - r1.xAnchorOffset) {
@@ -19058,70 +19051,62 @@ class Bump {
       } else {
         region = "topMiddle";
       }
-    }
-
-    //The circle isn't above the top edge, so it might be
-    //below the bottom edge
-    else if (c1y - c1.yAnchorOffset > r1y + Math.abs(r1.halfHeight) - r1.yAnchorOffset) {
-
-        //If it is, we need to check whether it's in the bottom left,
-        //bottom center, or bottom right
-        if (c1x - c1.xAnchorOffset < r1x - 1 - Math.abs(r1.halfWidth) - r1.xAnchorOffset) {
-          region = "bottomLeft";
-        } else if (c1x - c1.xAnchorOffset > r1x + 1 + Math.abs(r1.halfWidth) - r1.xAnchorOffset) {
-          region = "bottomRight";
-        } else {
-          region = "bottomMiddle";
-        }
+    } else if (c1y - c1.yAnchorOffset > r1y + Math.abs(r1.halfHeight) - r1.yAnchorOffset) {
+      //The circle isn't above the top edge, so it might be
+      //below the bottom edge
+      //If it is, we need to check whether it's in the bottom left,
+      //bottom center, or bottom right
+      if (c1x - c1.xAnchorOffset < r1x - 1 - Math.abs(r1.halfWidth) - r1.xAnchorOffset) {
+        region = "bottomLeft";
+      } else if (c1x - c1.xAnchorOffset > r1x + 1 + Math.abs(r1.halfWidth) - r1.xAnchorOffset) {
+        region = "bottomRight";
+      } else {
+        region = "bottomMiddle";
       }
-
+    } else {
       //The circle isn't above the top edge or below the bottom edge,
       //so it must be on the left or right side
-      else {
-          if (c1x - c1.xAnchorOffset < r1x - Math.abs(r1.halfWidth) - r1.xAnchorOffset) {
-            region = "leftMiddle";
-          } else {
-            region = "rightMiddle";
-          }
-        }
+      if (c1x - c1.xAnchorOffset < r1x - Math.abs(r1.halfWidth) - r1.xAnchorOffset) {
+        region = "leftMiddle";
+      } else {
+        region = "rightMiddle";
+      }
+    }
 
     //Is this the circle touching the flat sides
     //of the rectangle?
     if (region === "topMiddle" || region === "bottomMiddle" || region === "leftMiddle" || region === "rightMiddle") {
-
       //Yes, it is, so do a standard rectangle vs. rectangle collision test
       collision = this.hitTestRectangle(c1, r1, global);
-    }
+    } else {
+      //The circle is touching one of the corners, so do a
+      //circle vs. point collision test
+      let point = {};
 
-    //The circle is touching one of the corners, so do a
-    //circle vs. point collision test
-    else {
-        let point = {};
+      switch (region) {
+        case "topLeft":
+          point.x = r1x - r1.xAnchorOffset;
+          point.y = r1y - r1.yAnchorOffset;
+          break;
 
-        switch (region) {
-          case "topLeft":
-            point.x = r1x - r1.xAnchorOffset;
-            point.y = r1y - r1.yAnchorOffset;
-            break;
+        case "topRight":
+          point.x = r1x + r1.width - r1.xAnchorOffset;
+          point.y = r1y - r1.yAnchorOffset;
+          break;
 
-          case "topRight":
-            point.x = r1x + r1.width - r1.xAnchorOffset;
-            point.y = r1y - r1.yAnchorOffset;
-            break;
+        case "bottomLeft":
+          point.x = r1x - r1.xAnchorOffset;
+          point.y = r1y + r1.height - r1.yAnchorOffset;
+          break;
 
-          case "bottomLeft":
-            point.x = r1x - r1.xAnchorOffset;
-            point.y = r1y + r1.height - r1.yAnchorOffset;
-            break;
-
-          case "bottomRight":
-            point.x = r1x + r1.width - r1.xAnchorOffset;
-            point.y = r1y + r1.height - r1.yAnchorOffset;
-        }
-
-        //Check for a collision between the circle and the point
-        collision = this.hitTestCirclePoint(c1, point, global);
+        case "bottomRight":
+          point.x = r1x + r1.width - r1.xAnchorOffset;
+          point.y = r1y + r1.height - r1.yAnchorOffset;
       }
+
+      //Check for a collision between the circle and the point
+      collision = this.hitTestCirclePoint(c1, point, global);
+    }
 
     //Return the result of the collision.
     //The return value will be `undefined` if there's no collision
@@ -19136,13 +19121,12 @@ class Bump {
   hitTestCirclePoint
   ------------------
    Use it to find out if a circular shape is touching a point
-  Parameters: 
+  Parameters:
   a. A sprite object with `centerX`, `centerY`, and `radius` properties.
   b. A point object with `x` and `y` properties.
    */
 
   hitTestCirclePoint(c1, point, global = false) {
-
     //Add collision properties
     if (!c1._bumpPropertiesAdded) this.addCollisionProperties(c1);
 
@@ -19167,13 +19151,12 @@ class Bump {
   circleRectangleCollision
   ------------------------
    Use it to bounce a circular shape off a rectangular shape
-  Parameters: 
+  Parameters:
   a. A sprite object with `centerX`, `centerY`, `halfWidth` and `halfHeight` properties.
   b. A sprite object with `centerX`, `centerY`, `halfWidth` and `halfHeight` properties.
    */
 
   circleRectangleCollision(c1, r1, bounce = false, global = false) {
-
     //Add collision properties
     if (!r1._bumpPropertiesAdded) this.addCollisionProperties(r1);
     if (!c1._bumpPropertiesAdded) this.addCollisionProperties(c1);
@@ -19195,7 +19178,6 @@ class Bump {
 
     //Is the circle above the rectangle's top edge?
     if (c1y - c1.yAnchorOffset < r1y - Math.abs(r1.halfHeight) - r1.yAnchorOffset) {
-
       //If it is, we need to check whether it's in the
       //top left, top center or top right
       if (c1x - c1.xAnchorOffset < r1x - 1 - Math.abs(r1.halfWidth) - r1.xAnchorOffset) {
@@ -19205,70 +19187,62 @@ class Bump {
       } else {
         region = "topMiddle";
       }
-    }
-
-    //The circle isn't above the top edge, so it might be
-    //below the bottom edge
-    else if (c1y - c1.yAnchorOffset > r1y + Math.abs(r1.halfHeight) - r1.yAnchorOffset) {
-
-        //If it is, we need to check whether it's in the bottom left,
-        //bottom center, or bottom right
-        if (c1x - c1.xAnchorOffset < r1x - 1 - Math.abs(r1.halfWidth) - r1.xAnchorOffset) {
-          region = "bottomLeft";
-        } else if (c1x - c1.xAnchorOffset > r1x + 1 + Math.abs(r1.halfWidth) - r1.xAnchorOffset) {
-          region = "bottomRight";
-        } else {
-          region = "bottomMiddle";
-        }
+    } else if (c1y - c1.yAnchorOffset > r1y + Math.abs(r1.halfHeight) - r1.yAnchorOffset) {
+      //The circle isn't above the top edge, so it might be
+      //below the bottom edge
+      //If it is, we need to check whether it's in the bottom left,
+      //bottom center, or bottom right
+      if (c1x - c1.xAnchorOffset < r1x - 1 - Math.abs(r1.halfWidth) - r1.xAnchorOffset) {
+        region = "bottomLeft";
+      } else if (c1x - c1.xAnchorOffset > r1x + 1 + Math.abs(r1.halfWidth) - r1.xAnchorOffset) {
+        region = "bottomRight";
+      } else {
+        region = "bottomMiddle";
       }
-
+    } else {
       //The circle isn't above the top edge or below the bottom edge,
       //so it must be on the left or right side
-      else {
-          if (c1x - c1.xAnchorOffset < r1x - Math.abs(r1.halfWidth) - r1.xAnchorOffset) {
-            region = "leftMiddle";
-          } else {
-            region = "rightMiddle";
-          }
-        }
+      if (c1x - c1.xAnchorOffset < r1x - Math.abs(r1.halfWidth) - r1.xAnchorOffset) {
+        region = "leftMiddle";
+      } else {
+        region = "rightMiddle";
+      }
+    }
 
     //Is this the circle touching the flat sides
     //of the rectangle?
     if (region === "topMiddle" || region === "bottomMiddle" || region === "leftMiddle" || region === "rightMiddle") {
-
       //Yes, it is, so do a standard rectangle vs. rectangle collision test
       collision = this.rectangleCollision(c1, r1, bounce, global);
-    }
+    } else {
+      //The circle is touching one of the corners, so do a
+      //circle vs. point collision test
+      let point = {};
 
-    //The circle is touching one of the corners, so do a
-    //circle vs. point collision test
-    else {
-        let point = {};
+      switch (region) {
+        case "topLeft":
+          point.x = r1x - r1.xAnchorOffset;
+          point.y = r1y - r1.yAnchorOffset;
+          break;
 
-        switch (region) {
-          case "topLeft":
-            point.x = r1x - r1.xAnchorOffset;
-            point.y = r1y - r1.yAnchorOffset;
-            break;
+        case "topRight":
+          point.x = r1x + r1.width - r1.xAnchorOffset;
+          point.y = r1y - r1.yAnchorOffset;
+          break;
 
-          case "topRight":
-            point.x = r1x + r1.width - r1.xAnchorOffset;
-            point.y = r1y - r1.yAnchorOffset;
-            break;
+        case "bottomLeft":
+          point.x = r1x - r1.xAnchorOffset;
+          point.y = r1y + r1.height - r1.yAnchorOffset;
+          break;
 
-          case "bottomLeft":
-            point.x = r1x - r1.xAnchorOffset;
-            point.y = r1y + r1.height - r1.yAnchorOffset;
-            break;
-
-          case "bottomRight":
-            point.x = r1x + r1.width - r1.xAnchorOffset;
-            point.y = r1y + r1.height - r1.yAnchorOffset;
-        }
-
-        //Check for a collision between the circle and the point
-        collision = this.circlePointCollision(c1, point, bounce, global);
+        case "bottomRight":
+          point.x = r1x + r1.width - r1.xAnchorOffset;
+          point.y = r1y + r1.height - r1.yAnchorOffset;
       }
+
+      //Check for a collision between the circle and the point
+      collision = this.circlePointCollision(c1, point, bounce, global);
+    }
 
     if (collision) {
       return region;
@@ -19281,13 +19255,12 @@ class Bump {
   circlePointCollision
   --------------------
    Use it to boucnce a circle off a point.
-  Parameters: 
+  Parameters:
   a. A sprite object with `centerX`, `centerY`, and `radius` properties.
   b. A point object with `x` and `y` properties.
    */
 
   circlePointCollision(c1, point, bounce = false, global = false) {
-
     //Add collision properties
     if (!c1._bumpPropertiesAdded) this.addCollisionProperties(c1);
 
@@ -19312,7 +19285,7 @@ class Bump {
   bounceOffSurface
   ----------------
    Use this to bounce an object off another object.
-  Parameters: 
+  Parameters:
   a. An object with `v.x` and `v.y` properties. This represents the object that is colliding
   with a surface.
   b. An object with `x` and `y` properties. This represents the surface that the object
@@ -19322,7 +19295,6 @@ class Bump {
   */
 
   bounceOffSurface(o, s) {
-
     //Add collision properties
     if (!o._bumpPropertiesAdded) this.addCollisionProperties(o);
 
@@ -19381,7 +19353,7 @@ class Bump {
   `contain` can be used to contain a sprite with `x` and
   `y` properties inside a rectangular area.
    The `contain` function takes four arguments: a sprite with `x` and `y`
-  properties, an object literal with `x`, `y`, `width` and `height` properties. The 
+  properties, an object literal with `x`, `y`, `width` and `height` properties. The
   third argument is a Boolean (true/false) value that determines if the sprite
   should bounce when it hits the edge of the container. The fourth argument
   is an extra user-defined callback function that you can call when the
@@ -19391,7 +19363,7 @@ class Bump {
   ```
   The code above will contain the sprite's position inside the 512 by
   512 pixel area defined by the object. If the sprite hits the edges of
-  the container, it will bounce. The `callBackFunction` will run if 
+  the container, it will bounce. The `callBackFunction` will run if
   there's a collision.
    An additional feature of the `contain` method is that if the sprite
   has a `mass` property, it will be used to dampen the sprite's bounce
@@ -19406,92 +19378,91 @@ class Bump {
   let collision = contain(anySprite, {x: 0, y: 0, width: 512, height: 512});
    //If there's a collision, display the boundary that the collision happened on
   if(collision) {
-    if collision.has("left") console.log("The sprite hit the left");  
-    if collision.has("top") console.log("The sprite hit the top");  
-    if collision.has("right") console.log("The sprite hit the right");  
-    if collision.has("bottom") console.log("The sprite hit the bottom");  
+    if collision.has("left") console.log("The sprite hit the left");
+    if collision.has("top") console.log("The sprite hit the top");
+    if collision.has("right") console.log("The sprite hit the right");
+    if collision.has("bottom") console.log("The sprite hit the bottom");
   }
   ```
   If the sprite doesn't hit a boundary, the value of
-  `collision` will be `undefined`. 
+  `collision` will be `undefined`.
   */
 
   /*
-   contain(sprite, container, bounce = false, extra = undefined) {
-      //Helper methods that compensate for any possible shift the the
-     //sprites' anchor points
-     let nudgeAnchor = (o, value, axis) => {
-       if (o.anchor !== undefined) {
-         if (o.anchor[axis] !== 0) {
-           return value * ((1 - o.anchor[axis]) - o.anchor[axis]);
-         } else {
-           return value;
-         }
-       } else {
-         return value; 
-       }
-     };
-      let compensateForAnchor = (o, value, axis) => {
-       if (o.anchor !== undefined) {
-         if (o.anchor[axis] !== 0) {
-           return value * o.anchor[axis];
-         } else {
-           return 0;
-         }
-       } else {
-         return 0; 
-       }
-     };
-      let compensateForAnchors = (a, b, property1, property2) => {
-        return compensateForAnchor(a, a[property1], property2) + compensateForAnchor(b, b[property1], property2)
-     };    
-     //Create a set called `collision` to keep track of the
-     //boundaries with which the sprite is colliding
-     let collision = new Set();
-      //Left
-     if (sprite.x - compensateForAnchor(sprite, sprite.width, "x") < container.x - sprite.parent.gx - compensateForAnchor(container, container.width, "x")) {
-       //Bounce the sprite if `bounce` is true
-       if (bounce) sprite.vx *= -1;
-        //If the sprite has `mass`, let the mass
-       //affect the sprite's velocity
-       if(sprite.mass) sprite.vx /= sprite.mass;
-        //Keep the sprite inside the container
-       sprite.x = container.x - sprite.parent.gx + compensateForAnchor(sprite, sprite.width, "x") - compensateForAnchor(container, container.width, "x");
-        //Add "left" to the collision set
-       collision.add("left");
-     }
-      //Top
-     if (sprite.y - compensateForAnchor(sprite, sprite.height, "y") < container.y - sprite.parent.gy - compensateForAnchor(container, container.height, "y")) {
-       if (bounce) sprite.vy *= -1;
-       if(sprite.mass) sprite.vy /= sprite.mass;
-       sprite.y = container.x - sprite.parent.gy + compensateForAnchor(sprite, sprite.height, "y") - compensateForAnchor(container, container.height, "y");
-       collision.add("top");
-     }
-      //Right
-     if (sprite.x - compensateForAnchor(sprite, sprite.width, "x") + sprite.width > container.width - compensateForAnchor(container, container.width, "x")) {
-       if (bounce) sprite.vx *= -1;
-       if(sprite.mass) sprite.vx /= sprite.mass;
-       sprite.x = container.width - sprite.width + compensateForAnchor(sprite, sprite.width, "x") - compensateForAnchor(container, container.width, "x");
-       collision.add("right");
-     }
-      //Bottom
-     if (sprite.y - compensateForAnchor(sprite, sprite.height, "y") + sprite.height > container.height - compensateForAnchor(container, container.height, "y")) {
-       if (bounce) sprite.vy *= -1;
-       if(sprite.mass) sprite.vy /= sprite.mass;
-       sprite.y = container.height - sprite.height + compensateForAnchor(sprite, sprite.height, "y") - compensateForAnchor(container, container.height, "y");
-       collision.add("bottom");
-     }
-      //If there were no collisions, set `collision` to `undefined`
-     if (collision.size === 0) collision = undefined;
-      //The `extra` function runs if there was a collision
-     //and `extra` has been defined
-     if (collision && extra) extra(collision);
-      //Return the `collision` value
-     return collision;
-   }
-   */
   contain(sprite, container, bounce = false, extra = undefined) {
-
+     //Helper methods that compensate for any possible shift the the
+    //sprites' anchor points
+    let nudgeAnchor = (o, value, axis) => {
+      if (o.anchor !== undefined) {
+        if (o.anchor[axis] !== 0) {
+          return value * ((1 - o.anchor[axis]) - o.anchor[axis]);
+        } else {
+          return value;
+        }
+      } else {
+        return value;
+      }
+    };
+     let compensateForAnchor = (o, value, axis) => {
+      if (o.anchor !== undefined) {
+        if (o.anchor[axis] !== 0) {
+          return value * o.anchor[axis];
+        } else {
+          return 0;
+        }
+      } else {
+        return 0;
+      }
+    };
+     let compensateForAnchors = (a, b, property1, property2) => {
+       return compensateForAnchor(a, a[property1], property2) + compensateForAnchor(b, b[property1], property2)
+    };
+    //Create a set called `collision` to keep track of the
+    //boundaries with which the sprite is colliding
+    let collision = new Set();
+     //Left
+    if (sprite.x - compensateForAnchor(sprite, sprite.width, "x") < container.x - sprite.parent.gx - compensateForAnchor(container, container.width, "x")) {
+      //Bounce the sprite if `bounce` is true
+      if (bounce) sprite.vx *= -1;
+       //If the sprite has `mass`, let the mass
+      //affect the sprite's velocity
+      if(sprite.mass) sprite.vx /= sprite.mass;
+       //Keep the sprite inside the container
+      sprite.x = container.x - sprite.parent.gx + compensateForAnchor(sprite, sprite.width, "x") - compensateForAnchor(container, container.width, "x");
+       //Add "left" to the collision set
+      collision.add("left");
+    }
+     //Top
+    if (sprite.y - compensateForAnchor(sprite, sprite.height, "y") < container.y - sprite.parent.gy - compensateForAnchor(container, container.height, "y")) {
+      if (bounce) sprite.vy *= -1;
+      if(sprite.mass) sprite.vy /= sprite.mass;
+      sprite.y = container.x - sprite.parent.gy + compensateForAnchor(sprite, sprite.height, "y") - compensateForAnchor(container, container.height, "y");
+      collision.add("top");
+    }
+     //Right
+    if (sprite.x - compensateForAnchor(sprite, sprite.width, "x") + sprite.width > container.width - compensateForAnchor(container, container.width, "x")) {
+      if (bounce) sprite.vx *= -1;
+      if(sprite.mass) sprite.vx /= sprite.mass;
+      sprite.x = container.width - sprite.width + compensateForAnchor(sprite, sprite.width, "x") - compensateForAnchor(container, container.width, "x");
+      collision.add("right");
+    }
+     //Bottom
+    if (sprite.y - compensateForAnchor(sprite, sprite.height, "y") + sprite.height > container.height - compensateForAnchor(container, container.height, "y")) {
+      if (bounce) sprite.vy *= -1;
+      if(sprite.mass) sprite.vy /= sprite.mass;
+      sprite.y = container.height - sprite.height + compensateForAnchor(sprite, sprite.height, "y") - compensateForAnchor(container, container.height, "y");
+      collision.add("bottom");
+    }
+     //If there were no collisions, set `collision` to `undefined`
+    if (collision.size === 0) collision = undefined;
+     //The `extra` function runs if there was a collision
+    //and `extra` has been defined
+    if (collision && extra) extra(collision);
+     //Return the `collision` value
+    return collision;
+  }
+  */
+  contain(sprite, container, bounce = false, extra = undefined) {
     //Add collision properties
     if (!sprite._bumpPropertiesAdded) this.addCollisionProperties(sprite);
 
@@ -19508,7 +19479,6 @@ class Bump {
 
     //Left
     if (sprite.x - sprite.xAnchorOffset < container.x - sprite.parent.gx - container.xAnchorOffset) {
-
       //Bounce the sprite if `bounce` is true
       if (bounce) sprite.vx *= -1;
 
@@ -19527,7 +19497,7 @@ class Bump {
     if (sprite.y - sprite.yAnchorOffset < container.y - sprite.parent.gy - container.yAnchorOffset) {
       if (bounce) sprite.vy *= -1;
       if (sprite.mass) sprite.vy /= sprite.mass;
-      sprite.y = container.y - sprite.parent.gy - container.yAnchorOffset + sprite.yAnchorOffset;;
+      sprite.y = container.y - sprite.parent.gy - container.yAnchorOffset + sprite.yAnchorOffset;
       collision.add("top");
     }
 
@@ -19562,9 +19532,8 @@ class Bump {
   //another object. It returns an object called `collision`. `collision` will be `undefined` if there's no
   //collision. But if there is a collision, `collision` will be
   //returned as a Set containg strings that tell you which boundary
-  //side was crossed: "left", "right", "top" or "bottom" 
+  //side was crossed: "left", "right", "top" or "bottom"
   outsideBounds(s, bounds, extra) {
-
     let x = bounds.x,
         y = bounds.y,
         width = bounds.width,
@@ -19631,7 +19600,6 @@ class Bump {
   */
 
   hit(a, b, react = false, bounce = false, global, extra = undefined) {
-
     //Local references to bump's collision methods
     let hitTestPoint = this.hitTestPoint.bind(this),
         hitTestRectangle = this.hitTestRectangle.bind(this),
@@ -19658,7 +19626,7 @@ class Bump {
     }
 
     //Return the result of the collision.
-    //It will be `undefined` if there's no collision and `true` if 
+    //It will be `undefined` if there's no collision and `true` if
     //there is a collision. `rectangleCollision` sets `collsision` to
     //"top", "bottom", "left" or "right" depeneding on which side the
     //collision is occuring on
@@ -19683,16 +19651,15 @@ class Bump {
           //They're rectangles
           return rectangleVsRectangle(a, b);
         }
+      } else if (bIsASprite && !(a.x === undefined) && !(a.y === undefined)) {
+        //They're not both sprites, so what are they?
+        //Is `a` not a sprite and does it have x and y properties?
+        //Yes, so this is a point vs. sprite collision test
+        return hitTestPoint(a, b);
+      } else {
+        //The user is trying to test some incompatible objects
+        throw new Error(`I'm sorry, ${a} and ${b} cannot be use together in a collision test.'`);
       }
-      //They're not both sprites, so what are they?
-      //Is `a` not a sprite and does it have x and y properties?
-      else if (bIsASprite && !(a.x === undefined) && !(a.y === undefined)) {
-          //Yes, so this is a point vs. sprite collision test
-          return hitTestPoint(a, b);
-        } else {
-          //The user is trying to test some incompatible objects
-          throw new Error(`I'm sorry, ${a} and ${b} cannot be use together in a collision test.'`);
-        }
     }
 
     function spriteVsArray() {
@@ -19713,20 +19680,19 @@ class Bump {
       //just test to see if they're touching
       if (!react) {
         return hitTestCircle(a, b);
-      }
-      //Yes, the circles should react to the collision
-      else {
-          //Are they both moving?
-          if (a.vx + a.vy !== 0 && b.vx + b.vy !== 0) {
-            //Yes, they are both moving
-            //(moving circle collisions always bounce apart so there's
-            //no need for the third, `bounce`, argument)
-            return movingCircleCollision(a, b, global);
-          } else {
-            //No, they're not both moving
-            return circleCollision(a, b, bounce, global);
-          }
+      } else {
+        //Yes, the circles should react to the collision
+        //Are they both moving?
+        if (a.vx + a.vy !== 0 && b.vx + b.vy !== 0) {
+          //Yes, they are both moving
+          //(moving circle collisions always bounce apart so there's
+          //no need for the third, `bounce`, argument)
+          return movingCircleCollision(a, b, global);
+        } else {
+          //No, they're not both moving
+          return circleCollision(a, b, bounce, global);
         }
+      }
     }
 
     function rectangleVsRectangle(a, b) {
@@ -19773,30 +19739,28 @@ class Bump {
 
 class Game {
   constructor() {
-    this.app = new __WEBPACK_IMPORTED_MODULE_0_pixi_js__["Application"]();
-    this.renderer = __WEBPACK_IMPORTED_MODULE_0_pixi_js__["autoDetectRenderer"](800, 800, { transparent: true });
-    this.loader = __WEBPACK_IMPORTED_MODULE_0_pixi_js__["loader"];
-    this.resources = __WEBPACK_IMPORTED_MODULE_0_pixi_js__["loader"].resources;
-    this.textureCache = __WEBPACK_IMPORTED_MODULE_0_pixi_js__["utils"].TextureCache;
-    this.textObj = new __WEBPACK_IMPORTED_MODULE_4__textStyles_js__["a" /* default */](this.renderer);
+    this.app = new __WEBPACK_IMPORTED_MODULE_0_pixi_js__["Application"](1000, 600);
+    this.textObj = new __WEBPACK_IMPORTED_MODULE_4__textStyles_js__["a" /* default */](this.app.renderer);
 
-    this.stage = new __WEBPACK_IMPORTED_MODULE_0_pixi_js__["Container"]();
     this.introScene = new __WEBPACK_IMPORTED_MODULE_0_pixi_js__["Container"]();
     this.selectScene = new __WEBPACK_IMPORTED_MODULE_0_pixi_js__["Container"]();
     this.gameScene = new __WEBPACK_IMPORTED_MODULE_0_pixi_js__["Container"]();
     this.gameOverScene = new __WEBPACK_IMPORTED_MODULE_0_pixi_js__["Container"]();
 
-    this.stage.addChild(this.introScene);
-    this.stage.addChild(this.gameScene);
-    this.stage.addChild(this.selectScene);
-    this.stage.addChild(this.gameOverScene);
+    this.app.stage.addChild(this.introScene);
+    this.app.stage.addChild(this.gameScene);
+    this.app.stage.addChild(this.selectScene);
+    this.app.stage.addChild(this.gameOverScene);
 
-    document.body.appendChild(this.renderer.view);
+    this.backgrounds = {};
 
-    //this.loader.add('assets/images/characters/scorpionSprites.json').load(this.initGame);
+    this.attachEvents();
 
-
-    this.initGame();
+    __WEBPACK_IMPORTED_MODULE_0_pixi_js__["loader"].add(["assets/images/backgrounds/armory.json", "assets/images/backgrounds/intro.png", "assets/images/backgrounds/choose.png", "assets/images/characters/p1.png", "assets/images/characters/p2.png", "assets/images/characters/p3.jpg"]).load(() => {
+      this.initGame();
+    });
+    document.querySelector('.app').appendChild(this.app.renderer.view);
+    //document.body.appendChild
   }
 
   // Set intro Container, first scene
@@ -19812,29 +19776,83 @@ class Game {
     this.gameScene.visible = false;
     this.gameOverScene.visible = false;
 
-    let background = __WEBPACK_IMPORTED_MODULE_0_pixi_js__["Sprite"].fromImage('assets/images/backgrounds/init.jpg');
-    background.position.x = 0;
-    background.position.y = 0;
-    background.scale.x = 1.5;
-    background.scale.y = 1.5;
+    this.backgrounds.intro = new __WEBPACK_IMPORTED_MODULE_0_pixi_js__["Sprite"].from(__WEBPACK_IMPORTED_MODULE_0_pixi_js__["loader"].resources["assets/images/backgrounds/intro.png"].texture);
 
-    this.introScene.addChild(background);
+    this.background = this.backgrounds.intro;
+    this.setBGScale(this.background);
 
-    let welcomeTitle = this.textObj.introText();
-    this.introScene.addChild(welcomeTitle);
+    this.introScene.addChild(this.background);
+
+    // let welcomeTitle = this.textObj.introText();
+    // this.introScene.addChild(welcomeTitle);
 
     let animate = () => {
       requestAnimationFrame(animate);
-      this.renderer.render(this.stage);
+      this.app.renderer.render(this.app.stage);
+      __WEBPACK_IMPORTED_MODULE_0_pixi_js__["actionManager"].update();
+    };
+    // this.movePlayer({ player: welcomeTitle, x: 20, y: 300, time: 4 });
+    animate();
+  }
+
+  chooseScreen() {
+    this.introScene.visible = false;
+    this.selectScene.visible = true;
+    this.gameScene.visible = false;
+    this.gameOverScene.visible = false;
+
+    this.backgrounds.choose = new __WEBPACK_IMPORTED_MODULE_0_pixi_js__["Sprite"].from(__WEBPACK_IMPORTED_MODULE_0_pixi_js__["loader"].resources["assets/images/backgrounds/choose.png"].texture);
+    this.backgrounds.player1 = new __WEBPACK_IMPORTED_MODULE_0_pixi_js__["Sprite"].from(__WEBPACK_IMPORTED_MODULE_0_pixi_js__["loader"].resources["assets/images/characters/p1.png"].texture);
+    this.backgrounds.player2 = new __WEBPACK_IMPORTED_MODULE_0_pixi_js__["Sprite"].from(__WEBPACK_IMPORTED_MODULE_0_pixi_js__["loader"].resources["assets/images/characters/p2.png"].texture);
+    this.backgrounds.player3 = new __WEBPACK_IMPORTED_MODULE_0_pixi_js__["Sprite"].from(__WEBPACK_IMPORTED_MODULE_0_pixi_js__["loader"].resources["assets/images/characters/p3.jpg"].texture);
+
+    this.backgrounds.player1.position.x = 0;
+    this.backgrounds.player1.position.y = 0;
+    this.backgrounds.player1.width = 320;
+    this.backgrounds.player1.height = 320;
+    this.resizeElement(this.backgrounds.player1);
+    this.backgrounds.player2.position.x = 600;
+    this.backgrounds.player2.position.y = 200;
+    this.backgrounds.player2.width = 320;
+    this.backgrounds.player2.height = 320;
+
+    this.backgrounds.player3.position.x = 1000;
+    this.backgrounds.player3.position.y = 200;
+    this.backgrounds.player3.width = 320;
+    this.backgrounds.player3.height = 320;
+
+    this.background = this.backgrounds.choose;
+    this.player1 = this.backgrounds.player1;
+    this.player2 = this.backgrounds.player2;
+    this.player3 = this.backgrounds.player3;
+
+    this.setBGScale(this.background);
+
+    this.selectScene.addChild(this.background);
+    this.selectScene.addChild(this.player1);
+    this.selectScene.addChild(this.player2);
+    this.selectScene.addChild(this.player3);
+
+    let animate = () => {
+      requestAnimationFrame(animate);
+      this.app.renderer.render(this.app.stage);
       __WEBPACK_IMPORTED_MODULE_0_pixi_js__["actionManager"].update();
     };
     animate();
   }
 
+  resizeElement(element) {
+    let posx = parseInt(window.innerWidth * 0.05);
+    let posy = parseInt(window.innerHeight * 0.1);
+    element.position.x = posx;
+    element.position.y = posy;
+    return element;
+  }
+
   gameLoop() {
     requestAnimationFrame(gameLoop);
     //state();
-    this.renderer.render(this.stage);
+    this.app.renderer.render(this.app.stage);
   }
 
   gameOver() {
@@ -19855,7 +19873,7 @@ class Game {
     player.anchor.y = options.anchor.y;
 
     if (options.addToScene) {
-      this.stage.addChild(player);
+      this.app.stage.addChild(player);
     }
 
     let animate = () => {
@@ -19867,7 +19885,7 @@ class Game {
       if (options.vx > 0) {
         player.position.x += options.vx;
       }
-      this.renderer.render(this.stage);
+      this.app.renderer.render(this.app.stage);
       __WEBPACK_IMPORTED_MODULE_0_pixi_js__["actionManager"].update();
     };
     animate();
@@ -19880,8 +19898,7 @@ class Game {
   }
 
   createSpriteSheet(options) {
-
-    let localStage = this.stage;
+    let localStage = this.app.stage;
 
     let sprite;
     let animationLoop = () => {
@@ -19910,14 +19927,14 @@ class Game {
 
     __WEBPACK_IMPORTED_MODULE_0_pixi_js__["loader"].add(options.name, options.source).load(setup);
 
-    window.addEventListener('keydown', function (e) {
-      if (e.keyCode == '38') {
+    window.addEventListener("keydown", function (e) {
+      if (e.keyCode == "38") {
         // up arrow
-      } else if (e.keyCode == '40') {
+      } else if (e.keyCode == "40") {
         // down arrow
-      } else if (e.keyCode == '37') {
+      } else if (e.keyCode == "37") {
         sprite.x -= sprite.vx;
-      } else if (e.keyCode == '39') {
+      } else if (e.keyCode == "39") {
         sprite.x += sprite.vx;
       }
       e.preventDefault();
@@ -19933,33 +19950,53 @@ class Game {
   }
 
   groupSprites(container, options) {
-
     for (let i = 0; i < options.length; i++) {
       container.addChild(options[i]);
     }
 
-    this.stage.addChild(container);
-    console.log(this.stage);
-    this.renderer.render(this.stage);
+    this.app.stage.addChild(container);
+    console.log(this.app.stage);
+    this.renderer.render(this.app.stage);
   }
 
-  setText(options) {
-    let tStyle = new __WEBPACK_IMPORTED_MODULE_4__textStyles_js__["a" /* default */]();
-    let textSt = tStyle.introText();
-    let title = new __WEBPACK_IMPORTED_MODULE_0_pixi_js__["Text"](options.textValue, textSt);
-    if (options.x === 'center') {
-      title.x = this.renderer.width / 2 - title.width / 2;
+  setBGScale(sprite) {
+    const winAspectRatio = 1000 / 600;
+    const bgAspectRatio = sprite.texture.width / sprite.texture.height;
+    let ratio;
+
+    if (winAspectRatio > bgAspectRatio) {
+      ratio = 1000 / sprite.texture.width;
     } else {
-      title.x = options.x;
+      ratio = 600 / sprite.texture.height;
     }
-    if (options.y === 'center') {
-      title.y = this.renderer.height / 2 - title.height / 2;
-    } else {
-      title.y = options.y;
-    }
-    this.stage.addChild(title);
+
+    sprite.scale.x = ratio;
+    sprite.scale.y = ratio;
+
+    sprite.position.x = (1000 - sprite.width) / 2;
+    sprite.position.y = (600 - sprite.height) / 2;
   }
 
+  requestFullscreen() {
+    var requestFullscreen = document.body.requestFullScreen || document.body.webkitRequestFullScreen || document.body.mozRequestFullScreen || document.body.msRequestFullScreen;
+
+    requestFullscreen.call(document.body);
+  }
+
+  attachEvents() {
+    window.addEventListener("keydown", e => {
+      if (this.introScene.visible) {
+        // this.requestFullscreen();
+        this.chooseScreen();
+      }
+    });
+
+    window.addEventListener("resize", e => {
+      this.app.renderer.resize(1000, 600);
+      this.setBGScale(this.background);
+      this.resizeElement(this.player1);
+    });
+  }
 }
 
 /* harmony default export */ __webpack_exports__["a"] = (Game);
@@ -19967,7 +20004,6 @@ class Game {
 /***/ }),
 /* 92 */
 /***/ (function(module, exports) {
-
 
 /*
 Sound.js
@@ -19994,21 +20030,21 @@ Thank you, Chris!
 */
 
 (function (global, exports, perf) {
-  'use strict';
+  "use strict";
 
   function fixSetTarget(param) {
-    if (!param) // if NYI, just return
-      return;
+    if (!param // if NYI, just return
+    ) return;
     if (!param.setTargetAtTime) param.setTargetAtTime = param.setTargetValueAtTime;
   }
 
-  if (window.hasOwnProperty('webkitAudioContext') && !window.hasOwnProperty('AudioContext')) {
+  if (window.hasOwnProperty("webkitAudioContext") && !window.hasOwnProperty("AudioContext")) {
     window.AudioContext = webkitAudioContext;
 
-    if (!AudioContext.prototype.hasOwnProperty('createGain')) AudioContext.prototype.createGain = AudioContext.prototype.createGainNode;
-    if (!AudioContext.prototype.hasOwnProperty('createDelay')) AudioContext.prototype.createDelay = AudioContext.prototype.createDelayNode;
-    if (!AudioContext.prototype.hasOwnProperty('createScriptProcessor')) AudioContext.prototype.createScriptProcessor = AudioContext.prototype.createJavaScriptNode;
-    if (!AudioContext.prototype.hasOwnProperty('createPeriodicWave')) AudioContext.prototype.createPeriodicWave = AudioContext.prototype.createWaveTable;
+    if (!AudioContext.prototype.hasOwnProperty("createGain")) AudioContext.prototype.createGain = AudioContext.prototype.createGainNode;
+    if (!AudioContext.prototype.hasOwnProperty("createDelay")) AudioContext.prototype.createDelay = AudioContext.prototype.createDelayNode;
+    if (!AudioContext.prototype.hasOwnProperty("createScriptProcessor")) AudioContext.prototype.createScriptProcessor = AudioContext.prototype.createJavaScriptNode;
+    if (!AudioContext.prototype.hasOwnProperty("createPeriodicWave")) AudioContext.prototype.createPeriodicWave = AudioContext.prototype.createWaveTable;
 
     AudioContext.prototype.internal_createGain = AudioContext.prototype.createGain;
     AudioContext.prototype.createGain = function () {
@@ -20034,7 +20070,7 @@ Thank you, Chris!
       } else {
         node.internal_start = node.start;
         node.start = function (when, offset, duration) {
-          if (typeof duration !== 'undefined') node.internal_start(when || 0, offset, duration);else node.internal_start(when || 0, offset || 0);
+          if (typeof duration !== "undefined") node.internal_start(when || 0, offset, duration);else node.internal_start(when || 0, offset || 0);
         };
       }
       if (!node.stop) {
@@ -20073,7 +20109,7 @@ Thank you, Chris!
       return node;
     };
 
-    if (AudioContext.prototype.hasOwnProperty('createOscillator')) {
+    if (AudioContext.prototype.hasOwnProperty("createOscillator")) {
       AudioContext.prototype.internal_createOscillator = AudioContext.prototype.createOscillator;
       AudioContext.prototype.createOscillator = function () {
         var node = this.internal_createOscillator();
@@ -20105,7 +20141,7 @@ Thank you, Chris!
     }
   }
 
-  if (window.hasOwnProperty('webkitOfflineAudioContext') && !window.hasOwnProperty('OfflineAudioContext')) {
+  if (window.hasOwnProperty("webkitOfflineAudioContext") && !window.hasOwnProperty("OfflineAudioContext")) {
     window.OfflineAudioContext = webkitOfflineAudioContext;
   }
 })(window);
@@ -20115,7 +20151,7 @@ Define the audio context
 ------------------------
 
 All this code uses a single `AudioContext` If you want to use any of these functions
-independently of this file, make sure that have an `AudioContext` called `actx`. 
+independently of this file, make sure that have an `AudioContext` called `actx`.
 */
 var actx = new AudioContext();
 
@@ -20123,17 +20159,17 @@ var actx = new AudioContext();
 sounds
 ------
 
-`sounds` is an object that you can use to store all your loaded sound fles. 
+`sounds` is an object that you can use to store all your loaded sound fles.
 It also has a helpful `load` method that manages asset loading. You can load sounds at
 any time during the game by using the `sounds.load` method. You don't have to use
-the `sounds` object or its `load` method, but it's a really convenient way to 
+the `sounds` object or its `load` method, but it's a really convenient way to
 work with sound file assets.
 
-Here's how could use the `sound` object to load three sound files from a `sounds` folder and 
+Here's how could use the `sound` object to load three sound files from a `sounds` folder and
 call a `setup` method when all the files have finished loading:
 
     sounds.load([
-      "sounds/shoot.wav", 
+      "sounds/shoot.wav",
       "sounds/music.wav",
       "sounds/bounce.mp3"
     ]);
@@ -20172,15 +20208,13 @@ var sounds = {
     //Find the number of files that need to be loaded.
     self.toLoad = sources.length;
     sources.forEach(function (source) {
-
       //Find the file extension of the asset.
-      var extension = source.split('.').pop();
+      var extension = source.split(".").pop();
 
       //#### Sounds
       //Load audio files that have file extensions that match
       //the `audioExtensions` array.
       if (self.audioExtensions.indexOf(extension) !== -1) {
-
         //Create a sound sprite.
         var soundSprite = makeSound(source, self.loadHandler.bind(self), true, false);
 
@@ -20193,12 +20227,10 @@ var sounds = {
         //Assign the sound as a property of the assets object so
         //we can access it like this: `assets["sounds/sound.mp3"]`.
         self[soundSprite.name] = soundSprite;
+      } else {
+        //Display a message if the file type isn't recognized.
+        console.log("File type not recognized: " + source);
       }
-
-      //Display a message if the file type isn't recognized.
-      else {
-          console.log("File type not recognized: " + source);
-        }
     });
   },
 
@@ -20211,7 +20243,6 @@ var sounds = {
 
     //Check whether everything has loaded.
     if (self.toLoad === self.loaded) {
-
       //If it has, run the callback function that was assigned to the `whenLoaded` property
       console.log("Sounds finished loading");
 
@@ -20230,15 +20261,15 @@ makeSound
 
 `makeSound` is the function you want to use to load and play sound files.
 It creates and returns and WebAudio sound object with lots of useful methods you can
-use to control the sound. 
+use to control the sound.
 You can use it to load a sound like this:
 
     var anySound = makeSound("sounds/anySound.mp3", loadHandler);
 
 
 The code above will load the sound and then call the `loadHandler`
-when the sound has finished loading. 
-(However, it's more convenient to load the sound file using 
+when the sound has finished loading.
+(However, it's more convenient to load the sound file using
 the `sounds.load` method described above, so I don't recommend loading sounds
 like this unless you need more low-level control.)
 
@@ -20256,8 +20287,8 @@ After the sound has been loaded you can access and use it like this:
       anySound.setEcho(0.2, 0.2, 0);
       anySound.playbackRate = 0.5;
     }
-   
-For advanced configurations, you can optionally supply `makeSound` with optional 3rd and 
+
+For advanced configurations, you can optionally supply `makeSound` with optional 3rd and
 4th arguments:
 
    var anySound = makeSound(source, loadHandler, loadTheSound?, xhrObject);
@@ -20267,7 +20298,7 @@ from being loaded. You would only want to set it to `false` like this if you wer
 using another file loading library to load the sound, and didn't want it to be loaded
 twice.
 
-`xhrObject`, the optional 4th argument, is the XHR object that was used to load the sound. Again, you 
+`xhrObject`, the optional 4th argument, is the XHR object that was used to load the sound. Again, you
 would only supply this if you were using another file loading library to load the sound,
 and that library had generated its own XHR object. If you supply the `xhr` argument, `makeSound`
 will skip the file loading step (because you've already done that), but still decode the audio buffer for you.
@@ -20290,7 +20321,6 @@ of you application. (The [Hexi game engine](https://github.com/kittykatattack/he
 */
 
 function makeSound(source, loadHandler, loadSound, xhr) {
-
   //The sound object that this function returns.
   var o = {};
 
@@ -20340,7 +20370,6 @@ function makeSound(source, loadHandler, loadSound, xhr) {
 
   //The sound object's methods.
   o.play = function () {
-
     //Set the start time (it will be `0` when the sound
     //first starts.
     o.startTime = actx.currentTime;
@@ -20361,22 +20390,19 @@ function makeSound(source, loadHandler, loadSound, xhr) {
     //If there's no reverb, bypass the convolverNode
     if (o.reverb === false) {
       o.volumeNode.connect(o.panNode);
+    } else {
+      //If there is reverb, connect the `convolverNode` and apply
+      //the impulse response
+      o.volumeNode.connect(o.convolverNode);
+      o.convolverNode.connect(o.panNode);
+      o.convolverNode.buffer = o.reverbImpulse;
     }
-
-    //If there is reverb, connect the `convolverNode` and apply
-    //the impulse response
-    else {
-        o.volumeNode.connect(o.convolverNode);
-        o.convolverNode.connect(o.panNode);
-        o.convolverNode.buffer = o.reverbImpulse;
-      }
 
     //Connect the `panNode` to the destination to complete the chain.
     o.panNode.connect(actx.destination);
 
     //Add optional echo.
     if (o.echo) {
-
       //Set the values.
       o.feedbackNode.gain.value = o.feebackValue;
       o.delayNode.delayTime.value = o.delayValue;
@@ -20470,7 +20496,6 @@ function makeSound(source, loadHandler, loadSound, xhr) {
 
   //Fade a sound in, from an initial volume level of zero.
   o.fadeIn = function (durationInSeconds) {
-
     //Set the volume to 0 so that you can fade
     //in from silence
     o.volumeNode.gain.value = 0;
@@ -20492,11 +20517,12 @@ function makeSound(source, loadHandler, loadSound, xhr) {
         o.volumeNode.gain.value = value;
         o.volumeValue = value;
       },
-      enumerable: true, configurable: true
+      enumerable: true,
+      configurable: true
     },
 
     //The pan node uses the high-efficiency stereo panner, if it's
-    //available. But, because this is a new addition to the 
+    //available. But, because this is a new addition to the
     //WebAudio spec, it might not be available on all browsers.
     //So the code checks for this and uses the older 3D panner
     //if 2D isn't available.
@@ -20524,7 +20550,8 @@ function makeSound(source, loadHandler, loadSound, xhr) {
           o.panNode.pan.value = value;
         }
       },
-      enumerable: true, configurable: true
+      enumerable: true,
+      configurable: true
     }
   });
 
@@ -20558,10 +20585,9 @@ function loadSound(o, source, loadHandler) {
   xhr.send();
 }
 
-//The `decodeAudio` function decodes the audio file for you and 
+//The `decodeAudio` function decodes the audio file for you and
 //launches the `loadHandler` when it's done
 function decodeAudio(o, xhr, loadHandler) {
-
   //Decode the sound and store a reference to the buffer.
   actx.decodeAudioData(xhr.response, function (buffer) {
     o.buffer = buffer;
@@ -20574,7 +20600,6 @@ function decodeAudio(o, xhr, loadHandler) {
       loadHandler();
     }
   },
-
   //Throw an error if the sound can't be decoded.
   function (error) {
     throw new Error("Audio could not be decoded: " + error);
@@ -20627,7 +20652,6 @@ echo, //An array: [delayTimeInSeconds, feedbackTimeInSeconds, filterValueInHz]
 reverb, //An array: [durationInSeconds, decayRateInSeconds, reverse]
 timeout //A number, in seconds, which is the maximum duration for sound effects
 ) {
-
   //Set the default values
   if (frequencyValue === undefined) frequencyValue = 200;
   if (attack === undefined) attack = 0;
@@ -20703,7 +20727,6 @@ timeout //A number, in seconds, which is the maximum duration for sound effects
   }
 
   function addEcho(volumeNode) {
-
     //Create the nodes
     var feedback = actx.createGain(),
         delay = actx.createDelay(),
@@ -20736,7 +20759,6 @@ timeout //A number, in seconds, which is the maximum duration for sound effects
 
   //The `fadeIn` function
   function fadeIn(volumeNode) {
-
     //Set the volume to 0 so that you can fade
     //in from silence
     volumeNode.gain.value = 0;
@@ -20763,19 +20785,16 @@ timeout //A number, in seconds, which is the maximum duration for sound effects
     if (!reverse) {
       oscillatorNode.frequency.linearRampToValueAtTime(frequency, actx.currentTime + wait);
       oscillatorNode.frequency.linearRampToValueAtTime(frequency - pitchBendAmount, actx.currentTime + wait + attack + decay);
+    } else {
+      //If `reverse` is false, make the note rise in pitch. Useful for
+      //jumping sounds
+      oscillatorNode.frequency.linearRampToValueAtTime(frequency, actx.currentTime + wait);
+      oscillatorNode.frequency.linearRampToValueAtTime(frequency + pitchBendAmount, actx.currentTime + wait + attack + decay);
     }
-
-    //If `reverse` is false, make the note rise in pitch. Useful for
-    //jumping sounds
-    else {
-        oscillatorNode.frequency.linearRampToValueAtTime(frequency, actx.currentTime + wait);
-        oscillatorNode.frequency.linearRampToValueAtTime(frequency + pitchBendAmount, actx.currentTime + wait + attack + decay);
-      }
   }
 
   //The `addDissonance` function
   function addDissonance() {
-
     //Create two more oscillators and gain nodes
     var d1 = actx.createOscillator(),
         d2 = actx.createOscillator(),
@@ -20832,9 +20851,9 @@ timeout //A number, in seconds, which is the maximum duration for sound effects
   function play(node) {
     node.start(actx.currentTime + wait);
 
-    //Oscillators have to be stopped otherwise they accumulate in 
+    //Oscillators have to be stopped otherwise they accumulate in
     //memory and tax the CPU. They'll be stopped after a default
-    //timeout of 2 seconds, which should be enough for most sound 
+    //timeout of 2 seconds, which should be enough for most sound
     //effects. Override this in the `soundEffect` parameters if you
     //need a longer sound
     node.stop(actx.currentTime + wait + 2);
@@ -20845,14 +20864,13 @@ timeout //A number, in seconds, which is the maximum duration for sound effects
 impulseResponse
 ---------------
 
-The `makeSound` and `soundEffect` functions uses `impulseResponse`  to help create an optional reverb effect.  
-It simulates a model of sound reverberation in an acoustic space which 
+The `makeSound` and `soundEffect` functions uses `impulseResponse`  to help create an optional reverb effect.
+It simulates a model of sound reverberation in an acoustic space which
 a convolver node can blend with the source sound. Make sure to include this function along with `makeSound`
 and `soundEffect` if you need to use the reverb feature.
 */
 
 function impulseResponse(duration, decay, reverse, actx) {
-
   //The length of the buffer.
   var length = actx.sampleRate * duration;
 
@@ -20867,7 +20885,6 @@ function impulseResponse(duration, decay, reverse, actx) {
   //Loop through each sample-frame and fill the channel
   //data with random noise.
   for (var i = 0; i < length; i++) {
-
     //Apply the reverse effect, if `reverse` is `true`.
     var n;
     if (reverse) {
@@ -20890,7 +20907,7 @@ function impulseResponse(duration, decay, reverse, actx) {
 keyboard
 --------
 
-This isn't really necessary - I just included it for fun to help with the 
+This isn't really necessary - I just included it for fun to help with the
 examples in the `index.html` files.
 The `keyboard` helper function creates `key` objects
 that listen for keyboard events. Create a new key object like
@@ -20908,7 +20925,7 @@ Then assign `press` and `release` methods like this:
     };
 
 Keyboard objects also have `isDown` and `isUp` Booleans that you can check.
-This is so much easier than having to write out tedious keyboard even capture 
+This is so much easier than having to write out tedious keyboard even capture
 code from scratch.
 
 Like I said, the `keyboard` function has nothing to do with generating sounds,
@@ -20964,12 +20981,12 @@ class TextStyles {
 
   getTextObject(options, style) {
     let title = new __WEBPACK_IMPORTED_MODULE_0_pixi_js__["Text"](options.textValue, style);
-    if (options.x === 'center') {
+    if (options.x === "center") {
       title.x = this.renderer.width / 2 - title.width / 2;
     } else {
       title.x = options.x;
     }
-    if (options.y === 'center') {
+    if (options.y === "center") {
       title.y = this.renderer.height / 2 - title.height / 2;
     } else {
       title.y = options.y;
@@ -20979,23 +20996,24 @@ class TextStyles {
 
   introText() {
     let title = this.getTextObject({
-      textValue: 'Welcome to Mortal Kombat Prodigious',
-      x: 'center',
-      y: 'center' }, this.introStyle());
+      textValue: "Welcome to Mortal Kombat Prodigious",
+      x: 10,
+      y: "center",
+      vx: 2,
+      vy: 0
+    }, this.introStyle());
     return title;
   }
 
   introStyle() {
     let titleStyle = new __WEBPACK_IMPORTED_MODULE_0_pixi_js__["TextStyle"]({
-      fontFamily: 'Arial',
+      fontFamily: "mk",
       fontSize: 36,
-      fontStyle: 'italic',
-      fontWeight: 'bold',
-      fill: ['#ffffff', '#00ff99'], // gradient
-      stroke: '#4a1850',
+      fill: ["#ffffff", "#00ff99"], // gradient
+      stroke: "#4a1850",
       strokeThickness: 5,
       dropShadow: true,
-      dropShadowColor: '#000000',
+      dropShadowColor: "#000000",
       dropShadowBlur: 4,
       dropShadowAngle: Math.PI / 6,
       dropShadowDistance: 6,
@@ -26690,7 +26708,7 @@ var FilterManager = function (_WebGLManager) {
         if (filterData.stack[0].renderTarget.transform) {//
 
             // TODO we should fit the rect around the transform..
-        } else {
+        } else if (filters[0].autoFit) {
             sourceFrame.fit(filterData.stack[0].destinationFrame);
         }
 
@@ -35718,8 +35736,6 @@ var InteractionManager = function (_EventEmitter) {
                 }
             }
 
-        var keepHitTestingAfterChildren = hitTest;
-
         // ** FREE TIP **! If an object is not interactive or has no buttons in it
         // (such as a game scene!) set interactiveChildren to false for that displayObject.
         // This will allow pixi to completely ignore and bypass checking the displayObjects children.
@@ -35730,14 +35746,14 @@ var InteractionManager = function (_EventEmitter) {
                 var child = children[i];
 
                 // time to get recursive.. if this function will return if something is hit..
-                if (this.processInteractive(interactionEvent, child, func, hitTest, interactiveParent)) {
+                var childHit = this.processInteractive(interactionEvent, child, func, hitTest, interactiveParent);
+
+                if (childHit) {
                     // its a good idea to check if a child has lost its parent.
                     // this means it has been removed whilst looping so its best
                     if (!child.parent) {
                         continue;
                     }
-
-                    hit = true;
 
                     // we no longer need to hit test any more objects in this container as we we
                     // now know the parent has been hit
@@ -35748,30 +35764,32 @@ var InteractionManager = function (_EventEmitter) {
                     // This means we no longer need to hit test anything else. We still need to run
                     // through all objects, but we don't need to perform any hit tests.
 
-                    keepHitTestingAfterChildren = false;
-
-                    if (child.interactive) {
-                        hitTest = false;
+                    if (childHit) {
+                        if (interactionEvent.target) {
+                            hitTest = false;
+                        }
+                        hit = true;
                     }
-
-                    // we can break now as we have hit an object.
                 }
             }
         }
-
-        hitTest = keepHitTestingAfterChildren;
 
         // no point running this if the item is not interactive or does not have an interactive parent.
         if (interactive) {
             // if we are hit testing (as in we have no hit any objects yet)
             // We also don't need to worry about hit testing if once of the displayObjects children
-            // has already been hit!
-            if (hitTest && !hit) {
+            // has already been hit - but only if it was interactive, otherwise we need to keep
+            // looking for an interactive child, just in case we hit one
+            if (hitTest && !interactionEvent.target) {
                 if (displayObject.hitArea) {
                     displayObject.worldTransform.applyInverse(point, this._tempPoint);
-                    hit = displayObject.hitArea.contains(this._tempPoint.x, this._tempPoint.y);
+                    if (displayObject.hitArea.contains(this._tempPoint.x, this._tempPoint.y)) {
+                        hit = true;
+                    }
                 } else if (displayObject.containsPoint) {
-                    hit = displayObject.containsPoint(point);
+                    if (displayObject.containsPoint(point)) {
+                        hit = true;
+                    }
                 }
             }
 
@@ -35780,7 +35798,7 @@ var InteractionManager = function (_EventEmitter) {
                     interactionEvent.target = displayObject;
                 }
 
-                func(interactionEvent, displayObject, hit);
+                func(interactionEvent, displayObject, !!hit);
             }
         }
 
@@ -36133,6 +36151,10 @@ var InteractionManager = function (_EventEmitter) {
         this.emit('pointerout', interactionEvent);
         if (event.pointerType === 'mouse') {
             this.emit('mouseout', interactionEvent);
+        } else {
+            // we can get touchleave events after touchend, so we want to make sure we don't
+            // introduce memory leaks
+            this.releaseInteractionDataForPointerId(interactionData.identifier);
         }
     };
 
@@ -41854,3 +41876,4 @@ module.exports = __webpack_require__(89);
 
 /***/ })
 /******/ ]);
+//# sourceMappingURL=bundle.js.map

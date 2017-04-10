@@ -6,7 +6,7 @@ import TextStyles from "./textStyles.js";
 
 class Game {
   constructor() {
-    this.app = new PIXI.Application(window.innerWidth, window.innerHeight);
+    this.app = new PIXI.Application(1000, 600);
     this.textObj = new TextStyles(this.app.renderer);
 
     this.introScene = new PIXI.Container();
@@ -26,13 +26,17 @@ class Game {
     PIXI.loader
       .add([
         "assets/images/backgrounds/armory.json",
-        "assets/images/backgrounds/intro.png"
+        "assets/images/backgrounds/intro.png",
+        "assets/images/backgrounds/choose.png",
+        "assets/images/characters/p1.png",
+        "assets/images/characters/p2.png",
+        "assets/images/characters/p3.jpg",
       ])
       .load(() => {
         this.initGame();
       });
-
-    document.body.appendChild(this.app.renderer.view);
+    document.querySelector('.app').appendChild(this.app.renderer.view);
+    //document.body.appendChild
   }
 
   // Set intro Container, first scene
@@ -57,16 +61,80 @@ class Game {
 
     this.introScene.addChild(this.background);
 
-    let welcomeTitle = this.textObj.introText();
-    this.introScene.addChild(welcomeTitle);
+    // let welcomeTitle = this.textObj.introText();
+    // this.introScene.addChild(welcomeTitle);
 
     let animate = () => {
       requestAnimationFrame(animate);
       this.app.renderer.render(this.app.stage);
       PIXI.actionManager.update();
     };
-    this.movePlayer({ player: welcomeTitle, x: 20, y: 300, time: 4 });
+    // this.movePlayer({ player: welcomeTitle, x: 20, y: 300, time: 4 });
     animate();
+  }
+
+  chooseScreen() {
+    this.introScene.visible = false;
+    this.selectScene.visible = true;
+    this.gameScene.visible = false;
+    this.gameOverScene.visible = false;
+
+    this.backgrounds.choose = new PIXI.Sprite.from(
+      PIXI.loader.resources["assets/images/backgrounds/choose.png"].texture
+    );
+    this.backgrounds.player1 = new PIXI.Sprite.from(
+      PIXI.loader.resources["assets/images/characters/p1.png"].texture
+    );
+    this.backgrounds.player2 = new PIXI.Sprite.from(
+      PIXI.loader.resources["assets/images/characters/p2.png"].texture
+    );
+    this.backgrounds.player3 = new PIXI.Sprite.from(
+      PIXI.loader.resources["assets/images/characters/p3.jpg"].texture
+    );
+    
+    this.backgrounds.player1.position.x = 0;
+    this.backgrounds.player1.position.y = 0;
+    this.backgrounds.player1.width = 320;
+    this.backgrounds.player1.height = 320;
+    this.resizeElement(this.backgrounds.player1);
+    this.backgrounds.player2.position.x = 600 ;
+    this.backgrounds.player2.position.y = 200;
+    this.backgrounds.player2.width = 320;
+    this.backgrounds.player2.height = 320;
+
+    this.backgrounds.player3.position.x = 1000 ;
+    this.backgrounds.player3.position.y = 200;
+    this.backgrounds.player3.width = 320;
+    this.backgrounds.player3.height = 320;
+
+    
+    this.background = this.backgrounds.choose;
+    this.player1 = this.backgrounds.player1;
+    this.player2 = this.backgrounds.player2;
+    this.player3 = this.backgrounds.player3;
+
+    this.setBGScale(this.background);
+
+    this.selectScene.addChild(this.background);
+    this.selectScene.addChild(this.player1);
+    this.selectScene.addChild(this.player2);
+    this.selectScene.addChild(this.player3);
+
+     let animate = () => {
+      requestAnimationFrame(animate);
+      this.app.renderer.render(this.app.stage);
+      PIXI.actionManager.update();
+    };
+    animate();
+
+  }
+
+  resizeElement(element) {
+    let posx = parseInt((window.innerWidth * 0.05));
+    let posy = parseInt((window.innerHeight * 0.1));
+    element.position.x = posx;
+    element.position.y = posy;
+    return element;
   }
 
   gameLoop() {
@@ -187,21 +255,21 @@ class Game {
   }
 
   setBGScale(sprite) {
-    const winAspectRatio = window.innerWidth / window.innerHeight;
+    const winAspectRatio = 1000 / 600;
     const bgAspectRatio = sprite.texture.width / sprite.texture.height;
     let ratio;
 
     if (winAspectRatio > bgAspectRatio) {
-      ratio = window.innerWidth / sprite.texture.width;
+      ratio = 1000 / sprite.texture.width;
     } else {
-      ratio = window.innerHeight / sprite.texture.height;
+      ratio = 600 / sprite.texture.height;
     }
 
     sprite.scale.x = ratio;
     sprite.scale.y = ratio;
 
-    sprite.position.x = (window.innerWidth - sprite.width) / 2;
-    sprite.position.y = (window.innerHeight - sprite.height) / 2;
+    sprite.position.x = (1000 - sprite.width) / 2;
+    sprite.position.y = (600 - sprite.height) / 2;
   }
 
   requestFullscreen() {
@@ -215,12 +283,17 @@ class Game {
 
   attachEvents() {
     window.addEventListener("keydown", e => {
-      this.requestFullscreen();
+      if (this.introScene.visible) {
+        // this.requestFullscreen();
+        this.chooseScreen();
+      }
     });
 
     window.addEventListener("resize", e => {
-      this.app.renderer.resize(window.innerWidth, window.innerHeight);
+      this.app.renderer.resize(1000, 600);
       this.setBGScale(this.background);
+      this.resizeElement(this.player1);
+      
     });
   }
 }

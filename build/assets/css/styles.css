@@ -1,0 +1,26 @@
+ * {
+    margin: 0;
+  }
+
+  body {
+    overflow: hidden;
+  }
+
+  @font-face {
+    font-family: mk;
+    src: url('assets/fonts/mkx.ttf');
+  }
+
+  .tv {
+    border: 10px solid #ff4400;
+    border-radius: 20px;
+    height: 650px;
+    margin: 10% auto;
+    width: 1200px;      
+  }
+
+  .app {
+    height: 600px;
+    margin: 2%;
+    width: 1000px;      
+  }
