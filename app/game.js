@@ -32,7 +32,8 @@ class Game {
         "assets/images/backgrounds/choose.jpg",
         "assets/images/characters/p1.jpg",
         "assets/images/characters/p2.jpg",
-        "assets/images/characters/p3.jpg"
+        "assets/images/characters/p3.jpg",
+        "assets/images/backgrounds/combat.jpg"
       ])
       .load(() => {
         this.initGame();
@@ -183,14 +184,11 @@ class Game {
     let battle = () => {
       this.battleScene();
     }
-    
+
     this.player1.on('pointerdown', battle);
     this.player2.on('pointerdown', battle);
     this.player3.on('pointerdown', battle);
-    
-    this.setBGScale(this.background);
-
-    this.selectScene.addChild(this.background);
+      
     this.selectScene.addChild(this.backgrounds.choose);
  
     this.selectScene.addChild(title);
@@ -213,13 +211,12 @@ class Game {
     this.selectScene.visible = false;
     this.gameScene.visible = true;
 
-    this.backgrounds.choose = new PIXI.Sprite.from(
-      PIXI.loader.resources["assets/images/backgrounds/choose.jpg"].texture
+    this.backgrounds.battle = new PIXI.Sprite.from(
+      PIXI.loader.resources["assets/images/backgrounds/combat.jpg"].texture
     );
 
-    this.setBGScale(this.background);
-    this.gameScene.addChild(this.background);
-    this.gameScene.addChild(this.backgrounds.choose);
+    
+    this.gameScene.addChild(this.backgrounds.battle);
     
     let animate = () => {
       requestAnimationFrame(animate);
