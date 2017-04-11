@@ -6,7 +6,7 @@ import TextStyles from "./textStyles.js";
 
 class Game {
   constructor() {
-    this.app = new PIXI.Application(1000, 600);
+    this.app = new PIXI.Application(1000, 600, {backgroundColor : 0x000000});
     this.textObj = new TextStyles(this.app.renderer);
 
     this.introScene = new PIXI.Container();
@@ -27,7 +27,6 @@ class Game {
       .add([
         "assets/images/characters/scorpion.json",
         "assets/images/backgrounds/intro.png",
-        "assets/images/backgrounds/choose.png",
         "assets/images/characters/p1.png",
         "assets/images/characters/p2.png",
         "assets/images/characters/p3.jpg"
@@ -36,7 +35,6 @@ class Game {
         this.initGame();
       });
     document.querySelector(".app").appendChild(this.app.renderer.view);
-    //document.body.appendChild
   }
 
   // Set intro Container, first scene
@@ -56,10 +54,13 @@ class Game {
       PIXI.loader.resources["assets/images/backgrounds/intro.png"].texture
     );
 
+    let startText = this.textObj.introText();
+
     this.background = this.backgrounds.intro;
     this.setBGScale(this.background);
 
     this.introScene.addChild(this.background);
+    this.introScene.addChild(startText);
 
     const scorpion = this.createAnimation("scorpion-stance-left-", 9);
     const scorpion2 = this.createAnimation("scorpion-stance2-left-", 9);
@@ -82,13 +83,10 @@ class Game {
 
   chooseScreen() {
     this.introScene.visible = false;
-    this.selectScene.visible = true;
     this.gameScene.visible = false;
     this.gameOverScene.visible = false;
+    this.selectScene.visible = true;
 
-    this.backgrounds.choose = new PIXI.Sprite.from(
-      PIXI.loader.resources["assets/images/backgrounds/choose.png"].texture
-    );
     this.backgrounds.player1 = new PIXI.Sprite.from(
       PIXI.loader.resources["assets/images/characters/p1.png"].texture
     );
@@ -103,7 +101,7 @@ class Game {
     this.backgrounds.player1.position.y = 0;
     this.backgrounds.player1.width = 320;
     this.backgrounds.player1.height = 320;
-    this.resizeElement(this.backgrounds.player1);
+    
     this.backgrounds.player2.position.x = 600;
     this.backgrounds.player2.position.y = 200;
     this.backgrounds.player2.width = 320;
@@ -114,7 +112,7 @@ class Game {
     this.backgrounds.player3.width = 320;
     this.backgrounds.player3.height = 320;
 
-    this.background = this.backgrounds.choose;
+    
     this.player1 = this.backgrounds.player1;
     this.player2 = this.backgrounds.player2;
     this.player3 = this.backgrounds.player3;
@@ -289,8 +287,9 @@ class Game {
   attachEvents() {
     window.addEventListener("keydown", e => {
       if (this.introScene.visible) {
-        // this.requestFullscreen();
-        this.chooseScreen();
+        if (e.key === 'Enter') {
+          this.chooseScreen();
+        }
       }
     });
 

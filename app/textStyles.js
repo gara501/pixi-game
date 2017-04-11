@@ -23,9 +23,9 @@ class TextStyles {
   introText() {
     let title = this.getTextObject(
       {
-        textValue: "Welcome to Mortal Kombat Prodigious",
-        x: 10,
-        y: "center",
+        textValue: "Press Enter to start",
+        x: "center",
+        y: 520,
         vx: 2,
         vy: 0
       },
