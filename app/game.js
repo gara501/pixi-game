@@ -28,6 +28,7 @@ class Game {
       .add([
         "assets/images/characters/scorpion.json",
         "assets/images/backgrounds/intro.png",
+        "assets/images/backgrounds/choose.jpg",
         "assets/images/characters/p1.png",
         "assets/images/characters/p2.png",
         "assets/images/characters/p3.jpg"
@@ -134,6 +135,10 @@ class Game {
     this.gameOverScene.visible = false;
     this.selectScene.visible = true;
 
+    this.backgrounds.choose = new PIXI.Sprite.from(
+      PIXI.loader.resources["assets/images/backgrounds/choose.jpg"].texture
+    );
+
     this.backgrounds.player1 = new PIXI.Sprite.from(
       PIXI.loader.resources["assets/images/characters/p1.png"].texture
     );
@@ -144,20 +149,20 @@ class Game {
       PIXI.loader.resources["assets/images/characters/p3.jpg"].texture
     );
 
-    this.backgrounds.player1.position.x = 0;
-    this.backgrounds.player1.position.y = 0;
-    this.backgrounds.player1.width = 320;
-    this.backgrounds.player1.height = 320;
-
-    this.backgrounds.player2.position.x = 600;
+    this.backgrounds.player1.position.x = 200;
+    this.backgrounds.player1.position.y = 200;
+    this.backgrounds.player1.width = 150;
+    this.backgrounds.player1.height = 150;
+    
+    this.backgrounds.player2.position.x = 400;
     this.backgrounds.player2.position.y = 200;
-    this.backgrounds.player2.width = 320;
-    this.backgrounds.player2.height = 320;
+    this.backgrounds.player2.width = 150;
+    this.backgrounds.player2.height = 150;
 
-    this.backgrounds.player3.position.x = 1000;
+    this.backgrounds.player3.position.x = 600;
     this.backgrounds.player3.position.y = 200;
-    this.backgrounds.player3.width = 320;
-    this.backgrounds.player3.height = 320;
+    this.backgrounds.player3.width = 150;
+    this.backgrounds.player3.height = 150;
 
     this.player1 = this.backgrounds.player1;
     this.player2 = this.backgrounds.player2;
@@ -166,6 +171,7 @@ class Game {
     this.setBGScale(this.background);
 
     this.selectScene.addChild(this.background);
+    this.selectScene.addChild(this.backgrounds.choose);
     this.selectScene.addChild(this.player1);
     this.selectScene.addChild(this.player2);
     this.selectScene.addChild(this.player3);
