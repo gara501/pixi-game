@@ -175,6 +175,18 @@ class Game {
     this.player1.interactive = true;
     this.player2.interactive = true;
     this.player3.interactive = true;
+
+    this.player1.buttonMode = true;
+    this.player2.buttonMode = true;
+    this.player3.buttonMode = true;
+    
+    let battle = () => {
+      this.battleScene();
+    }
+    
+    this.player1.on('pointerdown', battle);
+    this.player2.on('pointerdown', battle);
+    this.player3.on('pointerdown', battle);
     
     this.setBGScale(this.background);
 
@@ -182,6 +194,9 @@ class Game {
     this.selectScene.addChild(this.backgrounds.choose);
  
     this.selectScene.addChild(title);
+    this.selectScene.addChild(this.player1);
+    this.selectScene.addChild(this.player2);
+    this.selectScene.addChild(this.player3);
 
     let animate = () => {
       requestAnimationFrame(animate);
@@ -189,18 +204,31 @@ class Game {
       PIXI.actionManager.update();
     };
     animate();
-    
-    
-    
-    
-    this.selectScene.addChild(this.player1);
-    this.selectScene.addChild(this.player2);
-    this.selectScene.addChild(this.player3);
-
-    
   }
 
- 
+  battleScene() {
+    console.log('BATLE');
+    this.introScene.visible = false;
+    this.gameOverScene.visible = false;
+    this.selectScene.visible = false;
+    this.gameScene.visible = true;
+
+    this.backgrounds.choose = new PIXI.Sprite.from(
+      PIXI.loader.resources["assets/images/backgrounds/choose.jpg"].texture
+    );
+
+    this.setBGScale(this.background);
+    this.gameScene.addChild(this.background);
+    this.gameScene.addChild(this.backgrounds.choose);
+    
+    let animate = () => {
+      requestAnimationFrame(animate);
+      this.app.renderer.render(this.app.stage);
+      PIXI.actionManager.update();
+    };
+    animate();
+  }
+
 
   resizeElement(element) {
     let posx = parseInt(window.innerWidth * 0.05);
