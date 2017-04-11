@@ -13,7 +13,7 @@ body {
 
 @font-face {
   font-family: mk;
-  src: url('assets/fonts/mkx.ttf');
+  src: url('../fonts/mkx.ttf');
 }
 
   .tv {
@@ -23,7 +23,7 @@ body {
     margin: 10% auto;
     padding: 10px;
     position: relative;
-    width: 1200px;      
+    width: 1200px;
   }
 
   .left, .right {
@@ -33,7 +33,7 @@ body {
     position: absolute;
     width: 40px;
   }
-  
+
   .left {
     left: 10%;
     transform: skew(-30deg);
@@ -43,7 +43,7 @@ body {
     right: 10%;
     transform: skew(30deg);
   }
-  
+
   .container {
     background: #ccc;
     height: 100%;
@@ -82,7 +82,7 @@ body {
     background:#333;
     margin: 50px auto 0 auto;
   }
-  
+
   .btn1::after,
   .btn2::after {
     content: '';
@@ -91,7 +91,7 @@ body {
     top: 10px;
     left: 10px;
     border-radius: 50%;
-    
+
   }
 
   .wrapper {
@@ -102,4 +102,4 @@ body {
   .app {
     border: 5px solid #333;
     height: 600px;
-    width: 1000px;      
+    width: 1000px;
