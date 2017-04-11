@@ -25,17 +25,17 @@ class Game {
 
     PIXI.loader
       .add([
-        "assets/images/backgrounds/armory.json",
+        "assets/images/characters/scorpion.json",
         "assets/images/backgrounds/intro.png",
         "assets/images/backgrounds/choose.png",
         "assets/images/characters/p1.png",
         "assets/images/characters/p2.png",
-        "assets/images/characters/p3.jpg",
+        "assets/images/characters/p3.jpg"
       ])
       .load(() => {
         this.initGame();
       });
-    document.querySelector('.app').appendChild(this.app.renderer.view);
+    document.querySelector(".app").appendChild(this.app.renderer.view);
     //document.body.appendChild
   }
 
@@ -61,16 +61,23 @@ class Game {
 
     this.introScene.addChild(this.background);
 
-    // let welcomeTitle = this.textObj.introText();
-    // this.introScene.addChild(welcomeTitle);
+    const scorpion = this.createAnimation("scorpion-stance-left-", 9);
+    const scorpion2 = this.createAnimation("scorpion-stance2-left-", 9);
 
-    let animate = () => {
-      requestAnimationFrame(animate);
-      this.app.renderer.render(this.app.stage);
-      PIXI.actionManager.update();
-    };
-    // this.movePlayer({ player: welcomeTitle, x: 20, y: 300, time: 4 });
-    animate();
+    scorpion.x = this.app.renderer.width / 3;
+    scorpion2.x = this.app.renderer.width / 2;
+
+    scorpion.y = this.app.renderer.height / 2;
+    scorpion2.y = this.app.renderer.height / 2;
+
+    scorpion.animationSpeed = 0.16;
+    scorpion2.animationSpeed = 0.16;
+
+    scorpion.play();
+    scorpion2.play();
+
+    this.introScene.addChild(scorpion);
+    this.introScene.addChild(scorpion2);
   }
 
   chooseScreen() {
@@ -91,23 +98,22 @@ class Game {
     this.backgrounds.player3 = new PIXI.Sprite.from(
       PIXI.loader.resources["assets/images/characters/p3.jpg"].texture
     );
-    
+
     this.backgrounds.player1.position.x = 0;
     this.backgrounds.player1.position.y = 0;
     this.backgrounds.player1.width = 320;
     this.backgrounds.player1.height = 320;
     this.resizeElement(this.backgrounds.player1);
-    this.backgrounds.player2.position.x = 600 ;
+    this.backgrounds.player2.position.x = 600;
     this.backgrounds.player2.position.y = 200;
     this.backgrounds.player2.width = 320;
     this.backgrounds.player2.height = 320;
 
-    this.backgrounds.player3.position.x = 1000 ;
+    this.backgrounds.player3.position.x = 1000;
     this.backgrounds.player3.position.y = 200;
     this.backgrounds.player3.width = 320;
     this.backgrounds.player3.height = 320;
 
-    
     this.background = this.backgrounds.choose;
     this.player1 = this.backgrounds.player1;
     this.player2 = this.backgrounds.player2;
@@ -120,18 +126,17 @@ class Game {
     this.selectScene.addChild(this.player2);
     this.selectScene.addChild(this.player3);
 
-     let animate = () => {
+    let animate = () => {
       requestAnimationFrame(animate);
       this.app.renderer.render(this.app.stage);
       PIXI.actionManager.update();
     };
     animate();
-
   }
 
   resizeElement(element) {
-    let posx = parseInt((window.innerWidth * 0.05));
-    let posy = parseInt((window.innerHeight * 0.1));
+    let posx = parseInt(window.innerWidth * 0.05);
+    let posy = parseInt(window.innerHeight * 0.1);
     element.position.x = posx;
     element.position.y = posy;
     return element;
@@ -293,8 +298,19 @@ class Game {
       this.app.renderer.resize(1000, 600);
       this.setBGScale(this.background);
       this.resizeElement(this.player1);
-      
     });
+  }
+
+  createAnimation(id, numberFrames) {
+    let frames = [];
+
+    for (let i = 1; i <= numberFrames; i++) {
+      frames.push(PIXI.Texture.fromFrame(`${id}${i}.png`));
+    }
+
+    const anim = new PIXI.extras.AnimatedSprite(frames);
+
+    return anim;
   }
 }
 
