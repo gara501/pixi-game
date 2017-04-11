@@ -1,26 +1,34 @@
  * {
-    margin: 0;
-  }
+  margin: 0;
+}
 
-  body {
-    overflow: hidden;
-  }
+body {
+  align-items: center;
+  background: black;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
+}
 
-  @font-face {
-    font-family: mk;
-    src: url('assets/fonts/mkx.ttf');
-  }
+@font-face {
+  font-family: mk;
+  src: url('assets/fonts/mkx.ttf');
+}
 
-  .tv {
-    border: 10px solid #ff4400;
-    border-radius: 20px;
-    height: 650px;
-    margin: 10% auto;
-    width: 1200px;      
-  }
+.tv {
+  align-items: center;
+  border: 10px solid #ff4400;
+  border-radius: 20px;
+  display: flex;
+  height: 500px;
+  justify-content: center;
+  overflow: hidden;
+  width: 1200px;
+}
 
-  .app {
-    height: 600px;
-    margin: 2%;
-    width: 1000px;      
-  }
+.app {
+  height: 600px;
+  margin: 2%;
+  width: 1000px;
+}
