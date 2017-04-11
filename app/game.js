@@ -3,10 +3,11 @@ import * as PIXIACTION from "pixi-action";
 import * as SOUND from "./sound.js";
 import * as COLI from "./bump.js";
 import TextStyles from "./textStyles.js";
+import Keyboard from "./keyboard.js";
 
 class Game {
   constructor() {
-    this.app = new PIXI.Application(1000, 600, {backgroundColor : 0x000000});
+    this.app = new PIXI.Application(1000, 600, { backgroundColor: 0x000000 });
     this.textObj = new TextStyles(this.app.renderer);
 
     this.introScene = new PIXI.Container();
@@ -39,7 +40,30 @@ class Game {
 
   // Set intro Container, first scene
   initGame() {
+    this.setupKeys();
     this.introScreen();
+
+    this.app.ticker.add(() => {
+      this.character1Actions.stance.visible = false;
+      this.character1Actions.duck.visible = false;
+      this.character1Actions.raise.visible = false;
+
+      switch (this.action) {
+        case "ducking":
+          this.character1Actions.duck.visible = true;
+          break;
+        case "stance":
+          this.character1Actions.stance.visible = true;
+          break;
+        case "raise":
+          this.character1Actions.raise.visible = true;
+
+          if (!this.character1Actions.raise.playing) {
+            this.action = "stance";
+          }
+          break;
+      }
+    });
   }
 
   loadSounds() {}
@@ -62,23 +86,46 @@ class Game {
     this.introScene.addChild(this.background);
     this.introScene.addChild(startText);
 
-    const scorpion = this.createAnimation("scorpion-stance-left-", 9);
-    const scorpion2 = this.createAnimation("scorpion-stance2-left-", 9);
+    const scorpionStance = this.createAnimation("scorpion-stance", 9);
+    const scorpionDuck = this.createAnimation("scorpion-duck", 3);
+    const scorpionRaise = this.createAnimation("scorpion-duck", 3, true);
 
-    scorpion.x = this.app.renderer.width / 3;
-    scorpion2.x = this.app.renderer.width / 2;
+    scorpionStance.x = this.app.renderer.width / 3;
+    scorpionDuck.x = this.app.renderer.width / 3;
+    scorpionRaise.x = this.app.renderer.width / 3;
 
-    scorpion.y = this.app.renderer.height / 2;
-    scorpion2.y = this.app.renderer.height / 2;
+    scorpionStance.y = this.app.renderer.height / 2;
+    scorpionDuck.y = this.app.renderer.height / 2;
+    scorpionRaise.y = this.app.renderer.height / 2;
 
-    scorpion.animationSpeed = 0.16;
-    scorpion2.animationSpeed = 0.16;
+    scorpionStance.animationSpeed = 0.15;
+    scorpionDuck.animationSpeed = 0.2;
+    scorpionRaise.animationSpeed = 0.2;
 
-    scorpion.play();
-    scorpion2.play();
+    scorpionStance.play();
+    scorpionDuck.loop = false;
+    scorpionDuck.visible = false;
+    scorpionDuck.play();
+    scorpionRaise.loop = false;
+    scorpionRaise.visible = false;
+    scorpionRaise.play();
 
-    this.introScene.addChild(scorpion);
-    this.introScene.addChild(scorpion2);
+    this.character1 = new PIXI.Container();
+    this.character1Actions = {
+      stance: scorpionStance,
+      duck: scorpionDuck,
+      raise: scorpionRaise
+    };
+
+    this.groupSprites(this.character1, [
+      scorpionStance,
+      scorpionDuck,
+      scorpionRaise
+    ]);
+
+    this.action = "stance";
+
+    this.introScene.addChild(this.character1);
   }
 
   chooseScreen() {
@@ -101,7 +148,7 @@ class Game {
     this.backgrounds.player1.position.y = 0;
     this.backgrounds.player1.width = 320;
     this.backgrounds.player1.height = 320;
-    
+
     this.backgrounds.player2.position.x = 600;
     this.backgrounds.player2.position.y = 200;
     this.backgrounds.player2.width = 320;
@@ -112,7 +159,6 @@ class Game {
     this.backgrounds.player3.width = 320;
     this.backgrounds.player3.height = 320;
 
-    
     this.player1 = this.backgrounds.player1;
     this.player2 = this.backgrounds.player2;
     this.player3 = this.backgrounds.player3;
@@ -239,22 +285,10 @@ class Game {
     });
   }
 
-  getNewContainer() {
-    return new PIXI.Container();
-  }
-
-  getNewParticleContainer() {
-    return new PIXI.particles.ParticleContainer();
-  }
-
   groupSprites(container, options) {
     for (let i = 0; i < options.length; i++) {
       container.addChild(options[i]);
     }
-
-    this.app.stage.addChild(container);
-    console.log(this.app.stage);
-    this.renderer.render(this.app.stage);
   }
 
   setBGScale(sprite) {
@@ -287,7 +321,7 @@ class Game {
   attachEvents() {
     window.addEventListener("keydown", e => {
       if (this.introScene.visible) {
-        if (e.key === 'Enter') {
+        if (e.key === "Enter") {
           this.chooseScreen();
         }
       }
@@ -300,16 +334,37 @@ class Game {
     });
   }
 
-  createAnimation(id, numberFrames) {
+  createAnimation(id, numberFrames, reverse = false) {
     let frames = [];
 
-    for (let i = 1; i <= numberFrames; i++) {
-      frames.push(PIXI.Texture.fromFrame(`${id}${i}.png`));
+    if (!reverse) {
+      for (let i = 1; i <= numberFrames; i++) {
+        frames.push(PIXI.Texture.fromFrame(`${id}${i}.png`));
+      }
+    } else {
+      for (let i = numberFrames; i > 0; i--) {
+        frames.push(PIXI.Texture.fromFrame(`${id}${i}.png`));
+      }
     }
 
     const anim = new PIXI.extras.AnimatedSprite(frames);
 
     return anim;
+  }
+
+  setupKeys() {
+    const left = Keyboard(37);
+    const up = Keyboard(38);
+    const right = Keyboard(39);
+    const down = Keyboard(40);
+
+    down.press = () => {
+      this.action = "ducking";
+    };
+
+    down.release = () => {
+      this.action = "raise";
+    };
   }
 }
 

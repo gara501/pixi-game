@@ -1,161 +1,107 @@
 {"frames": {
 
-"scorpion-stance-left-1.png":
+"scorpion-duck1.png":
 {
-	"frame": {"x":0,"y":0,"w":63,"h":129},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":63,"h":129},
-	"sourceSize": {"w":63,"h":129},
-	"pivot": {"x":0.5,"y":0.5}
-},
-"scorpion-stance-left-2.png":
-{
-	"frame": {"x":63,"y":0,"w":62,"h":129},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":62,"h":129},
-	"sourceSize": {"w":62,"h":129},
-	"pivot": {"x":0.5,"y":0.5}
-},
-"scorpion-stance-left-3.png":
-{
-	"frame": {"x":125,"y":0,"w":63,"h":128},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":63,"h":128},
-	"sourceSize": {"w":63,"h":128},
-	"pivot": {"x":0.5,"y":0.5}
-},
-"scorpion-stance-left-4.png":
-{
-	"frame": {"x":188,"y":0,"w":64,"h":128},
+	"frame": {"x":2,"y":2,"w":64,"h":128},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":128},
 	"sourceSize": {"w":64,"h":128},
 	"pivot": {"x":0.5,"y":0.5}
 },
-"scorpion-stance-left-5.png":
+"scorpion-duck2.png":
 {
-	"frame": {"x":0,"y":129,"w":65,"h":128},
+	"frame": {"x":66,"y":2,"w":64,"h":128},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":65,"h":128},
-	"sourceSize": {"w":65,"h":128},
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":128},
+	"sourceSize": {"w":64,"h":128},
 	"pivot": {"x":0.5,"y":0.5}
 },
-"scorpion-stance-left-6.png":
+"scorpion-duck3.png":
 {
-	"frame": {"x":65,"y":129,"w":65,"h":128},
+	"frame": {"x":130,"y":2,"w":64,"h":128},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":65,"h":128},
-	"sourceSize": {"w":65,"h":128},
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":128},
+	"sourceSize": {"w":64,"h":128},
 	"pivot": {"x":0.5,"y":0.5}
 },
-"scorpion-stance-left-7.png":
+"scorpion-stance1.png":
 {
-	"frame": {"x":130,"y":129,"w":64,"h":129},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":129},
-	"sourceSize": {"w":64,"h":129},
-	"pivot": {"x":0.5,"y":0.5}
-},
-"scorpion-stance-left-8.png":
-{
-	"frame": {"x":0,"y":258,"w":64,"h":129},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":129},
-	"sourceSize": {"w":64,"h":129},
-	"pivot": {"x":0.5,"y":0.5}
-},
-"scorpion-stance-left-9.png":
-{
-	"frame": {"x":64,"y":258,"w":63,"h":129},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":63,"h":129},
-	"sourceSize": {"w":63,"h":129},
-	"pivot": {"x":0.5,"y":0.5}
-},
-"scorpion-stance2-left-1.png":
-{
-	"frame": {"x":127,"y":258,"w":59,"h":128},
+	"frame": {"x":194,"y":2,"w":59,"h":128},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":59,"h":128},
 	"sourceSize": {"w":59,"h":128},
 	"pivot": {"x":0.5,"y":0.5}
 },
-"scorpion-stance2-left-2.png":
+"scorpion-stance2.png":
 {
-	"frame": {"x":186,"y":258,"w":62,"h":128},
+	"frame": {"x":253,"y":2,"w":62,"h":128},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":62,"h":128},
 	"sourceSize": {"w":62,"h":128},
 	"pivot": {"x":0.5,"y":0.5}
 },
-"scorpion-stance2-left-3.png":
+"scorpion-stance3.png":
 {
-	"frame": {"x":0,"y":387,"w":66,"h":128},
+	"frame": {"x":315,"y":2,"w":66,"h":128},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":66,"h":128},
 	"sourceSize": {"w":66,"h":128},
 	"pivot": {"x":0.5,"y":0.5}
 },
-"scorpion-stance2-left-4.png":
+"scorpion-stance4.png":
 {
-	"frame": {"x":66,"y":387,"w":69,"h":128},
+	"frame": {"x":381,"y":2,"w":69,"h":128},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":69,"h":128},
 	"sourceSize": {"w":69,"h":128},
 	"pivot": {"x":0.5,"y":0.5}
 },
-"scorpion-stance2-left-5.png":
+"scorpion-stance5.png":
 {
-	"frame": {"x":135,"y":387,"w":68,"h":128},
+	"frame": {"x":450,"y":2,"w":68,"h":128},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":68,"h":128},
 	"sourceSize": {"w":68,"h":128},
 	"pivot": {"x":0.5,"y":0.5}
 },
-"scorpion-stance2-left-6.png":
+"scorpion-stance6.png":
 {
-	"frame": {"x":0,"y":515,"w":63,"h":129},
+	"frame": {"x":518,"y":2,"w":63,"h":129},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":63,"h":129},
 	"sourceSize": {"w":63,"h":129},
 	"pivot": {"x":0.5,"y":0.5}
 },
-"scorpion-stance2-left-7.png":
+"scorpion-stance7.png":
 {
-	"frame": {"x":63,"y":515,"w":59,"h":129},
+	"frame": {"x":581,"y":2,"w":59,"h":129},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":59,"h":129},
 	"sourceSize": {"w":59,"h":129},
 	"pivot": {"x":0.5,"y":0.5}
 },
-"scorpion-stance2-left-8.png":
+"scorpion-stance8.png":
 {
-	"frame": {"x":122,"y":515,"w":58,"h":129},
+	"frame": {"x":640,"y":2,"w":58,"h":129},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":129},
 	"sourceSize": {"w":58,"h":129},
 	"pivot": {"x":0.5,"y":0.5}
 },
-"scorpion-stance2-left-9.png":
+"scorpion-stance9.png":
 {
-	"frame": {"x":180,"y":515,"w":57,"h":128},
+	"frame": {"x":698,"y":2,"w":57,"h":128},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":57,"h":128},
@@ -167,8 +113,8 @@
 	"version": "1.0",
 	"image": "scorpion.png",
 	"format": "RGBA8888",
-	"size": {"w":252,"h":644},
+	"size": {"w":757,"h":133},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:cb71a0f4fa4751dd16279e8a634deba4:f30ac7e74ca5e14a0c71fadaef257fc1:7af146aa87cbc1b1281d6f22548bb033$"
+	"smartupdate": "$TexturePacker:SmartUpdate:6eccbff2ee1d08e662a4ab0f3d7252f5:3bc840027598e256855c18f0a510fb68:7af146aa87cbc1b1281d6f22548bb033$"
 }
 }
