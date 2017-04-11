@@ -34,9 +34,34 @@ class TextStyles {
     return title;
   }
 
+  chooseText() {
+    let title = this.getTextObject(
+      {
+        textValue: "CHOOSE YOUR WARRIOR",
+        x: "center",
+        y: 100,
+        vx: 0,
+        vy: 0
+      },
+      this.titleStyle()
+    );
+    return title;
+  }
+
   introStyle() {
     let titleStyle = new PIXI.TextStyle({
       fontFamily: "mk",
+      fontSize: 36,
+      fill: ["#ff0000", "#444"], // gradient
+      wordWrapWidth: 440
+    });
+
+    return titleStyle;
+  }
+
+  titleStyle() {
+    let titleStyle = new PIXI.TextStyle({
+       fontFamily: "mk",
       fontSize: 36,
       fill: ["#ff0000", "#444"], // gradient
       wordWrapWidth: 440

@@ -1,5 +1,6 @@
 import * as PIXI from "pixi.js";
 import * as PIXIACTION from "pixi-action";
+import * as PIXIFILTERS from "pixi-extra-filters";
 import * as SOUND from "./sound.js";
 import * as COLI from "./bump.js";
 import TextStyles from "./textStyles.js";
@@ -29,8 +30,8 @@ class Game {
         "assets/images/characters/scorpion.json",
         "assets/images/backgrounds/intro.png",
         "assets/images/backgrounds/choose.jpg",
-        "assets/images/characters/p1.png",
-        "assets/images/characters/p2.png",
+        "assets/images/characters/p1.jpg",
+        "assets/images/characters/p2.jpg",
         "assets/images/characters/p3.jpg"
       ])
       .load(() => {
@@ -135,15 +136,18 @@ class Game {
     this.gameOverScene.visible = false;
     this.selectScene.visible = true;
 
+    let title = this.textObj.chooseText();
+    
+
     this.backgrounds.choose = new PIXI.Sprite.from(
       PIXI.loader.resources["assets/images/backgrounds/choose.jpg"].texture
     );
 
     this.backgrounds.player1 = new PIXI.Sprite.from(
-      PIXI.loader.resources["assets/images/characters/p1.png"].texture
+      PIXI.loader.resources["assets/images/characters/p1.jpg"].texture
     );
     this.backgrounds.player2 = new PIXI.Sprite.from(
-      PIXI.loader.resources["assets/images/characters/p2.png"].texture
+      PIXI.loader.resources["assets/images/characters/p2.jpg"].texture
     );
     this.backgrounds.player3 = new PIXI.Sprite.from(
       PIXI.loader.resources["assets/images/characters/p3.jpg"].texture
@@ -168,13 +172,16 @@ class Game {
     this.player2 = this.backgrounds.player2;
     this.player3 = this.backgrounds.player3;
 
+    this.player1.interactive = true;
+    this.player2.interactive = true;
+    this.player3.interactive = true;
+    
     this.setBGScale(this.background);
 
     this.selectScene.addChild(this.background);
     this.selectScene.addChild(this.backgrounds.choose);
-    this.selectScene.addChild(this.player1);
-    this.selectScene.addChild(this.player2);
-    this.selectScene.addChild(this.player3);
+ 
+    this.selectScene.addChild(title);
 
     let animate = () => {
       requestAnimationFrame(animate);
@@ -182,7 +189,18 @@ class Game {
       PIXI.actionManager.update();
     };
     animate();
+    
+    
+    
+    
+    this.selectScene.addChild(this.player1);
+    this.selectScene.addChild(this.player2);
+    this.selectScene.addChild(this.player3);
+
+    
   }
+
+ 
 
   resizeElement(element) {
     let posx = parseInt(window.innerWidth * 0.05);
