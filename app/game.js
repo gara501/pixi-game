@@ -48,12 +48,43 @@ class Game {
 
     this.app.ticker.add(() => {
       this.character1Actions.stance.visible = false;
+      this.character1Actions.walk.visible = false;
       this.character1Actions.duck.visible = false;
+      this.character1Actions.kick.visible = false;
       this.character1Actions.raise.visible = false;
+      this.character1Actions.punch.visible = false;
 
       switch (this.action) {
         case "ducking":
           this.character1Actions.duck.visible = true;
+          break;
+        case "walk-right":
+          this.character1Actions.walk.visible = true;
+          this.character1.position.x += this.character1.vx;
+          break;
+        case "walk-left":
+          this.character1Actions.walk.visible = true;
+          this.character1.position.x -= this.character1.vx;
+          break;
+        case "kick":
+          this.character1Actions.kick.visible = true;
+
+          if (
+            this.character1Actions.kick.currentFrame + 1 ===
+            this.character1Actions.kick.totalFrames
+          ) {
+            this.action = "stance";
+          }
+          break;
+        case "punch":
+          this.character1Actions.punch.visible = true;
+
+          if (
+            this.character1Actions.punch.currentFrame + 1 ===
+            this.character1Actions.punch.totalFrames
+          ) {
+            this.action = "stance";
+          }
           break;
         case "stance":
           this.character1Actions.stance.visible = true;
@@ -61,7 +92,10 @@ class Game {
         case "raise":
           this.character1Actions.raise.visible = true;
 
-          if (!this.character1Actions.raise.playing) {
+          if (
+            this.character1Actions.raise.currentFrame + 1 ===
+            this.character1Actions.raise.totalFrames
+          ) {
             this.action = "stance";
           }
           break;
@@ -90,40 +124,51 @@ class Game {
     this.introScene.addChild(startText);
 
     const scorpionStance = this.createAnimation("scorpion-stance", 9);
+    const scorpionWalk = this.createAnimation("scorpion-walk", 9);
     const scorpionDuck = this.createAnimation("scorpion-duck", 3);
+    const scorpionKick = this.createAnimation("scorpion-kick", 10);
     const scorpionRaise = this.createAnimation("scorpion-duck", 3, true);
-
-    scorpionStance.x = this.app.renderer.width / 3;
-    scorpionDuck.x = this.app.renderer.width / 3;
-    scorpionRaise.x = this.app.renderer.width / 3;
-
-    scorpionStance.y = this.app.renderer.height / 2;
-    scorpionDuck.y = this.app.renderer.height / 2;
-    scorpionRaise.y = this.app.renderer.height / 2;
-
-    scorpionStance.animationSpeed = 0.15;
-    scorpionDuck.animationSpeed = 0.2;
-    scorpionRaise.animationSpeed = 0.2;
-
-    scorpionStance.play();
-    scorpionDuck.loop = false;
-    scorpionDuck.visible = false;
-    scorpionDuck.play();
-    scorpionRaise.loop = false;
-    scorpionRaise.visible = false;
-    scorpionRaise.play();
+    const scorpionPunch = this.createAnimation("scorpion-punch", 5);
 
     this.character1 = new PIXI.Container();
+    this.character1.x = this.app.renderer.width / 3;
+    this.character1.y = this.app.renderer.height / 2;
+
+    scorpionStance.animationSpeed = 0.15;
+    scorpionWalk.animationSpeed = 0.15;
+    scorpionDuck.animationSpeed = 0.4;
+    scorpionKick.animationSpeed = 0.4;
+    scorpionRaise.animationSpeed = 0.4;
+    scorpionPunch.animationSpeed = 0.3;
+
+    scorpionStance.play();
+    scorpionWalk.play();
+    scorpionWalk.visible = false;
+    scorpionDuck.loop = false;
+    scorpionDuck.visible = false;
+    scorpionKick.loop = false;
+    scorpionKick.visible = false;
+    scorpionRaise.loop = false;
+    scorpionRaise.visible = false;
+    scorpionPunch.loop = false;
+    scorpionPunch.visible = false;
+
     this.character1Actions = {
       stance: scorpionStance,
       duck: scorpionDuck,
-      raise: scorpionRaise
+      kick: scorpionKick,
+      raise: scorpionRaise,
+      punch: scorpionPunch,
+      walk: scorpionWalk
     };
 
     this.groupSprites(this.character1, [
       scorpionStance,
       scorpionDuck,
-      scorpionRaise
+      scorpionKick,
+      scorpionRaise,
+      scorpionPunch,
+      scorpionWalk
     ]);
 
     this.action = "stance";
@@ -138,7 +183,6 @@ class Game {
     this.selectScene.visible = true;
 
     let title = this.textObj.chooseText();
-    
 
     this.backgrounds.choose = new PIXI.Sprite.from(
       PIXI.loader.resources["assets/images/backgrounds/choose.jpg"].texture
@@ -158,7 +202,7 @@ class Game {
     this.backgrounds.player1.position.y = 200;
     this.backgrounds.player1.width = 150;
     this.backgrounds.player1.height = 150;
-    
+
     this.backgrounds.player2.position.x = 400;
     this.backgrounds.player2.position.y = 200;
     this.backgrounds.player2.width = 150;
@@ -180,17 +224,17 @@ class Game {
     this.player1.buttonMode = true;
     this.player2.buttonMode = true;
     this.player3.buttonMode = true;
-    
+
     let battle = () => {
       this.battleScene();
-    }
+    };
 
-    this.player1.on('pointerdown', battle);
-    this.player2.on('pointerdown', battle);
-    this.player3.on('pointerdown', battle);
-      
+    this.player1.on("pointerdown", battle);
+    this.player2.on("pointerdown", battle);
+    this.player3.on("pointerdown", battle);
+
     this.selectScene.addChild(this.backgrounds.choose);
- 
+
     this.selectScene.addChild(title);
     this.selectScene.addChild(this.player1);
     this.selectScene.addChild(this.player2);
@@ -205,7 +249,7 @@ class Game {
   }
 
   battleScene() {
-    console.log('BATLE');
+    console.log("BATLE");
     this.introScene.visible = false;
     this.gameOverScene.visible = false;
     this.selectScene.visible = false;
@@ -215,9 +259,8 @@ class Game {
       PIXI.loader.resources["assets/images/backgrounds/combat.jpg"].texture
     );
 
-    
     this.gameScene.addChild(this.backgrounds.battle);
-    
+
     let animate = () => {
       requestAnimationFrame(animate);
       this.app.renderer.render(this.app.stage);
@@ -225,7 +268,6 @@ class Game {
     };
     animate();
   }
-
 
   resizeElement(element) {
     let posx = parseInt(window.innerWidth * 0.05);
@@ -406,13 +448,47 @@ class Game {
     const up = Keyboard(38);
     const right = Keyboard(39);
     const down = Keyboard(40);
+    const j = Keyboard(74);
+    const u = Keyboard(85);
+
+    left.press = () => {
+      this.action = "walk-left";
+      this.character1.vx = 1.5;
+    };
+
+    left.release = () => {
+      this.action = "stance";
+      this.character1.vx = 0;
+    };
+
+    right.press = () => {
+      this.action = "walk-right";
+      this.character1.vx = 1.5;
+    };
+
+    right.release = () => {
+      this.action = "stance";
+      this.character1.vx = 0;
+    };
 
     down.press = () => {
       this.action = "ducking";
+      this.character1Actions.duck.gotoAndPlay(0);
     };
 
     down.release = () => {
       this.action = "raise";
+      this.character1Actions.raise.gotoAndPlay(0);
+    };
+
+    j.press = () => {
+      this.action = "kick";
+      this.character1Actions.kick.gotoAndPlay(0);
+    };
+
+    u.press = () => {
+      this.action = "punch";
+      this.character1Actions.punch.gotoAndPlay(0);
     };
   }
 }
