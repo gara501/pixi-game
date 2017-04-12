@@ -20,48 +20,23 @@ class TextStyles {
     return title;
   }
 
-  introText() {
+  customText(value, posx, posy) {
     let title = this.getTextObject(
       {
-        textValue: "Press Enter to start",
-        x: "center",
-        y: 520,
+        textValue: value,
+        x: posx,
+        y: posy,
         vx: 2,
         vy: 0
       },
-      this.introStyle()
+      this.generalStyle()
     );
     return title;
   }
 
-  chooseText() {
-    let title = this.getTextObject(
-      {
-        textValue: "CHOOSE YOUR WARRIOR",
-        x: "center",
-        y: 100,
-        vx: 0,
-        vy: 0
-      },
-      this.titleStyle()
-    );
-    return title;
-  }
-
-  introStyle() {
+  generalStyle() {
     let titleStyle = new PIXI.TextStyle({
       fontFamily: "mk",
-      fontSize: 36,
-      fill: ["#ff0000", "#444"], // gradient
-      wordWrapWidth: 440
-    });
-
-    return titleStyle;
-  }
-
-  titleStyle() {
-    let titleStyle = new PIXI.TextStyle({
-       fontFamily: "mk",
       fontSize: 36,
       fill: ["#ff0000", "#444"], // gradient
       wordWrapWidth: 440

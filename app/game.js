@@ -115,7 +115,7 @@ class Game {
       PIXI.loader.resources["assets/images/backgrounds/intro.png"].texture
     );
 
-    let startText = this.textObj.introText();
+    let startText = this.textObj.customText('Press Enter to start', 'center', 520);
 
     this.background = this.backgrounds.intro;
     this.setBGScale(this.background);
@@ -182,7 +182,7 @@ class Game {
     this.gameOverScene.visible = false;
     this.selectScene.visible = true;
 
-    let title = this.textObj.chooseText();
+    let title = this.textObj.customText('CHOOSE YOUR WARRIOR', 'center', 520);
 
     this.backgrounds.choose = new PIXI.Sprite.from(
       PIXI.loader.resources["assets/images/backgrounds/choose.jpg"].texture
@@ -226,7 +226,8 @@ class Game {
     this.player3.buttonMode = true;
 
     let battle = () => {
-      this.battleScene();
+      //this.battleScene();
+      this.gameOver();
     };
 
     this.player1.on("pointerdown", battle);
@@ -249,7 +250,6 @@ class Game {
   }
 
   battleScene() {
-    console.log("BATLE");
     this.introScene.visible = false;
     this.gameOverScene.visible = false;
     this.selectScene.visible = false;
@@ -258,8 +258,34 @@ class Game {
     this.backgrounds.battle = new PIXI.Sprite.from(
       PIXI.loader.resources["assets/images/backgrounds/combat.jpg"].texture
     );
-
+ 
     this.gameScene.addChild(this.backgrounds.battle);
+
+    let animate = () => {
+      requestAnimationFrame(animate);
+      this.app.renderer.render(this.app.stage);
+      PIXI.actionManager.update();
+    };
+    animate();
+  }
+
+  gameOver() {
+    this.introScene.visible = false;
+    this.gameOverScene.visible = true;
+    this.selectScene.visible = false;
+    this.gameScene.visible = false;
+    
+    let title = this.textObj.customText('GAME OVER', 'center', 200);
+    let titleContinue = this.textObj.customText('Press Enter to Restart', 'center', 250);
+
+    this.backgrounds.gameOver = new PIXI.Sprite.from(
+      PIXI.loader.resources["assets/images/backgrounds/choose.jpg"].texture
+    );
+    
+
+    this.gameOverScene.addChild(this.backgrounds.gameOver);
+    this.gameOverScene.addChild(title);
+    this.gameOverScene.addChild(titleContinue);
 
     let animate = () => {
       requestAnimationFrame(animate);
@@ -281,13 +307,6 @@ class Game {
     requestAnimationFrame(gameLoop);
     //state();
     this.app.renderer.render(this.app.stage);
-  }
-
-  gameOver() {
-    this.introScene.visible = false;
-    this.selectScene.visible = false;
-    this.gameScene.visible = false;
-    this.gameOverScene.visible = true;
   }
 
   createPlayer(options) {
@@ -453,7 +472,7 @@ class Game {
 
     left.press = () => {
       this.action = "walk-left";
-      this.character1.vx = 1.5;
+      this.character1.vx = 3;
     };
 
     left.release = () => {
@@ -463,7 +482,7 @@ class Game {
 
     right.press = () => {
       this.action = "walk-right";
-      this.character1.vx = 1.5;
+      this.character1.vx = 3;
     };
 
     right.release = () => {
