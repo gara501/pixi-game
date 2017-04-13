@@ -1,7 +1,6 @@
 import * as PIXI from "pixi.js";
 import * as PIXIACTION from "pixi-action";
 import * as PIXIFILTERS from "pixi-extra-filters";
-import * as SOUND from "./sound.js";
 import * as COLI from "./bump.js";
 import TextStyles from "./textStyles.js";
 import Keyboard from "./keyboard.js";
@@ -21,6 +20,9 @@ class Game {
     this.app.stage.addChild(this.selectScene);
     this.app.stage.addChild(this.gameOverScene);
 
+    this.soundID = "Thunder";
+    createjs.Sound.registerSound("assets/sounds/vs.mp3", this.soundID);
+
     this.backgrounds = {};
 
     this.attachEvents();
@@ -36,7 +38,8 @@ class Game {
         "assets/images/characters/p1.jpg",
         "assets/images/characters/p2.jpg",
         "assets/images/characters/p3.jpg",
-        "assets/images/backgrounds/combat.jpg"
+        "assets/images/backgrounds/combat.jpg",
+        "assets/sounds/vs.mp3"
       ])
       .load(() => {
         this.initGame();
@@ -62,6 +65,14 @@ class Game {
     );
     this.gameOverScene.addChild(this.backgrounds.gameOver);
     this.selectScene.addChild(this.backgrounds.gameOver);
+
+    //let actx = new AudioContext();
+    
+    //let shoot = sounds["assets/sounds/vs.mp3"];
+   
+    createjs.Sound.play(this.soundID);
+
+
   }
 
   // Set intro Container, first scene
