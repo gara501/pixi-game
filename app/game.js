@@ -9,10 +9,10 @@ class Game {
     this.app = new PIXI.Application(1000, 600);
     this.textObj = new TextStyles(this.app.renderer);
     this.scenes = {
-      'intro':{},
-      'select':{},
-      'game':{},
-      'gameOver':{}
+      intro: {},
+      select: {},
+      game: {},
+      gameOver: {}
     };
 
     this.initScenes();
@@ -21,7 +21,7 @@ class Game {
     this.energyBarLeftInterior = {};
     this.energyBarLeftRed = {};
     this.energyBarRight = {};
-    
+
     this.backgrounds = {};
 
     this.keys = {};
@@ -62,7 +62,7 @@ class Game {
   }
 
   initScenes() {
-    for(let scene in this.scenes) {
+    for (let scene in this.scenes) {
       this.scenes[scene] = new PIXI.Container();
       this.scenes[scene].alpha = 0;
       this.app.stage.addChild(this.scenes[scene]);
@@ -70,48 +70,48 @@ class Game {
   }
 
   setActiveScene(sceneName) {
-    for(let scene in this.scenes) {
+    for (let scene in this.scenes) {
       this.scenes[scene].visible = false;
       if (scene === sceneName) {
-        this.scenes[scene].visible = true;  
+        this.scenes[scene].visible = true;
       }
     }
   }
 
-  playSound(event, options = {loop: false}){
-    let soundPath = '';
+  playSound(event, options = { loop: false }) {
+    let soundPath = "";
     switch (event) {
-      case 'kick':
-        soundPath = 'assets/sounds/hitsounds/mk3-00100.mp3';
+      case "kick":
+        soundPath = "assets/sounds/hitsounds/mk3-00100.mp3";
         break;
-      case 'punch':
-        soundPath = 'assets/sounds/hitsounds/mk3-00105.mp3';
+      case "punch":
+        soundPath = "assets/sounds/hitsounds/mk3-00105.mp3";
         break;
-      case 'hit':
-        soundPath = 'assets/sounds/male/mk3-03000.mp3';
+      case "hit":
+        soundPath = "assets/sounds/male/mk3-03000.mp3";
         break;
-      case 'nopunch':
-        soundPath = 'assets/sounds/hitsounds/mk3-00165.mp3';
+      case "nopunch":
+        soundPath = "assets/sounds/hitsounds/mk3-00165.mp3";
         break;
-      case 'nokick':
-        soundPath = 'assets/sounds/hitsounds/mk3-00170.mp3';
+      case "nokick":
+        soundPath = "assets/sounds/hitsounds/mk3-00170.mp3";
         break;
-      case 'intro':
-        soundPath = 'assets/sounds/short/mk3-00054.mp3';
+      case "intro":
+        soundPath = "assets/sounds/short/mk3-00054.mp3";
         break;
-      case 'vs':
-        soundPath = 'assets/sounds/short/mk3-00053.mp3';
+      case "vs":
+        soundPath = "assets/sounds/short/mk3-00053.mp3";
         break;
-      case 'fight':
-        soundPath = 'assets/sounds/fight.mp3';
+      case "fight":
+        soundPath = "assets/sounds/fight.mp3";
         break;
-      case 'vsmusic':
-        soundPath = 'assets/sounds/vsmusic.mp3';
+      case "vsmusic":
+        soundPath = "assets/sounds/vsmusic.mp3";
         break;
       default:
         break;
     }
-    
+
     this.sound = new Howl({
       src: [soundPath],
       loop: options.loop
@@ -140,18 +140,24 @@ class Game {
     this.backgrounds.gameOver = new PIXI.Sprite.from(
       PIXI.loader.resources["assets/images/backgrounds/choose.jpg"].texture
     );
-    
+
     this.scenes.gameOver.addChild(this.backgrounds.gameOver);
-    this.scenes.select.addChild(this.backgrounds.gameOver);  
+    this.scenes.select.addChild(this.backgrounds.gameOver);
   }
 
   // Set intro Container, first scene
   initGame() {
     this.setupKeys();
     this.loadBackgrounds();
-    this.introScreen();
+    this.battleScene();
+    this.setupCharacters();
+    this.gameLoop();
+  }
 
+  gameLoop() {
     this.app.ticker.add(() => {
+      if (!this.scenes.game.visible) return;
+
       this.character1Actions.stance.visible = false;
       this.character1Actions.walk.visible = false;
       this.character1Actions.duck.visible = false;
@@ -185,18 +191,14 @@ class Game {
       }
 
       if (
-        this.action !== "jump-right" &&
-        this.keys.up.isDown &&
-        this.keys.right.isDown
+        this.action === "jump" && this.keys.up.isDown && this.keys.right.isDown
       ) {
         this.action = "jump-right";
         this.character1Actions.jump.gotoAndPlay(0);
       }
 
       if (
-        this.action !== "jump-left" &&
-        this.keys.up.isDown &&
-        this.keys.left.isDown
+        this.action === "jump" && this.keys.up.isDown && this.keys.left.isDown
       ) {
         this.action = "jump-left";
         this.character1Actions.jump.gotoAndPlay(0);
@@ -251,12 +253,12 @@ class Game {
             this.character2Actions.stance.visible = false;
             this.character2Actions.hit.visible = true;
 
-            this.playSound('kick');
-            this.playSound('hit');
+            this.playSound("kick");
+            this.playSound("hit");
           }
           break;
         case "punch":
-          this.character1Actions.punch.visible = true;  
+          this.character1Actions.punch.visible = true;
 
           if (
             this.character1Actions.punch.currentFrame + 1 ===
@@ -275,9 +277,9 @@ class Game {
 
             this.character2Actions.stance.visible = false;
             this.character2Actions.highhit.visible = true;
-            
-            this.playSound('punch');
-            this.playSound('hit');
+
+            this.playSound("punch");
+            this.playSound("hit");
           }
           break;
         case "stance":
@@ -298,7 +300,7 @@ class Game {
 
           this.character1.vy += this.gravity;
 
-          if (this.character1.y <= this.groundY) {
+          if (this.character1.y + this.character1.vy <= this.groundY) {
             this.character1.x += this.character1.vx * 2.5;
             this.character1.y += this.character1.vy;
           } else {
@@ -316,7 +318,7 @@ class Game {
 
           this.character1.vy += this.gravity;
 
-          if (this.character1.y <= this.groundY) {
+          if (this.character1.y + this.character1.vy <= this.groundY) {
             this.character1.x -= this.character1.vx * 2.5;
             this.character1.y += this.character1.vy;
           } else {
@@ -347,9 +349,9 @@ class Game {
   }
 
   introScreen() {
-    this.setActiveScene('intro');   
-    this.playSound('intro');
-    
+    this.setActiveScene("intro");
+    this.playSound("intro");
+
     let startText = this.textObj.customText(
       "Press Enter to start",
       "center",
@@ -357,7 +359,250 @@ class Game {
     );
 
     this.scenes.intro.addChild(startText);
-    
+
+    let animate = () => {
+      requestAnimationFrame(animate);
+      this.scenes.intro.alpha += 0.05;
+    };
+    animate();
+  }
+
+  chooseScreen() {
+    this.setActiveScene("select");
+    this.stopSound();
+    this.playSound("vsmusic", { loop: true });
+
+    let title = this.textObj.customText("CHOOSE YOUR WARRIOR", "center", 520);
+
+    this.backgrounds.player1 = new PIXI.Sprite.from(
+      PIXI.loader.resources["assets/images/characters/p1.jpg"].texture
+    );
+
+    this.backgrounds.player2 = new PIXI.Sprite.from(
+      PIXI.loader.resources["assets/images/characters/p2.jpg"].texture
+    );
+
+    this.backgrounds.player3 = new PIXI.Sprite.from(
+      PIXI.loader.resources["assets/images/characters/p3.jpg"].texture
+    );
+
+    let battle = () => {
+      this.stopSound();
+      this.playSound("vs");
+      this.battleScene();
+    };
+
+    for (let bg in this.backgrounds) {
+      if (bg === "player1" || bg === "player2" || bg === "player3") {
+        if (bg === "player1") {
+          this.backgrounds[bg].position.x = 200;
+        }
+
+        if (bg === "player2") {
+          this.backgrounds[bg].position.x = 400;
+        }
+
+        if (bg === "player3") {
+          this.backgrounds[bg].position.x = 600;
+        }
+        this.backgrounds[bg].position.y = 200;
+        this.backgrounds[bg].width = 150;
+        this.backgrounds[bg].height = 150;
+        this.backgrounds[bg].interactive = true;
+        this.backgrounds[bg].buttonMode = true;
+        this.backgrounds[bg].on("pointerdown", battle);
+        this.scenes.select.addChild(this.backgrounds[bg]);
+      }
+    }
+
+    this.scenes.select.addChild(title);
+
+    let animate = () => {
+      requestAnimationFrame(animate);
+      this.scenes.select.alpha += 0.05;
+    };
+    animate();
+  }
+
+  battleScene() {
+    this.setActiveScene("game");
+    this.playSound("fight", { loop: true });
+
+    this.energyBarLeft = new PIXI.Graphics();
+    this.energyBarLeftInterior = new PIXI.Graphics();
+    this.energyBarLeftRed = new PIXI.Graphics();
+
+    this.energyBarRight = new PIXI.Graphics();
+    // this.energyBarLeft.lineStyle(3, 0x0246E7);
+    this.energyBarLeft.beginFill(0xffffff, 0.8);
+    this.energyBarLeft.drawRect(50, 50, 400, 30);
+
+    this.energyBarLeftInterior = new PIXI.Graphics();
+    this.energyBarLeftInterior.beginFill(0x0246e7, 0.8);
+    this.energyBarLeftInterior.drawRect(55, 55, 388, 20);
+
+    this.energyBarLeft.endFill();
+
+    this.scenes.game.addChild(this.energyBarLeft);
+    this.scenes.game.addChild(this.energyBarLeftInterior);
+
+    let animate = () => {
+      requestAnimationFrame(animate);
+      this.scenes.game.alpha += 0.05;
+    };
+    animate();
+  }
+
+  gameOver() {
+    this.setActiveScene("gameOver");
+
+    let title = this.textObj.customText("GAME OVER", "center", 200);
+    let titleContinue = this.textObj.customText(
+      "Press Enter to Restart",
+      "center",
+      250
+    );
+
+    this.scenes.gameOver.addChild(title);
+    this.scenes.gameOver.addChild(titleContinue);
+  }
+
+  groupSprites(container, options) {
+    for (let i = 0; i < options.length; i++) {
+      container.addChild(options[i]);
+    }
+  }
+
+  setBGScale(sprite) {
+    const winAspectRatio = 1000 / 600;
+    const bgAspectRatio = sprite.texture.width / sprite.texture.height;
+    let ratio;
+
+    if (winAspectRatio > bgAspectRatio) {
+      ratio = 1000 / sprite.texture.width;
+    } else {
+      ratio = 600 / sprite.texture.height;
+    }
+
+    sprite.scale.x = ratio;
+    sprite.scale.y = ratio;
+
+    sprite.x = (1000 - sprite.width) / 2;
+    sprite.y = (600 - sprite.height) / 2;
+  }
+
+  requestFullscreen() {
+    var requestFullscreen = document.body.requestFullScreen ||
+      document.body.webkitRequestFullScreen ||
+      document.body.mozRequestFullScreen ||
+      document.body.msRequestFullScreen;
+
+    requestFullscreen.call(document.body);
+  }
+
+  attachEvents() {
+    window.addEventListener("keydown", e => {
+      if (this.scenes.intro.visible) {
+        if (e.key === "Enter") {
+          this.chooseScreen();
+        }
+      }
+
+      if (this.scenes.gameOver.visible) {
+        if (e.key === "Enter") {
+          this.introScreen();
+        }
+      }
+    });
+  }
+
+  createAnimation(id, numberFrames, reverse = false) {
+    let frames = [];
+
+    if (!reverse) {
+      for (let i = 1; i <= numberFrames; i++) {
+        frames.push(PIXI.Texture.fromFrame(`${id}${i}.png`));
+      }
+    } else {
+      for (let i = numberFrames; i > 0; i--) {
+        frames.push(PIXI.Texture.fromFrame(`${id}${i}.png`));
+      }
+    }
+
+    const anim = new PIXI.extras.AnimatedSprite(frames);
+
+    return anim;
+  }
+
+  setupKeys() {
+    this.keys.left = Keyboard(65);
+    this.keys.up = Keyboard(87);
+    this.keys.right = Keyboard(68);
+    this.keys.down = Keyboard(83);
+    this.keys.j = Keyboard(74);
+    this.keys.u = Keyboard(85);
+
+    this.keys.left.press = () => {
+      if (this.character1.y === this.groundY) {
+        this.action = "walk-left";
+        this.character1.vx = 3;
+      }
+    };
+
+    this.keys.left.release = () => {
+      if (this.character1.y === this.groundY) {
+        this.action = "stance";
+        this.character1.vx = 0;
+      }
+    };
+
+    this.keys.right.press = () => {
+      if (this.character1.y === this.groundY) {
+        this.action = "walk-right";
+        this.character1.vx = 3;
+      }
+    };
+
+    this.keys.right.release = () => {
+      if (this.character1.y === this.groundY) {
+        this.action = "stance";
+        this.character1.vx = 0;
+      }
+    };
+
+    this.keys.down.press = () => {
+      if (this.character1.y === this.groundY) {
+        this.action = "ducking";
+        this.character1Actions.duck.gotoAndPlay(0);
+      }
+    };
+
+    this.keys.down.release = () => {
+      if (this.character1.y === this.groundY) {
+        this.action = "raise";
+        this.character1Actions.raise.gotoAndPlay(0);
+      }
+    };
+
+    this.keys.j.press = () => {
+      this.action = "kick";
+      this.character1Actions.kick.gotoAndPlay(0);
+      this.playSound("nokick");
+    };
+
+    this.keys.u.press = () => {
+      this.action = "punch";
+      this.character1Actions.punch.gotoAndPlay(0);
+      this.playSound("nopunch");
+    };
+
+    this.keys.up.press = () => {
+      this.action = "jump";
+      this.character1.vy = -24;
+    };
+  }
+
+  setupCharacters() {
     const scorpionStance = this.createAnimation("scorpion-stance", 9);
     const scorpionWalk = this.createAnimation("scorpion-walk", 9);
     const scorpionDuck = this.createAnimation("scorpion-duck", 3);
@@ -449,346 +694,6 @@ class Game {
 
     this.scenes.game.addChild(this.character1);
     this.scenes.game.addChild(this.character2);
-
-    let animate = () => {
-      requestAnimationFrame(animate);
-      this.scenes.intro.alpha += 0.05;
-    };
-    animate();
-  }
-
-  chooseScreen() {
-    this.setActiveScene('select');
-    this.stopSound();
-    this.playSound('vsmusic',  {loop:true});
-
-    let title = this.textObj.customText("CHOOSE YOUR WARRIOR", "center", 520);
-
-    this.backgrounds.player1 = new PIXI.Sprite.from(
-      PIXI.loader.resources["assets/images/characters/p1.jpg"].texture
-    );
-
-    this.backgrounds.player2 = new PIXI.Sprite.from(
-      PIXI.loader.resources["assets/images/characters/p2.jpg"].texture
-    );
-
-    this.backgrounds.player3 = new PIXI.Sprite.from(
-      PIXI.loader.resources["assets/images/characters/p3.jpg"].texture
-    );
-
-    let battle = () => {
-      this.stopSound();
-      this.playSound('vs');
-      this.battleScene();
-    };
-
-    for(let bg in this.backgrounds) {
-      if (bg === 'player1' || bg === 'player2' || bg === 'player3') {
-        if (bg === 'player1') {
-         this.backgrounds[bg].position.x = 200;
-        }
-        
-        if (bg === 'player2') {
-         this.backgrounds[bg].position.x = 400;
-        }
-        
-        if (bg === 'player3') {
-         this.backgrounds[bg].position.x = 600;
-        }
-        this.backgrounds[bg].position.y = 200;
-        this.backgrounds[bg].width = 150;
-        this.backgrounds[bg].height = 150;
-        this.backgrounds[bg].interactive = true;
-        this.backgrounds[bg].buttonMode = true;
-        this.backgrounds[bg].on('pointerdown', battle);
-        this.scenes.select.addChild(this.backgrounds[bg]);
-      }
-      
-    }
-
-    this.scenes.select.addChild(title);
-
-    let animate = () => {
-      requestAnimationFrame(animate);
-      this.scenes.select.alpha += 0.05;
-    };
-    animate();
-  }
-
-  battleScene() {
-    this.setActiveScene('game');  
-    this.playSound('fight', {loop:true});
-
-    this.energyBarLeft = new PIXI.Graphics();
-    this.energyBarLeftInterior = new PIXI.Graphics();
-    this.energyBarLeftRed = new PIXI.Graphics();
-
-    this.energyBarRight = new PIXI.Graphics();
-    // this.energyBarLeft.lineStyle(3, 0x0246E7);
-    this.energyBarLeft.beginFill(0xffffff, 0.8);
-    this.energyBarLeft.drawRect(50, 50, 400, 30);    
-
-    this.energyBarLeftInterior = new PIXI.Graphics();
-    this.energyBarLeftInterior.beginFill(0x0246E7, 0.8);
-    this.energyBarLeftInterior.drawRect(55, 55, 388, 20);    
-    
-    this.energyBarLeft.endFill();
-    
-    this.scenes.game.addChild(this.energyBarLeft);
-        this.scenes.game.addChild(this.energyBarLeftInterior);
-
-    let animate = () => {
-      requestAnimationFrame(animate);
-      this.scenes.game.alpha += 0.05;
-    };
-    animate();
-  }
-
-  gameOver() {
-    this.setActiveScene('gameOver');
-
-    let title = this.textObj.customText("GAME OVER", "center", 200);
-    let titleContinue = this.textObj.customText(
-      "Press Enter to Restart",
-      "center",
-      250
-    );
-
-    this.scenes.gameOver.addChild(title);
-    this.scenes.gameOver.addChild(titleContinue);
-
-    let animate = () => {
-      requestAnimationFrame(animate);
-      this.scenes.gameOver.alpha += 0.05; 
-    };
-    animate();
-  }
-
-  resizeElement(element) {
-    let posx = parseInt(window.innerWidth * 0.05);
-    let posy = parseInt(window.innerHeight * 0.1);
-    element.position.x = posx;
-    element.position.y = posy;
-    return element;
-  }
-
-  gameLoop() {
-    requestAnimationFrame(gameLoop);
-    //state();
-    this.app.renderer.render(this.app.stage);
-  }
-
-  createPlayer(options) {
-    let playerTexture = PIXI.Texture.fromImage(options.texture);
-    let player = new PIXI.Sprite(playerTexture);
-    player.x = options.x;
-    player.y = options.y;
-    player.scale.x = options.scale.x;
-    player.scale.y = options.scale.y;
-    player.anchor.x = options.anchor.x;
-    player.anchor.y = options.anchor.y;
-
-    if (options.addToScene) {
-      this.app.stage.addChild(player);
-    }
-
-    let animate = () => {
-      requestAnimationFrame(animate);
-      if (options.rotationSpeed > 0) {
-        player.rotation += options.rotationSpeed;
-      }
-
-      if (options.vx > 0) {
-        player.x += options.vx;
-      }
-      this.app.renderer.render(this.app.stage);
-      PIXI.actionManager.update();
-    };
-    animate();
-    return player;
-  }
-
-  movePlayer(options) {
-    let action_move = new PIXI.action.MoveTo(
-      options.x,
-      options.y,
-      options.time
-    );
-    let animation = PIXI.actionManager.runAction(options.player, action_move);
-  }
-
-  createSpriteSheet(options) {
-    let localStage = this.app.stage;
-
-    let sprite;
-    let animationLoop = () => {
-      requestAnimationFrame(animationLoop);
-      this.renderer.render(localStage);
-    };
-
-    let setup = () => {
-      localStage.interactive = true;
-      let rect = new PIXI.Rectangle(0, 0, 80, 100);
-      let texture = PIXI.loader.resources[options.name].texture;
-      texture.frame = rect;
-
-      sprite = new PIXI.Sprite(texture);
-      let idle = setInterval(
-        function() {
-          if (rect.x >= 350) rect.x = 0;
-          sprite.texture.frame = rect;
-          rect.x += 90;
-        },
-        300
-      );
-
-      sprite.vx = 30;
-      localStage.addChild(sprite);
-
-      animationLoop();
-    };
-
-    PIXI.loader.add(options.name, options.source).load(setup);
-
-    window.addEventListener("keydown", function(e) {
-      if (e.keyCode == "38") {
-        // up arrow
-      } else if (e.keyCode == "40") {
-        // down arrow
-      } else if (e.keyCode == "37") {
-        sprite.x -= sprite.vx;
-      } else if (e.keyCode == "39") {
-        sprite.x += sprite.vx;
-      }
-      e.preventDefault();
-    });
-  }
-
-  groupSprites(container, options) {
-    for (let i = 0; i < options.length; i++) {
-      container.addChild(options[i]);
-    }
-  }
-
-  setBGScale(sprite) {
-    const winAspectRatio = 1000 / 600;
-    const bgAspectRatio = sprite.texture.width / sprite.texture.height;
-    let ratio;
-
-    if (winAspectRatio > bgAspectRatio) {
-      ratio = 1000 / sprite.texture.width;
-    } else {
-      ratio = 600 / sprite.texture.height;
-    }
-
-    sprite.scale.x = ratio;
-    sprite.scale.y = ratio;
-
-    sprite.x = (1000 - sprite.width) / 2;
-    sprite.y = (600 - sprite.height) / 2;
-  }
-
-  requestFullscreen() {
-    var requestFullscreen = document.body.requestFullScreen ||
-      document.body.webkitRequestFullScreen ||
-      document.body.mozRequestFullScreen ||
-      document.body.msRequestFullScreen;
-
-    requestFullscreen.call(document.body);
-  }
-
-  attachEvents() {
-    window.addEventListener("keydown", e => {
-      if (this.scenes.intro.visible) {
-        if (e.key === "Enter") {
-          this.chooseScreen();
-        }
-      }
-
-      if (this.scenes.gameOver.visible) {
-        if (e.key === "Enter") {
-          this.introScreen();
-        }
-      }
-    });
-  }
-
-  createAnimation(id, numberFrames, reverse = false) {
-    let frames = [];
-
-    if (!reverse) {
-      for (let i = 1; i <= numberFrames; i++) {
-        frames.push(PIXI.Texture.fromFrame(`${id}${i}.png`));
-      }
-    } else {
-      for (let i = numberFrames; i > 0; i--) {
-        frames.push(PIXI.Texture.fromFrame(`${id}${i}.png`));
-      }
-    }
-
-    const anim = new PIXI.extras.AnimatedSprite(frames);
-
-    return anim;
-  }
-
-  setupKeys() {
-    this.keys.left = Keyboard(65);
-    this.keys.up = Keyboard(87);
-    this.keys.right = Keyboard(68);
-    this.keys.down = Keyboard(83);
-    this.keys.j = Keyboard(74);
-    this.keys.u = Keyboard(85);
-
-    this.keys.left.press = () => {
-      this.action = "walk-left";
-      this.character1.vx = 3;
-    };
-
-    this.keys.left.release = () => {
-      if (this.action !== "jump-left") {
-        this.action = "stance";
-        this.character1.vx = 0;
-      }
-    };
-
-    this.keys.right.press = () => {
-      this.action = "walk-right";
-      this.character1.vx = 3;
-    };
-
-    this.keys.right.release = () => {
-      if (this.action !== "jump-right") {
-        this.action = "stance";
-        this.character1.vx = 0;
-      }
-    };
-
-    this.keys.down.press = () => {
-      this.action = "ducking";
-      this.character1Actions.duck.gotoAndPlay(0);
-    };
-
-    this.keys.down.release = () => {
-      this.action = "raise";
-      this.character1Actions.raise.gotoAndPlay(0);
-    };
-
-    this.keys.j.press = () => {
-      this.action = "kick";
-      this.character1Actions.kick.gotoAndPlay(0);
-      this.playSound('nokick');
-    };
-
-    this.keys.u.press = () => {
-      this.action = "punch";
-      this.character1Actions.punch.gotoAndPlay(0);
-      this.playSound('nopunch');
-    };
-
-    this.keys.up.press = () => {
-      this.action = "jump";
-      this.character1.vy = -24;
-    };
   }
 }
 
