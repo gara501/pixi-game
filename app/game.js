@@ -635,15 +635,19 @@ class Game {
     };
 
     this.keys.j.press = () => {
-      this.action = "kick";
-      this.character1Actions.kick.gotoAndPlay(0);
-      this.playSound("nokick");
+      if (this.character1.y === this.groundY) {
+        this.action = "kick";
+        this.character1Actions.kick.gotoAndPlay(0);
+        this.playSound("nokick");
+      }
     };
 
     this.keys.u.press = () => {
-      this.action = "punch";
-      this.character1Actions.punch.gotoAndPlay(0);
-      this.playSound("nopunch");
+      if (this.character1.y === this.groundY) {
+        this.action = "punch";
+        this.character1Actions.punch.gotoAndPlay(0);
+        this.playSound("nopunch");
+      }
     };
 
     this.keys.up.press = () => {
