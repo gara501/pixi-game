@@ -41,9 +41,31 @@ class Game {
     document.querySelector(".app").appendChild(this.app.renderer.view);
   }
 
+  loadBackgrounds() {
+    this.backgrounds.intro = new PIXI.Sprite.from(
+      PIXI.loader.resources["assets/images/backgrounds/intro.png"].texture
+    );
+    this.setBGScale(this.backgrounds.intro);
+    this.introScene.addChild(this.backgrounds.intro);
+
+    this.backgrounds.battle = new PIXI.Sprite.from(
+      PIXI.loader.resources["assets/images/backgrounds/combat.jpg"].texture
+    );
+    this.setBGScale(this.backgrounds.battle);
+    this.gameScene.addChild(this.backgrounds.battle);
+
+    this.backgrounds.gameOver = new PIXI.Sprite.from(
+      PIXI.loader.resources["assets/images/backgrounds/choose.jpg"].texture
+    );
+    this.gameOverScene.addChild(this.backgrounds.gameOver);
+    this.selectScene.addChild(this.backgrounds.gameOver);
+    
+  }
+
   // Set intro Container, first scene
   initGame() {
     this.setupKeys();
+    this.loadBackgrounds();
     this.introScreen();
 
     this.app.ticker.add(() => {
@@ -111,16 +133,9 @@ class Game {
     this.gameScene.visible = false;
     this.gameOverScene.visible = false;
 
-    this.backgrounds.intro = new PIXI.Sprite.from(
-      PIXI.loader.resources["assets/images/backgrounds/intro.png"].texture
-    );
-
     let startText = this.textObj.customText('Press Enter to start', 'center', 520);
 
-    this.background = this.backgrounds.intro;
-    this.setBGScale(this.background);
-
-    this.introScene.addChild(this.background);
+    
     this.introScene.addChild(startText);
 
     const scorpionStance = this.createAnimation("scorpion-stance", 9);
@@ -132,7 +147,10 @@ class Game {
 
     this.character1 = new PIXI.Container();
     this.character1.x = this.app.renderer.width / 3;
-    this.character1.y = this.app.renderer.height / 2;
+    this.character1.y = this.app.renderer.height / 1.9;
+    this.character1.scale.x = 1.5;
+    this.character1.scale.y = 1.5;
+    
 
     scorpionStance.animationSpeed = 0.15;
     scorpionWalk.animationSpeed = 0.15;
@@ -172,8 +190,7 @@ class Game {
     ]);
 
     this.action = "stance";
-
-    this.introScene.addChild(this.character1);
+    this.gameScene.addChild(this.character1);
   }
 
   chooseScreen() {
@@ -183,10 +200,6 @@ class Game {
     this.selectScene.visible = true;
 
     let title = this.textObj.customText('CHOOSE YOUR WARRIOR', 'center', 520);
-
-    this.backgrounds.choose = new PIXI.Sprite.from(
-      PIXI.loader.resources["assets/images/backgrounds/choose.jpg"].texture
-    );
 
     this.backgrounds.player1 = new PIXI.Sprite.from(
       PIXI.loader.resources["assets/images/characters/p1.jpg"].texture
@@ -226,15 +239,13 @@ class Game {
     this.player3.buttonMode = true;
 
     let battle = () => {
-      //this.battleScene();
-      this.gameOver();
+      this.battleScene();
+      //this.gameOver();
     };
 
     this.player1.on("pointerdown", battle);
     this.player2.on("pointerdown", battle);
     this.player3.on("pointerdown", battle);
-
-    this.selectScene.addChild(this.backgrounds.choose);
 
     this.selectScene.addChild(title);
     this.selectScene.addChild(this.player1);
@@ -255,12 +266,6 @@ class Game {
     this.selectScene.visible = false;
     this.gameScene.visible = true;
 
-    this.backgrounds.battle = new PIXI.Sprite.from(
-      PIXI.loader.resources["assets/images/backgrounds/combat.jpg"].texture
-    );
- 
-    this.gameScene.addChild(this.backgrounds.battle);
-
     let animate = () => {
       requestAnimationFrame(animate);
       this.app.renderer.render(this.app.stage);
@@ -278,12 +283,7 @@ class Game {
     let title = this.textObj.customText('GAME OVER', 'center', 200);
     let titleContinue = this.textObj.customText('Press Enter to Restart', 'center', 250);
 
-    this.backgrounds.gameOver = new PIXI.Sprite.from(
-      PIXI.loader.resources["assets/images/backgrounds/choose.jpg"].texture
-    );
     
-
-    this.gameOverScene.addChild(this.backgrounds.gameOver);
     this.gameOverScene.addChild(title);
     this.gameOverScene.addChild(titleContinue);
 
@@ -433,6 +433,12 @@ class Game {
       if (this.introScene.visible) {
         if (e.key === "Enter") {
           this.chooseScreen();
+        }
+      }
+      
+      if (this.gameOverScene.visible) {
+        if (e.key === "Enter") {
+          this.introScreen();
         }
       }
     });
