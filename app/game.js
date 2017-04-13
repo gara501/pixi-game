@@ -15,6 +15,19 @@ class Game {
       gameOver: {}
     };
 
+    this.energyBars = {
+      left:{
+        exterior:{},
+        interior:{},
+        red:{}
+      },
+      right:{
+        exterior:{},
+        interior:{},
+        red:{}
+      }
+    };
+
     this.initScenes();
 
     this.energyBarLeft = {};
@@ -428,23 +441,40 @@ class Game {
     this.setActiveScene("game");
     this.playSound("fight", { loop: true });
 
-    this.energyBarLeft = new PIXI.Graphics();
-    this.energyBarLeftInterior = new PIXI.Graphics();
-    this.energyBarLeftRed = new PIXI.Graphics();
-
-    this.energyBarRight = new PIXI.Graphics();
-    // this.energyBarLeft.lineStyle(3, 0x0246E7);
-    this.energyBarLeft.beginFill(0xffffff, 0.8);
-    this.energyBarLeft.drawRect(50, 50, 400, 30);
-
-    this.energyBarLeftInterior = new PIXI.Graphics();
-    this.energyBarLeftInterior.beginFill(0x0246e7, 0.8);
-    this.energyBarLeftInterior.drawRect(55, 55, 388, 20);
-
-    this.energyBarLeft.endFill();
-
-    this.scenes.game.addChild(this.energyBarLeft);
-    this.scenes.game.addChild(this.energyBarLeftInterior);
+    for (let bar in this.energyBars.left) {
+      this.energyBars.left[bar] = new PIXI.Graphics();
+      if (bar === 'exterior') {
+         this.energyBars.left[bar].beginFill(0xffffff, 0.8);
+         this.energyBars.left[bar].drawRect(50, 50, 400, 30);    
+      }
+      if (bar === 'interior') {
+         this.energyBars.left[bar].beginFill(0x0246e7, 0.8);
+         this.energyBars.left[bar].drawRect(55, 55, 388, 20);
+      }
+      if (bar === 'red') {
+        this.energyBars.left[bar].beginFill(0xff4400, 0.8);
+        this.energyBars.left[bar].drawRect(440, 55, 5, 20);
+      }
+      this.energyBars.left[bar].endFill();
+      this.scenes.game.addChild(this.energyBars.left[bar]);
+    }
+    
+    for (let bar in this.energyBars.right) {
+      this.energyBars.right[bar] = new PIXI.Graphics();
+      if (bar === 'exterior') {
+         this.energyBars.right[bar].beginFill(0xffffff, 0.8);
+         this.energyBars.right[bar].drawRect(550, 50, 400, 30);    
+      }
+      if (bar === 'interior') {
+         this.energyBars.right[bar].beginFill(0x0246e7, 0.8);
+         this.energyBars.right[bar].drawRect(555, 55, 388, 20);
+      }
+      if (bar === 'red') {
+        this.energyBars.right[bar].beginFill(0xff4400, 0.8);
+        this.energyBars.right[bar].drawRect(940, 55, 5, 20);
+      }
+      this.scenes.game.addChild(this.energyBars.right[bar]);
+    }
 
     let animate = () => {
       requestAnimationFrame(animate);
