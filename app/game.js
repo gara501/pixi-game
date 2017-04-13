@@ -19,10 +19,7 @@ class Game {
     this.app.stage.addChild(this.gameScene);
     this.app.stage.addChild(this.selectScene);
     this.app.stage.addChild(this.gameOverScene);
-
-    this.soundID = "Thunder";
-    createjs.Sound.registerSound("assets/sounds/vs.mp3", this.soundID);
-
+    
     this.backgrounds = {};
 
     this.attachEvents();
@@ -39,12 +36,35 @@ class Game {
         "assets/images/characters/p2.jpg",
         "assets/images/characters/p3.jpg",
         "assets/images/backgrounds/combat.jpg",
-        "assets/sounds/vs.mp3"
+        "assets/sounds/vs.mp3",
+        "assets/sounds/hitsounds/mk3-00100.mp3",
+        "assets/sounds/hitsounds/mk3-00105.mp3",
+        "assets/sounds/male/mk3-03000.mp3"
       ])
       .load(() => {
         this.initGame();
       });
     document.querySelector(".app").appendChild(this.app.renderer.view);
+  }
+
+  playSound(event){
+    let soundPath = '';
+    switch (event) {
+      case 'kick':
+        soundPath = 'assets/sounds/hitsounds/mk3-00100.mp3';
+        break;
+      case 'punch':
+        soundPath = 'assets/sounds/hitsounds/mk3-00105.mp3';
+        break;
+      case 'hit':
+        soundPath = 'assets/sounds/male/mk3-03000.mp3';
+        break;
+      default:
+        break;
+    }
+
+    createjs.Sound.registerSound(soundPath, event);
+    createjs.Sound.play(event);
   }
 
   loadBackgrounds() {
@@ -64,15 +84,7 @@ class Game {
       PIXI.loader.resources["assets/images/backgrounds/choose.jpg"].texture
     );
     this.gameOverScene.addChild(this.backgrounds.gameOver);
-    this.selectScene.addChild(this.backgrounds.gameOver);
-
-    //let actx = new AudioContext();
-    
-    //let shoot = sounds["assets/sounds/vs.mp3"];
-   
-    createjs.Sound.play(this.soundID);
-
-
+    this.selectScene.addChild(this.backgrounds.gameOver);  
   }
 
   // Set intro Container, first scene
@@ -160,6 +172,9 @@ class Game {
 
             this.character2Actions.stance.visible = false;
             this.character2Actions.hit.visible = true;
+
+            this.playSound('kick');
+            this.playSound('hit');
           }
           break;
         case "punch":
@@ -182,6 +197,9 @@ class Game {
 
             this.character2Actions.stance.visible = false;
             this.character2Actions.highhit.visible = true;
+            
+            this.playSound('punch');
+            this.playSound('hit');
           }
           break;
         case "stance":
