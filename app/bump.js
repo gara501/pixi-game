@@ -1573,3 +1573,5 @@ class Bump {
     }
   }
 }
+
+module.exports = Bump;

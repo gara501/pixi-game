@@ -25,9 +25,12 @@ class Game {
 
     this.attachEvents();
 
+    this.coli = new COLI(PIXI);
+
     PIXI.loader
       .add([
         "assets/images/characters/scorpion.json",
+        "assets/images/characters/subzero.json",
         "assets/images/backgrounds/intro.png",
         "assets/images/backgrounds/choose.jpg",
         "assets/images/characters/p1.jpg",
@@ -59,7 +62,6 @@ class Game {
     );
     this.gameOverScene.addChild(this.backgrounds.gameOver);
     this.selectScene.addChild(this.backgrounds.gameOver);
-    
   }
 
   // Set intro Container, first scene
@@ -76,17 +78,56 @@ class Game {
       this.character1Actions.raise.visible = false;
       this.character1Actions.punch.visible = false;
 
+      let collision = this.coli.rectangleCollision(
+        this.character1,
+        this.character2
+      );
+
+      if (
+        this.character2Actions.hit.visible &&
+        this.character2Actions.hit.currentFrame + 1 ===
+          this.character2Actions.hit.totalFrames
+      ) {
+        this.character2Actions.stance.visible = true;
+        this.character2Actions.hit.visible = false;
+      }
+
+      if (
+        this.character2Actions.highhit.visible &&
+        this.character2Actions.highhit.currentFrame + 1 ===
+          this.character2Actions.highhit.totalFrames
+      ) {
+        this.character2Actions.stance.visible = true;
+        this.character2Actions.highhit.visible = false;
+      }
+
       switch (this.action) {
         case "ducking":
           this.character1Actions.duck.visible = true;
           break;
         case "walk-right":
           this.character1Actions.walk.visible = true;
-          this.character1.position.x += this.character1.vx;
+
+          collision = this.coli.rectangleCollision(
+            this.character1,
+            this.character2
+          );
+
+          if (!collision || collision === "left") {
+            this.character1.position.x += this.character1.vx;
+          }
           break;
         case "walk-left":
           this.character1Actions.walk.visible = true;
-          this.character1.position.x -= this.character1.vx;
+
+          collision = this.coli.rectangleCollision(
+            this.character1,
+            this.character2
+          );
+
+          if (!collision || collision === "right") {
+            this.character1.position.x -= this.character1.vx;
+          }
           break;
         case "kick":
           this.character1Actions.kick.visible = true;
@@ -97,6 +138,18 @@ class Game {
           ) {
             this.action = "stance";
           }
+
+          collision = this.coli.rectangleCollision(
+            this.character1,
+            this.character2
+          );
+
+          if (collision) {
+            this.character2Actions.hit.gotoAndPlay(0);
+
+            this.character2Actions.stance.visible = false;
+            this.character2Actions.hit.visible = true;
+          }
           break;
         case "punch":
           this.character1Actions.punch.visible = true;
@@ -106,6 +159,18 @@ class Game {
             this.character1Actions.punch.totalFrames
           ) {
             this.action = "stance";
+          }
+
+          collision = this.coli.rectangleCollision(
+            this.character1,
+            this.character2
+          );
+
+          if (collision) {
+            this.character2Actions.highhit.gotoAndPlay(0);
+
+            this.character2Actions.stance.visible = false;
+            this.character2Actions.highhit.visible = true;
           }
           break;
         case "stance":
@@ -128,14 +193,17 @@ class Game {
   loadSounds() {}
 
   introScreen() {
-    this.introScene.visible = true;
+    this.introScene.visible = false;
     this.selectScene.visible = false;
-    this.gameScene.visible = false;
+    this.gameScene.visible = true;
     this.gameOverScene.visible = false;
 
-    let startText = this.textObj.customText('Press Enter to start', 'center', 520);
+    let startText = this.textObj.customText(
+      "Press Enter to start",
+      "center",
+      520
+    );
 
-    
     this.introScene.addChild(startText);
 
     const scorpionStance = this.createAnimation("scorpion-stance", 9);
@@ -145,12 +213,21 @@ class Game {
     const scorpionRaise = this.createAnimation("scorpion-duck", 3, true);
     const scorpionPunch = this.createAnimation("scorpion-punch", 5);
 
+    const subzeroStance = this.createAnimation("subzero-stance", 9);
+    const subzeroHit = this.createAnimation("subzero-hit", 5);
+    const subzeroHighhit = this.createAnimation("subzero-highhit", 5);
+
     this.character1 = new PIXI.Container();
     this.character1.x = this.app.renderer.width / 3;
     this.character1.y = this.app.renderer.height / 1.9;
     this.character1.scale.x = 1.5;
     this.character1.scale.y = 1.5;
-    
+
+    this.character2 = new PIXI.Container();
+    this.character2.x = this.app.renderer.width / 1.3;
+    this.character2.y = this.app.renderer.height / 1.9;
+    this.character2.scale.x = 1.5;
+    this.character2.scale.y = 1.5;
 
     scorpionStance.animationSpeed = 0.15;
     scorpionWalk.animationSpeed = 0.15;
@@ -158,6 +235,10 @@ class Game {
     scorpionKick.animationSpeed = 0.4;
     scorpionRaise.animationSpeed = 0.4;
     scorpionPunch.animationSpeed = 0.3;
+
+    subzeroStance.animationSpeed = 0.15;
+    subzeroHit.animationSpeed = 0.35;
+    subzeroHighhit.animationSpeed = 0.35;
 
     scorpionStance.play();
     scorpionWalk.play();
@@ -171,6 +252,12 @@ class Game {
     scorpionPunch.loop = false;
     scorpionPunch.visible = false;
 
+    subzeroStance.play();
+    subzeroHit.loop = false;
+    subzeroHit.visible = false;
+    subzeroHighhit.loop = false;
+    subzeroHighhit.visible = false;
+
     this.character1Actions = {
       stance: scorpionStance,
       duck: scorpionDuck,
@@ -178,6 +265,12 @@ class Game {
       raise: scorpionRaise,
       punch: scorpionPunch,
       walk: scorpionWalk
+    };
+
+    this.character2Actions = {
+      stance: subzeroStance,
+      hit: subzeroHit,
+      highhit: subzeroHighhit
     };
 
     this.groupSprites(this.character1, [
@@ -189,8 +282,16 @@ class Game {
       scorpionWalk
     ]);
 
+    this.groupSprites(this.character2, [
+      subzeroStance,
+      subzeroHit,
+      subzeroHighhit
+    ]);
+
     this.action = "stance";
+
     this.gameScene.addChild(this.character1);
+    this.gameScene.addChild(this.character2);
   }
 
   chooseScreen() {
@@ -199,7 +300,7 @@ class Game {
     this.gameOverScene.visible = false;
     this.selectScene.visible = true;
 
-    let title = this.textObj.customText('CHOOSE YOUR WARRIOR', 'center', 520);
+    let title = this.textObj.customText("CHOOSE YOUR WARRIOR", "center", 520);
 
     this.backgrounds.player1 = new PIXI.Sprite.from(
       PIXI.loader.resources["assets/images/characters/p1.jpg"].texture
@@ -279,11 +380,14 @@ class Game {
     this.gameOverScene.visible = true;
     this.selectScene.visible = false;
     this.gameScene.visible = false;
-    
-    let title = this.textObj.customText('GAME OVER', 'center', 200);
-    let titleContinue = this.textObj.customText('Press Enter to Restart', 'center', 250);
 
-    
+    let title = this.textObj.customText("GAME OVER", "center", 200);
+    let titleContinue = this.textObj.customText(
+      "Press Enter to Restart",
+      "center",
+      250
+    );
+
     this.gameOverScene.addChild(title);
     this.gameOverScene.addChild(titleContinue);
 
@@ -435,7 +539,7 @@ class Game {
           this.chooseScreen();
         }
       }
-      
+
       if (this.gameOverScene.visible) {
         if (e.key === "Enter") {
           this.introScreen();
