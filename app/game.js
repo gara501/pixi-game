@@ -184,6 +184,7 @@ class Game {
       this.character1Actions.punch.visible = false;
       this.character1Actions.jump.visible = false;
       this.character1Actions.staticjump.visible = false;
+      this.character1Actions.airkick.visible = false;
 
       let collision = this.coli.rectangleCollision(
         this.character1,
@@ -311,6 +312,38 @@ class Game {
             this.character1Actions.raise.totalFrames
           ) {
             this.action = "stance";
+          }
+          break;
+        case "airkick-right":
+          this.character1Actions.airkick.visible = true;
+
+          this.character1.vy += this.gravity;
+
+          collision = this.coli.rectangleCollision(
+            this.character1,
+            this.character2
+          );
+
+          if (collision) {
+            this.character2Actions.hit.gotoAndPlay(0);
+
+            this.character2Actions.stance.visible = false;
+            this.character2Actions.hit.visible = true;
+
+            this.playSound("kick");
+            this.playSound("hit");
+          }
+
+          if (this.character1.y + this.character1.vy <= this.groundY) {
+            this.character1.x += this.character1.vx * 2.5;
+            this.character1.y += this.character1.vy;
+          } else {
+            this.character1.y = this.groundY;
+            if (this.keys.right.isDown) {
+              this.action = "walk-right";
+            } else {
+              this.action = "stance";
+            }
           }
           break;
         case "jump-right":
@@ -494,7 +527,7 @@ class Game {
       () => {
         this.fight.visible = true;
         this.fight.play();
-        this.playSound('fightScream');
+        this.playSound("fightScream");
       },
       1000
     );
@@ -644,6 +677,12 @@ class Game {
         this.action = "kick";
         this.character1Actions.kick.gotoAndPlay(0);
         this.playSound("nokick");
+      } else {
+        if (this.action === "jump-right") {
+          this.action = "airkick-right";
+        }
+        this.character1Actions.airkick.gotoAndPlay(0);
+        this.playSound("nokick");
       }
     };
 
@@ -670,6 +709,7 @@ class Game {
     const scorpionPunch = this.createAnimation("scorpion-punch", 5);
     const scorpionJump = this.createAnimation("scorpion-jump", 9);
     const scorpionStaticjump = this.createAnimation("scorpion-staticjump", 1);
+    const scorpionAirkick = this.createAnimation("scorpion-airkick", 3);
 
     const subzeroStance = this.createAnimation("subzero-stance", 9);
     const subzeroHit = this.createAnimation("subzero-hit", 5);
@@ -696,6 +736,7 @@ class Game {
     scorpionRaise.animationSpeed = 0.4;
     scorpionPunch.animationSpeed = 0.3;
     scorpionJump.animationSpeed = 0.3;
+    scorpionAirkick.animationSpeed = 0.3;
 
     subzeroStance.animationSpeed = 0.15;
     subzeroHit.animationSpeed = 0.35;
@@ -708,6 +749,7 @@ class Game {
     scorpionRaise.loop = false;
     scorpionPunch.loop = false;
     scorpionJump.loop = false;
+    scorpionAirkick.loop = false;
 
     subzeroStance.play();
     subzeroHit.loop = false;
@@ -723,7 +765,8 @@ class Game {
       punch: scorpionPunch,
       walk: scorpionWalk,
       jump: scorpionJump,
-      staticjump: scorpionStaticjump
+      staticjump: scorpionStaticjump,
+      airkick: scorpionAirkick
     };
 
     this.character2Actions = {
@@ -740,7 +783,8 @@ class Game {
       scorpionPunch,
       scorpionWalk,
       scorpionJump,
-      scorpionStaticjump
+      scorpionStaticjump,
+      scorpionAirkick
     ]);
 
     this.groupSprites(this.character2, [
