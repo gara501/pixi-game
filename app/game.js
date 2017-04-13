@@ -67,7 +67,8 @@ class Game {
         "assets/sounds/male/mk3-03000.mp3",
         "assets/sounds/short/mk3-00054.mp3",
         "assets/sounds/short/mk3-00053.mp3",
-        "assets/sounds/vsmusic.mp3"
+        "assets/sounds/vsmusic.mp3",
+        "assets/sounds/fightScream.mp3"
       ])
       .load(() => {
         this.initGame();
@@ -121,6 +122,9 @@ class Game {
         break;
       case "vsmusic":
         soundPath = "assets/sounds/vsmusic.mp3";
+        break;
+      case "fightScream":
+        soundPath = "assets/sounds/fightScream.mp3";
         break;
       default:
         break;
@@ -490,6 +494,7 @@ class Game {
       () => {
         this.fight.visible = true;
         this.fight.play();
+        this.playSound('fightScream');
       },
       1000
     );
