@@ -1,31 +1,23 @@
-const path = require('path');
+const path = require("path");
 
 module.exports = {
-  entry: ['./app/index.js'],
+  entry: ["./app/index.js"],
   output: {
-    path: path.resolve(__dirname, './build'),
-    filename: 'bundle.js'
+    path: path.resolve(__dirname, "./build"),
+    filename: "bundle.js"
   },
-  devtool: 'sourcemap',
+  devtool: "sourcemap",
   module: {
-    rules: [{
-      test: /\.js$/,
-      exclude: /node_modules/,
-      use: [{
-          loader: 'babel-loader',
-          options: {
-          babelrc: false
-          }
-      }]
-    },
-    {
-      test: /\.json$/,
-      loader: "json-loader"
-    }]
+    rules: [
+      {
+        test: /\.json$/,
+        loader: "json-loader"
+      }
+    ]
   },
   devServer: {
     port: 3001,
-    contentBase: './build',
+    contentBase: "./build",
     inline: true
   }
-}
+};
