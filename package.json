@@ -41,6 +41,7 @@
     "webpack-dev-server": "^2.4.1"
   },
   "dependencies": {
+    "howler": "^2.0.3",
     "pixi-extra-filters": "^1.1.0"
   }
 }

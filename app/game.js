@@ -2,6 +2,7 @@ import * as PIXI from "pixi.js";
 import * as PIXIACTION from "pixi-action";
 import * as PIXIFILTERS from "pixi-extra-filters";
 import * as COLI from "./bump.js";
+import * as SOUND from "howler";
 import TextStyles from "./textStyles.js";
 import Keyboard from "./keyboard.js";
 
@@ -36,12 +37,14 @@ class Game {
         "assets/images/characters/p2.jpg",
         "assets/images/characters/p3.jpg",
         "assets/images/backgrounds/combat.jpg",
-        "assets/sounds/vs.mp3",
+        "assets/sounds/fight.mp3",
         "assets/sounds/hitsounds/mk3-00100.mp3",
         "assets/sounds/hitsounds/mk3-00105.mp3",
         "assets/sounds/hitsounds/mk3-00165.mp3",
         "assets/sounds/hitsounds/mk3-00170.mp3",
-        "assets/sounds/male/mk3-03000.mp3"
+        "assets/sounds/male/mk3-03000.mp3",
+        "assets/sounds/short/mk3-00054.mp3",
+        "assets/sounds/short/mk3-00053.mp3"
       ])
       .load(() => {
         this.initGame();
@@ -49,7 +52,7 @@ class Game {
     document.querySelector(".app").appendChild(this.app.renderer.view);
   }
 
-  playSound(event){
+  playSound(event, options = {loop: false}){
     let soundPath = '';
     switch (event) {
       case 'kick':
@@ -67,12 +70,24 @@ class Game {
       case 'nokick':
         soundPath = 'assets/sounds/hitsounds/mk3-00170.mp3';
         break;
+      case 'intro':
+        soundPath = 'assets/sounds/short/mk3-00054.mp3';
+        break;
+      case 'vs':
+        soundPath = 'assets/sounds/short/mk3-00053.mp3';
+        break;
+      case 'fight':
+        soundPath = 'assets/sounds/fight.mp3';
+        break;
       default:
         break;
     }
-
-    createjs.Sound.registerSound(soundPath, event);
-    createjs.Sound.play(event);
+    
+    let sound = new Howl({
+      src: [soundPath],
+      loop: options.loop
+    });
+    sound.play();
   }
 
   loadBackgrounds() {
@@ -186,7 +201,7 @@ class Game {
           }
           break;
         case "punch":
-          this.character1Actions.punch.visible = true;
+          this.character1Actions.punch.visible = true;  
 
           if (
             this.character1Actions.punch.currentFrame + 1 ===
@@ -227,14 +242,14 @@ class Game {
     });
   }
 
-  loadSounds() {}
-
   introScreen() {
-    this.introScene.visible = false;
+    this.introScene.visible = true;
     this.selectScene.visible = false;
-    this.gameScene.visible = true;
+    this.gameScene.visible = false;
     this.gameOverScene.visible = false;
-
+    
+    this.playSound('intro');
+    
     let startText = this.textObj.customText(
       "Press Enter to start",
       "center",
@@ -242,6 +257,7 @@ class Game {
     );
 
     this.introScene.addChild(startText);
+
 
     const scorpionStance = this.createAnimation("scorpion-stance", 9);
     const scorpionWalk = this.createAnimation("scorpion-walk", 9);
@@ -337,6 +353,8 @@ class Game {
     this.gameOverScene.visible = false;
     this.selectScene.visible = true;
 
+    this.playSound('vs');
+
     let title = this.textObj.customText("CHOOSE YOUR WARRIOR", "center", 520);
 
     this.backgrounds.player1 = new PIXI.Sprite.from(
@@ -403,6 +421,7 @@ class Game {
     this.gameOverScene.visible = false;
     this.selectScene.visible = false;
     this.gameScene.visible = true;
+    this.playSound('fight', {loop:true});
 
     let animate = () => {
       requestAnimationFrame(animate);
