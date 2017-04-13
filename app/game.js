@@ -39,6 +39,8 @@ class Game {
         "assets/sounds/vs.mp3",
         "assets/sounds/hitsounds/mk3-00100.mp3",
         "assets/sounds/hitsounds/mk3-00105.mp3",
+        "assets/sounds/hitsounds/mk3-00165.mp3",
+        "assets/sounds/hitsounds/mk3-00170.mp3",
         "assets/sounds/male/mk3-03000.mp3"
       ])
       .load(() => {
@@ -58,6 +60,12 @@ class Game {
         break;
       case 'hit':
         soundPath = 'assets/sounds/male/mk3-03000.mp3';
+        break;
+      case 'nopunch':
+        soundPath = 'assets/sounds/hitsounds/mk3-00165.mp3';
+        break;
+      case 'nokick':
+        soundPath = 'assets/sounds/hitsounds/mk3-00170.mp3';
         break;
       default:
         break;
@@ -642,11 +650,13 @@ class Game {
     j.press = () => {
       this.action = "kick";
       this.character1Actions.kick.gotoAndPlay(0);
+      this.playSound('nokick');
     };
 
     u.press = () => {
       this.action = "punch";
       this.character1Actions.punch.gotoAndPlay(0);
+      this.playSound('nopunch');
     };
   }
 }
