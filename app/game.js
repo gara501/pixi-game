@@ -141,14 +141,6 @@ class Game {
       default:
         break;
     }
-<<<<<<< 529ebbc09346c107872f86dd95ae1d574fa83ab5
-
-    this.sound = new Howl({
-      src: [soundPath],
-      loop: options.loop
-    });
-=======
->>>>>>> f7e0807f0ca07539701b87f86694add627dddc72
 
     if (options.bg) {
       this.bgSound = new Howl({
