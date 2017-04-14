@@ -102,7 +102,7 @@ class Game {
     }
   }
 
-  playSound(event, options = { loop: false }) {
+  playSound(event, options = { loop: false, bg: false }) {
     let soundPath = "";
     switch (event) {
       case "kick":
@@ -141,17 +141,36 @@ class Game {
       default:
         break;
     }
+<<<<<<< 529ebbc09346c107872f86dd95ae1d574fa83ab5
 
     this.sound = new Howl({
       src: [soundPath],
       loop: options.loop
     });
+=======
+>>>>>>> f7e0807f0ca07539701b87f86694add627dddc72
 
-    this.sound.play();
+    if (options.bg) {
+      this.bgSound = new Howl({
+        src: [soundPath],
+        loop: options.loop
+      });
+      this.bgSound.play();
+    } else {
+      this.sound = new Howl({
+        src: [soundPath],
+        loop: options.loop
+      });
+      this.sound.play();
+    }
   }
 
   stopSound() {
     this.sound.stop();
+  }
+
+  stopBgSound() {
+    this.bgSound.stop();
   }
 
   loadBackgrounds() {
@@ -581,7 +600,7 @@ class Game {
   battleScene() {
     this.setActiveScene("game");
     this.stopSound();
-    this.playSound("fight", { loop: true });
+    this.playSound("fight", { loop: true, bg: true });
 
     for (let bar in this.energyBars.left.bars) {
       this.energyBars.left.bars[bar] = new PIXI.Graphics();
@@ -646,7 +665,7 @@ class Game {
 
   youWin() {
     this.setActiveScene("youWin");
-    this.stopSound();
+    this.stopBgSound();
     this.playSound("intro");
 
     let title = this.textObj.customText("You Win!", "center", 50);
