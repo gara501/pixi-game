@@ -1,7 +1,7 @@
 import * as PIXI from "pixi.js";
 import * as COLI from "./bump.js";
 import * as SOUND from "howler";
-import SpriteUtilities from "./SpriteUtilities.js";
+import SpriteUtilities from "./spriteUtilities.js";
 import TextStyles from "./textStyles.js";
 import Keyboard from "./keyboard.js";
 
