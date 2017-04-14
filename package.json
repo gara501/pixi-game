@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "start": "webpack-dev-server ./app --hot --inline"
+    "start": "webpack-dev-server --hot --inline --port 3001 --content-base ./build"
   },
   "repository": {
     "type": "git",
@@ -17,7 +17,8 @@
     ]
   },
   "keywords": [
-    "game", "pixi.js"
+    "game",
+    "pixi.js"
   ],
   "author": "Andres Ramirez",
   "license": "ISC",
@@ -29,7 +30,7 @@
     "howler": "^2.0.3",
     "json-loader": "^0.5.4",
     "pixi.js": "^4.5.0",
-    "webpack": "^2.3.3",
+    "webpack": "^2.4.1",
     "webpack-dev-server": "^2.4.2"
   }
 }
