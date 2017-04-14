@@ -1,7 +1,10 @@
-# Pixi Kombat
+# Prodigious Kombat
 Game using PixiJS
 
-# To Run it
-1. npm install
-2. webpack
-3. npm run
+## Demo
+https://gara501.github.io/pixi-game/
+
+## To Run it
+1. npm install (or yarn).
+2. npm start (or yarn start).
+3. Open the game on http://localhost:3001
