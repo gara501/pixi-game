@@ -75,7 +75,7 @@ class Game {
         "assets/sounds/short/mk3-00053.mp3",
         "assets/sounds/vsmusic.mp3",
         "assets/sounds/fightScream.mp3",
-        "assets/sounds/hitScream.mp3"
+        "assets/sounds/hitscream.mp3"
       ])
       .load(() => {
         this.initGame();
@@ -133,13 +133,13 @@ class Game {
       case "fightScream":
         soundPath = "assets/sounds/fightScream.mp3";
         break;
-      case "hitScream":
-        soundPath = "assets/sounds/hitScream.mp3";
-        break;    
+      case "hitscream":
+        soundPath = "assets/sounds/hitscream.mp3";
+        break;
       default:
         break;
     }
-   
+
     this.sound = new Howl({
       src: [soundPath],
       loop: options.loop
@@ -326,7 +326,7 @@ class Game {
             if (this.energyBars.right.bars.interior.width <= 0) {
               this.youWin();
             }
-            
+
           }
           break;
         case "stance":
@@ -639,7 +639,7 @@ class Game {
     this.setActiveScene("youWin");
     this.stopSound();
     this.playSound("intro");
-    
+
     let title = this.textObj.customText("You Win!", "center", 50);
     let titleContinue = this.textObj.customText(
       "Press Enter to Restart",
@@ -649,7 +649,7 @@ class Game {
 
     this.scenes.youWin.addChild(title);
     this.scenes.youWin.addChild(titleContinue);
-    let animate = () => {   
+    let animate = () => {
       requestAnimationFrame(animate);
       this.scenes.youWin.alpha += 0.05;
     };
@@ -670,7 +670,7 @@ class Game {
     this.scenes.gameOver.addChild(titleContinue);
     let animate = () => {
       requestAnimationFrame(animate);
-      this.scenes.gameOver.alpha += 0.05;    
+      this.scenes.gameOver.alpha += 0.05;
     };
     animate();
   }
@@ -806,7 +806,7 @@ class Game {
         this.action = "punch";
         this.character1Actions.punch.gotoAndPlay(0);
         this.playSound("nopunch");
-        this.playSound("hitScream");
+        this.playSound("hitscream");
       }
     };
 
