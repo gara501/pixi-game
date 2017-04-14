@@ -22,7 +22,7 @@ class Game {
           interior: {},
           red: {}
         },
-        level: 100
+        level: 385
       },
       right: {
         bars: {
@@ -30,7 +30,7 @@ class Game {
           interior: {},
           red: {}
         },
-        level: 100
+        level: 385
       }
     };
 
@@ -309,6 +309,7 @@ class Game {
 
             this.playSound("punch");
             this.playSound("hit");
+            this.energyBars.right.bars.interior.width = this.energyBars.right.level - 20;
           }
           break;
         case "stance":
