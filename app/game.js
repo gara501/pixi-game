@@ -12,23 +12,22 @@ class Game {
       intro: {},
       select: {},
       game: {},
-      gameOver: {}
+      gameOver: {},
+      youWin: {}
     };
 
     this.energyBars = {
       left: {
         bars: {
           exterior: {},
-          interior: {},
-          red: {}
+          interior: {}
         },
         level: 385
       },
       right: {
         bars: {
           exterior: {},
-          interior: {},
-          red: {}
+          interior: {}
         },
         level: 385
       }
@@ -61,6 +60,7 @@ class Game {
         "assets/images/backgrounds/fight.json",
         "assets/images/backgrounds/intro.png",
         "assets/images/backgrounds/choose.jpg",
+        "assets/images/backgrounds/win.jpg",
         "assets/images/characters/p1.jpg",
         "assets/images/characters/p2.jpg",
         "assets/images/characters/p3.jpg",
@@ -135,11 +135,11 @@ class Game {
         break;
       case "hitScream":
         soundPath = "assets/sounds/hitScream.mp3";
-        break;
+        break;    
       default:
         break;
     }
-
+   
     this.sound = new Howl({
       src: [soundPath],
       loop: options.loop
@@ -168,8 +168,14 @@ class Game {
     this.backgrounds.gameOver = new PIXI.Sprite.from(
       PIXI.loader.resources["assets/images/backgrounds/choose.jpg"].texture
     );
-
     this.scenes.gameOver.addChild(this.backgrounds.gameOver);
+
+    this.backgrounds.win = new PIXI.Sprite.from(
+      PIXI.loader.resources["assets/images/backgrounds/win.jpg"].texture
+    );
+    this.setBGScale(this.backgrounds.win);
+    this.scenes.youWin.addChild(this.backgrounds.win);
+
     this.scenes.select.addChild(this.backgrounds.gameOver);
   }
 
@@ -284,6 +290,12 @@ class Game {
 
             this.playSound("kick");
             this.playSound("hit");
+            this.energyBars.right.bars.interior.width = this.energyBars.right.bars.interior.width - 20;
+            this.energyBars.right.bars.interior.position.x = this.energyBars.right.bars.interior.position.x + 29;
+            if (this.energyBars.right.bars.interior.width <= 0) {
+              this.stopSound();
+              this.youWin();
+            }
           }
           break;
         case "punch":
@@ -309,7 +321,12 @@ class Game {
 
             this.playSound("punch");
             this.playSound("hit");
-            this.energyBars.right.bars.interior.width = this.energyBars.right.level - 20;
+            this.energyBars.right.bars.interior.width = this.energyBars.right.bars.interior.width - 20;
+            this.energyBars.right.bars.interior.position.x = this.energyBars.right.bars.interior.position.x + 29;
+            if (this.energyBars.right.bars.interior.width <= 0) {
+              this.youWin();
+            }
+            
           }
           break;
         case "stance":
@@ -338,6 +355,11 @@ class Game {
             if (this.character2Actions.stance.visible) {
               this.playSound("kick");
               this.playSound("hit");
+              this.energyBars.right.bars.interior.width = this.energyBars.right.bars.interior.width - 20;
+              this.energyBars.right.bars.interior.position.x = this.energyBars.right.bars.interior.position.x + 29;
+              if (this.energyBars.right.bars.interior.width <= 0) {
+                this.youWin();
+              }
             }
 
             this.character2Actions.stance.visible = false;
@@ -387,6 +409,11 @@ class Game {
             if (this.character2Actions.stance.visible) {
               this.playSound("kick");
               this.playSound("hit");
+              this.energyBars.right.bars.interior.width = this.energyBars.right.bars.interior.width - 20;
+              this.energyBars.right.bars.interior.position.x = this.energyBars.right.bars.interior.position.x + 29;
+              if (this.energyBars.right.bars.interior.width <= 0) {
+                this.youWin();
+              }
             }
 
             this.character2Actions.stance.visible = false;
@@ -437,6 +464,11 @@ class Game {
             if (this.character2Actions.stance.visible) {
               this.playSound("kick");
               this.playSound("hit");
+              this.energyBars.right.bars.interior.width = this.energyBars.right.bars.interior.width - 20;
+              this.energyBars.right.bars.interior.position.x = this.energyBars.right.bars.interior.position.x + 29;
+              if (this.energyBars.right.bars.interior.width <= 0) {
+                this.youWin();
+              }
             }
 
             this.character2Actions.stance.visible = false;
@@ -552,16 +584,12 @@ class Game {
     for (let bar in this.energyBars.left.bars) {
       this.energyBars.left.bars[bar] = new PIXI.Graphics();
       if (bar === "exterior") {
-        this.energyBars.left.bars[bar].beginFill(0xffffff, 0.8);
+        this.energyBars.left.bars[bar].beginFill(0x910303);
         this.energyBars.left.bars[bar].drawRect(50, 50, 400, 30);
       }
       if (bar === "interior") {
         this.energyBars.left.bars[bar].beginFill(0x0246e7, 0.8);
-        this.energyBars.left.bars[bar].drawRect(55, 55, 388, 20);
-      }
-      if (bar === "red") {
-        this.energyBars.left.bars[bar].beginFill(0xff4400, 0.8);
-        this.energyBars.left.bars[bar].drawRect(440, 55, 5, 20);
+        this.energyBars.left.bars[bar].drawRect(55, 55, this.energyBars.left.level, 20);
       }
       this.energyBars.left.bars[bar].endFill();
       this.scenes.game.addChild(this.energyBars.left.bars[bar]);
@@ -570,16 +598,12 @@ class Game {
     for (let bar in this.energyBars.right.bars) {
       this.energyBars.right.bars[bar] = new PIXI.Graphics();
       if (bar === "exterior") {
-        this.energyBars.right.bars[bar].beginFill(0xffffff, 0.8);
+        this.energyBars.right.bars[bar].beginFill(0x910303);
         this.energyBars.right.bars[bar].drawRect(550, 50, 400, 30);
       }
       if (bar === "interior") {
-        this.energyBars.right.bars[bar].beginFill(0x0246e7, 0.8);
-        this.energyBars.right.bars[bar].drawRect(555, 55, 388, 20);
-      }
-      if (bar === "red") {
-        this.energyBars.right.bars[bar].beginFill(0xff4400, 0.8);
-        this.energyBars.right.bars[bar].drawRect(940, 55, 5, 20);
+        this.energyBars.right.bars[bar].beginFill(0x0246e7);
+        this.energyBars.right.bars[bar].drawRect(555, 55, this.energyBars.right.level, 20);
       }
       this.scenes.game.addChild(this.energyBars.right.bars[bar]);
     }
@@ -611,9 +635,30 @@ class Game {
     animate();
   }
 
+  youWin() {
+    this.setActiveScene("youWin");
+    this.stopSound();
+    this.playSound("intro");
+    
+    let title = this.textObj.customText("You Win!", "center", 50);
+    let titleContinue = this.textObj.customText(
+      "Press Enter to Restart",
+      "center",
+      90
+    );
+
+    this.scenes.youWin.addChild(title);
+    this.scenes.youWin.addChild(titleContinue);
+    let animate = () => {   
+      requestAnimationFrame(animate);
+      this.scenes.youWin.alpha += 0.05;
+    };
+    animate();
+  }
+
   gameOver() {
     this.setActiveScene("gameOver");
-
+    this.stopSound();
     let title = this.textObj.customText("GAME OVER", "center", 200);
     let titleContinue = this.textObj.customText(
       "Press Enter to Restart",
@@ -623,6 +668,11 @@ class Game {
 
     this.scenes.gameOver.addChild(title);
     this.scenes.gameOver.addChild(titleContinue);
+    let animate = () => {
+      requestAnimationFrame(animate);
+      this.scenes.gameOver.alpha += 0.05;    
+    };
+    animate();
   }
 
   groupSprites(container, options) {
