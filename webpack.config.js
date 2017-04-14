@@ -14,10 +14,5 @@ module.exports = {
         loader: "json-loader"
       }
     ]
-  },
-  devServer: {
-    port: 3001,
-    contentBase: "./build",
-    inline: true
   }
 };
