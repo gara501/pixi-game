@@ -329,19 +329,18 @@ class Game {
 
           this.character1.vy += this.gravity;
 
-          collision = this.coli.rectangleCollision(
-            this.character1,
-            this.character2
-          );
+          collision = this.coli.hit(this.character1, this.character2);
 
           if (collision) {
             this.character2Actions.hit.gotoAndPlay(0);
 
+            if (this.character2Actions.stance.visible) {
+              this.playSound("kick");
+              this.playSound("hit");
+            }
+
             this.character2Actions.stance.visible = false;
             this.character2Actions.hit.visible = true;
-
-            this.playSound("kick");
-            this.playSound("hit");
           }
 
           if (this.character1.y + this.character1.vy <= this.groundY) {
@@ -374,6 +373,38 @@ class Game {
           }
           break;
 
+        case "airkick-left":
+          this.character1Actions.airkick.visible = true;
+
+          this.character1.vy += this.gravity;
+
+          collision = this.coli.hit(this.character1, this.character2);
+
+          if (collision) {
+            this.character2Actions.hit.gotoAndPlay(0);
+
+            if (this.character2Actions.stance.visible) {
+              this.playSound("kick");
+              this.playSound("hit");
+            }
+
+            this.character2Actions.stance.visible = false;
+            this.character2Actions.hit.visible = true;
+          }
+
+          if (this.character1.y + this.character1.vy <= this.groundY) {
+            this.character1.x -= this.character1.vx * 2.5;
+            this.character1.y += this.character1.vy;
+          } else {
+            this.character1.y = this.groundY;
+            if (this.keys.left.isDown) {
+              this.action = "walk-left";
+            } else {
+              this.action = "stance";
+            }
+          }
+          break;
+
         case "jump-left":
           this.character1Actions.jump.visible = true;
 
@@ -389,6 +420,34 @@ class Game {
             } else {
               this.action = "stance";
             }
+          }
+          break;
+
+        case "airkick":
+          this.character1Actions.airkick.visible = true;
+
+          this.character1.vy += this.gravity;
+
+          collision = this.coli.hit(this.character1, this.character2);
+
+          if (collision) {
+            this.character2Actions.hit.gotoAndPlay(0);
+
+            if (this.character2Actions.stance.visible) {
+              this.playSound("kick");
+              this.playSound("hit");
+            }
+
+            this.character2Actions.stance.visible = false;
+            this.character2Actions.hit.visible = true;
+          }
+
+          if (this.character1.y <= this.groundY) {
+            this.character1.y += this.character1.vy;
+          } else {
+            this.character1.y = this.groundY;
+
+            this.action = "stance";
           }
           break;
 
@@ -681,10 +740,13 @@ class Game {
       } else {
         if (this.action === "jump-right") {
           this.action = "airkick-right";
+        } else if (this.action === "jump-left") {
+          this.action = "airkick-left";
+        } else if (this.action === "jump") {
+          this.action = "airkick";
         }
         this.character1Actions.airkick.gotoAndPlay(0);
         this.playSound("nokick");
-        this.playSound("hitScream");
       }
     };
 
