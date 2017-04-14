@@ -75,7 +75,7 @@ class Game {
         "assets/sounds/short/mk3-00053.mp3",
         "assets/sounds/vsmusic.mp3",
         "assets/sounds/fightScream.mp3",
-        "assets/sounds/hitscream.mp3"
+        "assets/sounds/hitScream.mp3"
       ])
       .load(() => {
         this.initGame();
@@ -133,13 +133,13 @@ class Game {
       case "fightScream":
         soundPath = "assets/sounds/fightScream.mp3";
         break;
-      case "hitscream":
-        soundPath = "assets/sounds/hitscream.mp3";
-        break;
+      case "hitScream":
+        soundPath = "assets/sounds/hitScream.mp3";
+        break;    
       default:
         break;
     }
-
+   
     this.sound = new Howl({
       src: [soundPath],
       loop: options.loop
@@ -183,7 +183,7 @@ class Game {
   initGame() {
     this.setupKeys();
     this.loadBackgrounds();
-    this.battleScene();
+    this.introScreen();
     this.setupCharacters();
     this.gameLoop();
   }
@@ -290,12 +290,7 @@ class Game {
 
             this.playSound("kick");
             this.playSound("hit");
-            this.energyBars.right.bars.interior.width = this.energyBars.right.bars.interior.width - 20;
-            this.energyBars.right.bars.interior.position.x = this.energyBars.right.bars.interior.position.x + 29;
-            if (this.energyBars.right.bars.interior.width <= 0) {
-              this.stopSound();
-              this.youWin();
-            }
+            this.registerHit();
           }
           break;
         case "punch":
@@ -321,12 +316,8 @@ class Game {
 
             this.playSound("punch");
             this.playSound("hit");
-            this.energyBars.right.bars.interior.width = this.energyBars.right.bars.interior.width - 20;
-            this.energyBars.right.bars.interior.position.x = this.energyBars.right.bars.interior.position.x + 29;
-            if (this.energyBars.right.bars.interior.width <= 0) {
-              this.youWin();
-            }
-
+            this.registerHit();
+            
           }
           break;
         case "stance":
@@ -355,11 +346,7 @@ class Game {
             if (this.character2Actions.stance.visible) {
               this.playSound("kick");
               this.playSound("hit");
-              this.energyBars.right.bars.interior.width = this.energyBars.right.bars.interior.width - 20;
-              this.energyBars.right.bars.interior.position.x = this.energyBars.right.bars.interior.position.x + 29;
-              if (this.energyBars.right.bars.interior.width <= 0) {
-                this.youWin();
-              }
+              this.registerHit();
             }
 
             this.character2Actions.stance.visible = false;
@@ -409,11 +396,7 @@ class Game {
             if (this.character2Actions.stance.visible) {
               this.playSound("kick");
               this.playSound("hit");
-              this.energyBars.right.bars.interior.width = this.energyBars.right.bars.interior.width - 20;
-              this.energyBars.right.bars.interior.position.x = this.energyBars.right.bars.interior.position.x + 29;
-              if (this.energyBars.right.bars.interior.width <= 0) {
-                this.youWin();
-              }
+              this.registerHit();
             }
 
             this.character2Actions.stance.visible = false;
@@ -464,11 +447,7 @@ class Game {
             if (this.character2Actions.stance.visible) {
               this.playSound("kick");
               this.playSound("hit");
-              this.energyBars.right.bars.interior.width = this.energyBars.right.bars.interior.width - 20;
-              this.energyBars.right.bars.interior.position.x = this.energyBars.right.bars.interior.position.x + 29;
-              if (this.energyBars.right.bars.interior.width <= 0) {
-                this.youWin();
-              }
+              this.registerHit();
             }
 
             this.character2Actions.stance.visible = false;
@@ -499,6 +478,14 @@ class Game {
           break;
       }
     });
+  }
+
+  registerHit() {
+    this.energyBars.right.bars.interior.width = this.energyBars.right.bars.interior.width - 20;
+    this.energyBars.right.bars.interior.position.x = this.energyBars.right.bars.interior.position.x + 29;
+    if (this.energyBars.right.bars.interior.width <= 0) {
+      this.youWin();
+    }
   }
 
   introScreen() {
@@ -579,6 +566,7 @@ class Game {
 
   battleScene() {
     this.setActiveScene("game");
+    this.stopSound();
     this.playSound("fight", { loop: true });
 
     for (let bar in this.energyBars.left.bars) {
@@ -653,7 +641,7 @@ class Game {
       requestAnimationFrame(animate);
       this.scenes.youWin.alpha += 0.05;
     };
-    animate();
+    animate();    
   }
 
   gameOver() {
@@ -708,6 +696,12 @@ class Game {
       }
 
       if (this.scenes.gameOver.visible) {
+        if (e.key === "Enter") {
+          this.introScreen();
+        }
+      }
+      
+      if (this.scenes.youWin.visible) {
         if (e.key === "Enter") {
           this.introScreen();
         }
@@ -787,7 +781,10 @@ class Game {
       if (this.character1.y === this.groundY) {
         this.action = "kick";
         this.character1Actions.kick.gotoAndPlay(0);
-        this.playSound("nokick");
+        if (this.scenes.game.visible) {
+          this.playSound("nopunch");
+          this.playSound("hitScream");
+        }
       } else {
         if (this.action === "jump-right") {
           this.action = "airkick-right";
@@ -797,7 +794,10 @@ class Game {
           this.action = "airkick";
         }
         this.character1Actions.airkick.gotoAndPlay(0);
-        this.playSound("nokick");
+        if (this.scenes.game.visible) {
+          this.playSound("nopunch");
+          this.playSound("hitScream");
+        }
       }
     };
 
@@ -805,8 +805,10 @@ class Game {
       if (this.character1.y === this.groundY) {
         this.action = "punch";
         this.character1Actions.punch.gotoAndPlay(0);
-        this.playSound("nopunch");
-        this.playSound("hitscream");
+        if (this.scenes.game.visible) {
+          this.playSound("nopunch");
+          this.playSound("hitScream");
+        }
       }
     };
 
