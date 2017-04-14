@@ -75,7 +75,7 @@ class Game {
         "assets/sounds/short/mk3-00053.mp3",
         "assets/sounds/vsmusic.mp3",
         "assets/sounds/fightScream.mp3",
-        "assets/sounds/hitScream.mp3"
+        "assets/sounds/hitscream.mp3"
       ])
       .load(() => {
         this.initGame();
@@ -133,13 +133,13 @@ class Game {
       case "fightScream":
         soundPath = "assets/sounds/fightScream.mp3";
         break;
-      case "hitScream":
-        soundPath = "assets/sounds/hitScream.mp3";
-        break;    
+      case "hitscream":
+        soundPath = "assets/sounds/hitscream.mp3";
+        break;
       default:
         break;
     }
-   
+
     this.sound = new Howl({
       src: [soundPath],
       loop: options.loop
@@ -317,7 +317,7 @@ class Game {
             this.playSound("punch");
             this.playSound("hit");
             this.registerHit();
-            
+
           }
           break;
         case "stance":
@@ -641,7 +641,7 @@ class Game {
       requestAnimationFrame(animate);
       this.scenes.youWin.alpha += 0.05;
     };
-    animate();    
+    animate();
   }
 
   gameOver() {
@@ -700,7 +700,7 @@ class Game {
           this.introScreen();
         }
       }
-      
+
       if (this.scenes.youWin.visible) {
         if (e.key === "Enter") {
           this.introScreen();
@@ -783,7 +783,7 @@ class Game {
         this.character1Actions.kick.gotoAndPlay(0);
         if (this.scenes.game.visible) {
           this.playSound("nopunch");
-          this.playSound("hitScream");
+          this.playSound("hitscream");
         }
       } else {
         if (this.action === "jump-right") {
@@ -796,7 +796,7 @@ class Game {
         this.character1Actions.airkick.gotoAndPlay(0);
         if (this.scenes.game.visible) {
           this.playSound("nopunch");
-          this.playSound("hitScream");
+          this.playSound("hitscream");
         }
       }
     };
@@ -807,7 +807,7 @@ class Game {
         this.character1Actions.punch.gotoAndPlay(0);
         if (this.scenes.game.visible) {
           this.playSound("nopunch");
-          this.playSound("hitScream");
+          this.playSound("hitscream");
         }
       }
     };
