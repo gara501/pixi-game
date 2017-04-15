@@ -70,6 +70,7 @@ class Game {
         "assets/sounds/fight.mp3",
         "assets/sounds/hitsounds/mk3-00100.mp3",
         "assets/sounds/hitsounds/mk3-00105.mp3",
+        "assets/sounds/hitsounds/mk3-00155.mp3",
         "assets/sounds/hitsounds/mk3-00165.mp3",
         "assets/sounds/hitsounds/mk3-00170.mp3",
         "assets/sounds/male/mk3-03000.mp3",
@@ -105,6 +106,9 @@ class Game {
   playSound(event, options = { loop: false, bg: false }) {
     let soundPath = "";
     switch (event) {
+      case "jump":
+        soundPath = "assets/sounds/hitsounds/mk3-00155.mp3";
+        break;
       case "kick":
         soundPath = "assets/sounds/hitsounds/mk3-00100.mp3";
         break;
@@ -215,10 +219,7 @@ class Game {
       this.character1Actions.staticjump.visible = false;
       this.character1Actions.airkick.visible = false;
 
-      let collision = this.coli.rectangleCollision(
-        this.character1,
-        this.character2
-      );
+      let collision;
 
       if (
         this.character2Actions.hit.visible &&
@@ -243,6 +244,7 @@ class Game {
       ) {
         this.action = "jump-right";
         this.character1Actions.jump.gotoAndPlay(0);
+        this.playSound("jump");
       }
 
       if (
@@ -250,6 +252,7 @@ class Game {
       ) {
         this.action = "jump-left";
         this.character1Actions.jump.gotoAndPlay(0);
+        this.playSound("jump");
       }
 
       this.utils.update();
@@ -631,22 +634,27 @@ class Game {
       this.scenes.game.addChild(this.energyBars.right.bars[bar]);
     }
 
-    this.fight = this.createAnimation("fight", 44);
-    this.fight.loop = false;
-    this.fight.visible = false;
-    this.fight.animationSpeed = 0.42;
-    this.fight.scale.x = 2;
-    this.fight.scale.y = 2;
-    this.fight.x = (1000 - this.fight.width) / 2 + 16;
-    this.fight.y = (600 - this.fight.height) / 3;
+    const fightAnim = this.createAnimation("fight", 44);
+    fightAnim.loop = false;
+    fightAnim.visible = false;
+    fightAnim.animationSpeed = 0.42;
+    fightAnim.scale.x = 2;
+    fightAnim.scale.y = 2;
+    fightAnim.x = (1000 - fightAnim.width) / 2 + 16;
+    fightAnim.y = (600 - fightAnim.height) / 3;
+
+    const character1Name = this.textObj.customText("scorpion", 53, 48);
+    const character2Name = this.textObj.customText("sub-zero", 817, 48);
 
     setTimeout(() => {
-      this.fight.visible = true;
-      this.fight.play();
+      fightAnim.visible = true;
+      fightAnim.play();
       this.playSound("fightScream");
     }, 1000);
 
-    this.scenes.game.addChild(this.fight);
+    this.scenes.game.addChild(fightAnim);
+    this.scenes.game.addChild(character1Name);
+    this.scenes.game.addChild(character2Name);
 
     let animate = () => {
       requestAnimationFrame(animate);
@@ -847,6 +855,7 @@ class Game {
     this.keys.up.press = () => {
       this.action = "jump";
       this.character1.vy = -24;
+      this.playSound("jump");
     };
   }
 
