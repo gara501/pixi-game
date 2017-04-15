@@ -51,7 +51,7 @@ class Game {
 
     this.attachEvents();
 
-    this.sound = {};
+    this.sound = null;
 
     this.coli = new COLI(PIXI);
 
@@ -60,6 +60,8 @@ class Game {
         "assets/images/characters/scorpion.json",
         "assets/images/characters/subzero.json",
         "assets/images/backgrounds/fight.json",
+        "assets/images/characters/munrah.json",
+        "assets/images/characters/mummra.json",
         "assets/images/backgrounds/intro.png",
         "assets/images/backgrounds/choose.jpg",
         "assets/images/backgrounds/win.jpg",
@@ -162,7 +164,10 @@ class Game {
   }
 
   stopSound() {
-    this.sound.stop();
+    console.log(this.sound)
+    if (this.sound) {
+      this.sound.stop();
+    }
   }
 
   stopBgSound() {
@@ -200,7 +205,7 @@ class Game {
   initGame() {
     this.setupKeys();
     this.loadBackgrounds();
-    this.introScreen();
+    this.battleScene();
     this.setupCharacters();
     this.gameLoop();
   }
@@ -218,6 +223,9 @@ class Game {
       this.character1Actions.jump.visible = false;
       this.character1Actions.staticjump.visible = false;
       this.character1Actions.airkick.visible = false;
+      this.mummraActions.jump.visible = false;
+      this.mummraActions.stance.visible = false;
+      this.mummraActions.duck.visible = false;
 
       let collision;
 
@@ -260,6 +268,7 @@ class Game {
       switch (this.action) {
         case "ducking":
           this.character1Actions.duck.visible = true;
+          this.mummraActions.duck.visible = true;
           break;
         case "walk-right":
           this.character1Actions.walk.visible = true;
@@ -345,9 +354,11 @@ class Game {
           break;
         case "stance":
           this.character1Actions.stance.visible = true;
+          this.mummraActions.stance.visible = true;
           break;
         case "raise":
           this.character1Actions.raise.visible = true;
+          this.mummraActions.stance.visible = true;
 
           if (
             this.character1Actions.raise.currentFrame + 1 ===
@@ -498,6 +509,18 @@ class Game {
             this.character1.y += this.character1.vy;
           } else {
             this.character1.y = this.groundY;
+
+            this.action = "stance";
+          }
+
+          this.mummraActions.jump.visible = true;
+
+          this.mummra.vy += this.gravity;
+
+          if (this.mummra.y <= this.groundY) {
+            this.mummra.y += this.mummra.vy;
+          } else {
+            this.mummra.y = this.groundY;
 
             this.action = "stance";
           }
@@ -855,6 +878,7 @@ class Game {
     this.keys.up.press = () => {
       this.action = "jump";
       this.character1.vy = -24;
+      this.mummra.vy = -24;
       this.playSound("jump");
     };
   }
@@ -873,6 +897,36 @@ class Game {
     const subzeroStance = this.createAnimation("subzero-stance", 9);
     const subzeroHit = this.createAnimation("subzero-hit", 5);
     const subzeroHighhit = this.createAnimation("subzero-highhit", 5);
+
+    const munrah = this.createAnimation("munrah", 3);
+    munrah.scale.x = .4;
+    munrah.scale.y = .4;
+    munrah.animationSpeed = .08;
+    munrah.y = this.groundY;
+    munrah.x = 50;
+    munrah.play();
+    this.scenes.game.addChild(munrah);
+
+    const mummra = this.createAnimation("mummra", 1);
+    const mummraJump = this.createAnimation("mummra-jump", 1);
+    const mummraDuck = this.createAnimation("mummra-duck", 1);
+    this.mummra = new PIXI.Container();
+    this.mummra.scale.x = .25;
+    this.mummra.scale.y = .25;
+    this.mummra.y = this.groundY;
+    this.mummra.x = 170;
+    mummra.play();
+    this.groupSprites(this.mummra, [
+      mummra,
+      mummraJump,
+      mummraDuck
+    ]);
+    this.mummraActions = {
+      stance: mummra,
+      jump: mummraJump,
+      duck: mummraDuck
+    };
+    this.scenes.game.addChild(this.mummra);
 
     this.character1 = new PIXI.Container();
     this.character1.x = this.app.renderer.width / 3;

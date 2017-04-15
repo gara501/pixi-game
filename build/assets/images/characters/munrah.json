@@ -1,0 +1,39 @@
+{"frames": {
+
+"munrah1.png":
+{
+	"frame": {"x":0,"y":0,"w":295,"h":522},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":295,"h":522},
+	"sourceSize": {"w":295,"h":522},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"munrah2.png":
+{
+	"frame": {"x":297,"y":0,"w":285,"h":518},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":285,"h":518},
+	"sourceSize": {"w":285,"h":518},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"munrah3.png":
+{
+	"frame": {"x":584,"y":0,"w":276,"h":500},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":276,"h":500},
+	"sourceSize": {"w":276,"h":500},
+	"pivot": {"x":0.5,"y":0.5}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "munrah.png",
+	"format": "RGBA8888",
+	"size": {"w":860,"h":522},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:23da766c497b8045e4be1236e55a658c:7c03ae3ec4911e719bd0429bdb4b6d6f:e2d42d1eb804d1cf43c0303968429429$"
+}
+}

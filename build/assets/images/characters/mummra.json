@@ -1,0 +1,39 @@
+{"frames": {
+
+"mummra-duck1.png":
+{
+	"frame": {"x":0,"y":0,"w":436,"h":900},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":436,"h":900},
+	"sourceSize": {"w":436,"h":900},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"mummra-jump1.png":
+{
+	"frame": {"x":438,"y":0,"w":513,"h":819},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":513,"h":819},
+	"sourceSize": {"w":513,"h":819},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"mummra1.png":
+{
+	"frame": {"x":953,"y":0,"w":436,"h":819},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":436,"h":819},
+	"sourceSize": {"w":436,"h":819},
+	"pivot": {"x":0.5,"y":0.5}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "mummra.png",
+	"format": "RGBA8888",
+	"size": {"w":1389,"h":900},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:1f9e119bcd3404573464d23704347888:d58d709f433965a03f0b8d0f1c74e863:1726d345b94b2b94d78957836b3ae31a$"
+}
+}

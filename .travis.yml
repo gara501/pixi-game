@@ -5,3 +5,6 @@ notifications:
   email: false
 script: bash ./deploy.sh
 cache: yarn
+branches:
+  only:
+    - master
