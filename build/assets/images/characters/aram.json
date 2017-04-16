@@ -1,6 +1,6 @@
 {"frames": {
 
-"aram-duck3.png":
+"aram-down.png":
 {
 	"frame": {"x":0,"y":0,"w":400,"h":267},
 	"rotated": false,
@@ -18,7 +18,7 @@
 },
 "aram-duck2.png":
 {
-	"frame": {"x":0,"y":267,"w":400,"h":267},
+	"frame": {"x":800,"y":0,"w":400,"h":267},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":267},
@@ -26,7 +26,7 @@
 },
 "aram-jump1.png":
 {
-	"frame": {"x":400,"y":267,"w":400,"h":267},
+	"frame": {"x":1200,"y":0,"w":400,"h":267},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":267},
@@ -34,7 +34,7 @@
 },
 "aram-jump2.png":
 {
-	"frame": {"x":0,"y":534,"w":400,"h":267},
+	"frame": {"x":0,"y":267,"w":400,"h":267},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":267},
@@ -42,7 +42,7 @@
 },
 "aram-jump3.png":
 {
-	"frame": {"x":400,"y":534,"w":400,"h":267},
+	"frame": {"x":400,"y":267,"w":400,"h":267},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":267},
@@ -50,7 +50,7 @@
 },
 "aram-kick-air1.png":
 {
-	"frame": {"x":0,"y":801,"w":400,"h":267},
+	"frame": {"x":800,"y":267,"w":400,"h":267},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":267},
@@ -58,7 +58,7 @@
 },
 "aram-kick1.png":
 {
-	"frame": {"x":400,"y":801,"w":400,"h":267},
+	"frame": {"x":1200,"y":267,"w":400,"h":267},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":267},
@@ -66,7 +66,7 @@
 },
 "aram-kick2.png":
 {
-	"frame": {"x":0,"y":1068,"w":400,"h":267},
+	"frame": {"x":0,"y":534,"w":400,"h":267},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":267},
@@ -74,7 +74,7 @@
 },
 "aram-kick3.png":
 {
-	"frame": {"x":400,"y":1068,"w":400,"h":267},
+	"frame": {"x":400,"y":534,"w":400,"h":267},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":267},
@@ -82,7 +82,7 @@
 },
 "aram-punch1.png":
 {
-	"frame": {"x":0,"y":1335,"w":400,"h":267},
+	"frame": {"x":800,"y":534,"w":400,"h":267},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":267},
@@ -90,7 +90,7 @@
 },
 "aram-punch2.png":
 {
-	"frame": {"x":400,"y":1335,"w":400,"h":267},
+	"frame": {"x":1200,"y":534,"w":400,"h":267},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":267},
@@ -98,7 +98,31 @@
 },
 "aram1.png":
 {
-	"frame": {"x":0,"y":1602,"w":400,"h":267},
+	"frame": {"x":0,"y":801,"w":400,"h":267},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":267},
+	"sourceSize": {"w":400,"h":267}
+},
+"aram2.png":
+{
+	"frame": {"x":400,"y":801,"w":400,"h":267},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":267},
+	"sourceSize": {"w":400,"h":267}
+},
+"aram3.png":
+{
+	"frame": {"x":800,"y":801,"w":400,"h":267},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":267},
+	"sourceSize": {"w":400,"h":267}
+},
+"aram4.png":
+{
+	"frame": {"x":1200,"y":801,"w":400,"h":267},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":267},
@@ -109,8 +133,8 @@
 	"version": "1.0",
 	"image": "aram.png",
 	"format": "RGBA8888",
-	"size": {"w":800,"h":1869},
+	"size": {"w":1600,"h":1068},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:785d1882d34275be9977fa1d70b760c8:4fdfe40ba29e37ec9305efde3170b266:66795bc9544ce0e7ae9dad753bde54ad$"
+	"smartupdate": "$TexturePacker:SmartUpdate:1d0b1bae9b3fd6c3f2a43572c4693801:a8c7226befed011a331b28fd3ce6a124:66795bc9544ce0e7ae9dad753bde54ad$"
 }
 }

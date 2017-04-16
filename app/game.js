@@ -874,6 +874,7 @@ class Game {
       if (this.character1.y === this.groundY) {
         this.action = "kick";
         this.character1Actions.kick.gotoAndPlay(0);
+        this.aramActions.kick.gotoAndPlay(0);
         if (this.scenes.game.visible) {
           this.playSound("nopunch");
           this.playSound("hitscream");
@@ -959,13 +960,14 @@ class Game {
     };
     this.scenes.game.addChild(this.mummra);
 
-    const aram = this.createAnimation("aram", 1);
+    const aram = this.createAnimation("aram", 4);
     const aramJump = this.createAnimation("aram-jump", 1);
     const aramDuck = this.createAnimation("aram-duck", 1);
     const aramKick = this.createAnimation("aram-kick", 1);
     this.aram = new PIXI.Container();
     this.aram.scale.x = .8;
     this.aram.scale.y = .8;
+    aram.animationSpeed = .08;
     this.aram.y = this.groundY;
     this.aram.x = 290;
     aram.play();
