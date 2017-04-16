@@ -211,7 +211,7 @@ class Game {
 
   gameLoop() {
     this.app.ticker.add(() => {
-      if (!this.scenes.game.visible) return;    
+      if (!this.scenes.game.visible) return;
       this.characters.forEach(character => {
         character.animations.forEach(animation => {
           animation.visible = false;
@@ -546,7 +546,7 @@ class Game {
 
         case "jump":
           this.characters.forEach(character => {
-            if (character.actions.raise) {
+            if (character.actions.jump) {
               character.actions.staticjump.visible = true;
 
               character.vy += this.gravity;
