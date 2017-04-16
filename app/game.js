@@ -963,12 +963,14 @@ class Game {
     const aram = this.createAnimation("aram", 3);
     const aramJump = this.createAnimation("aram-jump", 3);
     const aramDuck = this.createAnimation("aram-duck", 1);
-    const aramKick = this.createAnimation("aram-kick", 2);
+    const aramKick = this.createAnimation("aram-kick", 5);
+    const aramPunch = this.createAnimation("aram-punch", 4);
+    const aramWalk = this.createAnimation("aram-walk", 6);
     this.aram = new PIXI.Container();
     this.aram.scale.x = .8;
     this.aram.scale.y = .8;
     aram.animationSpeed = .08;
-    aramKick.animationSpeed = .09;
+    aramKick.animationSpeed = .08;
     this.aram.y = this.groundY;
     this.aram.x = 290;
     aram.play();
