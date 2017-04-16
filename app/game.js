@@ -62,6 +62,7 @@ class Game {
         "assets/images/backgrounds/fight.json",
         "assets/images/characters/munrah.json",
         "assets/images/characters/mummra.json",
+        "assets/images/characters/aram.json",
         "assets/images/backgrounds/intro.png",
         "assets/images/backgrounds/choose.jpg",
         "assets/images/backgrounds/win.jpg",
@@ -227,6 +228,11 @@ class Game {
       this.mummraActions.stance.visible = false;
       this.mummraActions.duck.visible = false;
 
+      this.aramActions.jump.visible = false;
+      this.aramActions.stance.visible = false;
+      this.aramActions.duck.visible = false;
+      this.aramActions.kick.visible = false;
+
       let collision;
 
       if (
@@ -269,6 +275,7 @@ class Game {
         case "ducking":
           this.character1Actions.duck.visible = true;
           this.mummraActions.duck.visible = true;
+          this.aramActions.duck.visible = true;
           break;
         case "walk-right":
           this.character1Actions.walk.visible = true;
@@ -300,6 +307,15 @@ class Game {
           if (
             this.character1Actions.kick.currentFrame + 1 ===
             this.character1Actions.kick.totalFrames
+          ) {
+            this.action = "stance";
+          }
+
+          this.aramActions.kick.visible = true;
+
+          if (
+            this.aramActions.kick.currentFrame + 1 ===
+            this.aramActions.kick.totalFrames
           ) {
             this.action = "stance";
           }
@@ -355,10 +371,12 @@ class Game {
         case "stance":
           this.character1Actions.stance.visible = true;
           this.mummraActions.stance.visible = true;
+          this.aramActions.stance.visible = true;
           break;
         case "raise":
           this.character1Actions.raise.visible = true;
           this.mummraActions.stance.visible = true;
+          this.aramActions.stance.visible = true;
 
           if (
             this.character1Actions.raise.currentFrame + 1 ===
@@ -521,6 +539,18 @@ class Game {
             this.mummra.y += this.mummra.vy;
           } else {
             this.mummra.y = this.groundY;
+
+            this.action = "stance";
+          }
+
+           this.aramActions.jump.visible = true;
+
+          this.aram.vy += this.gravity;
+
+          if (this.aram.y <= this.groundY) {
+            this.aram.y += this.aram.vy;
+          } else {
+            this.aram.y = this.groundY;
 
             this.action = "stance";
           }
@@ -927,6 +957,30 @@ class Game {
       duck: mummraDuck
     };
     this.scenes.game.addChild(this.mummra);
+
+    const aram = this.createAnimation("aram", 1);
+    const aramJump = this.createAnimation("aram-jump", 1);
+    const aramDuck = this.createAnimation("aram-duck", 1);
+    const aramKick = this.createAnimation("aram-kick", 1);
+    this.aram = new PIXI.Container();
+    this.aram.scale.x = .8;
+    this.aram.scale.y = .8;
+    this.aram.y = this.groundY;
+    this.aram.x = 290;
+    aram.play();
+    this.groupSprites(this.aram, [
+      aram,
+      aramJump,
+      aramDuck,
+      aramKick
+    ]);
+    this.aramActions = {
+      stance: aram,
+      jump: aramJump,
+      duck: aramDuck,
+      kick: aramKick
+    };
+    this.scenes.game.addChild(this.aram);
 
     this.character1 = new PIXI.Container();
     this.character1.x = this.app.renderer.width / 3;
