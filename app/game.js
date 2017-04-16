@@ -203,7 +203,7 @@ class Game {
   initGame() {
     this.setupKeys();
     this.loadBackgrounds();
-    this.battleScene();
+    this.introScreen();
     this.setupCharacters();
     this.gameLoop();
   }
