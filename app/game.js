@@ -144,6 +144,12 @@ class Game {
       case "hitscream":
         soundPath = "assets/sounds/hitscream.mp3";
         break;
+      case "gameover":
+        soundPath = "assets/sounds/yousuck.mp3";
+        break;
+      case "welldone":
+        soundPath = "assets/sounds/welldone.mp3";
+        break;
       default:
         break;
     }
@@ -725,7 +731,7 @@ class Game {
   youWin() {
     this.setActiveScene("youWin");
     this.stopBgSound();
-    this.playSound("intro");
+    this.playSound("welldone");
 
     let title = this.textObj.customText("You Win!", "center", 50);
     let titleContinue = this.textObj.customText(
