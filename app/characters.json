@@ -94,8 +94,8 @@
         },
         {
           "name": "punch",
-          "frames": 3,
-          "animationSpeed": 1
+          "frames": 5,
+          "animationSpeed": 0.35
         },
         {
           "name": "duck",
@@ -104,14 +104,14 @@
         },
          {
           "name": "walk",
-          "frames": 4,
+          "frames": 1,
           "loop": true,
-          "animationSpeed": 0.35
+          "animationSpeed": 0.25
         },
         {
           "name": "kick",
-          "frames": 4,
-          "animationSpeed": 0.35
+          "frames": 7,
+          "animationSpeed": 0.25
         },
          {
           "name": "staticjump",
