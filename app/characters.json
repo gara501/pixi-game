@@ -1,0 +1,84 @@
+{
+  "characters": [
+    {
+      "name": "scorpion",
+      "x": 180,
+      "scale": 1.5,
+      "animations": [
+        {
+          "name": "stance",
+          "frames": 9,
+          "animationSpeed": 0.15,
+          "loop": true,
+          "visible": true
+        },
+        {
+          "name": "walk",
+          "frames": 9,
+          "loop": true,
+          "animationSpeed": 0.15
+        },
+        {
+          "name": "duck",
+          "frames": 3,
+          "animationSpeed": 0.4
+        },
+        {
+          "name": "kick",
+          "frames": 10,
+          "animationSpeed": 0.4
+        },
+        {
+          "name": "raise",
+          "frames": 3,
+          "animationSpeed": 0.4
+        },
+        {
+          "name": "punch",
+          "frames": 5,
+          "animationSpeed": 0.3
+        },
+        {
+          "name": "jump",
+          "frames": 9,
+          "animationSpeed": 0.3
+        },
+        {
+          "name": "staticjump",
+          "frames": 1,
+          "animationSpeed": 1
+        },
+        {
+          "name": "airkick",
+          "frames": 3,
+          "animationSpeed": 0.3
+        }
+      ]
+    },
+    {
+      "name": "subzero",
+      "x": 770,
+      "scale": 1.5,
+      "opponent": true,
+      "animations": [
+        {
+          "name": "stance",
+          "frames": 9,
+          "animationSpeed": 0.15,
+          "loop": true,
+          "visible": true
+        },
+        {
+          "name": "hit",
+          "frames": 5,
+          "animationSpeed": 0.35
+        },
+        {
+          "name": "highhit",
+          "frames": 5,
+          "animationSpeed": 0.35
+        }
+      ]
+    }
+  ]
+}

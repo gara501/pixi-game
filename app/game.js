@@ -4,6 +4,7 @@ import * as SOUND from "howler";
 import SpriteUtilities from "./spriteUtilities.js";
 import TextStyles from "./textStyles.js";
 import Keyboard from "./keyboard.js";
+import characterData from "./characters.json";
 
 class Game {
   constructor() {
@@ -51,7 +52,7 @@ class Game {
 
     this.attachEvents();
 
-    this.sound = {};
+    this.sound = null;
 
     this.coli = new COLI(PIXI);
 
@@ -162,7 +163,9 @@ class Game {
   }
 
   stopSound() {
-    this.sound.stop();
+    if (this.sound) {
+      this.sound.stop();
+    }
   }
 
   stopBgSound() {
@@ -200,7 +203,7 @@ class Game {
   initGame() {
     this.setupKeys();
     this.loadBackgrounds();
-    this.introScreen();
+    this.battleScene();
     this.setupCharacters();
     this.gameLoop();
   }
@@ -209,298 +212,354 @@ class Game {
     this.app.ticker.add(() => {
       if (!this.scenes.game.visible) return;
 
-      this.character1Actions.stance.visible = false;
-      this.character1Actions.walk.visible = false;
-      this.character1Actions.duck.visible = false;
-      this.character1Actions.kick.visible = false;
-      this.character1Actions.raise.visible = false;
-      this.character1Actions.punch.visible = false;
-      this.character1Actions.jump.visible = false;
-      this.character1Actions.staticjump.visible = false;
-      this.character1Actions.airkick.visible = false;
+      this.characters.forEach(character => {
+        character.animations.forEach(animation => {
+          animation.visible = false;
+        });
+      });
 
       let collision;
 
       if (
-        this.character2Actions.hit.visible &&
-        this.character2Actions.hit.currentFrame + 1 ===
-          this.character2Actions.hit.totalFrames
+        this.opponent.actions.hit.visible &&
+        this.opponent.actions.hit.currentFrame + 1 ===
+          this.opponent.actions.hit.totalFrames
       ) {
-        this.character2Actions.stance.visible = true;
-        this.character2Actions.hit.visible = false;
+        this.opponent.actions.stance.visible = true;
+        this.opponent.actions.hit.visible = false;
       }
 
       if (
-        this.character2Actions.highhit.visible &&
-        this.character2Actions.highhit.currentFrame + 1 ===
-          this.character2Actions.highhit.totalFrames
+        this.opponent.actions.highhit.visible &&
+        this.opponent.actions.highhit.currentFrame + 1 ===
+          this.opponent.actions.highhit.totalFrames
       ) {
-        this.character2Actions.stance.visible = true;
-        this.character2Actions.highhit.visible = false;
+        this.opponent.actions.stance.visible = true;
+        this.opponent.actions.highhit.visible = false;
       }
 
       if (
         this.action === "jump" && this.keys.up.isDown && this.keys.right.isDown
       ) {
         this.action = "jump-right";
-        this.character1Actions.jump.gotoAndPlay(0);
-        this.playSound("jump");
+        this.characters.forEach(character => {
+          if (character.actions.jump) {
+            character.actions.jump.gotoAndPlay(0);
+            this.playSound("jump");
+          }
+        });
       }
 
       if (
         this.action === "jump" && this.keys.up.isDown && this.keys.left.isDown
       ) {
-        this.action = "jump-left";
-        this.character1Actions.jump.gotoAndPlay(0);
-        this.playSound("jump");
+        this.characters.forEach(character => {
+          if (character.actions.jump) {
+            this.action = "jump-left";
+            character.actions.jump.gotoAndPlay(0);
+            this.playSound("jump");
+          }
+        });
       }
 
       this.utils.update();
 
       switch (this.action) {
         case "ducking":
-          this.character1Actions.duck.visible = true;
+          this.characters.forEach(character => {
+            if (character.actions.duck) {
+              character.actions.duck.visible = true;
+            }
+          });
           break;
         case "walk-right":
-          this.character1Actions.walk.visible = true;
+          this.characters.forEach(character => {
+            if (character.actions.walk) {
+              character.actions.walk.visible = true;
 
-          collision = this.coli.rectangleCollision(
-            this.character1,
-            this.character2
-          );
+              collision = this.coli.rectangleCollision(
+                character,
+                this.opponent
+              );
 
-          if (!collision || collision === "left") {
-            this.character1.position.x += this.character1.vx;
-          }
+              if (!collision || collision === "left") {
+                character.position.x += character.vx;
+              }
+            }
+          });
           break;
         case "walk-left":
-          this.character1Actions.walk.visible = true;
+          this.characters.forEach(character => {
+            if (character.actions.walk) {
+              character.actions.walk.visible = true;
 
-          collision = this.coli.rectangleCollision(
-            this.character1,
-            this.character2
-          );
+              collision = this.coli.rectangleCollision(
+                character,
+                this.opponent
+              );
 
-          if (!collision || collision === "right") {
-            this.character1.position.x -= this.character1.vx;
-          }
+              if (!collision || collision === "right") {
+                character.position.x -= character.vx;
+              }
+            }
+          });
           break;
         case "kick":
-          this.character1Actions.kick.visible = true;
+          this.characters.forEach(character => {
+            if (character.actions.kick) {
+              character.actions.kick.visible = true;
 
-          if (
-            this.character1Actions.kick.currentFrame + 1 ===
-            this.character1Actions.kick.totalFrames
-          ) {
-            this.action = "stance";
-          }
+              if (
+                character.actions.kick.currentFrame + 1 ===
+                character.actions.kick.totalFrames
+              ) {
+                this.action = "stance";
+              }
 
-          collision = this.coli.rectangleCollision(
-            this.character1,
-            this.character2
-          );
+              collision = this.coli.rectangleCollision(
+                character,
+                this.opponent
+              );
 
-          if (collision) {
-            this.character2Actions.hit.gotoAndPlay(0);
+              if (collision) {
+                this.opponent.actions.hit.gotoAndPlay(0);
 
-            this.character2Actions.stance.visible = false;
-            this.character2Actions.hit.visible = true;
+                this.opponent.actions.stance.visible = false;
+                this.opponent.actions.hit.visible = true;
 
-            this.playSound("kick");
-            this.playSound("hit");
+                this.playSound("kick");
+                this.playSound("hit");
 
-            this.utils.shake(this.scenes.game, 5);
+                this.utils.shake(this.scenes.game, 5);
 
-            this.registerHit();
-          }
+                this.registerHit();
+              }
+            }
+          });
           break;
         case "punch":
-          this.character1Actions.punch.visible = true;
+          this.characters.forEach(character => {
+            if (character.actions.punch) {
+              character.actions.punch.visible = true;
 
-          if (
-            this.character1Actions.punch.currentFrame + 1 ===
-            this.character1Actions.punch.totalFrames
-          ) {
-            this.action = "stance";
-          }
+              if (
+                character.actions.punch.currentFrame + 1 ===
+                character.actions.punch.totalFrames
+              ) {
+                this.action = "stance";
+              }
 
-          collision = this.coli.rectangleCollision(
-            this.character1,
-            this.character2
-          );
+              collision = this.coli.rectangleCollision(
+                character,
+                this.opponent
+              );
 
-          if (collision) {
-            this.character2Actions.highhit.gotoAndPlay(0);
+              if (collision) {
+                this.opponent.actions.highhit.gotoAndPlay(0);
 
-            this.character2Actions.stance.visible = false;
-            this.character2Actions.highhit.visible = true;
+                this.opponent.actions.stance.visible = false;
+                this.opponent.actions.highhit.visible = true;
 
-            this.playSound("punch");
-            this.playSound("hit");
+                this.playSound("punch");
+                this.playSound("hit");
 
-            this.utils.shake(this.scenes.game, 0.01, true);
+                this.utils.shake(this.scenes.game, 0.01, true);
 
-            this.registerHit();
-          }
+                this.registerHit();
+              }
+            }
+          });
           break;
         case "stance":
-          this.character1Actions.stance.visible = true;
+          this.characters.forEach(character => {
+            if (character.actions.stance) {
+              character.actions.stance.visible = true;
+            }
+          });
           break;
         case "raise":
-          this.character1Actions.raise.visible = true;
+          this.characters.forEach(character => {
+            if (character.actions.raise) {
+              character.actions.raise.visible = true;
 
-          if (
-            this.character1Actions.raise.currentFrame + 1 ===
-            this.character1Actions.raise.totalFrames
-          ) {
-            this.action = "stance";
-          }
+              if (
+                character.actions.raise.currentFrame + 1 ===
+                character.actions.raise.totalFrames
+              ) {
+                this.action = "stance";
+              }
+            }
+          });
           break;
         case "airkick-right":
-          this.character1Actions.airkick.visible = true;
+          this.characters.forEach(character => {
+            if (character.actions.airkick) {
+              character.actions.airkick.visible = true;
 
-          this.character1.vy += this.gravity;
+              character.vy += this.gravity;
 
-          collision = this.coli.hit(this.character1, this.character2);
+              collision = this.coli.hit(character, this.opponent);
 
-          if (collision) {
-            this.character2Actions.hit.gotoAndPlay(0);
+              if (collision) {
+                this.opponent.actions.hit.gotoAndPlay(0);
 
-            if (this.character2Actions.stance.visible) {
-              this.playSound("kick");
-              this.playSound("hit");
+                if (this.opponent.actions.stance.visible) {
+                  this.playSound("kick");
+                  this.playSound("hit");
 
-              this.utils.shake(this.scenes.game.children[0], 10);
+                  this.utils.shake(this.scenes.game.children[0], 10);
 
-              this.registerHit();
+                  this.registerHit();
+                }
+
+                this.opponent.actions.stance.visible = false;
+                this.opponent.actions.hit.visible = true;
+              }
+
+              if (character.y + character.vy <= this.groundY) {
+                character.x += character.vx * 2.5;
+                character.y += character.vy;
+              } else {
+                character.y = this.groundY;
+                if (this.keys.right.isDown) {
+                  this.action = "walk-right";
+                } else {
+                  this.action = "stance";
+                }
+              }
             }
-
-            this.character2Actions.stance.visible = false;
-            this.character2Actions.hit.visible = true;
-          }
-
-          if (this.character1.y + this.character1.vy <= this.groundY) {
-            this.character1.x += this.character1.vx * 2.5;
-            this.character1.y += this.character1.vy;
-          } else {
-            this.character1.y = this.groundY;
-            if (this.keys.right.isDown) {
-              this.action = "walk-right";
-            } else {
-              this.action = "stance";
-            }
-          }
+          });
           break;
         case "jump-right":
-          this.character1Actions.jump.visible = true;
+          this.characters.forEach(character => {
+            if (character.actions.jump) {
+              character.actions.jump.visible = true;
 
-          this.character1.vy += this.gravity;
+              character.vy += this.gravity;
 
-          if (this.character1.y + this.character1.vy <= this.groundY) {
-            this.character1.x += this.character1.vx * 2.5;
-            this.character1.y += this.character1.vy;
-          } else {
-            this.character1.y = this.groundY;
-            if (this.keys.right.isDown) {
-              this.action = "walk-right";
-            } else {
-              this.action = "stance";
+              if (character.y + character.vy <= this.groundY) {
+                character.x += character.vx * 2.5;
+                character.y += character.vy;
+              } else {
+                character.y = this.groundY;
+                if (this.keys.right.isDown) {
+                  this.action = "walk-right";
+                } else {
+                  this.action = "stance";
+                }
+              }
             }
-          }
+          });
           break;
 
         case "airkick-left":
-          this.character1Actions.airkick.visible = true;
+          this.characters.forEach(character => {
+            if (character.actions.airkick) {
+              character.actions.airkick.visible = true;
 
-          this.character1.vy += this.gravity;
+              character.vy += this.gravity;
 
-          collision = this.coli.hit(this.character1, this.character2);
+              collision = this.coli.hit(character, this.opponent);
 
-          if (collision) {
-            this.character2Actions.hit.gotoAndPlay(0);
+              if (collision) {
+                this.opponent.actions.hit.gotoAndPlay(0);
 
-            if (this.character2Actions.stance.visible) {
-              this.playSound("kick");
-              this.playSound("hit");
-              this.registerHit();
+                if (this.opponent.actions.stance.visible) {
+                  this.playSound("kick");
+                  this.playSound("hit");
+                  this.registerHit();
+                }
+
+                this.opponent.actions.stance.visible = false;
+                this.opponent.actions.hit.visible = true;
+              }
+
+              if (character.y + character.vy <= this.groundY) {
+                character.x -= character.vx * 2.5;
+                character.y += character.vy;
+              } else {
+                character.y = this.groundY;
+                if (this.keys.left.isDown) {
+                  this.action = "walk-left";
+                } else {
+                  this.action = "stance";
+                }
+              }
             }
-
-            this.character2Actions.stance.visible = false;
-            this.character2Actions.hit.visible = true;
-          }
-
-          if (this.character1.y + this.character1.vy <= this.groundY) {
-            this.character1.x -= this.character1.vx * 2.5;
-            this.character1.y += this.character1.vy;
-          } else {
-            this.character1.y = this.groundY;
-            if (this.keys.left.isDown) {
-              this.action = "walk-left";
-            } else {
-              this.action = "stance";
-            }
-          }
+          });
           break;
 
         case "jump-left":
-          this.character1Actions.jump.visible = true;
+          this.characters.forEach(character => {
+            if (character.actions.jump) {
+              character.actions.jump.visible = true;
 
-          this.character1.vy += this.gravity;
+              character.vy += this.gravity;
 
-          if (this.character1.y + this.character1.vy <= this.groundY) {
-            this.character1.x -= this.character1.vx * 2.5;
-            this.character1.y += this.character1.vy;
-          } else {
-            this.character1.y = this.groundY;
-            if (this.keys.left.isDown) {
-              this.action = "walk-left";
-            } else {
-              this.action = "stance";
+              if (character.y + character.vy <= this.groundY) {
+                character.x -= character.vx * 2.5;
+                character.y += character.vy;
+              } else {
+                character.y = this.groundY;
+                if (this.keys.left.isDown) {
+                  this.action = "walk-left";
+                } else {
+                  this.action = "stance";
+                }
+              }
             }
-          }
+          });
           break;
 
         case "airkick":
-          this.character1Actions.airkick.visible = true;
+          this.characters.forEach(character => {
+            if (character.actions.airkick) {
+              character.actions.airkick.visible = true;
 
-          this.character1.vy += this.gravity;
+              character.vy += this.gravity;
 
-          collision = this.coli.hit(this.character1, this.character2);
+              collision = this.coli.hit(character, this.opponent);
 
-          if (collision) {
-            this.character2Actions.hit.gotoAndPlay(0);
+              if (collision) {
+                this.opponent.actions.hit.gotoAndPlay(0);
 
-            if (this.character2Actions.stance.visible) {
-              this.playSound("kick");
-              this.playSound("hit");
-              this.registerHit();
+                if (this.opponent.actions.stance.visible) {
+                  this.playSound("kick");
+                  this.playSound("hit");
+                  this.registerHit();
+                }
+
+                this.opponent.actions.stance.visible = false;
+                this.opponent.actions.hit.visible = true;
+              }
+
+              if (character.y <= this.groundY) {
+                character.y += character.vy;
+              } else {
+                character.y = this.groundY;
+
+                this.action = "stance";
+              }
             }
-
-            this.character2Actions.stance.visible = false;
-            this.character2Actions.hit.visible = true;
-          }
-
-          if (this.character1.y <= this.groundY) {
-            this.character1.y += this.character1.vy;
-          } else {
-            this.character1.y = this.groundY;
-
-            this.action = "stance";
-          }
+          });
           break;
 
         case "jump":
-          this.character1Actions.staticjump.visible = true;
+          this.characters.forEach(character => {
+            if (character.actions.raise) {
+              character.actions.staticjump.visible = true;
 
-          this.character1.vy += this.gravity;
+              character.vy += this.gravity;
 
-          if (this.character1.y <= this.groundY) {
-            this.character1.y += this.character1.vy;
-          } else {
-            this.character1.y = this.groundY;
+              if (character.y <= this.groundY) {
+                character.y += character.vy;
+              } else {
+                character.y = this.groundY;
 
-            this.action = "stance";
-          }
+                this.action = "stance";
+              }
+            }
+          });
           break;
       }
     });
@@ -776,186 +835,182 @@ class Game {
     this.keys.u = Keyboard(85);
 
     this.keys.left.press = () => {
-      if (this.character1.y === this.groundY) {
-        this.action = "walk-left";
-        this.character1.vx = 3;
-      }
+      this.characters.forEach(character => {
+        if (character.actions.walk) {
+          if (character.y === this.groundY) {
+            this.action = "walk-left";
+            character.vx = 3;
+          }
+        }
+      });
     };
 
     this.keys.left.release = () => {
-      if (this.character1.y === this.groundY) {
-        this.action = "stance";
-        this.character1.vx = 0;
-      }
+      this.characters.forEach(character => {
+        if (character.actions.walk) {
+          if (character.y === this.groundY) {
+            this.action = "stance";
+            character.vx = 0;
+          }
+        }
+      });
     };
 
     this.keys.right.press = () => {
-      if (this.character1.y === this.groundY) {
-        this.action = "walk-right";
-        this.character1.vx = 3;
-      }
+      this.characters.forEach(character => {
+        if (character.actions.walk) {
+          if (character.y === this.groundY) {
+            this.action = "walk-right";
+            character.vx = 3;
+          }
+        }
+      });
     };
 
     this.keys.right.release = () => {
-      if (this.character1.y === this.groundY) {
-        this.action = "stance";
-        this.character1.vx = 0;
-      }
+      this.characters.forEach(character => {
+        if (character.actions.walk) {
+          if (character.y === this.groundY) {
+            this.action = "stance";
+            character.vx = 0;
+          }
+        }
+      });
     };
 
     this.keys.down.press = () => {
-      if (this.character1.y === this.groundY) {
-        this.action = "ducking";
-        this.character1Actions.duck.gotoAndPlay(0);
-      }
+      this.characters.forEach(character => {
+        if (character.actions.duck) {
+          if (character.y === this.groundY) {
+            this.action = "ducking";
+            character.actions.duck.gotoAndPlay(0);
+          }
+        }
+      });
     };
 
     this.keys.down.release = () => {
-      if (this.character1.y === this.groundY) {
-        this.action = "raise";
-        this.character1Actions.raise.gotoAndPlay(0);
-      }
+      this.characters.forEach(character => {
+        if (character.actions.raise) {
+          if (character.y === this.groundY) {
+            this.action = "raise";
+            character.actions.raise.gotoAndPlay(0);
+          }
+        }
+      });
     };
 
     this.keys.j.press = () => {
-      if (this.character1.y === this.groundY) {
-        this.action = "kick";
-        this.character1Actions.kick.gotoAndPlay(0);
-        if (this.scenes.game.visible) {
-          this.playSound("nopunch");
-          this.playSound("hitscream");
+      this.characters.forEach(character => {
+        if (character.actions.kick) {
+          if (character.y === this.groundY) {
+            this.action = "kick";
+            character.actions.kick.gotoAndPlay(0);
+
+            if (this.scenes.game.visible) {
+              this.playSound("nopunch");
+              this.playSound("hitscream");
+            }
+          } else {
+            if (!character.actions.airkick) {
+              return;
+            }
+
+            if (this.action === "jump-right") {
+              this.action = "airkick-right";
+            } else if (this.action === "jump-left") {
+              this.action = "airkick-left";
+            } else if (this.action === "jump") {
+              this.action = "airkick";
+            }
+
+            character.actions.airkick.gotoAndPlay(0);
+
+            if (this.scenes.game.visible) {
+              this.playSound("nopunch");
+              this.playSound("hitscream");
+            }
+          }
         }
-      } else {
-        if (this.action === "jump-right") {
-          this.action = "airkick-right";
-        } else if (this.action === "jump-left") {
-          this.action = "airkick-left";
-        } else if (this.action === "jump") {
-          this.action = "airkick";
-        }
-        this.character1Actions.airkick.gotoAndPlay(0);
-        if (this.scenes.game.visible) {
-          this.playSound("nopunch");
-          this.playSound("hitscream");
-        }
-      }
+      });
     };
 
     this.keys.u.press = () => {
-      if (this.character1.y === this.groundY) {
-        this.action = "punch";
-        this.character1Actions.punch.gotoAndPlay(0);
-        if (this.scenes.game.visible) {
-          this.playSound("nopunch");
-          this.playSound("hitscream");
+      this.characters.forEach(character => {
+        if (character.actions.punch) {
+          if (character.y === this.groundY) {
+            this.action = "punch";
+            character.actions.punch.gotoAndPlay(0);
+            if (this.scenes.game.visible) {
+              this.playSound("nopunch");
+              this.playSound("hitscream");
+            }
+          }
         }
-      }
+      });
     };
 
     this.keys.up.press = () => {
-      this.action = "jump";
-      this.character1.vy = -24;
-      this.playSound("jump");
+      this.characters.forEach(character => {
+        if (character.actions.jump) {
+          this.action = "jump";
+          character.vy = -24;
+          this.playSound("jump");
+        }
+      });
     };
   }
 
   setupCharacters() {
-    const scorpionStance = this.createAnimation("scorpion-stance", 9);
-    const scorpionWalk = this.createAnimation("scorpion-walk", 9);
-    const scorpionDuck = this.createAnimation("scorpion-duck", 3);
-    const scorpionKick = this.createAnimation("scorpion-kick", 10);
-    const scorpionRaise = this.createAnimation("scorpion-duck", 3, true);
-    const scorpionPunch = this.createAnimation("scorpion-punch", 5);
-    const scorpionJump = this.createAnimation("scorpion-jump", 9);
-    const scorpionStaticjump = this.createAnimation("scorpion-staticjump", 1);
-    const scorpionAirkick = this.createAnimation("scorpion-airkick", 3);
+    this.characters = characterData.characters.map(data => {
+      const character = new PIXI.Container();
+      const animations = [];
+      const actions = {};
 
-    const subzeroStance = this.createAnimation("subzero-stance", 9);
-    const subzeroHit = this.createAnimation("subzero-hit", 5);
-    const subzeroHighhit = this.createAnimation("subzero-highhit", 5);
+      character.x = data.x;
+      character.y = this.groundY;
+      character.scale.x = data.scale;
+      character.scale.y = data.scale;
 
-    this.character1 = new PIXI.Container();
-    this.character1.x = this.app.renderer.width / 3;
-    this.character1.y = this.groundY;
+      data.animations.forEach(animation => {
+        const sprite = this.createAnimation(
+          `${data.name}-${animation.name}`,
+          animation.frames
+        );
 
-    this.character1.scale.x = 1.5;
-    this.character1.scale.y = 1.5;
+        sprite.animationSpeed = animation.animationSpeed;
 
-    this.character2 = new PIXI.Container();
-    this.character2.x = this.app.renderer.width / 1.3;
-    this.character2.y = this.groundY;
+        if (animation.loop) {
+          sprite.play();
+        } else {
+          sprite.loop = false;
+        }
 
-    this.character2.scale.x = 1.5;
-    this.character2.scale.y = 1.5;
+        if (!animation.visible) {
+          sprite.visible = false;
+        }
 
-    scorpionStance.animationSpeed = 0.15;
-    scorpionWalk.animationSpeed = 0.15;
-    scorpionDuck.animationSpeed = 0.4;
-    scorpionKick.animationSpeed = 0.4;
-    scorpionRaise.animationSpeed = 0.4;
-    scorpionPunch.animationSpeed = 0.3;
-    scorpionJump.animationSpeed = 0.3;
-    scorpionAirkick.animationSpeed = 0.3;
+        animations.push(sprite);
+        actions[animation.name] = sprite;
+      });
 
-    subzeroStance.animationSpeed = 0.15;
-    subzeroHit.animationSpeed = 0.35;
-    subzeroHighhit.animationSpeed = 0.35;
+      this.groupSprites(character, animations);
 
-    scorpionStance.play();
-    scorpionWalk.play();
-    scorpionDuck.loop = false;
-    scorpionKick.loop = false;
-    scorpionRaise.loop = false;
-    scorpionPunch.loop = false;
-    scorpionJump.loop = false;
-    scorpionAirkick.loop = false;
+      character.actions = actions;
+      character.animations = animations;
+      character.opponent = data.opponent;
 
-    subzeroStance.play();
-    subzeroHit.loop = false;
-    subzeroHit.visible = false;
-    subzeroHighhit.loop = false;
-    subzeroHighhit.visible = false;
+      return character;
+    });
 
-    this.character1Actions = {
-      stance: scorpionStance,
-      duck: scorpionDuck,
-      kick: scorpionKick,
-      raise: scorpionRaise,
-      punch: scorpionPunch,
-      walk: scorpionWalk,
-      jump: scorpionJump,
-      staticjump: scorpionStaticjump,
-      airkick: scorpionAirkick
-    };
+    this.characters.forEach(character => {
+      this.scenes.game.addChild(character);
+    });
 
-    this.character2Actions = {
-      stance: subzeroStance,
-      hit: subzeroHit,
-      highhit: subzeroHighhit
-    };
-
-    this.groupSprites(this.character1, [
-      scorpionStance,
-      scorpionDuck,
-      scorpionKick,
-      scorpionRaise,
-      scorpionPunch,
-      scorpionWalk,
-      scorpionJump,
-      scorpionStaticjump,
-      scorpionAirkick
-    ]);
-
-    this.groupSprites(this.character2, [
-      subzeroStance,
-      subzeroHit,
-      subzeroHighhit
-    ]);
+    this.opponent = this.characters.filter(character => character.opponent)[0];
+    this.characters = this.characters.filter(character => !character.opponent);
 
     this.action = "stance";
-
-    this.scenes.game.addChild(this.character1);
-    this.scenes.game.addChild(this.character2);
   }
 }
 
