@@ -211,8 +211,7 @@ class Game {
 
   gameLoop() {
     this.app.ticker.add(() => {
-      if (!this.scenes.game.visible) return;
-
+      if (!this.scenes.game.visible) return;    
       this.characters.forEach(character => {
         character.animations.forEach(animation => {
           animation.visible = false;
@@ -834,7 +833,6 @@ class Game {
     this.keys.down = Keyboard(83);
     this.keys.j = Keyboard(74);
     this.keys.u = Keyboard(85);
-
     this.keys.left.press = () => {
       this.characters.forEach(character => {
         if (character.actions.walk) {
