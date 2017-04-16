@@ -122,6 +122,11 @@
           "name": "jump",
           "frames": 2,
           "animationSpeed": 1
+        },
+        {
+          "name": "airkick",
+          "frames": 1,
+          "animationSpeed": 1
         }
       ]
     }
