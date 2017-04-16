@@ -909,6 +909,7 @@ class Game {
       this.action = "jump";
       this.character1.vy = -24;
       this.mummra.vy = -24;
+      this.aram.vy = -24;
       this.playSound("jump");
     };
   }
