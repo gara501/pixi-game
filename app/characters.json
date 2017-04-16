@@ -84,7 +84,6 @@
       "name": "aram",
       "x": 450,
       "scale": 1,
-      "opponent": true,
       "animations": [
         {
           "name": "",
