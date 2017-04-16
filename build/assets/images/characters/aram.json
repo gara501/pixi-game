@@ -88,7 +88,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":267},
 	"sourceSize": {"w":400,"h":267}
 },
-"aram-walk1.png":
+"aram-stance1.png":
 {
 	"frame": {"x":400,"y":534,"w":400,"h":267},
 	"rotated": false,
@@ -96,7 +96,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":267},
 	"sourceSize": {"w":400,"h":267}
 },
-"aram-walk2.png":
+"aram-stance2.png":
 {
 	"frame": {"x":800,"y":534,"w":400,"h":267},
 	"rotated": false,
@@ -104,7 +104,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":267},
 	"sourceSize": {"w":400,"h":267}
 },
-"aram-walk3.png":
+"aram-stance3.png":
 {
 	"frame": {"x":1200,"y":534,"w":400,"h":267},
 	"rotated": false,
@@ -112,7 +112,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":267},
 	"sourceSize": {"w":400,"h":267}
 },
-"aram-walk4.png":
+"aram-stance4.png":
 {
 	"frame": {"x":1600,"y":534,"w":400,"h":267},
 	"rotated": false,
@@ -120,7 +120,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":267},
 	"sourceSize": {"w":400,"h":267}
 },
-"aram-stance1.png":
+"aram-staticjump1.png":
 {
 	"frame": {"x":0,"y":801,"w":400,"h":267},
 	"rotated": false,
@@ -128,7 +128,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":267},
 	"sourceSize": {"w":400,"h":267}
 },
-"aram-stance2.png":
+"aram-staticjump2.png":
 {
 	"frame": {"x":400,"y":801,"w":400,"h":267},
 	"rotated": false,
@@ -136,7 +136,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":267},
 	"sourceSize": {"w":400,"h":267}
 },
-"aram-stance3.png":
+"aram-walk1.png":
 {
 	"frame": {"x":800,"y":801,"w":400,"h":267},
 	"rotated": false,
@@ -144,9 +144,25 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":267},
 	"sourceSize": {"w":400,"h":267}
 },
-"aram-stance4.png":
+"aram-walk2.png":
 {
 	"frame": {"x":1200,"y":801,"w":400,"h":267},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":267},
+	"sourceSize": {"w":400,"h":267}
+},
+"aram-walk3.png":
+{
+	"frame": {"x":1600,"y":801,"w":400,"h":267},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":267},
+	"sourceSize": {"w":400,"h":267}
+},
+"aram-walk4.png":
+{
+	"frame": {"x":0,"y":1068,"w":400,"h":267},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":267},
@@ -157,8 +173,8 @@
 	"version": "1.0",
 	"image": "aram.png",
 	"format": "RGBA8888",
-	"size": {"w":2000,"h":1068},
+	"size": {"w":2000,"h":1335},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:326a50d58620f7e0c46df579b22c5ce3:c14c91977b44c7b9ba917a9a4427047d:66795bc9544ce0e7ae9dad753bde54ad$"
+	"smartupdate": "$TexturePacker:SmartUpdate:3c6d08ce033dabeb73381077767f13dc:6f21a6a0f47cd1b2cecc907cae7a7b33:66795bc9544ce0e7ae9dad753bde54ad$"
 }
 }

@@ -95,7 +95,7 @@
         {
           "name": "punch",
           "frames": 3,
-          "animationSpeed": 0.45
+          "animationSpeed": 1
         },
         {
           "name": "duck",
@@ -113,10 +113,15 @@
           "frames": 4,
           "animationSpeed": 0.35
         },
+         {
+          "name": "staticjump",
+          "frames": 2,
+          "animationSpeed": 1
+        },
         {
           "name": "jump",
           "frames": 2,
-          "animationSpeed": 0.05
+          "animationSpeed": 1
         }
       ]
     }
