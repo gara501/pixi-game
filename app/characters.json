@@ -86,7 +86,7 @@
       "scale": 1,
       "animations": [
         {
-          "name": "",
+          "name": "stance",
           "frames": 4,
           "animationSpeed": 0.09,
           "loop": true,

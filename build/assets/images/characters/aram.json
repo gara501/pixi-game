@@ -120,7 +120,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":267},
 	"sourceSize": {"w":400,"h":267}
 },
-"aram-1.png":
+"aram-stance1.png":
 {
 	"frame": {"x":0,"y":801,"w":400,"h":267},
 	"rotated": false,
@@ -128,7 +128,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":267},
 	"sourceSize": {"w":400,"h":267}
 },
-"aram-2.png":
+"aram-stance2.png":
 {
 	"frame": {"x":400,"y":801,"w":400,"h":267},
 	"rotated": false,
@@ -136,7 +136,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":267},
 	"sourceSize": {"w":400,"h":267}
 },
-"aram-3.png":
+"aram-stance3.png":
 {
 	"frame": {"x":800,"y":801,"w":400,"h":267},
 	"rotated": false,
@@ -144,7 +144,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":267},
 	"sourceSize": {"w":400,"h":267}
 },
-"aram-4.png":
+"aram-stance4.png":
 {
 	"frame": {"x":1200,"y":801,"w":400,"h":267},
 	"rotated": false,
