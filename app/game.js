@@ -960,14 +960,15 @@ class Game {
     };
     this.scenes.game.addChild(this.mummra);
 
-    const aram = this.createAnimation("aram", 4);
-    const aramJump = this.createAnimation("aram-jump", 1);
+    const aram = this.createAnimation("aram", 3);
+    const aramJump = this.createAnimation("aram-jump", 3);
     const aramDuck = this.createAnimation("aram-duck", 1);
-    const aramKick = this.createAnimation("aram-kick", 1);
+    const aramKick = this.createAnimation("aram-kick", 2);
     this.aram = new PIXI.Container();
     this.aram.scale.x = .8;
     this.aram.scale.y = .8;
     aram.animationSpeed = .08;
+    aramKick.animationSpeed = .09;
     this.aram.y = this.groundY;
     this.aram.x = 290;
     aram.play();
