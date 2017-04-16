@@ -60,6 +60,7 @@ class Game {
       .add([
         "assets/images/characters/scorpion.json",
         "assets/images/characters/subzero.json",
+        "assets/images/characters/aram.json",
         "assets/images/backgrounds/fight.json",
         "assets/images/backgrounds/intro.png",
         "assets/images/backgrounds/choose.jpg",

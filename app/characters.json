@@ -79,6 +79,46 @@
           "animationSpeed": 0.35
         }
       ]
+    },
+    {
+      "name": "aram",
+      "x": 450,
+      "scale": 1,
+      "opponent": true,
+      "animations": [
+        {
+          "name": "",
+          "frames": 4,
+          "animationSpeed": 0.09,
+          "loop": true,
+          "visible": true
+        },
+        {
+          "name": "punch",
+          "frames": 3,
+          "animationSpeed": 0.35
+        },
+        {
+          "name": "duck",
+          "frames": 1,
+          "animationSpeed": 0.35
+        },
+         {
+          "name": "walk",
+          "frames": 4,
+          "animationSpeed": 0.35
+        },
+        {
+          "name": "kick",
+          "frames": 4,
+          "animationSpeed": 0.35
+        },
+        {
+          "name": "jump",
+          "frames": 2,
+          "animationSpeed": 0.35
+        }
+      ]
     }
   ]
 }
