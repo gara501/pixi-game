@@ -79,56 +79,6 @@
           "animationSpeed": 0.35
         }
       ]
-    },
-    {
-      "name": "aram",
-      "x": 450,
-      "scale": 1,
-      "animations": [
-        {
-          "name": "stance",
-          "frames": 4,
-          "animationSpeed": 0.09,
-          "loop": true,
-          "visible": true
-        },
-        {
-          "name": "punch",
-          "frames": 5,
-          "animationSpeed": 0.35
-        },
-        {
-          "name": "duck",
-          "frames": 1,
-          "animationSpeed": 0.35
-        },
-         {
-          "name": "walk",
-          "frames": 1,
-          "loop": true,
-          "animationSpeed": 0.25
-        },
-        {
-          "name": "kick",
-          "frames": 7,
-          "animationSpeed": 0.25
-        },
-         {
-          "name": "staticjump",
-          "frames": 2,
-          "animationSpeed": 1
-        },
-        {
-          "name": "jump",
-          "frames": 2,
-          "animationSpeed": 1
-        },
-        {
-          "name": "airkick",
-          "frames": 1,
-          "animationSpeed": 1
-        }
-      ]
     }
   ]
 }
