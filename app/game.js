@@ -577,6 +577,8 @@ class Game {
     this.energyBars.right.bars.interior.position.x =
       this.energyBars.right.bars.interior.position.x + 29;
     if (this.energyBars.right.bars.interior.width <= 0) {
+      this.energyBars.right.bars.interior.width = this.energyBars.right.bars.level;
+      this.energyBars.right.bars.interior.position.x = 55;
       this.youWin();
     }
   }
