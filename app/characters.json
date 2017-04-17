@@ -104,7 +104,7 @@
         },
          {
           "name": "walk",
-          "frames": 7,
+          "frames": 1,
           "loop": true,
           "animationSpeed": 0.25
         },
