@@ -1,38 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Prodigious Kombat</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="assets/css/reset.css" rel="stylesheet">
-    <link href="assets/css/styles.css" rel="stylesheet">
-  </head>
-  <body>
-    <div class="tv">
-      <div class="container">
-        <div class="wrapper">
-          <div class="app"></div>
-        </div>
-        <div class="buttons-container">
-          <div class="buttons-wrapper">
-            <div class="btn1"></div>
-            <div class="btn2"></div>
-            <div class="lines"></div>
-          </div>
+<head>
+  <title>Prodigious Kombat</title>
+
+  <link href="assets/css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="tv">
+    <div class="container">
+      <div class="wrapper">
+        <div class="app"></div>
+      </div>
+
+      <div class="buttons-container">
+        <div class="buttons-wrapper">
+          <div class="btn1"></div>
+          <div class="btn2"></div>
+
+          <div class="lines"></div>
         </div>
       </div>
-      <div class="left"></div>
-      <div class="right"></div>
     </div>
-  <script>
-    const myFont = new FontFace('mk', 'url(assets/fonts/mkx.ttf)');
 
-    // We need to preload the font, otherwise pixi does not find it
-    myFont.load().then(() => {
-      const script = document.createElement('script');
-      script.src = 'bundle.js';
-      document.body.appendChild(script);
-    });
-  </script>
-  </body>
+    <div class="left"></div>
+    <div class="right"></div>
+  </div>
+</body>
+
 </html>
