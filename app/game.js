@@ -1,8 +1,10 @@
 import * as PIXI from "pixi.js";
+import TextStyles from "./textStyles.js";
 
 class Game {
   constructor() {
     this.app = new PIXI.Application(1000, 600);
+    this.textObj = new TextStyles(this.app.renderer);
 
     this.scenes = {
       intro: {}
@@ -19,6 +21,27 @@ class Game {
     document.querySelector(".app").appendChild(this.app.renderer.view);
   }
 
+  introScreen() {
+    this.setActiveScene("intro");
+
+    let startText = this.textObj.customText(
+      "Press Enter to start",
+      "center",
+      520
+    );
+
+    this.scenes.intro.addChild(startText);
+  }
+
+  setActiveScene(sceneName) {
+    for (let scene in this.scenes) {
+      this.scenes[scene].visible = false;
+      if (scene === sceneName) {
+        this.scenes[scene].visible = true;
+      }
+    }
+  }
+
   initScenes() {
     for (let scene in this.scenes) {
       this.scenes[scene] = new PIXI.Container();
@@ -29,6 +52,7 @@ class Game {
   // Set intro Container, first scene
   initGame() {
     this.loadBackgrounds();
+    this.introScreen();
   }
 
   loadBackgrounds() {

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <title>Prodigious Kombat</title>
 
@@ -26,8 +26,13 @@
     <div class="left"></div>
     <div class="right"></div>
   </div>
+<script>
+  const myFont = new FontFace('mk', 'url(assets/fonts/mkx.ttf)');
 
-  <script src="bundle.js"></script>
-</body>
-
-</html>
+  // We need to preload the font, otherwise pixi does not find it
+  myFont.load().then(() => {
+    const script = document.createElement('script');
+    script.src = 'bundle.js';
+    document.body.appendChild(script);
+  });
+</script>
