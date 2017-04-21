@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/gara501/pixi-game#readme",
   "devDependencies": {
+    "howler": "^2.0.3",
     "pixi.js": "^4.5.0",
     "webpack": "^2.4.1",
     "webpack-dev-server": "^2.4.2"

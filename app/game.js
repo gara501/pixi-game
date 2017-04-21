@@ -1,4 +1,5 @@
 import * as PIXI from "pixi.js";
+import { Howl } from "howler";
 import TextStyles from "./textStyles.js";
 
 class Game {
@@ -21,8 +22,27 @@ class Game {
     document.querySelector(".app").appendChild(this.app.renderer.view);
   }
 
+  playSound(event, options = { loop: false, bg: false }) {
+    let soundPath = "";
+    switch (event) {
+      case "intro":
+        soundPath = "assets/sounds/short/mk3-00054.mp3";
+        break;
+      default:
+        break;
+    }
+
+    this.sound = new Howl({
+      src: [soundPath],
+      loop: options.loop
+    });
+
+    this.sound.play();
+  }
+
   introScreen() {
     this.setActiveScene("intro");
+    this.playSound("intro");
 
     let startText = this.textObj.customText(
       "Press Enter to start",
