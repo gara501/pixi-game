@@ -8,18 +8,102 @@ class Game {
     this.textObj = new TextStyles(this.app.renderer);
 
     this.scenes = {
-      intro: {}
+      intro: {},
+      select: {}
     };
 
     this.initScenes();
 
     this.backgrounds = {};
 
-    PIXI.loader.add(["assets/images/backgrounds/intro.png"]).load(() => {
-      this.initGame();
-    });
+    this.attachEvents();
+
+    PIXI.loader
+      .add([
+        "assets/images/backgrounds/intro.png",
+        "assets/images/backgrounds/choose.png",
+        "assets/images/characters/p1.jpg",
+        "assets/images/characters/p2.jpg",
+        "assets/images/characters/p3.jpg"
+      ])
+      .load(() => {
+        this.initGame();
+      });
 
     document.querySelector(".app").appendChild(this.app.renderer.view);
+  }
+
+  attachEvents() {
+    window.addEventListener("keydown", e => {
+      if (this.scenes.intro.visible) {
+        if (e.key === "Enter") {
+          this.chooseScreen();
+        }
+      }
+    });
+  }
+
+  chooseScreen() {
+    this.setActiveScene("select");
+    this.stopSound();
+    this.playSound("vsmusic", { loop: true });
+
+    let title = this.textObj.customText("SELECT YOUR PLAYER", "center", 520);
+
+    this.backgrounds.player1 = new PIXI.Sprite.from(
+      PIXI.loader.resources["assets/images/characters/p1.jpg"].texture
+    );
+
+    this.backgrounds.player2 = new PIXI.Sprite.from(
+      PIXI.loader.resources["assets/images/characters/p2.jpg"].texture
+    );
+
+    this.backgrounds.player3 = new PIXI.Sprite.from(
+      PIXI.loader.resources["assets/images/characters/p3.jpg"].texture
+    );
+
+    let battle = () => {
+      this.stopSound();
+      this.playSound("vs");
+      this.battleScene();
+    };
+
+    for (let bg in this.backgrounds) {
+      if (bg === "player1" || bg === "player2" || bg === "player3") {
+        if (bg === "player1") {
+          this.backgrounds[bg].position.x = 200;
+        }
+
+        if (bg === "player2") {
+          this.backgrounds[bg].position.x = 400;
+        }
+
+        if (bg === "player3") {
+          this.backgrounds[bg].position.x = 600;
+        }
+        this.backgrounds[bg].position.y = 200;
+        this.backgrounds[bg].width = 150;
+        this.backgrounds[bg].height = 150;
+        this.backgrounds[bg].interactive = true;
+        this.backgrounds[bg].buttonMode = true;
+        this.backgrounds[bg].on("pointerdown", battle);
+        this.scenes.select.addChild(this.backgrounds[bg]);
+      }
+    }
+
+    this.scenes.select.addChild(title);
+
+    let animate = () => {
+      requestAnimationFrame(animate);
+      this.scenes.select.alpha += 0.05;
+    };
+    animate();
+  }
+
+  stopSound() {
+    if (this.sound) {
+      this.sound.stop();
+    }
   }
 
   playSound(event, options = { loop: false, bg: false }) {
