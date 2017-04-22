@@ -25,17 +25,29 @@ class Game {
     PIXI.loader
       .add([
         "assets/images/backgrounds/intro.png",
+        "assets/images/backgrounds/combat.jpg",
         "assets/images/characters/p1.jpg",
         "assets/images/characters/p2.jpg",
         "assets/images/characters/p3.jpg",
-        "assets/images/characters/scorpion-stance1.png",
-        "assets/images/backgrounds/combat.jpg"
+        "assets/images/characters/scorpion.json",
       ])
       .load(() => {
         this.initGame();
       });
 
     document.querySelector(".app").appendChild(this.app.renderer.view);
+  }
+
+  createAnimation(id, numberFrames, reverse = false) {
+    let frames = [];
+
+    for (let i = numberFrames; i > 0; i--) {
+      frames.push(PIXI.Texture.fromFrame(`${id}${i}.png`));
+    }
+
+    const anim = new PIXI.extras.AnimatedSprite(frames);
+
+    return anim;
   }
 
   battleScene() {
@@ -48,26 +60,38 @@ class Game {
     this.characters = characterData.characters.map(data => {
       const character = new PIXI.Container();
       const animations = [];
+      const actions = {};
 
       character.x = data.x;
       character.y = this.groundY;
       character.scale.x = data.scale;
       character.scale.y = data.scale;
 
-      data.animations.forEach((animation, i) => {
-        const sprite = new PIXI.Sprite.from(
-          PIXI.loader.resources[
-            `assets/images/characters/${data.name}-${animation.name}${i + 1}.png`
-          ].texture
+      data.animations.forEach(animation => {
+        const sprite = this.createAnimation(
+          `${data.name}-${animation.name}`,
+          animation.frames
         );
 
-        sprite.visible = true;
+        sprite.animationSpeed = animation.animationSpeed;
+
+        if (animation.loop) {
+          sprite.play();
+        } else {
+          sprite.loop = false;
+        }
+
+        if (!animation.visible) {
+          sprite.visible = false;
+        }
 
         animations.push(sprite);
+        actions[animation.name] = sprite;
       });
 
       this.groupSprites(character, animations);
 
+      character.actions = actions;
       character.animations = animations;
 
       return character;
