@@ -3,6 +3,7 @@ import { Howl } from "howler";
 import TextStyles from "./textStyles.js";
 import characterData from "./characters.json";
 import Keyboard from "./keyboard.js";
+import * as COLI from "./bump.js";
 
 class Game {
   constructor() {
@@ -25,6 +26,8 @@ class Game {
 
     this.attachEvents();
 
+    this.coli = new COLI(PIXI);
+
     PIXI.loader
       .add([
         "assets/images/backgrounds/intro.png",
@@ -32,7 +35,8 @@ class Game {
         "assets/images/characters/p1.jpg",
         "assets/images/characters/p2.jpg",
         "assets/images/characters/p3.jpg",
-        "assets/images/characters/scorpion.json"
+        "assets/images/characters/scorpion.json",
+        "assets/images/characters/subzero.json"
       ])
       .load(() => {
         this.initGame();
@@ -50,13 +54,22 @@ class Game {
         });
       });
 
+      let collision;
+
       switch (this.action) {
         case "walk-right":
           this.characters.forEach(character => {
             if (character.actions.walk) {
               character.actions.walk.visible = true;
 
-              character.position.x += character.vx;
+              collision = this.coli.rectangleCollision(
+                character,
+                this.opponent
+              );
+
+              if (!collision || collision === "left") {
+                character.position.x += character.vx;
+              }
             }
           });
           break;
@@ -65,7 +78,14 @@ class Game {
             if (character.actions.walk) {
               character.actions.walk.visible = true;
 
-              character.position.x -= character.vx;
+              collision = this.coli.rectangleCollision(
+                character,
+                this.opponent
+              );
+
+              if (!collision || collision === "right") {
+                character.position.x -= character.vx;
+              }
             }
           });
           break;
@@ -206,6 +226,7 @@ class Game {
 
       character.actions = actions;
       character.animations = animations;
+      character.opponent = data.opponent;
 
       return character;
     });
@@ -213,6 +234,9 @@ class Game {
     this.characters.forEach(character => {
       this.scenes.game.addChild(character);
     });
+
+    this.opponent = this.characters.filter(character => character.opponent)[0];
+    this.characters = this.characters.filter(character => !character.opponent);
 
     this.action = "stance";
   }
