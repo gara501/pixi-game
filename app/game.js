@@ -100,6 +100,22 @@ class Game {
               ) {
                 this.action = "stance";
               }
+             // TASK: COLLISION CHECK
+              collision = this.coli.rectangleCollision(
+                character,
+                this.opponent
+              );
+
+              if (collision) {
+                this.opponent.actions.highhit.gotoAndPlay(0);
+
+                this.opponent.actions.stance.visible = false;
+                this.opponent.actions.highhit.visible = true;
+
+                this.playSound("punch");
+                this.playSound("hit");
+              }
+              // COLLISION CHECK
             }
           });
           break;
