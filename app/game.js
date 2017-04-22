@@ -9,6 +9,7 @@ class Game {
 	constructor() {
 		this.app = new PIXI.Application(1000, 600);
 		this.textObj = new TextStyles(this.app.renderer);
+
 		this.scenes = {
 			intro: {},
 			select: {},
@@ -523,7 +524,15 @@ class Game {
 		});
 	}
 
-	registerHit() {}
+	registerHit() {
+		this.energyBars.right.bars.interior.width = this.energyBars.right.bars.interior.width - 20;
+		this.energyBars.right.bars.interior.position.x = this.energyBars.right.bars.interior.position.x + 29;
+		if (this.energyBars.right.bars.interior.width <= 0) {
+			this.energyBars.right.bars.interior.width = this.energyBars.right.bars.level;
+			this.energyBars.right.bars.interior.position.x = 55;
+			this.youWin();
+		}
+	}
 
 	introScreen() {
 		this.setActiveScene('intro');
@@ -602,6 +611,33 @@ class Game {
 		this.stopSound();
 		this.playSound('fight', { loop: true, bg: true });
 
+		for (let bar in this.energyBars.left.bars) {
+			this.energyBars.left.bars[bar] = new PIXI.Graphics();
+			if (bar === 'exterior') {
+				this.energyBars.left.bars[bar].beginFill(0x910303);
+				this.energyBars.left.bars[bar].drawRect(50, 50, 400, 30);
+			}
+			if (bar === 'interior') {
+				this.energyBars.left.bars[bar].beginFill(0x0246e7, 0.8);
+				this.energyBars.left.bars[bar].drawRect(55, 55, this.energyBars.left.level, 20);
+			}
+			this.energyBars.left.bars[bar].endFill();
+			this.scenes.game.addChild(this.energyBars.left.bars[bar]);
+		}
+
+		for (let bar in this.energyBars.right.bars) {
+			this.energyBars.right.bars[bar] = new PIXI.Graphics();
+			if (bar === 'exterior') {
+				this.energyBars.right.bars[bar].beginFill(0x910303);
+				this.energyBars.right.bars[bar].drawRect(550, 50, 400, 30);
+			}
+			if (bar === 'interior') {
+				this.energyBars.right.bars[bar].beginFill(0x0246e7);
+				this.energyBars.right.bars[bar].drawRect(555, 55, this.energyBars.right.level, 20);
+			}
+			this.scenes.game.addChild(this.energyBars.right.bars[bar]);
+		}
+
 		const fightAnim = this.createAnimation('fight', 44);
 		fightAnim.loop = false;
 		fightAnim.visible = false;
@@ -611,6 +647,9 @@ class Game {
 		fightAnim.x = (1000 - fightAnim.width) / 2 + 16;
 		fightAnim.y = (600 - fightAnim.height) / 3;
 
+		const character1Name = this.textObj.customText('scorpion', 53, 48);
+		const character2Name = this.textObj.customText('sub-zero', 817, 48);
+
 		setTimeout(() => {
 			fightAnim.visible = true;
 			fightAnim.play();
@@ -618,6 +657,8 @@ class Game {
 		}, 1000);
 
 		this.scenes.game.addChild(fightAnim);
+		this.scenes.game.addChild(character1Name);
+		this.scenes.game.addChild(character2Name);
 
 		let animate = () => {
 			requestAnimationFrame(animate);
