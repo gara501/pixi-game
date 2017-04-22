@@ -16,6 +16,8 @@ build/Release
 # Dependency directories
 node_modules
 
-# Game generated files
+# Optional npm cache directory
+.npm
+
 build/bundle.js
 build/bundle.js.map

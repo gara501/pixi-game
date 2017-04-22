@@ -1,0 +1,1264 @@
+{
+	"frames": {
+		"snow-airkick1.png": {
+			"frame": {
+				"x": 76,
+				"y": 57,
+				"w": 51,
+				"h": 72
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 51,
+				"h": 72
+			},
+			"sourceSize": {
+				"w": 51,
+				"h": 72
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-airkick2.png": {
+			"frame": {
+				"x": 57,
+				"y": 133,
+				"w": 79,
+				"h": 80
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 79,
+				"h": 80
+			},
+			"sourceSize": {
+				"w": 79,
+				"h": 80
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-airkick3.png": {
+			"frame": {
+				"x": 138,
+				"y": 133,
+				"w": 110,
+				"h": 95
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 110,
+				"h": 95
+			},
+			"sourceSize": {
+				"w": 110,
+				"h": 95
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-duck1.png": {
+			"frame": {
+				"x": 120,
+				"y": 1006,
+				"w": 64,
+				"h": 128
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 64,
+				"h": 128
+			},
+			"sourceSize": {
+				"w": 64,
+				"h": 128
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-duck2.png": {
+			"frame": {
+				"x": 0,
+				"y": 1006,
+				"w": 64,
+				"h": 128
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 64,
+				"h": 128
+			},
+			"sourceSize": {
+				"w": 64,
+				"h": 128
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-duck3.png": {
+			"frame": {
+				"x": 192,
+				"y": 876,
+				"w": 64,
+				"h": 128
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 64,
+				"h": 128
+			},
+			"sourceSize": {
+				"w": 64,
+				"h": 128
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-jump1.png": {
+			"frame": {
+				"x": 97,
+				"y": 1668,
+				"w": 71,
+				"h": 136
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 71,
+				"h": 136
+			},
+			"sourceSize": {
+				"w": 71,
+				"h": 136
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-jump2.png": {
+			"frame": {
+				"x": 0,
+				"y": 133,
+				"w": 55,
+				"h": 74
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 55,
+				"h": 74
+			},
+			"sourceSize": {
+				"w": 55,
+				"h": 74
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-jump3.png": {
+			"frame": {
+				"x": 76,
+				"y": 0,
+				"w": 74,
+				"h": 52
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 74,
+				"h": 52
+			},
+			"sourceSize": {
+				"w": 74,
+				"h": 52
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-jump4.png": {
+			"frame": {
+				"x": 152,
+				"y": 0,
+				"w": 74,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 74,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 74,
+				"h": 55
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-jump5.png": {
+			"frame": {
+				"x": 186,
+				"y": 57,
+				"w": 53,
+				"h": 74
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 53,
+				"h": 74
+			},
+			"sourceSize": {
+				"w": 53,
+				"h": 74
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-jump6.png": {
+			"frame": {
+				"x": 129,
+				"y": 57,
+				"w": 55,
+				"h": 73
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 55,
+				"h": 73
+			},
+			"sourceSize": {
+				"w": 55,
+				"h": 73
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-jump7.png": {
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 74,
+				"h": 52
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 74,
+				"h": 52
+			},
+			"sourceSize": {
+				"w": 74,
+				"h": 52
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-jump8.png": {
+			"frame": {
+				"x": 0,
+				"y": 57,
+				"w": 74,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 74,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 74,
+				"h": 55
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-jump9.png": {
+			"frame": {
+				"x": 170,
+				"y": 1668,
+				"w": 71,
+				"h": 136
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 71,
+				"h": 136
+			},
+			"sourceSize": {
+				"w": 71,
+				"h": 136
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-kick1.png": {
+			"frame": {
+				"x": 0,
+				"y": 486,
+				"w": 62,
+				"h": 126
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 62,
+				"h": 126
+			},
+			"sourceSize": {
+				"w": 62,
+				"h": 126
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-kick2.png": {
+			"frame": {
+				"x": 0,
+				"y": 1533,
+				"w": 57,
+				"h": 132
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 57,
+				"h": 132
+			},
+			"sourceSize": {
+				"w": 57,
+				"h": 132
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-kick3.png": {
+			"frame": {
+				"x": 0,
+				"y": 1399,
+				"w": 57,
+				"h": 130
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 57,
+				"h": 130
+			},
+			"sourceSize": {
+				"w": 57,
+				"h": 130
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-kick4.png": {
+			"frame": {
+				"x": 166,
+				"y": 358,
+				"w": 60,
+				"h": 126
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 60,
+				"h": 126
+			},
+			"sourceSize": {
+				"w": 60,
+				"h": 126
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-kick5.png": {
+			"frame": {
+				"x": 83,
+				"y": 358,
+				"w": 81,
+				"h": 126
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 81,
+				"h": 126
+			},
+			"sourceSize": {
+				"w": 81,
+				"h": 126
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-kick6.png": {
+			"frame": {
+				"x": 72,
+				"y": 230,
+				"w": 116,
+				"h": 121
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 116,
+				"h": 121
+			},
+			"sourceSize": {
+				"w": 116,
+				"h": 121
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-kick7.png": {
+			"frame": {
+				"x": 0,
+				"y": 358,
+				"w": 81,
+				"h": 126
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 81,
+				"h": 126
+			},
+			"sourceSize": {
+				"w": 81,
+				"h": 126
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-kick8.png": {
+			"frame": {
+				"x": 190,
+				"y": 230,
+				"w": 60,
+				"h": 126
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 60,
+				"h": 126
+			},
+			"sourceSize": {
+				"w": 60,
+				"h": 126
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-kick9.png": {
+			"frame": {
+				"x": 196,
+				"y": 1267,
+				"w": 57,
+				"h": 130
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 57,
+				"h": 130
+			},
+			"sourceSize": {
+				"w": 57,
+				"h": 130
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-kick10.png": {
+			"frame": {
+				"x": 195,
+				"y": 1399,
+				"w": 57,
+				"h": 132
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 57,
+				"h": 132
+			},
+			"sourceSize": {
+				"w": 57,
+				"h": 132
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-punch1.png": {
+			"frame": {
+				"x": 66,
+				"y": 1006,
+				"w": 52,
+				"h": 128
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 52,
+				"h": 128
+			},
+			"sourceSize": {
+				"w": 52,
+				"h": 128
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-punch2.png": {
+			"frame": {
+				"x": 59,
+				"y": 1533,
+				"w": 69,
+				"h": 132
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 69,
+				"h": 132
+			},
+			"sourceSize": {
+				"w": 69,
+				"h": 132
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-punch3.png": {
+			"frame": {
+				"x": 0,
+				"y": 1668,
+				"w": 95,
+				"h": 133
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 95,
+				"h": 133
+			},
+			"sourceSize": {
+				"w": 95,
+				"h": 133
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-punch4.png": {
+			"frame": {
+				"x": 124,
+				"y": 1399,
+				"w": 69,
+				"h": 132
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 69,
+				"h": 132
+			},
+			"sourceSize": {
+				"w": 69,
+				"h": 132
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-punch5.png": {
+			"frame": {
+				"x": 196,
+				"y": 486,
+				"w": 52,
+				"h": 128
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 52,
+				"h": 128
+			},
+			"sourceSize": {
+				"w": 52,
+				"h": 128
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-raise1.png": {
+			"frame": {
+				"x": 130,
+				"y": 486,
+				"w": 64,
+				"h": 128
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 64,
+				"h": 128
+			},
+			"sourceSize": {
+				"w": 64,
+				"h": 128
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-raise2.png": {
+			"frame": {
+				"x": 64,
+				"y": 486,
+				"w": 64,
+				"h": 128
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 64,
+				"h": 128
+			},
+			"sourceSize": {
+				"w": 64,
+				"h": 128
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-raise3.png": {
+			"frame": {
+				"x": 0,
+				"y": 616,
+				"w": 64,
+				"h": 128
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 64,
+				"h": 128
+			},
+			"sourceSize": {
+				"w": 64,
+				"h": 128
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-stance1.png": {
+			"frame": {
+				"x": 66,
+				"y": 616,
+				"w": 59,
+				"h": 128
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 59,
+				"h": 128
+			},
+			"sourceSize": {
+				"w": 59,
+				"h": 128
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-stance2.png": {
+			"frame": {
+				"x": 136,
+				"y": 746,
+				"w": 62,
+				"h": 128
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 62,
+				"h": 128
+			},
+			"sourceSize": {
+				"w": 62,
+				"h": 128
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-stance3.png": {
+			"frame": {
+				"x": 0,
+				"y": 876,
+				"w": 66,
+				"h": 128
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 66,
+				"h": 128
+			},
+			"sourceSize": {
+				"w": 66,
+				"h": 128
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-stance4.png": {
+			"frame": {
+				"x": 65,
+				"y": 746,
+				"w": 69,
+				"h": 128
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 69,
+				"h": 128
+			},
+			"sourceSize": {
+				"w": 69,
+				"h": 128
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-stance5.png": {
+			"frame": {
+				"x": 127,
+				"y": 616,
+				"w": 68,
+				"h": 128
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 68,
+				"h": 128
+			},
+			"sourceSize": {
+				"w": 68,
+				"h": 128
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-stance6.png": {
+			"frame": {
+				"x": 131,
+				"y": 1267,
+				"w": 63,
+				"h": 129
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 63,
+				"h": 129
+			},
+			"sourceSize": {
+				"w": 63,
+				"h": 129
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-stance7.png": {
+			"frame": {
+				"x": 0,
+				"y": 1267,
+				"w": 59,
+				"h": 129
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 59,
+				"h": 129
+			},
+			"sourceSize": {
+				"w": 59,
+				"h": 129
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-stance8.png": {
+			"frame": {
+				"x": 195,
+				"y": 1136,
+				"w": 58,
+				"h": 129
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 58,
+				"h": 129
+			},
+			"sourceSize": {
+				"w": 58,
+				"h": 129
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-stance9.png": {
+			"frame": {
+				"x": 68,
+				"y": 876,
+				"w": 57,
+				"h": 128
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 57,
+				"h": 128
+			},
+			"sourceSize": {
+				"w": 57,
+				"h": 128
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-staticjump1.png": {
+			"frame": {
+				"x": 0,
+				"y": 230,
+				"w": 70,
+				"h": 96
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 70,
+				"h": 96
+			},
+			"sourceSize": {
+				"w": 70,
+				"h": 96
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-walk1.png": {
+			"frame": {
+				"x": 186,
+				"y": 1006,
+				"w": 64,
+				"h": 128
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 64,
+				"h": 128
+			},
+			"sourceSize": {
+				"w": 64,
+				"h": 128
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-walk2.png": {
+			"frame": {
+				"x": 130,
+				"y": 1533,
+				"w": 63,
+				"h": 133
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 63,
+				"h": 133
+			},
+			"sourceSize": {
+				"w": 63,
+				"h": 133
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-walk3.png": {
+			"frame": {
+				"x": 59,
+				"y": 1399,
+				"w": 63,
+				"h": 131
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 63,
+				"h": 131
+			},
+			"sourceSize": {
+				"w": 63,
+				"h": 131
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-walk4.png": {
+			"frame": {
+				"x": 0,
+				"y": 1136,
+				"w": 63,
+				"h": 129
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 63,
+				"h": 129
+			},
+			"sourceSize": {
+				"w": 63,
+				"h": 129
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-walk5.png": {
+			"frame": {
+				"x": 127,
+				"y": 876,
+				"w": 63,
+				"h": 128
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 63,
+				"h": 128
+			},
+			"sourceSize": {
+				"w": 63,
+				"h": 128
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-walk6.png": {
+			"frame": {
+				"x": 0,
+				"y": 746,
+				"w": 63,
+				"h": 128
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 63,
+				"h": 128
+			},
+			"sourceSize": {
+				"w": 63,
+				"h": 128
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-walk7.png": {
+			"frame": {
+				"x": 130,
+				"y": 1136,
+				"w": 63,
+				"h": 129
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 63,
+				"h": 129
+			},
+			"sourceSize": {
+				"w": 63,
+				"h": 129
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-walk8.png": {
+			"frame": {
+				"x": 65,
+				"y": 1136,
+				"w": 63,
+				"h": 129
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 63,
+				"h": 129
+			},
+			"sourceSize": {
+				"w": 63,
+				"h": 129
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		},
+		"snow-walk9.png": {
+			"frame": {
+				"x": 61,
+				"y": 1267,
+				"w": 68,
+				"h": 129
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 68,
+				"h": 129
+			},
+			"sourceSize": {
+				"w": 68,
+				"h": 129
+			},
+			"pivot": {
+				"x": 0.5,
+				"y": 0.5
+			}
+		}
+	},
+	"meta": {
+		"app": "http://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"image": "snow.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 256,
+			"h": 1804
+		},
+		"scale": "1",
+		"smartupdate": "$TexturePacker:SmartUpdate:c659d1edb40fe3c0948eedb164a1e95a:1cea9a10fc4a1100a65e97cceb6c6065:7af146aa87cbc1b1281d6f22548bb033$"
+	}
+}

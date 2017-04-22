@@ -3,7 +3,179 @@
     {
       "name": "scorpion",
       "x": 180,
+      "profile": "assets/images/characters/scorpion.jpg",
       "scale": 1.5,
+      "animations": [
+        {
+          "name": "stance",
+          "frames": 9,
+          "animationSpeed": 0.15,
+          "loop": true,
+          "visible": true
+        },
+        {
+          "name": "walk",
+          "frames": 9,
+          "loop": true,
+          "animationSpeed": 0.15
+        },
+        {
+          "name": "duck",
+          "frames": 3,
+          "animationSpeed": 0.4
+        },
+        {
+          "name": "kick",
+          "frames": 10,
+          "animationSpeed": 0.4
+        },
+        {
+          "name": "raise",
+          "frames": 3,
+          "animationSpeed": 0.4
+        },
+        {
+          "name": "punch",
+          "frames": 5,
+          "animationSpeed": 0.3
+        },
+        {
+          "name": "jump",
+          "frames": 9,
+          "animationSpeed": 0.3
+        },
+        {
+          "name": "staticjump",
+          "frames": 1,
+          "animationSpeed": 1
+        },
+        {
+          "name": "airkick",
+          "frames": 3,
+          "animationSpeed": 0.3
+        }
+      ]
+    },
+    {
+      "name": "reptile",
+      "x": 180,
+      "scale": 1.5,
+      "active": true,
+      "profile": "assets/images/characters/reptile.jpg",
+      "animations": [
+        {
+          "name": "stance",
+          "frames": 9,
+          "animationSpeed": 0.15,
+          "loop": true,
+          "visible": true
+        },
+        {
+          "name": "walk",
+          "frames": 9,
+          "loop": true,
+          "animationSpeed": 0.15
+        },
+        {
+          "name": "duck",
+          "frames": 3,
+          "animationSpeed": 0.4
+        },
+        {
+          "name": "kick",
+          "frames": 10,
+          "animationSpeed": 0.4
+        },
+        {
+          "name": "raise",
+          "frames": 3,
+          "animationSpeed": 0.4
+        },
+        {
+          "name": "punch",
+          "frames": 5,
+          "animationSpeed": 0.3
+        },
+        {
+          "name": "jump",
+          "frames": 9,
+          "animationSpeed": 0.3
+        },
+        {
+          "name": "staticjump",
+          "frames": 1,
+          "animationSpeed": 1
+        },
+        {
+          "name": "airkick",
+          "frames": 3,
+          "animationSpeed": 0.3
+        }
+      ]
+    },
+    {
+      "name": "snow",
+      "x": 180,
+      "scale": 1.5,
+      "active": true,
+      "profile": "assets/images/characters/snowP.png",
+      "animations": [
+        {
+          "name": "stance",
+          "frames": 9,
+          "animationSpeed": 0.15,
+          "loop": true,
+          "visible": true
+        },
+        {
+          "name": "walk",
+          "frames": 9,
+          "loop": true,
+          "animationSpeed": 0.15
+        },
+        {
+          "name": "duck",
+          "frames": 3,
+          "animationSpeed": 0.4
+        },
+        {
+          "name": "kick",
+          "frames": 10,
+          "animationSpeed": 0.4
+        },
+        {
+          "name": "raise",
+          "frames": 3,
+          "animationSpeed": 0.4
+        },
+        {
+          "name": "punch",
+          "frames": 5,
+          "animationSpeed": 0.3
+        },
+        {
+          "name": "jump",
+          "frames": 9,
+          "animationSpeed": 0.3
+        },
+        {
+          "name": "staticjump",
+          "frames": 1,
+          "animationSpeed": 1
+        },
+        {
+          "name": "airkick",
+          "frames": 3,
+          "animationSpeed": 0.3
+        }
+      ]
+    },
+    {
+      "name": "aram",
+      "x": 180,
+      "scale": 1.5,
+      "active": false,
+      "profile": "assets/images/characters/aram.jpg",
       "animations": [
         {
           "name": "stance",
@@ -60,6 +232,8 @@
       "x": 770,
       "scale": 1.5,
       "opponent": true,
+      "profile": "assets/images/characters/subzero.jpg",
+      "active": true,
       "animations": [
         {
           "name": "stance",
