@@ -19,8 +19,38 @@
           "animationSpeed": 0.15
         },
         {
+          "name": "duck",
+          "frames": 3,
+          "animationSpeed": 0.4
+        },
+        {
+          "name": "kick",
+          "frames": 10,
+          "animationSpeed": 0.4
+        },
+        {
+          "name": "raise",
+          "frames": 3,
+          "animationSpeed": 0.4
+        },
+        {
           "name": "punch",
           "frames": 5,
+          "animationSpeed": 0.3
+        },
+        {
+          "name": "jump",
+          "frames": 9,
+          "animationSpeed": 0.3
+        },
+        {
+          "name": "staticjump",
+          "frames": 1,
+          "animationSpeed": 1
+        },
+        {
+          "name": "airkick",
+          "frames": 3,
           "animationSpeed": 0.3
         }
       ]
