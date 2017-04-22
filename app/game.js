@@ -92,12 +92,6 @@ class Game {
     }
 
     this.scenes.select.addChild(title);
-
-    let animate = () => {
-      requestAnimationFrame(animate);
-      this.scenes.select.alpha += 0.05;
-    };
-    animate();
   }
 
   stopSound() {
