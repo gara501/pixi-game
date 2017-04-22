@@ -1,0 +1,15 @@
+{
+  "characters": [
+    {
+      "name": "scorpion",
+      "x": 180,
+      "scale": 1.5,
+      "animations": [
+        {
+          "name": "stance",
+          "frames": 1
+        }
+      ]
+    }
+  ]
+}

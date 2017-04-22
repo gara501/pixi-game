@@ -1,6 +1,7 @@
 import * as PIXI from "pixi.js";
 import { Howl } from "howler";
 import TextStyles from "./textStyles.js";
+import characterData from "./characters.json";
 
 class Game {
   constructor() {
@@ -9,8 +10,11 @@ class Game {
 
     this.scenes = {
       intro: {},
-      select: {}
+      select: {},
+      game: {}
     };
+
+    this.groundY = 315;
 
     this.initScenes();
 
@@ -21,16 +25,60 @@ class Game {
     PIXI.loader
       .add([
         "assets/images/backgrounds/intro.png",
-        "assets/images/backgrounds/choose.png",
         "assets/images/characters/p1.jpg",
         "assets/images/characters/p2.jpg",
-        "assets/images/characters/p3.jpg"
+        "assets/images/characters/p3.jpg",
+        "assets/images/characters/scorpion-stance1.png",
+        "assets/images/backgrounds/combat.jpg"
       ])
       .load(() => {
         this.initGame();
       });
 
     document.querySelector(".app").appendChild(this.app.renderer.view);
+  }
+
+  battleScene() {
+    this.setActiveScene("game");
+    this.stopSound();
+    this.playSound("fight", { loop: true, bg: true });
+  }
+
+  setupCharacters() {
+    this.characters = characterData.characters.map(data => {
+      const character = new PIXI.Container();
+      const animations = [];
+
+      character.x = data.x;
+      character.y = this.groundY;
+      character.scale.x = data.scale;
+      character.scale.y = data.scale;
+
+      data.animations.forEach((animation, i) => {
+        const sprite = new PIXI.Sprite.from(PIXI.loader.resources[
+          `assets/images/characters/${data.name}-${animation.name}${i + 1}.png`].texture);
+
+        sprite.visible = true;
+
+        animations.push(sprite);
+      });
+
+      this.groupSprites(character, animations);
+
+      character.animations = animations;
+
+      return character;
+    });
+
+    this.characters.forEach(character => {
+      this.scenes.game.addChild(character);
+    });
+  }
+
+  groupSprites(container, options) {
+    for (let i = 0; i < options.length; i++) {
+      container.addChild(options[i]);
+    }
   }
 
   attachEvents() {
@@ -92,12 +140,6 @@ class Game {
     }
 
     this.scenes.select.addChild(title);
-
-    let animate = () => {
-      requestAnimationFrame(animate);
-      this.scenes.select.alpha += 0.05;
-    };
-    animate();
   }
 
   stopSound() {
@@ -111,6 +153,12 @@ class Game {
     switch (event) {
       case "intro":
         soundPath = "assets/sounds/short/mk3-00054.mp3";
+        break;
+      case "vsmusic":
+        soundPath = "assets/sounds/vsmusic.mp3";
+        break;
+      case "fight":
+        soundPath = "assets/sounds/fight.mp3";
         break;
       default:
         break;
@@ -157,6 +205,7 @@ class Game {
   initGame() {
     this.loadBackgrounds();
     this.introScreen();
+    this.setupCharacters();
   }
 
   loadBackgrounds() {
@@ -165,6 +214,12 @@ class Game {
     );
     this.setBGScale(this.backgrounds.intro);
     this.scenes.intro.addChild(this.backgrounds.intro);
+
+    this.backgrounds.battle = new PIXI.Sprite.from(
+      PIXI.loader.resources["assets/images/backgrounds/combat.jpg"].texture
+    );
+    this.setBGScale(this.backgrounds.battle);
+    this.scenes.game.addChild(this.backgrounds.battle);
   }
 
   setBGScale(sprite) {
