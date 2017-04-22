@@ -1,0 +1,116 @@
+{"frames": {
+
+"claudia-airkick1.png":
+{
+	"frame": {"x":347,"y":322,"w":345,"h":320},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":345,"h":320},
+	"sourceSize": {"w":345,"h":320}
+},
+"claudia-duck1.png":
+{
+	"frame": {"x":694,"y":322,"w":226,"h":332},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":226,"h":332},
+	"sourceSize": {"w":226,"h":332}
+},
+"claudia-jump1.png":
+{
+	"frame": {"x":304,"y":656,"w":150,"h":416},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":150,"h":416},
+	"sourceSize": {"w":150,"h":416}
+},
+"claudia-kick1.png":
+{
+	"frame": {"x":0,"y":322,"w":345,"h":320},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":345,"h":320},
+	"sourceSize": {"w":345,"h":320}
+},
+"claudia-kick2.png":
+{
+	"frame": {"x":0,"y":0,"w":345,"h":320},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":345,"h":320},
+	"sourceSize": {"w":345,"h":320}
+},
+"claudia-kick3.png":
+{
+	"frame": {"x":347,"y":0,"w":345,"h":320},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":345,"h":320},
+	"sourceSize": {"w":345,"h":320}
+},
+"claudia-punch1.png":
+{
+	"frame": {"x":562,"y":1148,"w":279,"h":503},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":279,"h":503},
+	"sourceSize": {"w":279,"h":503}
+},
+"claudia-punch2.png":
+{
+	"frame": {"x":0,"y":1148,"w":279,"h":503},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":279,"h":503},
+	"sourceSize": {"w":279,"h":503}
+},
+"claudia-punch3.png":
+{
+	"frame": {"x":281,"y":1148,"w":279,"h":503},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":279,"h":503},
+	"sourceSize": {"w":279,"h":503}
+},
+"claudia-stance1.png":
+{
+	"frame": {"x":611,"y":656,"w":180,"h":490},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":490},
+	"sourceSize": {"w":180,"h":490}
+},
+"claudia-stance2.png":
+{
+	"frame": {"x":456,"y":656,"w":153,"h":484},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":153,"h":484},
+	"sourceSize": {"w":153,"h":484}
+},
+"claudia-staticjump1.png":
+{
+	"frame": {"x":0,"y":656,"w":150,"h":416},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":150,"h":416},
+	"sourceSize": {"w":150,"h":416}
+},
+"claudia-walk1.png":
+{
+	"frame": {"x":152,"y":656,"w":150,"h":416},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":150,"h":416},
+	"sourceSize": {"w":150,"h":416}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "clau.png",
+	"format": "RGBA8888",
+	"size": {"w":920,"h":1651},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:78e5a8488d01384d42c686b756d8cf3e:ef7f54168c6664f6f4da73dc9d603329:40aa2e2f354c68c1d87f57e16926b586$"
+}
+}
