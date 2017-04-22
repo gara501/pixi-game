@@ -1,6 +1,7 @@
 import * as PIXI from 'pixi.js';
 import * as COLI from './bump.js';
 import * as SOUND from 'howler';
+import SpriteUtilities from './spriteUtilities.js';
 import TextStyles from './textStyles.js';
 import Keyboard from './keyboard.js';
 import characterData from './characters.json';
@@ -9,7 +10,7 @@ class Game {
 	constructor() {
 		this.app = new PIXI.Application(1000, 600);
 		this.textObj = new TextStyles(this.app.renderer);
-
+		this.utils = new SpriteUtilities(PIXI);
 		this.scenes = {
 			intro: {},
 			select: {},
@@ -250,6 +251,8 @@ class Game {
 				});
 			}
 
+			this.utils.update();
+
 			switch (this.action) {
 				case 'ducking':
 					this.characters.forEach(character => {
@@ -304,6 +307,8 @@ class Game {
 								this.playSound('kick');
 								this.playSound('hit');
 
+								this.utils.shake(this.scenes.game, 5);
+
 								this.registerHit();
 							}
 						}
@@ -328,6 +333,8 @@ class Game {
 
 								this.playSound('punch');
 								this.playSound('hit');
+
+								this.utils.shake(this.scenes.game, 0.01, true);
 
 								this.registerHit();
 							}
@@ -367,6 +374,8 @@ class Game {
 								if (this.opponent.actions.stance.visible) {
 									this.playSound('kick');
 									this.playSound('hit');
+
+									this.utils.shake(this.scenes.game.children[0], 10);
 
 									this.registerHit();
 								}
