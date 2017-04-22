@@ -60,12 +60,16 @@ class Game {
 			.add([
 				'assets/images/characters/scorpion.json',
 				'assets/images/characters/subzero.json',
+				'assets/images/characters/snow.json',
+				'assets/images/characters/reptile.json',
 				'assets/images/backgrounds/fight.json',
 				'assets/images/backgrounds/intro.png',
 				'assets/images/backgrounds/win.jpg',
-				'assets/images/characters/p1.jpg',
-				'assets/images/characters/p2.jpg',
-				'assets/images/characters/p3.jpg',
+				'assets/images/characters/aram.jpg',
+				'assets/images/characters/scorpion.jpg',
+				'assets/images/characters/reptile.jpg',
+				'assets/images/characters/subzero.jpg',
+				'assets/images/characters/snowP.png',
 				'assets/images/backgrounds/combat.jpg',
 				'assets/sounds/fight.mp3',
 				'assets/sounds/hitsounds/mk3-00100.mp3',
@@ -200,7 +204,6 @@ class Game {
 		this.setupKeys();
 		this.loadBackgrounds();
 		this.introScreen();
-		this.setupCharacters();
 		this.gameLoop();
 	}
 
@@ -564,45 +567,40 @@ class Game {
 		this.playSound('vsmusic', { loop: true });
 
 		let title = this.textObj.customText('SELECT YOUR PLAYER', 'center', 520);
-
-		this.backgrounds.player1 = new PIXI.Sprite.from(
-			PIXI.loader.resources['assets/images/characters/p1.jpg'].texture
-		);
-
-		this.backgrounds.player2 = new PIXI.Sprite.from(
-			PIXI.loader.resources['assets/images/characters/p2.jpg'].texture
-		);
-
-		this.backgrounds.player3 = new PIXI.Sprite.from(
-			PIXI.loader.resources['assets/images/characters/p3.jpg'].texture
-		);
-
-		let battle = () => {
-			this.stopSound();
-			this.playSound('vs');
-			this.battleScene();
-		};
+		let counter = 1;
+		let counter2 = 0;
+		let initialPosition = 70;
+		characterData.characters.forEach(data => {
+			if (data.active && !data.opponent) {
+				this.backgrounds['player' + counter] = PIXI.Sprite.from(PIXI.loader.resources[data.profile].texture);
+				this.backgrounds['player' + counter].playerName = data.name;
+				counter++;
+			}
+		});
 
 		for (let bg in this.backgrounds) {
-			if (bg === 'player1' || bg === 'player2' || bg === 'player3') {
-				if (bg === 'player1') {
-					this.backgrounds[bg].position.x = 200;
+			if (bg.indexOf('player') != -1) {
+				if (counter2 > 0) {
+					initialPosition += 180;
 				}
-
-				if (bg === 'player2') {
-					this.backgrounds[bg].position.x = 400;
-				}
-
-				if (bg === 'player3') {
-					this.backgrounds[bg].position.x = 600;
-				}
+				this.backgrounds[bg].position.x = initialPosition;
 				this.backgrounds[bg].position.y = 200;
 				this.backgrounds[bg].width = 150;
 				this.backgrounds[bg].height = 150;
 				this.backgrounds[bg].interactive = true;
 				this.backgrounds[bg].buttonMode = true;
-				this.backgrounds[bg].on('pointerdown', battle);
+				this.backgrounds[bg].on('pointerdown', () => {
+					this.stopSound();
+					this.playSound('vs');
+					this.battleScene(this.backgrounds[bg].playerName);
+				});
+
+				let playerName = this.textObj.customText(this.backgrounds[bg].playerName, initialPosition, 350);
+				let textPosition = (this.backgrounds[bg].width - playerName.width) / 2;
+				playerName.position.x = initialPosition + textPosition;
 				this.scenes.select.addChild(this.backgrounds[bg]);
+				this.scenes.select.addChild(playerName);
+				counter2++;
 			}
 		}
 
@@ -615,7 +613,9 @@ class Game {
 		animate();
 	}
 
-	battleScene() {
+	battleScene(selectedPlayer) {
+		console.log('Selected player', selectedPlayer);
+		this.setupCharacters(selectedPlayer);
 		this.setActiveScene('game');
 		this.stopSound();
 		this.playSound('fight', { loop: true, bg: true });
@@ -656,7 +656,7 @@ class Game {
 		fightAnim.x = (1000 - fightAnim.width) / 2 + 16;
 		fightAnim.y = (600 - fightAnim.height) / 3;
 
-		const character1Name = this.textObj.customText('scorpion', 53, 48);
+		const character1Name = this.textObj.customText(selectedPlayer, 53, 48);
 		const character2Name = this.textObj.customText('sub-zero', 817, 48);
 
 		setTimeout(() => {
@@ -691,6 +691,7 @@ class Game {
 			this.scenes.youWin.alpha += 0.05;
 		};
 		animate();
+		window.location.reload(false);
 	}
 
 	gameOver() {
@@ -906,47 +907,56 @@ class Game {
 		};
 	}
 
-	setupCharacters() {
-		this.characters = characterData.characters.map(data => {
-			const character = new PIXI.Container();
-			const animations = [];
-			const actions = {};
+	setupCharacters(selectedPlayer) {
+		this.characters = [];
+		characterData.characters.forEach(data => {
+			if (data.name === selectedPlayer || data.opponent) {
+				if (data.active) {
+					const character = new PIXI.Container();
+					const animations = [];
+					const actions = {};
 
-			character.x = data.x;
-			character.y = this.groundY;
-			character.scale.x = data.scale;
-			character.scale.y = data.scale;
+					character.x = data.x;
+					character.y = this.groundY;
+					character.scale.x = data.scale;
+					character.scale.y = data.scale;
 
-			data.animations.forEach(animation => {
-				const sprite = this.createAnimation(`${data.name}-${animation.name}`, animation.frames);
+					data.animations.forEach(animation => {
+						const sprite = this.createAnimation(`${data.name}-${animation.name}`, animation.frames);
 
-				sprite.animationSpeed = animation.animationSpeed;
+						sprite.animationSpeed = animation.animationSpeed;
 
-				if (animation.loop) {
-					sprite.play();
-				} else {
-					sprite.loop = false;
+						if (animation.loop) {
+							sprite.play();
+						} else {
+							sprite.loop = false;
+						}
+
+						if (!animation.visible) {
+							sprite.visible = false;
+						}
+
+						animations.push(sprite);
+						actions[animation.name] = sprite;
+					});
+
+					this.groupSprites(character, animations);
+
+					character.actions = actions;
+					character.animations = animations;
+					character.opponent = data.opponent;
+					character.active = data.active;
+
+					this.characters.push(character);
 				}
-
-				if (!animation.visible) {
-					sprite.visible = false;
-				}
-
-				animations.push(sprite);
-				actions[animation.name] = sprite;
-			});
-
-			this.groupSprites(character, animations);
-
-			character.actions = actions;
-			character.animations = animations;
-			character.opponent = data.opponent;
-
-			return character;
+			}
 		});
 
 		this.characters.forEach(character => {
-			this.scenes.game.addChild(character);
+			console.log(character);
+			if (character.active) {
+				this.scenes.game.addChild(character);
+			}
 		});
 
 		this.opponent = this.characters.filter(character => character.opponent)[0];
