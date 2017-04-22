@@ -13,6 +13,12 @@
           "visible": true
         },
         {
+          "name": "walk",
+          "frames": 9,
+          "loop": true,
+          "animationSpeed": 0.15
+        },
+        {
           "name": "punch",
           "frames": 5,
           "animationSpeed": 0.3

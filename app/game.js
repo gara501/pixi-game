@@ -32,7 +32,7 @@ class Game {
         "assets/images/characters/p1.jpg",
         "assets/images/characters/p2.jpg",
         "assets/images/characters/p3.jpg",
-        "assets/images/characters/scorpion.json",
+        "assets/images/characters/scorpion.json"
       ])
       .load(() => {
         this.initGame();
@@ -51,6 +51,24 @@ class Game {
       });
 
       switch (this.action) {
+        case "walk-right":
+          this.characters.forEach(character => {
+            if (character.actions.walk) {
+              character.actions.walk.visible = true;
+
+              character.position.x += character.vx;
+            }
+          });
+          break;
+        case "walk-left":
+          this.characters.forEach(character => {
+            if (character.actions.walk) {
+              character.actions.walk.visible = true;
+
+              character.position.x -= character.vx;
+            }
+          });
+          break;
         case "punch":
           this.characters.forEach(character => {
             if (character.actions.punch) {
@@ -77,7 +95,45 @@ class Game {
   }
 
   setupKeys() {
+    this.keys.left = Keyboard(65);
+    this.keys.right = Keyboard(68);
     this.keys.u = Keyboard(85);
+
+    this.keys.left.press = () => {
+      this.characters.forEach(character => {
+        if (character.actions.walk) {
+          this.action = "walk-left";
+          character.vx = 3;
+        }
+      });
+    };
+
+    this.keys.left.release = () => {
+      this.characters.forEach(character => {
+        if (character.actions.walk) {
+          this.action = "stance";
+          character.vx = 0;
+        }
+      });
+    };
+
+    this.keys.right.press = () => {
+      this.characters.forEach(character => {
+        if (character.actions.walk) {
+          this.action = "walk-right";
+          character.vx = 3;
+        }
+      });
+    };
+
+    this.keys.right.release = () => {
+      this.characters.forEach(character => {
+        if (character.actions.walk) {
+          this.action = "stance";
+          character.vx = 0;
+        }
+      });
+    };
 
     this.keys.u.press = () => {
       this.characters.forEach(character => {
