@@ -55,8 +55,11 @@ class Game {
       character.scale.y = data.scale;
 
       data.animations.forEach((animation, i) => {
-        const sprite = new PIXI.Sprite.from(PIXI.loader.resources[
-          `assets/images/characters/${data.name}-${animation.name}${i + 1}.png`].texture);
+        const sprite = new PIXI.Sprite.from(
+          PIXI.loader.resources[
+            `assets/images/characters/${data.name}-${animation.name}${i + 1}.png`
+          ].texture
+        );
 
         sprite.visible = true;
 
