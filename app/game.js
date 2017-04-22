@@ -63,6 +63,7 @@ class Game {
 				'assets/images/characters/snow.json',
 				'assets/images/characters/reptile.json',
         'assets/images/characters/clau.json',
+        'assets/images/characters/aram.json',
 				'assets/images/backgrounds/fight.json',
 				'assets/images/backgrounds/intro.png',
 				'assets/images/backgrounds/win.jpg',
@@ -693,7 +694,6 @@ class Game {
 			this.scenes.youWin.alpha += 0.05;
 		};
 		animate();
-		window.location.reload(false);
 	}
 
 	gameOver() {
@@ -751,7 +751,7 @@ class Game {
 
 			if (this.scenes.youWin.visible) {
 				if (e.key === 'Enter') {
-					this.introScreen();
+					window.location.reload(false);
 				}
 			}
 		});

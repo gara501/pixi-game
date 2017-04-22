@@ -173,7 +173,7 @@
     {
       "name": "aram",
       "x": 180,
-      "scale": 1.5,
+      "scale": 1,
       "active": true,
       "profile": "assets/images/characters/aram.jpg",
       "animations": [
