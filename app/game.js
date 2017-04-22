@@ -2,6 +2,7 @@ import * as PIXI from "pixi.js";
 import { Howl } from "howler";
 import TextStyles from "./textStyles.js";
 import characterData from "./characters.json";
+import Keyboard from "./keyboard.js";
 
 class Game {
   constructor() {
@@ -13,6 +14,8 @@ class Game {
       select: {},
       game: {}
     };
+
+    this.keys = {};
 
     this.groundY = 315;
 
@@ -36,6 +39,60 @@ class Game {
       });
 
     document.querySelector(".app").appendChild(this.app.renderer.view);
+  }
+
+  gameLoop() {
+    this.app.ticker.add(() => {
+      if (!this.scenes.game.visible) return;
+      this.characters.forEach(character => {
+        character.animations.forEach(animation => {
+          animation.visible = false;
+        });
+      });
+
+      switch (this.action) {
+        case "punch":
+          this.characters.forEach(character => {
+            if (character.actions.punch) {
+              character.actions.punch.visible = true;
+
+              if (
+                character.actions.punch.currentFrame + 1 ===
+                character.actions.punch.totalFrames
+              ) {
+                this.action = "stance";
+              }
+            }
+          });
+          break;
+        case "stance":
+          this.characters.forEach(character => {
+            if (character.actions.stance) {
+              character.actions.stance.visible = true;
+            }
+          });
+          break;
+      }
+    });
+  }
+
+  setupKeys() {
+    this.keys.u = Keyboard(85);
+
+    this.keys.u.press = () => {
+      this.characters.forEach(character => {
+        if (character.actions.punch) {
+          this.action = "punch";
+
+          character.actions.punch.gotoAndPlay(0);
+
+          if (this.scenes.game.visible) {
+            this.playSound("nopunch");
+            this.playSound("hitscream");
+          }
+        }
+      });
+    };
   }
 
   createAnimation(id, numberFrames, reverse = false) {
@@ -100,6 +157,8 @@ class Game {
     this.characters.forEach(character => {
       this.scenes.game.addChild(character);
     });
+
+    this.action = "stance";
   }
 
   groupSprites(container, options) {
@@ -187,6 +246,12 @@ class Game {
       case "fight":
         soundPath = "assets/sounds/fight.mp3";
         break;
+      case "punch":
+        soundPath = "assets/sounds/hitsounds/mk3-00105.mp3";
+        break;
+      case "nopunch":
+        soundPath = "assets/sounds/hitsounds/mk3-00165.mp3";
+        break;
       default:
         break;
     }
@@ -233,6 +298,8 @@ class Game {
     this.loadBackgrounds();
     this.introScreen();
     this.setupCharacters();
+    this.setupKeys();
+    this.gameLoop();
   }
 
   loadBackgrounds() {

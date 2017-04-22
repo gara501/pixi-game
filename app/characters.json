@@ -11,6 +11,11 @@
           "animationSpeed": 0.15,
           "loop": true,
           "visible": true
+        },
+        {
+          "name": "punch",
+          "frames": 5,
+          "animationSpeed": 0.3
         }
       ]
     }
