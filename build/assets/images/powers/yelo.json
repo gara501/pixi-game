@@ -1,0 +1,21 @@
+{"frames": {
+
+"yelo-moving1.png":
+{
+	"frame": {"x":0,"y":0,"w":174,"h":28},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":174,"h":28},
+	"sourceSize": {"w":174,"h":28},
+	"pivot": {"x":0.5,"y":0.5}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "yelo.png",
+	"format": "RGBA8888",
+	"size": {"w":174,"h":28},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:6b8ad100b018b3bb4b5512b9f1d629f7:d03caffb65d493aa8b8ed260de76347c:dcd2186c07646ec813cc869524ea8eea$"
+}
+}
