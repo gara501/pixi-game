@@ -280,7 +280,7 @@
       "scale": 1.5,
       "opponent": true,
       "profile": "assets/images/characters/subzero.jpg",
-      "active": true,
+      "active": false,
       "animations": [
         {
           "name": "stance",
@@ -298,6 +298,33 @@
           "name": "highhit",
           "frames": 5,
           "animationSpeed": 0.35
+        }
+      ]
+    },
+    {
+      "name": "bug",
+      "x": 770,
+      "scale": 1.5,
+      "opponent": true,
+      "profile": "assets/images/characters/bug.jpg",
+      "active": true,
+      "animations": [
+        {
+          "name": "stance",
+          "frames": 7,
+          "animationSpeed": 0.15,
+          "loop": true,
+          "visible": true
+        },
+        {
+          "name": "hit",
+          "frames": 3,
+          "animationSpeed": 0.2
+        },
+        {
+          "name": "highhit",
+          "frames": 3,
+          "animationSpeed": 0.2
         }
       ]
     }

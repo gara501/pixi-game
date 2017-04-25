@@ -67,6 +67,7 @@ class Game {
         "assets/images/characters/reptile.json",
         "assets/images/characters/clau.json",
         "assets/images/characters/aram.json",
+        "assets/images/characters/bug.json",
         "assets/images/backgrounds/fight.json",
         "assets/images/backgrounds/intro.png",
         "assets/images/backgrounds/win.jpg",
@@ -227,6 +228,7 @@ class Game {
       let collision;
 
       if (
+        this.opponent.actions.hit &&
         this.opponent.actions.hit.visible &&
         this.opponent.actions.hit.currentFrame + 1 ===
           this.opponent.actions.hit.totalFrames
@@ -236,6 +238,7 @@ class Game {
       }
 
       if (
+        this.opponent.actions.highhit &&
         this.opponent.actions.highhit.visible &&
         this.opponent.actions.highhit.currentFrame + 1 ===
           this.opponent.actions.highhit.totalFrames
