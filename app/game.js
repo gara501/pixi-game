@@ -648,6 +648,7 @@ class Game {
             this.setupPowers(true);
 
             this.battleScene();
+            console.log(this.keys);
           } else {
             this.setupCharacters(this.backgrounds[bg].playerName);
             this.setupPowers();
@@ -856,25 +857,32 @@ class Game {
   }
 
   setupKeys(character, opponent) {
-    this.keys.left = [];
-    this.keys.up = [];
-    this.keys.right = [];
-    this.keys.down = [];
-    this.keys.kick = []; // j
-    this.keys.punch = []; // u
-    this.keys.pawa = []; // k
+    this.keys.left = this.keys.left || [];
+    this.keys.up = this.keys.up || [];
+    this.keys.right = this.keys.right || [];
+    this.keys.down = this.keys.down || [];
+    this.keys.kick = this.keys.kick || []; // j
+    this.keys.punch = this.keys.punch || []; // u
+    this.keys.pawa = this.keys.pawa || []; // k
 
     let player = opponent ? 1 : 0;
 
     if (opponent) {
+      this.keys.left[player] = Keyboard(37);
+      this.keys.up[player] = Keyboard(38);
+      this.keys.right[player] = Keyboard(39);
+      this.keys.down[player] = Keyboard(40);
+      this.keys.kick[player] = Keyboard(74);
+      this.keys.punch[player] = Keyboard(75);
+      this.keys.pawa[player] = Keyboard(77);
     } else {
       this.keys.left[player] = Keyboard(65);
       this.keys.up[player] = Keyboard(87);
       this.keys.right[player] = Keyboard(68);
       this.keys.down[player] = Keyboard(83);
-      this.keys.kick[player] = Keyboard(74);
-      this.keys.punch[player] = Keyboard(85);
-      this.keys.pawa[player] = Keyboard(75);
+      this.keys.kick[player] = Keyboard(70);
+      this.keys.punch[player] = Keyboard(71);
+      this.keys.pawa[player] = Keyboard(72);
     }
 
     this.keys.left[player].press = () => {
@@ -1079,11 +1087,7 @@ class Game {
             );
           }
 
-          if (opponent) {
-            // TODO: call setupKeys when the key bindings are ready for player 2;
-          } else {
-            this.setupKeys(character, opponent);
-          }
+          this.setupKeys(character, opponent);
         }
       }
     });
