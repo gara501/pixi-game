@@ -1,4 +1,4 @@
-# Prodigious Kombat
+# Huge Kombat
 Game using PixiJS
 
 ## Demo

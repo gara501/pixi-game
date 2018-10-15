@@ -223,64 +223,12 @@
       ]
     },
     {
-      "name": "claudia",
-      "x": 180,
-      "scale": 0.5,
-      "active": true,
-      "profile": "assets/images/characters/claudia.png",
-      "animations": [
-        {
-          "name": "stance",
-          "frames": 2,
-          "animationSpeed": 0.15,
-          "loop": true,
-          "visible": true
-        },
-        {
-          "name": "walk",
-          "frames": 1,
-          "loop": true,
-          "animationSpeed": 0.15
-        },
-        {
-          "name": "duck",
-          "frames": 1,
-          "animationSpeed": 0.4
-        },
-        {
-          "name": "kick",
-          "frames": 3,
-          "animationSpeed": 0.08
-        },
-        {
-          "name": "punch",
-          "frames": 3,
-          "animationSpeed": 0.08
-        },
-        {
-          "name": "jump",
-          "frames": 1,
-          "animationSpeed": 0.3
-        },
-        {
-          "name": "staticjump",
-          "frames": 1,
-          "animationSpeed": 1
-        },
-        {
-          "name": "airkick",
-          "frames": 1,
-          "animationSpeed": 0.3
-        }
-      ]
-    },
-    {
       "name": "subzero",
       "x": 770,
       "scale": 1.5,
       "opponent": true,
       "profile": "assets/images/characters/subzero.jpg",
-      "active": false,
+      "active": true,
       "animations": [
         {
           "name": "stance",
@@ -307,7 +255,7 @@
       "scale": 1.5,
       "opponent": true,
       "profile": "assets/images/characters/bug.jpg",
-      "active": true,
+      "active": false,
       "animations": [
         {
           "name": "stance",
