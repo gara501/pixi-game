@@ -328,6 +328,10 @@ class Game {
               if (!collision || collision === "left") {
                 character.position.x += character.vx;
               }
+
+              if (character.position.x >= 900) {
+                character.position.x = 900;
+              }
             }
             break;
           case "walk-left":
@@ -338,6 +342,10 @@ class Game {
 
               if (!collision || collision === "right") {
                 character.position.x -= character.vx;
+              }
+
+              if (character.position.x <= 0) {
+                character.position.x = 0;
               }
             }
             break;
@@ -468,6 +476,10 @@ class Game {
                   this.action[index] = "stance";
                 }
               }
+              
+              if (character.position.x >= 900) {
+                character.position.x = 900;
+              }
             }
             break;
 
@@ -522,6 +534,10 @@ class Game {
                 } else {
                   this.action[index] = "stance";
                 }
+              }
+
+              if (character.position.x <= 0) {
+                character.position.x = 0;
               }
             }
             break;
