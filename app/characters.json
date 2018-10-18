@@ -5,6 +5,7 @@
       "x": 180,
       "profile": "assets/images/characters/scorpion.jpg",
       "scale": 1.5,
+      "active": true,
       "animations": [
         {
           "name": "stance",
@@ -53,6 +54,16 @@
           "name": "airkick",
           "frames": 3,
           "animationSpeed": 0.3
+        },
+        {
+          "name": "hit",
+          "frames": 5,
+          "animationSpeed": 0.35
+        },
+        {
+          "name": "highhit",
+          "frames": 5,
+          "animationSpeed": 0.35
         }
       ]
     },
