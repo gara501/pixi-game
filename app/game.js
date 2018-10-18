@@ -224,7 +224,9 @@ class Game {
 
       this.characters.forEach((character, index) => {
         character.animations.forEach(animation => {
-          animation.visible = false;
+          if (animation.name !== "hit" && animation.name !== "highhit") {
+            animation.visible = false;
+          }
         });
 
         let collision;
@@ -406,7 +408,11 @@ class Game {
             }
             break;
           case "stance":
-            if (character.actions.stance) {
+            if (
+              character.actions.stance &&
+              (!character.actions.hit || (!character.actions.hit.visible &&
+                !character.actions.highhit.visible))
+            ) {
               character.actions.stance.visible = true;
             }
             break;
@@ -476,7 +482,7 @@ class Game {
                   this.action[index] = "stance";
                 }
               }
-              
+
               if (character.position.x >= 900) {
                 character.position.x = 900;
               }
@@ -577,7 +583,7 @@ class Game {
             if (character.actions.jump) {
               character.actions.staticjump.visible = true;
               character.vy += this.gravity;
-              
+
               if (character.y <= this.groundY) {
                 character.y += character.vy;
               } else {
@@ -585,7 +591,7 @@ class Game {
                 this.action[index] = "stance";
               }
             }
-          break;
+            break;
         }
       });
     });
@@ -662,7 +668,6 @@ class Game {
             this.setupPowers(true);
 
             this.battleScene();
-            console.log(this.keys);
           } else {
             this.setupCharacters(this.backgrounds[bg].playerName);
             this.setupPowers();
@@ -1022,7 +1027,6 @@ class Game {
     this.keys.up[player].press = () => {
       if (character.actions.jump) {
         if (character.y === this.groundY) {
-          console.log('POSITION',character.y);
           this.action[player] = "jump";
           character.vy = -24;
           this.playSound("jump");
@@ -1064,6 +1068,8 @@ class Game {
               `${data.name}-${animation.name}`,
               animation.frames
             );
+
+            sprite.name = animation.name;
 
             sprite.animationSpeed = animation.animationSpeed;
 
