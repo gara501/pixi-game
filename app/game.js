@@ -576,18 +576,16 @@ class Game {
           case "jump":
             if (character.actions.jump) {
               character.actions.staticjump.visible = true;
-
               character.vy += this.gravity;
-
+              
               if (character.y <= this.groundY) {
                 character.y += character.vy;
               } else {
                 character.y = this.groundY;
-
                 this.action[index] = "stance";
               }
             }
-            break;
+          break;
         }
       });
     });
@@ -1023,9 +1021,12 @@ class Game {
 
     this.keys.up[player].press = () => {
       if (character.actions.jump) {
-        this.action[player] = "jump";
-        character.vy = -24;
-        this.playSound("jump");
+        if (character.y === this.groundY) {
+          console.log('POSITION',character.y);
+          this.action[player] = "jump";
+          character.vy = -24;
+          this.playSound("jump");
+        }
       }
     };
   }
