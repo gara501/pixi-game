@@ -1,5 +1,5 @@
 import * as PIXI from "pixi.js";
-import * as COLI from "./bump.js";
+import { cheapColi } from "./coli.js";
 import "howler";
 import SpriteUtilities from "./spriteUtilities.js";
 import TextStyles from "./textStyles.js";
@@ -58,8 +58,6 @@ class Game {
     this.attachEvents();
 
     this.sound = null;
-
-    this.coli = new COLI(PIXI);
 
     PIXI.loader
       .add([
@@ -287,10 +285,7 @@ class Game {
           case "yelo":
             this.powers[index].yelo.visible = true;
 
-            collision = this.coli.rectangleCollision(
-              this.powers[index].yelo,
-              opponent
-            );
+            collision = cheapColi(this.powers[index].yelo, opponent);
 
             if (collision) {
               opponent.actions.highhit.gotoAndPlay(0);
@@ -307,7 +302,7 @@ class Game {
 
               this.utils.shake(this.scenes.game, 0.01, true);
 
-              this.registerHit();
+              this.registerHit(index);
             } else {
               // TODO: calc direction based on opponent position
               this.powers[index].yelo.x += this.powers[index].yelo.vx;
@@ -325,7 +320,7 @@ class Game {
             if (character.actions.walk) {
               character.actions.walk.visible = true;
 
-              collision = this.coli.rectangleCollision(character, opponent);
+              collision = cheapColi(character, opponent);
 
               if (!collision || collision === "left") {
                 character.position.x += character.vx;
@@ -340,7 +335,7 @@ class Game {
             if (character.actions.walk) {
               character.actions.walk.visible = true;
 
-              collision = this.coli.rectangleCollision(character, opponent);
+              collision = cheapColi(character, opponent);
 
               if (!collision || collision === "right") {
                 character.position.x -= character.vx;
@@ -360,9 +355,10 @@ class Game {
                 character.actions.kick.totalFrames
               ) {
                 this.action[index] = "stance";
+                this.blockHit = false;
               }
 
-              collision = this.coli.rectangleCollision(character, opponent);
+              const collision = cheapColi(character, opponent);
 
               if (collision) {
                 opponent.actions.hit.gotoAndPlay(0);
@@ -375,7 +371,10 @@ class Game {
 
                 this.utils.shake(this.scenes.game, 5);
 
-                this.registerHit();
+                if (!this.blockHit) {
+                  this.registerHit(index);
+                  this.blockHit = true;
+                }
               }
             }
             break;
@@ -388,9 +387,10 @@ class Game {
                 character.actions.punch.totalFrames
               ) {
                 this.action[index] = "stance";
+                this.blockHit = false;
               }
 
-              collision = this.coli.rectangleCollision(character, opponent);
+              collision = cheapColi(character, opponent);
 
               if (collision) {
                 opponent.actions.highhit.gotoAndPlay(0);
@@ -403,15 +403,19 @@ class Game {
 
                 this.utils.shake(this.scenes.game, 0.01, true);
 
-                this.registerHit();
+                if (!this.blockHit) {
+                  this.registerHit(index);
+                  this.blockHit = true;
+                }
               }
             }
             break;
           case "stance":
             if (
               character.actions.stance &&
-              (!character.actions.hit || (!character.actions.hit.visible &&
-                !character.actions.highhit.visible))
+              (!character.actions.hit ||
+                (!character.actions.hit.visible &&
+                  !character.actions.highhit.visible))
             ) {
               character.actions.stance.visible = true;
             }
@@ -434,7 +438,7 @@ class Game {
 
               character.vy += this.gravity;
 
-              collision = this.coli.hit(character, opponent);
+              collision = cheapColi(character, opponent);
 
               if (collision) {
                 opponent.actions.hit.gotoAndPlay(0);
@@ -445,7 +449,7 @@ class Game {
 
                   this.utils.shake(this.scenes.game.children[0], 10);
 
-                  this.registerHit();
+                  this.registerHit(index);
                 }
 
                 opponent.actions.stance.visible = false;
@@ -495,7 +499,7 @@ class Game {
 
               character.vy += this.gravity;
 
-              collision = this.coli.hit(character, opponent);
+              collision = cheapColi(character, opponent);
 
               if (collision) {
                 opponent.actions.hit.gotoAndPlay(0);
@@ -503,7 +507,7 @@ class Game {
                 if (opponent.actions.stance.visible) {
                   this.playSound("kick");
                   this.playSound("hit");
-                  this.registerHit();
+                  this.registerHit(index);
                 }
 
                 opponent.actions.stance.visible = false;
@@ -554,7 +558,7 @@ class Game {
 
               character.vy += this.gravity;
 
-              collision = this.coli.hit(character, opponent);
+              collision = cheapColi(character, opponent);
 
               if (collision) {
                 opponent.actions.hit.gotoAndPlay(0);
@@ -562,7 +566,7 @@ class Game {
                 if (opponent.actions.stance.visible) {
                   this.playSound("kick");
                   this.playSound("hit");
-                  this.registerHit();
+                  this.registerHit(index);
                 }
 
                 opponent.actions.stance.visible = false;
@@ -597,14 +601,18 @@ class Game {
     });
   }
 
-  registerHit() {
-    this.energyBars.right.bars.interior.width =
-      this.energyBars.right.bars.interior.width - 20;
-    this.energyBars.right.bars.interior.position.x =
-      this.energyBars.right.bars.interior.position.x + 29;
-    if (this.energyBars.right.bars.interior.width <= 0) {
-      this.energyBars.right.bars.interior.width = this.energyBars.right.bars.level;
-      this.energyBars.right.bars.interior.position.x = 55;
+  registerHit(index) {
+    const side = index === 1 ? "left" : "right";
+
+    this.energyBars[side].bars.interior.width =
+      this.energyBars[side].bars.interior.width - 20;
+    this.energyBars[side].bars.interior.position.x =
+      this.energyBars[side].bars.interior.position.x + 29;
+    if (this.energyBars[side].bars.interior.width <= 0) {
+      this.energyBars[side].bars.interior.width = this.energyBars[
+        side
+      ].bars.level;
+      this.energyBars[side].bars.interior.position.x = 55;
       this.youWin();
     }
   }
