@@ -16,7 +16,8 @@ class Game {
       select: {},
       game: {},
       gameOver: {},
-      youWin: {}
+      youWin: {},
+      finish: {} 
     };
 
     this.powers = [];
@@ -81,6 +82,7 @@ class Game {
         "assets/images/characters/snowP.png",
         "assets/images/characters/claudia.png",
         "assets/images/backgrounds/combat.jpg",
+        "assets/images/backgrounds/finish.png",
         "assets/sounds/fight.mp3",
         "assets/sounds/hitsounds/mk3-00100.mp3",
         "assets/sounds/hitsounds/mk3-00105.mp3",
@@ -162,6 +164,9 @@ class Game {
       case "welldone":
         soundPath = "assets/sounds/welldone.mp3";
         break;
+      case "finish":
+        soundPath = "assets/sounds/finish.mp3";
+        break;
       default:
         break;
     }
@@ -209,6 +214,11 @@ class Game {
     );
     this.setBGScale(this.backgrounds.win);
     this.scenes.youWin.addChild(this.backgrounds.win);
+
+    this.backgrounds.finish = new PIXI.Sprite.from(
+      PIXI.loader.resources["assets/images/backgrounds/finish.png"].texture
+    );
+    this.setBGScale(this.backgrounds.finish);
   }
 
   // Set intro Container, first scene
@@ -605,7 +615,13 @@ class Game {
     if (this.energyBars.right.bars.interior.width <= 0) {
       this.energyBars.right.bars.interior.width = this.energyBars.right.bars.level;
       this.energyBars.right.bars.interior.position.x = 55;
-      this.youWin();
+      this.finishHim('player1');
+      // this.youWin();
+    } else if (this.energyBars.left.bars.interior.width <= 0) {
+      this.energyBars.left.bars.interior.width = this.energyBars.right.bars.level;
+      this.energyBars.left.bars.interior.position.x = 55;
+      this.finishHim('player2');
+      // this.youWin();
     }
   }
 
@@ -626,6 +642,18 @@ class Game {
       this.scenes.intro.alpha += 0.05;
     };
     animate();
+  }
+
+  finishHim(winner) {
+    //this.setActiveScene("finish");
+    this.playSound("finish");
+    let finishHim = this.textObj.finishText(
+      "FINISH HIM!",
+      "center",
+      100
+    );
+    this.scenes.game.addChild(finishHim);
+    console.log(winner)
   }
 
   chooseScreen() {

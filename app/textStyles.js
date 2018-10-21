@@ -34,10 +34,24 @@ class TextStyles {
     return title;
   }
 
-  generalStyle() {
+  finishText(value, posx, posy) {
+    let title = this.getTextObject(
+      {
+        textValue: value,
+        x: posx,
+        y: posy,
+        vx: 2,
+        vy: 0
+      },
+      this.generalStyle(64)
+    );
+    return title;
+  }
+
+  generalStyle(fontSizeValue=36) {
     let titleStyle = new PIXI.TextStyle({
       fontFamily: "mk",
-      fontSize: 36,
+      fontSize: fontSizeValue,
       fill: ["#ff0000", "#444"], // gradient
       wordWrapWidth: 440
     });
