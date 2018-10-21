@@ -603,11 +603,13 @@ class Game {
 
   registerHit(index) {
     const side = index === 1 ? "left" : "right";
+    // why these numbers? how knows
+    const increment = index === 1 ? 23 : 29;
 
     this.energyBars[side].bars.interior.width =
       this.energyBars[side].bars.interior.width - 20;
     this.energyBars[side].bars.interior.position.x =
-      this.energyBars[side].bars.interior.position.x + 29;
+      this.energyBars[side].bars.interior.position.x + increment;
     if (this.energyBars[side].bars.interior.width <= 0) {
       this.energyBars[side].bars.interior.width = this.energyBars[
         side
