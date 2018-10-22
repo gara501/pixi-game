@@ -94,7 +94,8 @@ class Game {
         "assets/sounds/vsmusic.mp3",
         "assets/sounds/fightScream.mp3",
         "assets/sounds/hitscream.mp3",
-        "assets/sounds/finish.mp3"
+        "assets/sounds/finish.mp3",
+        "assets/sounds/scream.mp3"
       ])
       .load(() => {
         this.initGame();
@@ -154,6 +155,9 @@ class Game {
         break;
       case "fightScream":
         soundPath = "assets/sounds/fightScream.mp3";
+        break;
+      case "scream":
+        soundPath = "assets/sounds/scream.mp3";
         break;
       case "hitscream":
         soundPath = "assets/sounds/hitscream.mp3";
@@ -340,6 +344,7 @@ class Game {
               
               let victim = opponent === 0 ? 0: 1;
               if (this.finishHim) {
+                this.playSound("scream");
                 this.action[victim] = 'death';
                 setTimeout(() => {
                   this.youWin();
