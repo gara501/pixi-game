@@ -343,11 +343,12 @@ class Game {
               this.registerHit(index);
               
               let victim = opponent === 0 ? 0: 1;
+              let winner = opponent === 0 ? 1: 0;
               if (this.finishHim) {
                 this.playSound("scream");
                 this.action[victim] = 'death';
                 setTimeout(() => {
-                  this.youWin();
+                  this.youWin(winner);
                 }, 1000);
               }
             } else {
@@ -896,14 +897,13 @@ class Game {
     animate();
   }
 
-  youWin() {
+  youWin(winner) {
     this.setActiveScene("youWin");
-
-    let title = this.textObj.customText("You Win!", "center", 50);
+    let title = this.textObj.customText(this.characterNames[winner]._text + " Wins!", "center", 50);
     let titleContinue = this.textObj.customText(
       "Press Enter to Restart",
       "center",
-      90
+      480
     );
 
     this.scenes.youWin.addChild(title);
