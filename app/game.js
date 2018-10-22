@@ -401,7 +401,7 @@ class Game {
               if (!collision || collision === "right") {
                 character.position.x -= character.vx;
               }
-
+              console.log(character);
               if (character.position.x <= 0) {
                 character.position.x = 0;
               }
@@ -1015,23 +1015,23 @@ class Game {
     let player = opponent ? 1 : 0;
 
     if (opponent) {
-      this.keys.left[player] = Keyboard(37);
-      this.keys.up[player] = Keyboard(38);
-      this.keys.right[player] = Keyboard(39);
-      this.keys.down[player] = Keyboard(40);
-      this.keys.kick[player] = Keyboard(74);
-      this.keys.punch[player] = Keyboard(75);
-      this.keys.pawa[player] = Keyboard(77);
-      this.keys.fatal[player] = Keyboard(66);
+      this.keys.left[player] = Keyboard(100); // 4
+      this.keys.up[player] = Keyboard(104); // 8
+      this.keys.right[player] = Keyboard(102); // 6
+      this.keys.down[player] = Keyboard(101); // 5
+      this.keys.kick[player] = Keyboard(79); // o
+      this.keys.punch[player] = Keyboard(73); // i
+      this.keys.pawa[player] = Keyboard(89); // y
+      this.keys.fatal[player] = Keyboard(85); // u
     } else {    
-      this.keys.left[player] = Keyboard(65);
-      this.keys.up[player] = Keyboard(87);
-      this.keys.right[player] = Keyboard(68);
-      this.keys.down[player] = Keyboard(83);
-      this.keys.kick[player] = Keyboard(70);
-      this.keys.punch[player] = Keyboard(71);
-      this.keys.pawa[player] = Keyboard(72);
-      this.keys.fatal[player] = Keyboard(90);
+      this.keys.left[player] = Keyboard(65); // a
+      this.keys.up[player] = Keyboard(87); //w
+      this.keys.right[player] = Keyboard(68); //d
+      this.keys.down[player] = Keyboard(83); // s
+      this.keys.kick[player] = Keyboard(70); //f
+      this.keys.punch[player] = Keyboard(71); //g
+      this.keys.pawa[player] = Keyboard(72); //h
+      this.keys.fatal[player] = Keyboard(74); //j
     }
 
     this.keys.left[player].press = () => {
@@ -1197,6 +1197,7 @@ class Game {
     };
 
     this.keys.up[player].press = () => {
+      console.log(this.characters[player].isDeath);
       if (!this.characters[player].isDeath) {
         if (character.actions.jump) {
           if (character.y === this.groundY) {
@@ -1218,6 +1219,9 @@ class Game {
     this.powers[player].yelo.visible = false;
     this.powers[player].yelo.x = 0;
     this.powers[player].yelo.vx = 15;
+    if (player === 1) {
+      this.powers[player].yelo.vx = -15;
+    }
 
     this.scenes.game.addChild(this.powers[player].yelo);
   }
@@ -1231,6 +1235,10 @@ class Game {
     this.powers[player].fire.visible = false;
     this.powers[player].fire.x = 0;
     this.powers[player].fire.vx = 15;
+    if (player === 1) {
+      this.powers[player].fire.vx = -15;
+    }
+    
 
     this.scenes.game.addChild(this.powers[player].fire);
   }
