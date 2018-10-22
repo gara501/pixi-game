@@ -64,6 +64,12 @@
           "name": "highhit",
           "frames": 5,
           "animationSpeed": 0.35
+        },
+        {
+          "name": "death",
+          "frames": 20,
+          "animationSpeed": 0.20,
+          "loop": true
         }
       ]
     },

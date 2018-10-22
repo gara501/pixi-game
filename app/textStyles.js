@@ -34,16 +34,56 @@ class TextStyles {
     return title;
   }
 
-  generalStyle() {
+  comandsText(value, posx, posy) {
+    let title = this.getTextObject(
+      {
+        textValue: value,
+        x: posx,
+        y: posy,
+        vx: 2,
+        vy: 0
+      },
+      this.basicStyle()
+    );
+    return title;
+  }
+
+  finishText(value, posx, posy, size=64) {
+    let title = this.getTextObject(
+      {
+        textValue: value,
+        x: posx,
+        y: posy,
+        vx: 2,
+        vy: 0
+      },
+      this.generalStyle(size)
+    );
+    return title;
+  }
+
+  generalStyle(fontSizeValue=36) {
     let titleStyle = new PIXI.TextStyle({
       fontFamily: "mk",
-      fontSize: 36,
+      fontSize: fontSizeValue,
       fill: ["#ff0000", "#444"], // gradient
       wordWrapWidth: 440
     });
 
     return titleStyle;
   }
+  
+  basicStyle(fontSizeValue=20) {
+    let titleStyle = new PIXI.TextStyle({
+      fontFamily: "mk",
+      fontSize: fontSizeValue,
+      fill: ["#fff", "#fff"], // gradient
+      wordWrapWidth: 440
+    });
+
+    return titleStyle;
+  }
+  
 }
 
 export default TextStyles;
