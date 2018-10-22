@@ -24,6 +24,8 @@ class Game {
     this.action = [];
     this.power = [];
     this.finishHim = false;
+    this.switchLeft = true;
+    this.switchRight = false;
 
     this.energyBars = {
       left: {
@@ -401,10 +403,11 @@ class Game {
               if (!collision || collision === "right") {
                 character.position.x -= character.vx;
               }
-              console.log(character);
+              
               if (character.position.x <= 0) {
                 character.position.x = 0;
               }
+
             }
             break;
           case "kick":
@@ -592,7 +595,8 @@ class Game {
           case "jump-left":
             if (character.actions.jump) {
               character.actions.jump.visible = true;
-
+              console.log('character', character.x);
+              console.log('oppnent', opponent.x);
               character.vy += this.gravity;
 
               if (character.y + character.vy <= this.groundY) {
@@ -1040,6 +1044,7 @@ class Game {
           if (character.y === this.groundY) {
             this.action[player] = "walk-left";
             character.vx = 3;
+            this.checkSide();
           }
         }
       }
@@ -1062,6 +1067,7 @@ class Game {
           if (character.y === this.groundY) {
             this.action[player] = "walk-right";
             character.vx = 3;
+            this.checkSide();
           }
         }
       }
@@ -1208,6 +1214,29 @@ class Game {
         }
       }
     };
+  }
+
+  checkSide() {
+    console.log('1', this.characters[1].x)
+    console.log('0', this.characters[0].x)
+    if (!this.switchRight) {
+      if (this.characters[1].x < this.characters[0].x) {
+        this.characters[1].width = this.characters[1].width * -1;
+        this.characters[0].width = this.characters[0].width * -1;
+        this.switchRight = true;
+        this.switchLeft = false;
+      }
+    }
+    
+    if (!this.switchLeft) {
+      if (this.characters[1].x > this.characters[0].x) {
+        this.characters[1].width = this.characters[1].width * -1;
+        this.characters[0].width = this.characters[0].width * -1;
+        this.switchLeft = true;
+        this.switchRight = false;
+      }
+    }
+
   }
 
   setupPowers(opponent) {
