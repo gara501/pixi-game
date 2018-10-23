@@ -220,7 +220,6 @@ class Game {
     );
     this.setBGScale(this.backgrounds.win);
     this.scenes.youWin.addChild(this.backgrounds.win);
-
   }
 
   // Set intro Container, first scene
@@ -344,11 +343,11 @@ class Game {
 
               this.registerHit(index);
 
-              let victim = opponent === 0 ? 0: 1;
-              let winner = opponent === 0 ? 1: 0;
+              let victim = opponent === 0 ? 0 : 1;
+              let winner = opponent === 0 ? 1 : 0;
               if (this.finishHim) {
                 this.playSound("scream");
-                this.action[victim] = 'death';
+                this.action[victim] = "death";
                 setTimeout(() => {
                   this.youWin(winner);
                 }, 1000);
@@ -374,7 +373,7 @@ class Game {
 
               character.position.y += 3;
 
-              if (character.position.y >= (this.groundY + 110)) {
+              if (character.position.y >= this.groundY + 110) {
                 character.position.y = this.groundY + 110;
               }
             }
@@ -407,7 +406,6 @@ class Game {
               if (character.position.x <= 0) {
                 character.position.x = 0;
               }
-
             }
             break;
           case "kick":
@@ -683,14 +681,10 @@ class Game {
   }
 
   finish(side) {
-    var winner = side === 'left' ? 1 : 0;
+    var winner = side === "left" ? 1 : 0;
     this.playSound("finish");
     this.finishHim = true;
-    let finishHimText = this.textObj.finishText(
-      "FINISH HIM!",
-      "center",
-      100
-    );
+    let finishHimText = this.textObj.finishText("FINISH HIM!", "center", 100);
     this.scenes.game.addChild(finishHimText);
     this.characters.forEach((character, index) => {
       if (winner !== index) {
@@ -711,12 +705,7 @@ class Game {
       520
     );
 
-    let titleText = this.textObj.finishText(
-      "HUGE COMBAT",
-      "center",
-      240,
-      140
-    );
+    let titleText = this.textObj.finishText("HUGE COMBAT", "center", 240, 140);
 
     let comands = this.textObj.comandsText(
       "Player 1: A (left), D (right), S (down), W (up)",
@@ -730,11 +719,7 @@ class Game {
       110
     );
 
-    let comands2 = this.textObj.comandsText(
-      "Player 2: Arrows",
-      580,
-      70
-    );
+    let comands2 = this.textObj.comandsText("Player 2: Arrows", 580, 70);
 
     let comandsHits2 = this.textObj.comandsText(
       "Hits: P (kick), O (punch), I (power) and U (fatality)",
@@ -903,7 +888,11 @@ class Game {
 
   youWin(winner) {
     this.setActiveScene("youWin");
-    let title = this.textObj.customText(this.characterNames[winner]._text + " Wins!", "center", 50);
+    let title = this.textObj.customText(
+      this.characterNames[winner]._text + " Wins!",
+      "center",
+      50
+    );
     let titleContinue = this.textObj.customText(
       "Press Enter to Restart",
       "center",
@@ -1128,10 +1117,8 @@ class Game {
     };
 
     this.keys.fatal[player].press = () => {
-
       if (!this.characters[player].isDeath) {
         if (character.actions.punch) {
-
           this.action[player] = "punch";
           this.power[player] = "fire";
           this.powers[player].fire.gotoAndPlay(7);
@@ -1146,7 +1133,6 @@ class Game {
             this.playSound("hitscream");
           }
         }
-
       }
     };
 
@@ -1222,7 +1208,7 @@ class Game {
         this.switchLeft = false;
       }
     }
-    
+
     if (!this.switchLeft) {
       if (this.characters[1].x > this.characters[0].x) {
         this.characters[1].width = this.characters[1].width * -1;
@@ -1231,7 +1217,6 @@ class Game {
         this.switchRight = false;
       }
     }
-
   }
 
   setupPowers(opponent) {
@@ -1263,7 +1248,6 @@ class Game {
       this.powers[player].fire.vx = -15;
     }
 
-
     this.scenes.game.addChild(this.powers[player].fire);
   }
 
@@ -1289,6 +1273,7 @@ class Game {
             );
             sprite.name = animation.name;
             sprite.animationSpeed = animation.animationSpeed;
+            sprite.anchor.set(0.5, 0);
 
             if (animation.loop === true) {
               sprite.play();
@@ -1296,7 +1281,7 @@ class Game {
               sprite.loop = false;
             }
 
-            if (animation.loop === 'one') {
+            if (animation.loop === "one") {
               sprite.play(1);
             }
 
