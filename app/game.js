@@ -343,7 +343,7 @@ class Game {
               this.utils.shake(this.scenes.game, 0.03, true);
 
               this.registerHit(index);
-              
+
               let victim = opponent === 0 ? 0: 1;
               let winner = opponent === 0 ? 1: 0;
               if (this.finishHim) {
@@ -373,7 +373,7 @@ class Game {
               character.actions.hit.visible = false;
 
               character.position.y += 3;
-              
+
               if (character.position.y >= (this.groundY + 110)) {
                 character.position.y = this.groundY + 110;
               }
@@ -403,7 +403,7 @@ class Game {
               if (!collision || collision === "right") {
                 character.position.x -= character.vx;
               }
-              
+
               if (character.position.x <= 0) {
                 character.position.x = 0;
               }
@@ -595,8 +595,6 @@ class Game {
           case "jump-left":
             if (character.actions.jump) {
               character.actions.jump.visible = true;
-              console.log('character', character.x);
-              console.log('oppnent', opponent.x);
               character.vy += this.gravity;
 
               if (character.y + character.vy <= this.groundY) {
@@ -679,7 +677,7 @@ class Game {
       this.energyBars[side].bars.interior.width = this.energyBars[
         side
       ].bars.level;
-      this.energyBars[side].bars.interior.position.x = 55;      
+      this.energyBars[side].bars.interior.position.x = 55;
       this.finish(side);
     }
   }
@@ -721,29 +719,29 @@ class Game {
     );
 
     let comands = this.textObj.comandsText(
-      "Player 1: left A, right D, down S, up W",
+      "Player 1: A (left), D (right), S (down), W (up)",
       20,
       70
     );
-    
+
     let comandsHits = this.textObj.comandsText(
-      "Hits: F, G, H (power), fatality with Z",
+      "Hits: F (kick), G (punch), H (power) and j (fatality)",
       20,
       110
     );
 
     let comands2 = this.textObj.comandsText(
       "Player 2: Arrows",
-      700,
+      580,
       70
     );
-    
+
     let comandsHits2 = this.textObj.comandsText(
-      "Hits: J, K, M (power) fatality with B",
-      700,
+      "Hits: P (kick), O (punch), I (power) and U (fatality)",
+      580,
       110
     );
-    
+
     this.scenes.intro.addChild(comands);
     this.scenes.intro.addChild(comandsHits);
     this.scenes.intro.addChild(comands2);
@@ -921,7 +919,6 @@ class Game {
     animate();
 
     this.stopBgSound();
-    console.log('HOLA');
     this.playSound("welldone");
   }
 
@@ -1013,31 +1010,31 @@ class Game {
     this.keys.up = this.keys.up || [];
     this.keys.right = this.keys.right || [];
     this.keys.down = this.keys.down || [];
-    this.keys.kick = this.keys.kick || []; // j
-    this.keys.punch = this.keys.punch || []; // u
-    this.keys.pawa = this.keys.pawa || []; // k
-    this.keys.fatal = this.keys.fatal || []; // z
+    this.keys.kick = this.keys.kick || [];
+    this.keys.punch = this.keys.punch || [];
+    this.keys.pawa = this.keys.pawa || [];
+    this.keys.fatal = this.keys.fatal || [];
 
     let player = opponent ? 1 : 0;
 
     if (opponent) {
-      this.keys.left[player] = Keyboard(100); // 4
-      this.keys.up[player] = Keyboard(104); // 8
-      this.keys.right[player] = Keyboard(102); // 6
-      this.keys.down[player] = Keyboard(101); // 5
-      this.keys.kick[player] = Keyboard(79); // o
-      this.keys.punch[player] = Keyboard(73); // i
-      this.keys.pawa[player] = Keyboard(89); // y
+      this.keys.left[player] = Keyboard(37); // left
+      this.keys.up[player] = Keyboard(38); // up
+      this.keys.right[player] = Keyboard(39); // right
+      this.keys.down[player] = Keyboard(40); // down
+      this.keys.kick[player] = Keyboard(80); // p
+      this.keys.punch[player] = Keyboard(79); // o
+      this.keys.pawa[player] = Keyboard(73); // i
       this.keys.fatal[player] = Keyboard(85); // u
-    } else {    
+    } else {
       this.keys.left[player] = Keyboard(65); // a
-      this.keys.up[player] = Keyboard(87); //w
-      this.keys.right[player] = Keyboard(68); //d
+      this.keys.up[player] = Keyboard(87); // w
+      this.keys.right[player] = Keyboard(68); // d
       this.keys.down[player] = Keyboard(83); // s
-      this.keys.kick[player] = Keyboard(70); //f
-      this.keys.punch[player] = Keyboard(71); //g
-      this.keys.pawa[player] = Keyboard(72); //h
-      this.keys.fatal[player] = Keyboard(74); //j
+      this.keys.kick[player] = Keyboard(70); // f
+      this.keys.punch[player] = Keyboard(71); // g
+      this.keys.pawa[player] = Keyboard(72); // h
+      this.keys.fatal[player] = Keyboard(74); // j
     }
 
     this.keys.left[player].press = () => {
@@ -1114,14 +1111,13 @@ class Game {
           if (character.actions.punch) {
             this.action[player] = "punch";
             this.power[player] = "yelo";
-            console.log(this.powers[player]);
             this.powers[player].yelo.gotoAndPlay(0);
             this.powers[player].yelo.visible = true;
             this.powers[player].yelo.y = this.groundY;
             this.powers[player].yelo.x = character.position.x;
-  
+
             character.actions.punch.gotoAndPlay(0);
-  
+
             if (this.scenes.game.visible) {
               this.playSound("nopunch");
               this.playSound("hitscream");
@@ -1132,17 +1128,17 @@ class Game {
     };
 
     this.keys.fatal[player].press = () => {
-      
-      if (!this.characters[player].isDeath) { 
+
+      if (!this.characters[player].isDeath) {
         if (character.actions.punch) {
-          
+
           this.action[player] = "punch";
           this.power[player] = "fire";
           this.powers[player].fire.gotoAndPlay(7);
           this.powers[player].fire.visible = true;
           this.powers[player].fire.y = this.groundY;
           this.powers[player].fire.x = character.position.x;
-          
+
           character.actions.punch.gotoAndPlay(0);
 
           if (this.scenes.game.visible) {
@@ -1150,7 +1146,7 @@ class Game {
             this.playSound("hitscream");
           }
         }
-        
+
       }
     };
 
@@ -1160,7 +1156,7 @@ class Game {
           if (character.y === this.groundY) {
             this.action[player] = "kick";
             character.actions.kick.gotoAndPlay(0);
-  
+
             if (this.scenes.game.visible) {
               this.playSound("nopunch");
               this.playSound("hitscream");
@@ -1169,7 +1165,7 @@ class Game {
             if (!character.actions.airkick) {
               return;
             }
-  
+
             if (this.action[player] === "jump-right") {
               this.action[player] = "airkick-right";
             } else if (this.action[player] === "jump-left") {
@@ -1177,9 +1173,9 @@ class Game {
             } else if (this.action[player] === "jump") {
               this.action[player] = "airkick";
             }
-  
+
             character.actions.airkick.gotoAndPlay(0);
-  
+
             if (this.scenes.game.visible) {
               this.playSound("nopunch");
               this.playSound("hitscream");
@@ -1205,7 +1201,6 @@ class Game {
     };
 
     this.keys.up[player].press = () => {
-      console.log(this.characters[player].isDeath);
       if (!this.characters[player].isDeath) {
         if (character.actions.jump) {
           if (character.y === this.groundY) {
@@ -1219,8 +1214,6 @@ class Game {
   }
 
   checkSide() {
-    console.log('1', this.characters[1].x)
-    console.log('0', this.characters[0].x)
     if (!this.switchRight) {
       if (this.characters[1].x < this.characters[0].x) {
         this.characters[1].width = this.characters[1].width * -1;
@@ -1269,7 +1262,7 @@ class Game {
     if (player === 1) {
       this.powers[player].fire.vx = -15;
     }
-    
+
 
     this.scenes.game.addChild(this.powers[player].fire);
   }
