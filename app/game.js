@@ -301,10 +301,11 @@ class Game {
             collision = cheapColi(this.powers[index].yelo, opponent);
 
             if (collision) {
-              opponent.actions.highhit.gotoAndPlay(0);
-
-              opponent.actions.stance.visible = false;
-              opponent.actions.highhit.visible = true;
+              if (opponent.actions.highhit) {
+                opponent.actions.highhit.gotoAndPlay(0);
+                opponent.actions.stance.visible = false;
+                opponent.actions.highhit.visible = true;
+              }
 
               this.powers[index].yelo.visible = false;
               this.powers[index].yelo.x = -10000;
@@ -327,10 +328,11 @@ class Game {
             collision = cheapColi(this.powers[index].fire, opponent);
 
             if (collision) {
-              opponent.actions.highhit.gotoAndPlay(0);
-
-              opponent.actions.stance.visible = false;
-              opponent.actions.highhit.visible = true;
+              if (opponent.actions.highhit) {
+                opponent.actions.highhit.gotoAndPlay(0);
+                opponent.actions.stance.visible = false;
+                opponent.actions.highhit.visible = true;
+              }
 
               this.powers[index].fire.visible = false;
               this.powers[index].fire.x = -10000;
@@ -423,10 +425,11 @@ class Game {
               const collision = cheapColi(character, opponent);
 
               if (collision) {
-                opponent.actions.hit.gotoAndPlay(0);
-
-                opponent.actions.stance.visible = false;
-                opponent.actions.hit.visible = true;
+                if (opponent.actions.hit) {
+                  opponent.actions.stance.visible = false;
+                  opponent.actions.hit.gotoAndPlay(0);
+                  opponent.actions.hit.visible = true;
+                }
 
                 this.playSound("kick");
                 this.playSound("hit");
@@ -455,10 +458,11 @@ class Game {
               collision = cheapColi(character, opponent);
 
               if (collision) {
-                opponent.actions.highhit.gotoAndPlay(0);
-
-                opponent.actions.stance.visible = false;
-                opponent.actions.highhit.visible = true;
+                if (opponent.actions.highhit) {
+                  opponent.actions.highhit.gotoAndPlay(0);
+                  opponent.actions.stance.visible = false;
+                  opponent.actions.highhit.visible = true;
+                }
 
                 this.playSound("punch");
                 this.playSound("hit");
@@ -503,7 +507,11 @@ class Game {
               collision = cheapColi(character, opponent);
 
               if (collision) {
-                opponent.actions.hit.gotoAndPlay(0);
+                if (opponent.actions.hit) {
+                  opponent.actions.hit.gotoAndPlay(0);
+                  opponent.actions.stance.visible = false;
+                  opponent.actions.hit.visible = true;
+                }
 
                 if (opponent.actions.stance.visible) {
                   this.playSound("kick");
@@ -513,9 +521,6 @@ class Game {
 
                   this.registerHit(index);
                 }
-
-                opponent.actions.stance.visible = false;
-                opponent.actions.hit.visible = true;
               }
 
               if (character.y + character.vy <= this.groundY) {
@@ -564,16 +569,17 @@ class Game {
               collision = cheapColi(character, opponent);
 
               if (collision) {
-                opponent.actions.hit.gotoAndPlay(0);
+                if (opponent.actions.hit) {
+                  opponent.actions.hit.gotoAndPlay(0);
+                  opponent.actions.stance.visible = false;
+                  opponent.actions.hit.visible = true;
+                }
 
                 if (opponent.actions.stance.visible) {
                   this.playSound("kick");
                   this.playSound("hit");
                   this.registerHit(index);
                 }
-
-                opponent.actions.stance.visible = false;
-                opponent.actions.hit.visible = true;
               }
 
               if (character.y + character.vy <= this.groundY) {
@@ -622,16 +628,17 @@ class Game {
               collision = cheapColi(character, opponent);
 
               if (collision) {
-                opponent.actions.hit.gotoAndPlay(0);
+                if (opponent.actions.hit) {
+                  opponent.actions.hit.gotoAndPlay(0);
+                  opponent.actions.stance.visible = false;
+                  opponent.actions.hit.visible = true;
+                }
 
                 if (opponent.actions.stance.visible) {
                   this.playSound("kick");
                   this.playSound("hit");
                   this.registerHit(index);
                 }
-
-                opponent.actions.stance.visible = false;
-                opponent.actions.hit.visible = true;
               }
 
               if (character.y <= this.groundY) {
