@@ -338,6 +338,79 @@
           "loop": true
         }
       ]
+    },
+    {
+      "name": "pao",
+      "x": 180,
+      "profile": "assets/images/characters/pao-portrait.png",
+      "scale": 0.52,
+      "active": true,
+      "animations": [
+        {
+          "name": "stance",
+          "frames": 1,
+          "animationSpeed": 0.15,
+          "loop": true,
+          "visible": true
+        },
+        {
+          "name": "walk",
+          "frames": 3,
+          "loop": true,
+          "animationSpeed": 0.15
+        },
+        {
+          "name": "duck",
+          "frames": 1,
+          "animationSpeed": 0.4
+        },
+        {
+          "name": "kick",
+          "frames": 3,
+          "animationSpeed": 0.4
+        },
+        {
+          "name": "raise",
+          "frames": 1,
+          "animationSpeed": 0.4
+        },
+        {
+          "name": "punch",
+          "frames": 3,
+          "animationSpeed": 0.3
+        },
+        {
+          "name": "jump",
+          "frames": 1,
+          "animationSpeed": 0.3
+        },
+        {
+          "name": "staticjump",
+          "frames": 1,
+          "animationSpeed": 1
+        },
+        {
+          "name": "airkick",
+          "frames": 3,
+          "animationSpeed": 0.3
+        },
+        {
+          "name": "hit",
+          "frames": 1,
+          "animationSpeed": 0.35
+        },
+        {
+          "name": "highhit",
+          "frames": 1,
+          "animationSpeed": 0.35
+        },
+        {
+          "name": "death",
+          "frames": 20,
+          "animationSpeed": 0.20,
+          "loop": true
+        }
+      ]
     }
   ]
 }
