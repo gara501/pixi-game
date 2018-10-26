@@ -1,0 +1,104 @@
+ * {
+  margin: 0;
+}
+
+body {
+  align-items: center;
+  background: black;
+  display: flex;
+  justify-content: center;
+}
+
+@font-face {
+  font-family: mk;
+  src: url('../fonts/mkx.ttf');
+}
+
+  .tv {
+    border: 10px solid #ff4400;
+    border-radius: 20px;
+    height: 650px;
+    margin: 10% auto;
+    padding: 10px;
+    position: relative;
+    width: 1200px;
+  }
+
+  .left, .right {
+    background: #333;
+    bottom: -90px;
+    height: 80px;
+    position: absolute;
+    width: 40px;
+  }
+
+  .left {
+    left: 10%;
+    transform: skew(-30deg);
+  }
+
+  .right {
+    right: 10%;
+    transform: skew(30deg);
+  }
+
+  .container {
+    background: #ccc;
+    height: 100%;
+    border-radius: 20px;
+    position: relative;
+    width: 100%;
+  }
+
+  .buttons-container {
+    border: 2px solid #333;
+    border-radius: 5px;
+    height: 400px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 100px;
+  }
+
+  .buttons-wrapper {
+    position: relative;
+  }
+
+  .btn1, .btn2 {
+    border-radius: 50%;
+    height: 50px;
+    position: relative;
+    width: 50px;
+  }
+
+  .btn1 {
+    background: red;
+    margin: 20px auto 0 auto;
+  }
+
+  .btn2 {
+    background:#333;
+    margin: 50px auto 0 auto;
+  }
+
+  .btn1::after,
+  .btn2::after {
+    content: '';
+    border: 15px solid #000;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border-radius: 50%;
+
+  }
+
+  .wrapper {
+    padding: 20px;
+  }
+
+
+  .app {
+    border: 5px solid #333;
+    height: 600px;
+    width: 1000px;
+  }
